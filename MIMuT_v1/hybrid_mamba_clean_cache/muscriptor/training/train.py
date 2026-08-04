@@ -400,4 +400,1338 @@ class LongContextTrainingModel(nn.Module):
         self,
         batch: TrainingBatch,
         audio_condition_dropout: float,
-        instrument_condition_dro×m|öÚ$z{-®éÜj×6öçFW‡Eöf÷%÷7FvU÷7FW€¢7FvRÂ6VVCÖ6öæf–rç6VVBÂ7FvU÷7FWÖÆö6Åö–æFW€¢¢G'“ ¢&F6‚ÒæW‡B†ÆöFW%ö—FW&F÷'5¶6öçFW‡Eö6‡Væ·5Ò¢W†6WB„¶W”W'&÷"Â7F÷—FW&F–öâ’2W†3 ¢&—6R'VçF–ÖTW'&÷"€¢b'7FvR·7FvRææÖR'ÒW††W7FVB6öçFW‡C×¶6öçFW‡Eö6‡Væ·7Ò ¢b&B7FvU÷7FW×¶Æö6Åö–æFW‡Ò ¢’g&öÒW†0¢7FvUö6öçFW‡Eö6÷VçG5¶6öçFW‡Eö6‡Væ·5Ò³Ò¢6÷W&6U÷6WVVæ6Uö†6‚Ò÷WFFU÷6÷W&6U÷6WVVæ6Uö†6‚€¢6÷W&6U÷6WVVæ6Uö†6‚À¢&F6‚À¢7FvUö–æFWƒ×7FvUö–æFW‚À¢7FvU÷7FWÖÆö6Åö–æFW‚À¢6öçFW‡Eö6‡Væ·3Ö6öçFW‡Eö6‡Væ·2À¢¢&F6‚Ò&F6‚çFò†FWf–6R¢÷F–Ö—¦W"ç¦W&õöw&B‡6WE÷FõöæöæSÕG'VR¢v—F‚öWFö67B†FWf–6RÂ6öæf–rç&V6—6–öâ“ ¢G&÷÷WBÒ6öæf–ræ6öæF—F–öåöG&÷÷W@¢€¢Æöv—G2À¢Æ&VÇ2À¢Fö¶Våö6÷VçBÀ¢7F—fUöÆöv—G2À¢&VVçG'•öÆöv—G2À¢7–Ö&öÆ–5öÖöFUö6÷VçG2À¢’Òw&VB€¢&F6‚À¢G&÷÷WBæVF–òÀ¢G&÷÷WBæ–ç7G'VÖVçBÀ¢G&÷÷WBæFF6WBÀ¢6öæf–ræ6öæF—F–öæ–æræG&÷÷WE÷66÷RÀ¢vÆö&Å÷7FWÀ¢¢Fö¶VåöÆ÷76W2Òbæ7&÷75öVçG&÷’€¢Æöv—G2ç&W6†R‚ÓÂÆöv—G2ç6†U²ÓÒ’æfÆöB‚’À¢Æ&VÇ2ç&W6†R‚Ó’À¢–væ÷&Uö–æFWƒÔ”täõ$Uô”äDU‚À¢&VGV7F–öãÒ&æöæR"À¢¢fÆ–E÷Fö¶VâÒÆ&VÇ2ç&W6†R‚Ó’ææR„”täõ$Uô”äDU‚¢Fö¶Vå÷vV–v‡G2ÒF÷&6‚æöæW5öÆ–¶R‡Fö¶VåöÆ÷76W2¢Fö¶Vå÷vV–v‡G2ÒF÷&6‚çv†W&R€¢Æ&VÇ2ç&W6†R‚Ó’æW‡7GVFVçE÷Fö¶Væ—¦W"æV÷5ö–B’À¢F÷&6‚ægVÆÅöÆ–¶R‡Fö¶Vå÷vV–v‡G2Â6öæf–rçG'VUöV÷5öÆ÷75÷vV–v‡B’À¢Fö¶Vå÷vV–v‡G2À¢¢6RÒ‡Fö¶VåöÆ÷76W5·fÆ–E÷Fö¶VåÒ¢Fö¶Vå÷vV–v‡G5·fÆ–E÷Fö¶VåÒ’ç7VÒ‚¢6RÒ6RòFö¶Vå÷vV–v‡G5·fÆ–E÷Fö¶VåÒç7VÒ‚’æ6Æ×öÖ–âƒã¢Æ÷72Ò6P¢7F—fUöÆ÷72ÒF÷&6‚ç¦W&÷2‚‚’ÂFWf–6SÖFWf–6R¢&VVçG'•öÆ÷72ÒF÷&6‚ç¦W&÷2‚‚’ÂFWf–6SÖFWf–6R¢&÷VæF'•ö6öæf–rÒ6öæf–ræ&÷VæF'•÷7FFU÷7WW'f—6–öà¢–b7F—fUöÆöv—G2—2æ÷BæöæS ¢–b&F6‚æ7F—fUöæ÷FU÷F&vWG2—2æöæS ¢&—6R'VçF–ÖTW'&÷"‚&&F6‚—2Ö—76–ær7F—fRÖæ÷FRF&vWG2"¢7F—fUöÆ÷72Òö&Ææ6VEö7F—fUöæ÷FUöÆ÷72€¢7F—fUöÆöv—G2æfÆöB‚’Â&F6‚æ7F—fUöæ÷FU÷F&vWG0¢¢Æ÷72ÒÆ÷72²&÷VæF'•ö6öæf–ræ7F—fU÷vV–v‡B¢7F—fUöÆ÷70¢–b&VVçG'•öÆöv—G2—2æ÷BæöæS ¢–b&F6‚ç&VVçG'•÷F&vWG2—2æöæR÷"&F6‚ç&VVçG'•÷fÆ–B—2æöæS ¢&—6R'VçF–ÖTW'&÷"‚&&F6‚—2Ö—76–ær&RÖVçG'’F&vWG2"¢fÆ–BÒ&F6‚ç&VVçG'•÷fÆ–@¢–bfÆ–Bæç’‚“ ¢&VVçG'•öÆ÷72Òbæ7&÷75öVçG&÷’€¢&VVçG'•öÆöv—G5·fÆ–EÒæfÆöB‚’À¢&F6‚ç&VVçG'•÷F&vWG5·fÆ–EÒÀ¢¢VÇ6S ¢2&W6W'fR¦W&òw&F–VçBf÷"DEôe4E&F6†W2v†÷6P¢26×ÆVBv–æF÷w26öçF–âæòVæ6Vç6÷&VB&RÖVçG'’Æ&VÂà¢&VVçG'•öÆ÷72Ò&VVçG'•öÆöv—G2ç7VÒ‚’¢ã ¢Æ÷72ÒÆ÷72²&÷VæF'•ö6öæf–rç&VVçG'•÷vV–v‡B¢&VVçG'•öÆ÷70¢¶BÒF÷&6‚ç¦W&÷2‚‚’ÂFWf–6SÖFWf–6R¢–bFV6†W"—2æ÷BæöæS ¢v—F‚F÷&6‚ææõöw&B‚“ ¢FV6†W%öÆöv—G2Ò÷FV6†W%öÆöv—G2€¢FV6†W"À¢&F6‚À¢Ö–7&ö&F6…÷6—¦SÒ€¢6öæf–ræF—7F–ÆÆF–öâçFV6†W%öÖ–7&ö&F6…÷6—¦P¢’À¢¢¶BÒöF—7F–ÆÆF–öåöÆ÷72€¢Æöv—G2À¢Æ&VÇ2À¢FV6†W%öÆöv—G2À¢FV×W&GW&SÖ6öæf–ræF—7F–ÆÆF–öâçFV×W&GW&RÀ¢6†&VE÷fö6%÷6—¦S×6†&VE÷fö6%÷6—¦RÀ¢¢Æ÷72ÒÆ÷72²6öæf–ræF—7F–ÆÆF–öâçvV–v‡B¢¶@¢Æ÷72æ&6·v&B‚¢w&Eöæ÷&ÒÒF÷&6‚ææâçWF–Ç2æ6Æ—öw&Eöæ÷&Õò€¢w&VBç&ÖWFW'2‚’Â6öæf–ræ÷F–Ö—¦W"æw&F–VçEö6Æ— ¢¢†VÇF…ö6†V6¶VBÒvÆö&Å÷7FWÂ÷"€¢†vÆö&Å÷7FW²’R6öæf–ræÆöuöWfW'’ÓÒ ¢¢FV6†W%ög&÷¦VâÒG'VP¢F—7F–ÆÅ÷÷6—F—fRÒG'VP¢–b†VÇF…ö6†V6¶VC ¢FV6†W%ög&÷¦VâÒFV6†W"—2æöæR÷"ÆÂ€¢&ÖWFW"æw&B—2æöæRf÷"&ÖWFW"–âFV6†W"ç&ÖWFW'2‚¢¢F—7F–ÆÅ÷÷6—F—fRÒFV6†W"—2æöæR÷"&ööÂ†¶BæFWF6‚‚’â¢f–æ—FRÒÆÂ€¢&ööÂ‡F÷&6‚æ—6f–æ—FR‡fÇVRæFWF6‚‚’’¢f÷"fÇVR–â†Æ÷72Â6RÂ¶BÂw&Eöæ÷&Ò¢¢†VÇF‡’Òf–æ—FRæBF—7F–ÆÅ÷÷6—F—fRæBFV6†W%ög&÷¦Và¢†VÇF‚ÒF÷&6‚çFVç6÷"€¢–çB††VÇF‡’’ÂFWf–6SÖFWf–6RÂGG—S×F÷&6‚æ–çC3 ¢¢–bF—7Bæ—5ö–æ—F–Æ—¦VB‚“ ¢F—7BæÆÅ÷&VGV6R††VÇF‚Â÷ÖF—7Bå&VGV6T÷äÔ”â¢–bæ÷B&ööÂ††VÇF‚æ—FVÒ‚’“ ¢&—6RfÆöF–æuö–çDW'&÷"€¢'G&–æ–ær†VÇF‚6†V6²f–ÆVC¢&WV—&Rf–æ—FR4Rô´ÂöÆ÷72öw&BÂ ¢'÷6—F—fR´ÂÂæBg&÷¦VâFV6†W" ¢¢÷F–Ö—¦W"ç7FW‚¢66†VGVÆW"ç7FW‚¢vÆö&Å÷7FW³Ò ¢–bvÆö&Å÷7FWR6öæf–ræÆöuöWfW'’ÓÒ ¢æ÷rÒF–ÖRçW&eö6÷VçFW"‚¢–çFW'fÅ÷6V6öæG2Òæ÷rÒÆ7E÷F–ÖP¢&F6…öVF–õ÷6V6öæG2Ò€¢&F6‚çvfVf÷&Òç6†U³Ð¢¢&F6‚çvfVf÷&Òç6†U³Ð¢¢6öæf–ræÖöFVÂç6VvÖVçEöGW&F–öà¢¢v÷&ÆE÷6—¦P¢¢ÖWG&–73¢F–7E·7G"Âç•ÒÒ°¢'7FW#¢vÆö&Å÷7FWÀ¢'7FvR#¢7FvRææÖRÀ¢'7FvU÷7FW#¢Æö6Åö–æFW‚²À¢&÷F–Ö—¦W%÷7FW#¢vÆö&Å÷7FWÀ¢&6öçFW‡Eö6‡Væ·2#¢6öçFW‡Eö6‡Væ·2À¢&Æ÷72#¢fÆöB†Æ÷72æFWF6‚‚’’À¢&6R#¢fÆöB†6RæFWF6‚‚’’À¢&F—7F–ÆÂ#¢fÆöB†¶BæFWF6‚‚’’À¢&7F—fUöæ÷FUöÆ÷72#¢fÆöB†7F—fUöÆ÷72æFWF6‚‚’’À¢'&VVçG'•öÆ÷72#¢fÆöB‡&VVçG'•öÆ÷72æFWF6‚‚’’À¢&w&Eöæ÷&Ò#¢fÆöB†w&Eöæ÷&Ò’À¢&Ç"#¢66†VGVÆW"ævWEöÆ7EöÇ"‚•³ÒÀ¢'Fö¶Vç2#¢Fö¶Våö6÷VçBÀ¢'G'Væ6FVEö6‡Væµög&7F–öâ#¢€¢fÆöB†&F6‚çG'Væ6FVEö6‡Væ·2æfÆöB‚’æÖVâ‚’¢–b&F6‚çG'Væ6FVEö6‡Væ·2—2æ÷BæöæP¢VÇ6Rã ¢’À¢&FVç6Uö6‡Væµög&7F–öâ#¢€¢fÆöB€¢†&F6‚æ÷&–v–æÅ÷F&vWEöÆVæwF‡2âS’æfÆöB‚’æÖVâ‚¢¢–b&F6‚æ÷&–v–æÅ÷F&vWEöÆVæwF‡2—2æ÷BæöæP¢VÇ6Rã ¢’À¢'F&vWE÷Fö¶Vç5÷“R#¢€¢fÆöB€¢F÷&6‚çVçF–ÆR€¢&F6‚æ÷&–v–æÅ÷F&vWEöÆVæwF‡2æfÆöB‚’Âã“P¢¢¢–b&F6‚æ÷&–v–æÅ÷F&vWEöÆVæwF‡2—2æ÷BæöæP¢VÇ6Rã ¢’À¢'F&vWE÷Fö¶Vç5÷“’#¢€¢fÆöB€¢F÷&6‚çVçF–ÆR€¢&F6‚æ÷&–v–æÅ÷F&vWEöÆVæwF‡2æfÆöB‚’Âã“¢¢¢–b&F6‚æ÷&–v–æÅ÷F&vWEöÆVæwF‡2—2æ÷BæöæP¢VÇ6Rã ¢’À¢&VvÖVçFF–öåög&7F–öâ#¢€¢fÆöB†&F6‚æVvÖVçFF–öåöÆ–VBæfÆöB‚’æÖVâ‚’¢–b&F6‚æVvÖVçFF–öåöÆ–VB—2æ÷BæöæP¢VÇ6Rã ¢’À¢'&VÖ—…ög&7F–öâ#¢€¢fÆöB†&F6‚ç&VÖ—†VBæfÆöB‚’æÖVâ‚’¢–b&F6‚ç&VÖ—†VB—2æ÷BæöæP¢VÇ6Rã ¢’À¢'—F6…÷6†–gEög&7F–öâ#¢€¢fÆöB†&F6‚ç—F6…÷6†–gE÷6VÖ—FöæW2ææRƒ’æfÆöB‚’æÖVâ‚’¢–b&F6‚ç—F6…÷6†–gE÷6VÖ—FöæW2—2æ÷BæöæP¢VÇ6Rã ¢’À¢&†VÇF…ö6†V6¶VB#¢†VÇF…ö6†V6¶VBÀ¢&F—7F–ÆÅ÷÷6—F—fR#¢F—7F–ÆÅ÷÷6—F—fRÀ¢'FV6†W%ög&÷¦Vâ#¢FV6†W%ög&÷¦VâÀ¢'6÷W&6U÷6WVVæ6U÷6†#Sb#¢6÷W&6U÷6WVVæ6Uö†6‚À¢'7FW5÷W%÷6V6öæB#¢6öæf–ræÆöuöWfW'’ò–çFW'fÅ÷6V6öæG2À¢&VF–õ÷6V6öæG5÷W%÷6V6öæB#¢€¢6öæf–ræÆöuöWfW'’¢&F6…öVF–õ÷6V6öæG2ò–çFW'fÅ÷6V6öæG0¢’À¢'VµöÖVÖ÷'•öv–"#¢€¢F÷&6‚æ7VFæÖ…öÖVÖ÷'•öÆÆö6FVB†FWf–6R’òƒ#B¢£2¢’À¢'7–Ö&öÆ–5÷7FFUöwEög&7F–öâ#¢fÆöB€¢7–Ö&öÆ–5öÖöFUö6÷VçG5³ÒæfÆöB‚¢ò7–Ö&öÆ–5öÖöFUö6÷VçG2ç7VÒ‚’æ6Æ×öÖ–âƒ¢’À¢'7–Ö&öÆ–5÷7FFUö6÷''WEög&7F–öâ#¢fÆöB€¢7–Ö&öÆ–5öÖöFUö6÷VçG5³ÒæfÆöB‚¢ò7–Ö&öÆ–5öÖöFUö6÷VçG2ç7VÒ‚’æ6Æ×öÖ–âƒ¢’À¢'7–Ö&öÆ–5÷7FFU÷&VF–7FVEög&7F–öâ#¢fÆöB€¢7–Ö&öÆ–5öÖöFUö6÷VçG5³%ÒæfÆöB‚¢ò7–Ö&öÆ–5öÖöFUö6÷VçG2ç7VÒ‚’æ6Æ×öÖ–âƒ¢’À¢Ð¢Æ7E÷F–ÖRÒæ÷p¢v—F‚Æöu÷F‚æ÷Vâ‚&"’27G&VÓ ¢7G&VÒçw&—FR†§6öâæGV×2†ÖWG&–72’²%Æâ"¢–b&æ²ÓÒ ¢&–çB†§6öâæGV×2†ÖWG&–72’ÂfÇW6ƒÕG'VR¢–bw&—FW"—2æ÷BæöæS ¢f÷"¶W’–â€¢&Æ÷72"À¢&6R"À¢&F—7F–ÆÂ"À¢&7F—fUöæ÷FUöÆ÷72"À¢'&VVçG'•öÆ÷72"À¢&w&Eöæ÷&Ò"À¢&Ç""À¢'G'Væ6FVEö6‡Væµög&7F–öâ"À¢&FVç6Uö6‡Væµög&7F–öâ"À¢'F&vWE÷Fö¶Vç5÷“R"À¢'F&vWE÷Fö¶Vç5÷“’"À¢&VvÖVçFF–öåög&7F–öâ"À¢'&VÖ—…ög&7F–öâ"À¢'—F6…÷6†–gEög&7F–öâ"À¢'7–Ö&öÆ–5÷7FFUöwEög&7F–öâ"À¢'7–Ö&öÆ–5÷7FFUö6÷''WEög&7F–öâ"À¢'7–Ö&öÆ–5÷7FFU÷&VF–7FVEög&7F–öâ"À¢“ ¢w&—FW"æFE÷66Æ"†¶W’ÂÖWG&–75¶¶W•ÒÂvÆö&Å÷7FW ¢–bvÆö&Å÷7FWR6öæf–rç6fUöWfW'’ÓÒ ¢÷6fUö6†V6·ö–çB€¢w&VC×w&VBÀ¢&u÷w&W#×&u÷w&W"À¢÷F–Ö—¦W#Ö÷F–Ö—¦W"À¢66†VGVÆW#×66†VGVÆW"À¢6öæf–sÖ6öæf–rÀ¢÷WGWEöF—#Ö÷WGWEöF—"À¢vÆö&Å÷7FWÖvÆö&Å÷7FWÀ¢7FvUö–æFWƒ×7FvUö–æFW‚À¢7FvU÷7FWÖÆö6Åö–æFW‚²À¢Öæ–fW7Eö†6ƒÖÖæ–fW7Eö†6‚À¢F†öæö×“×F†öæö×’À¢&æ³×&æ²À¢6öçFW‡EöG&uö6÷VçG3×7FvUö6öçFW‡Eö6÷VçG2À¢6÷W&6U÷6WVVæ6U÷6†#Sc×6÷W&6U÷6WVVæ6Uö†6‚À¢¢&W7VÖU÷7FvU÷7FWÒ  ¢÷6fUö6†V6·ö–çB€¢w&VC×w&VBÀ¢&u÷w&W#×&u÷w&W"À¢÷F–Ö—¦W#Ö÷F–Ö—¦W"À¢66†VGVÆW#×66†VGVÆW"À¢6öæf–sÖ6öæf–rÀ¢÷WGWEöF—#Ö÷WGWEöF—"À¢vÆö&Å÷7FWÖvÆö&Å÷7FWÀ¢7FvUö–æFWƒÖÆVâ†6öæf–rç7FvW2’À¢7FvU÷7FWÓÀ¢Öæ–fW7Eö†6ƒÖÖæ–fW7Eö†6‚À¢F†öæö×“×F†öæö×’À¢&æ³×&æ²À¢6öçFW‡EöG&uö6÷VçG3×·ÒÀ¢6÷W&6U÷6WVVæ6U÷6†#Sc×6÷W&6U÷6WVVæ6Uö†6‚À¢¢–bF—7Bæ—5ö–æ—F–Æ—¦VB‚“ ¢F—7Bæ&'&–W"‚¢F—7BæFW7G&÷•÷&ö6W75öw&÷W‚¢–bw&—FW"—2æ÷BæöæS ¢w&—FW"æ6Æ÷6R‚  ¦FVbÖ–â‚’ÓâæöæS ¢'6W"Ò&w'6Rä&wVÖVçE'6W"‚¢'6W"æFEö&wVÖVçB‚"ÒÖ6öæf–r"Â&WV—&VCÕG'VR¢'6W"æFEö&wVÖVçB‚"Ò×6VVB"ÂG—SÖ–çB¢'6W"æFEö&wVÖVçB‚"ÒÖ÷WGWBÖF—""¢'6W"æFEö&wVÖVçB‚"ÒÖæÖR"¢'6W"æFEö&wVÖVçB‚"Ò×&VfÆ–v‡B×7FW2"ÂG—SÖ–çB¢'6W"æFEö&wVÖVçB‚"ÒÖ6öçFW‡BÖ6‡Væ·2"ÂG—SÖ–çBÂ6†ö–6W3ÒƒÂ"ÂBÂ‚’¢'6W"æFEö&wVÖVçB‚"ÒÖvÆö&ÂÖ&F6‚ÖVF–ò×6V6öæG2"ÂG—SÖ–çB¢&w2Ò'6W"ç'6Uö&w2‚¢g&öÒ×W67&—F÷"çG&–æ–æræ6öæf–r–×÷'BÆöEöW‡W&–ÖVçEö6öæf–p ¢6öæf–rÒÆöEöW‡W&–ÖVçEö6öæf–r†&w2æ6öæf–r¢–b&w2ç6VVB—2æ÷BæöæRæB&w2ç6VVBÒ6öæf–rç6VVBæBæ÷B&w2æ÷WGWEöF—# ¢'6W"æW'&÷"‚"Ò×6VVB÷fW'&–FW2&WV—&RF—7F–æ7BÒÖ÷WGWBÖF—""¢÷fW'&–FW2Ò·Ð¢–b&w2ç6VVB—2æ÷BæöæS ¢÷fW'&–FW5²'6VVB%ÒÒ&w2ç6VV@¢–b&w2æ÷WGWEöF—"—2æ÷BæöæS ¢÷fW'&–FW5²&÷WGWEöF—"%ÒÒ&w2æ÷WGWEöF— ¢–b&w2ææÖR—2æ÷BæöæS ¢÷fW'&–FW5²&æÖR%ÒÒ&w2ææÖP¢–b&w2ævÆö&Åö&F6…öVF–õ÷6V6öæG2—2æ÷BæöæS ¢÷fW'&–FW5²&vÆö&Åö&F6…öVF–õ÷6V6öæG2%ÒÒ&w2ævÆö&Åö&F6…öVF–õ÷6V6öæG0¢6öæf–rÒ&WÆ6R†6öæf–rÂ¢¦÷fW'&–FW2¢–b&w2ç&VfÆ–v‡E÷7FW2—2æ÷BæöæR÷"&w2æ6öçFW‡Eö6‡Væ·2—2æ÷BæöæS ¢–b&w2ç&VfÆ–v‡E÷7FW2—2æöæR÷"&w2æ6öçFW‡Eö6‡Væ·2—2æöæS ¢'6W"æW'&÷"‚'&VfÆ–v‡B&WV—&W2&÷F‚Ò×&VfÆ–v‡B×7FW2æBÒÖ6öçFW‡BÖ6‡Væ·2"¢–b&w2ç&VfÆ–v‡E÷7FW2ÃÒ ¢'6W"æW'&÷"‚"Ò×&VfÆ–v‡B×7FW2×W7B&R÷6—F—fR"¢–b&w2æ÷WGWEöF—"—2æöæS ¢'6W"æW'&÷"‚'&VfÆ–v‡B&WV—&W2F—7F–æ7BÒÖ÷WGWBÖF—""¢6÷W&6U÷7FvRÒ6öæf–rç7FvW5³Ð¢&VfÆ–v‡E÷7FvRÒ&WÆ6R€¢6÷W&6U÷7FvRÀ¢æÖSÖb'&VfÆ–v‡E÷¶&w2æ6öçFW‡Eö6‡Væ·2¢W×2"À¢7FW3Ö&w2ç&VfÆ–v‡E÷7FW2À¢6öçFW‡Eö6‡Væ·3Ö&w2æ6öçFW‡Eö6‡Væ·2À¢6öçFW‡EöF—7G&–'WF–öã×·ÒÀ¢FF6WG3Õ²'6Æ¶ƒ#÷&VGW‚%ÒÀ¢FF6WE÷vV–v‡G3×·ÒÀ¢VvÖVçFF–öãÔfÇ6RÀ¢¢6öæf–rÒ&WÆ6R†6öæf–rÂ7FvW3Õ·&VfÆ–v‡E÷7FvUÒÂ&W7VÖSÔæöæR¢G&–â†6öæf–r  ¦–bõöæÖUõòÓÒ%õöÖ–åõò# ¢Ö–â‚
+        instrument_condition_dropout: float,
+        dataset_condition_dropout: float,
+        dropout_scope: str = "sequence",
+        global_step: int = 0,
+    ) -> tuple[
+        torch.Tensor,
+        torch.Tensor,
+        int,
+        torch.Tensor | None,
+        torch.Tensor | None,
+        torch.Tensor,
+    ]:
+        if self.clean_cache_config.enabled:
+            return self._forward_clean_cache(
+                batch,
+                audio_condition_dropout=audio_condition_dropout,
+                instrument_condition_dropout=instrument_condition_dropout,
+                dataset_condition_dropout=dataset_condition_dropout,
+                dropout_scope=dropout_scope,
+                global_step=global_step,
+            )
+        packed = pack_training_batch(
+            self.model,
+            batch,
+            audio_condition_dropout=audio_condition_dropout,
+            instrument_condition_dropout=instrument_condition_dropout,
+            dataset_condition_dropout=dataset_condition_dropout,
+            dropout_scope=dropout_scope,
+        )
+        hidden = self.model.encode_embeddings(packed.embeddings)
+        logits = self.model.linear(hidden)
+        active_logits = reentry_logits = None
+        if self.active_note_head is not None or self.reentry_head is not None:
+            positions = (packed.chunk_end_positions - 1).clamp_min(0)
+            gather_index = positions.unsqueeze(-1).expand(-1, -1, hidden.shape[-1])
+            boundary_hidden = hidden.gather(1, gather_index)
+            if self.active_note_head is not None:
+                active_logits = self.active_note_head(boundary_hidden).view(
+                    hidden.shape[0],
+                    positions.shape[1],
+                    NUM_INSTRUMENT_GROUPS,
+                    NUM_MIDI_PITCHES,
+                )
+            if self.reentry_head is not None:
+                reentry_logits = self.reentry_head(boundary_hidden).view(
+                    hidden.shape[0],
+                    positions.shape[1],
+                    NUM_INSTRUMENT_GROUPS,
+                    REENTRY_NONE_CLASS + 1,
+                )
+        return (
+            logits,
+            packed.labels,
+            packed.token_count,
+            active_logits,
+            reentry_logits,
+            torch.zeros(3, dtype=torch.long, device=logits.device),
+        )
+
+    def load_auxiliary_state_dict(self, state: dict[str, torch.Tensor]) -> None:
+        """Restore training-only heads without polluting inference weights."""
+
+        own = self.state_dict()
+        expected = {key for key in own if not key.startswith("model.")}
+        if set(state) != expected:
+            raise RuntimeError(
+                "boundary-state checkpoint mismatch: "
+                f"expected {sorted(expected)}, received {sorted(state)}"
+            )
+        own.update(state)
+        self.load_state_dict(own)
+
+
+def _balanced_active_note_loss(
+    logits: torch.Tensor, targets: torch.Tensor
+) -> torch.Tensor:
+    """Balanced BCE so sparse active notes are not swamped by null pairs."""
+
+    targets = targets.to(dtype=logits.dtype)
+    elementwise = F.binary_cross_entropy_with_logits(logits, targets, reduction="none")
+    positive = targets > 0.5
+    negative = ~positive
+    positive_loss = (
+        elementwise[positive].mean()
+        if positive.any()
+        else torch.zeros((), device=logits.device, dtype=logits.dtype)
+    )
+    negative_loss = elementwise[negative].mean()
+    return (0.5 * (positive_loss + negative_loss)) if positive.any() else negative_loss
+
+
+def _training_signature(config: ExperimentConfig) -> dict[str, Any]:
+    signature = asdict(config)
+    signature.pop("resume", None)
+    signature.pop("output_dir", None)
+    return signature
+
+
+def _update_source_sequence_hash(
+    previous: str,
+    batch: TrainingBatch,
+    *,
+    stage_index: int,
+    stage_step: int,
+    context_chunks: int,
+) -> str:
+    """Extend a rank-local audit chain without logging private source rows."""
+
+    if len(previous) != 64:
+        raise ValueError("invalid source-sequence hash")
+    payload = {
+        "stage_index": stage_index,
+        "stage_step": stage_step,
+        "context_chunks": context_chunks,
+        "track_ids": list(batch.track_ids),
+        "start_times": [float(value) for value in batch.start_times.tolist()],
+        "augmentation_lineage": batch.augmentation_lineage or [],
+    }
+    digest = hashlib.sha256()
+    digest.update(bytes.fromhex(previous))
+    digest.update(
+        json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    )
+    return digest.hexdigest()
+
+
+def _assert_new_run_output_is_empty(config: ExperimentConfig) -> None:
+    """Refuse to mix a fresh v2 run with an existing output directory."""
+
+    if config.resume:
+        return
+    output = Path(config.output_dir)
+    if output.exists() and any(output.iterdir()):
+        raise RuntimeError(
+            f"new training run refuses non-empty output directory: {output}"
+        )
+
+
+def _context_for_stage_step(
+    stage: StageConfig, *, seed: int, stage_step: int
+) -> int:
+    """Draw one context length without touching process or worker RNG state."""
+
+    digest = hashlib.sha256(
+        f"{seed}:{stage.name}:{stage_step}".encode("utf-8")
+    ).digest()
+    draw = int.from_bytes(digest[:8], "big") / float(1 << 64)
+    cumulative = 0.0
+    probabilities = stage.context_probabilities()
+    for chunks, probability in probabilities.items():
+        cumulative += probability
+        if draw < cumulative:
+            return chunks
+    return next(reversed(probabilities))
+
+
+def _context_counts_before(
+    stage: StageConfig, *, seed: int, stage_step: int
+) -> dict[int, int]:
+    counts = {chunks: 0 for chunks in stage.context_probabilities()}
+    for step in range(stage_step):
+        counts[_context_for_stage_step(stage, seed=seed, stage_step=step)] += 1
+    return counts
+
+
+def _distributed() -> tuple[int, int, int]:
+    world_size = int(os.environ.get("WORLD_SIZE", "1"))
+    rank = int(os.environ.get("RANK", "0"))
+    local_rank = int(os.environ.get("LOCAL_RANK", "0"))
+    if world_size > 1 and not dist.is_initialized():
+        dist.init_process_group(backend="nccl")
+    return rank, local_rank, world_size
+
+
+def _seed_everything(seed: int, rank: int) -> None:
+    seed = seed + rank
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
+
+def _autocast(device: torch.device, precision: str):
+    if precision == "float32" or device.type != "cuda":
+        return contextlib.nullcontext()
+    return torch.autocast(
+        device_type="cuda",
+        dtype=getattr(torch, precision),
+    )
+
+
+def _unwrap_lm(wrapped: nn.Module, raw_wrapper: LongContextTrainingModel) -> LMModel:
+    if isinstance(wrapped, DistributedDataParallel):
+        return wrapped.module.model
+    return raw_wrapper.model
+
+
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(8 * 1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def _tokenizer_contract(tokenizer: MT3Tokenizer, model_config) -> dict[str, Any]:
+    """Fingerprint the exact event and instrument mappings used by KD."""
+
+    event_mapping = [
+        [event.type, event.value] for event in tokenizer._vocab
+    ]
+    group_mapping = {
+        str(group): list(programs)
+        for group, programs in sorted(tokenizer.group_program_map.items())
+    }
+
+    def fingerprint(value: Any) -> str:
+        encoded = json.dumps(
+            value, sort_keys=True, separators=(",", ":")
+        ).encode("utf-8")
+        return hashlib.sha256(encoded).hexdigest()
+
+    return {
+        "name": model_config.tokenizer_name,
+        "max_shift_steps": model_config.tokenizer_max_shift_steps,
+        "frame_rate": tokenizer.frame_rate,
+        "vocab_size": tokenizer.num_tokens,
+        "event_mapping_sha256": fingerprint(event_mapping),
+        "instrument_mapping_sha256": fingerprint(group_mapping),
+    }
+
+
+def _verify_teacher_checkpoint(
+    config: ExperimentConfig, *, rank: int
+) -> dict[str, Any] | None:
+    teacher_path = config.distillation.teacher_checkpoint
+    if not teacher_path:
+        return None
+    path = Path(teacher_path).expanduser().resolve()
+    payload: list[dict[str, Any] | None] = [None]
+    if rank == 0:
+        try:
+            if not path.is_file() or path.suffix.lower() != ".safetensors":
+                raise RuntimeError(
+                    "teacher_checkpoint must be a pre-downloaded local "
+                    "safetensors file"
+                )
+            config_path = path.with_name("config.json")
+            if not config_path.is_file():
+                raise RuntimeError(
+                    "teacher snapshot must include config.json next to the weights"
+                )
+            actual = _sha256_file(path)
+            expected = str(config.distillation.teacher_sha256).lower()
+            if actual != expected:
+                raise RuntimeError(
+                    "teacher checkpoint SHA256 mismatch: "
+                    f"expected {expected}, got {actual}"
+                )
+            payload[0] = {
+                "path": str(path),
+                "sha256": actual,
+                "revision": config.distillation.teacher_revision,
+                "config_sha256": _sha256_file(config_path),
+            }
+        except Exception as exc:
+            payload[0] = {"error": str(exc)}
+    if dist.is_initialized():
+        dist.broadcast_object_list(payload, src=0)
+    if payload[0] is None:
+        # Non-distributed nonzero rank is impossible; retain a fail-closed
+        # guard for unusual launchers.
+        raise RuntimeError("teacher verification result was not broadcast")
+    if "error" in payload[0]:
+        raise RuntimeError(payload[0]["error"])
+    return payload[0]
+
+
+def _teacher_logits(
+    teacher: LMModel,
+    batch: TrainingBatch,
+    *,
+    microbatch_size: int,
+) -> torch.Tensor:
+    bsz, chunks, max_length = batch.target_ids.shape
+    flat = bsz * chunks
+    attributes = _condition_attributes(
+        batch,
+        sample_rate=16_000,
+        audio_condition_dropout=0.0,
+        instrument_condition_dropout=1.0,
+        dataset_condition_dropout=1.0,
+    )
+    # Any explicitly enabled teacher remains audio-only. This avoids leaking
+    # oracle instrument or dataset metadata through its soft targets.
+    targets = batch.target_ids.reshape(flat, max_length)
+    lengths = batch.target_lengths.reshape(flat)
+    loss_mask = (
+        batch.target_loss_mask.reshape(flat, max_length)
+        if batch.target_loss_mask is not None
+        else torch.arange(max_length, device=lengths.device).unsqueeze(0)
+        < lengths.unsqueeze(1)
+    )
+    inputs = torch.zeros_like(targets)
+    inputs[:, 0] = teacher.initial_token_id
+    inputs[:, 1:] = targets[:, :-1]
+    pieces = []
+    for start in range(0, flat, microbatch_size):
+        end = min(flat, start + microbatch_size)
+        local_attributes = attributes[start:end]
+        conditions = teacher.condition_provider(
+            teacher.condition_provider.tokenize(local_attributes)
+        )
+        logits = teacher(inputs[start:end], conditions, first_step=True)
+        pieces.append(logits[loss_mask[start:end]])
+    return torch.cat(pieces, dim=0)
+
+
+def _distillation_loss(
+    student_logits: torch.Tensor,
+    labels: torch.Tensor,
+    teacher_logits: torch.Tensor,
+    *,
+    temperature: float,
+    shared_vocab_size: int,
+) -> torch.Tensor:
+    selected = student_logits[labels.ne(IGNORE_INDEX)]
+    if selected.shape[0] != teacher_logits.shape[0]:
+        raise RuntimeError("teacher/student token alignment mismatch")
+    if (
+        selected.shape[-1] < shared_vocab_size
+        or teacher_logits.shape[-1] < shared_vocab_size
+    ):
+        raise RuntimeError(
+            "teacher/student output cards do not cover the tokenizer vocabulary"
+        )
+    student = F.log_softmax(
+        selected[:, :shared_vocab_size].float() / temperature, dim=-1
+    )
+    teacher = F.softmax(
+        teacher_logits[:, :shared_vocab_size].float() / temperature, dim=-1
+    )
+    return F.kl_div(student, teacher, reduction="batchmean") * temperature * temperature
+
+
+def _scheduler_lambda(
+    step: int,
+    *,
+    warmup: int,
+    total_steps: int,
+    min_lr_ratio: float = 0.0,
+) -> float:
+    if step < warmup:
+        return step / max(1, warmup)
+    progress = (step - warmup) / max(1, total_steps - warmup)
+    cosine = 0.5 * (1.0 + math.cos(math.pi * min(progress, 1.0)))
+    return min_lr_ratio + (1.0 - min_lr_ratio) * cosine
+
+
+def _optimizer_groups(model: nn.Module, weight_decay: float) -> list[dict[str, Any]]:
+    decay = []
+    no_decay = []
+    for parameter in model.parameters():
+        if not parameter.requires_grad:
+            continue
+        if parameter.ndim < 2 or getattr(parameter, "_no_weight_decay", False):
+            no_decay.append(parameter)
+        else:
+            decay.append(parameter)
+    return [
+        {"params": decay, "weight_decay": weight_decay},
+        {"params": no_decay, "weight_decay": 0.0},
+    ]
+
+
+def _save_checkpoint(
+    *,
+    wrapped: nn.Module,
+    raw_wrapper: LongContextTrainingModel,
+    optimizer: torch.optim.Optimizer,
+    scheduler: torch.optim.lr_scheduler.LRScheduler,
+    config: ExperimentConfig,
+    output_dir: Path,
+    global_step: int,
+    stage_index: int,
+    stage_step: int,
+    manifest_hash: str,
+    taxonomy: dict[str, Any],
+    rank: int,
+    context_draw_counts: dict[int, int] | None = None,
+    source_sequence_sha256: str = _EMPTY_SOURCE_SEQUENCE_SHA256,
+) -> None:
+    if config.distributed == "fsdp":
+        from torch.distributed.fsdp import (
+            FullStateDictConfig,
+            FullyShardedDataParallel as FSDP,
+            StateDictType,
+        )
+
+        with FSDP.state_dict_type(
+            wrapped,
+            StateDictType.FULL_STATE_DICT,
+            FullStateDictConfig(offload_to_cpu=True, rank0_only=True),
+        ):
+            wrapper_state = wrapped.state_dict()
+            optimizer_state = FSDP.optim_state_dict(wrapped, optimizer)
+        state = {
+            key.removeprefix("model."): value.detach().cpu().contiguous()
+            for key, value in wrapper_state.items()
+            if key.startswith("model.")
+        }
+        auxiliary_state = {
+            key: value.detach().cpu().contiguous()
+            for key, value in wrapper_state.items()
+            if not key.startswith("model.")
+        }
+    else:
+        wrapper_state = raw_wrapper.state_dict()
+        state = {
+            key.removeprefix("model."): value.detach().cpu().contiguous()
+            for key, value in wrapper_state.items()
+            if key.startswith("model.")
+        }
+        auxiliary_state = {
+            key: value.detach().cpu().contiguous()
+            for key, value in wrapper_state.items()
+            if not key.startswith("model.")
+        }
+        optimizer_state = optimizer.state_dict()
+
+    local_rng = {
+        "python": random.getstate(),
+        "numpy": np.random.get_state(),
+        "torch": torch.get_rng_state(),
+        "cuda": (torch.cuda.get_rng_state() if torch.cuda.is_available() else None),
+    }
+    if dist.is_initialized():
+        rng_by_rank: list[dict[str, Any] | None] = [
+            None for _ in range(dist.get_world_size())
+        ]
+        dist.all_gather_object(rng_by_rank, local_rng)
+        source_sequence_by_rank: list[str | None] = [
+            None for _ in range(dist.get_world_size())
+        ]
+        dist.all_gather_object(
+            source_sequence_by_rank, source_sequence_sha256
+        )
+    else:
+        rng_by_rank = [local_rng]
+        source_sequence_by_rank = [source_sequence_sha256]
+    if rank != 0:
+        return
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    stem = f"checkpoint_{global_step:08d}"
+    tokenizer_metadata = {
+        "name": config.model.tokenizer_name,
+        "max_shift_steps": config.model.tokenizer_max_shift_steps,
+        "segment_duration": config.model.segment_duration,
+    }
+    save_file(
+        state,
+        output_dir / f"{stem}.safetensors",
+        metadata={
+            "model_config": json.dumps(config.model.to_dict(), sort_keys=True),
+            "tokenizer": json.dumps(tokenizer_metadata, sort_keys=True),
+            "taxonomy": json.dumps(taxonomy, sort_keys=True),
+            "manifest_sha256": manifest_hash,
+            "experiment": json.dumps(
+                {
+                    "name": config.name,
+                    "seed": config.seed,
+                    "teacher": taxonomy.get("teacher"),
+                    "conditioning": asdict(config.conditioning),
+                    "condition_dropout": asdict(config.condition_dropout),
+                    "augmentation_catalog_sha256": taxonomy.get(
+                        "augmentation_catalog_sha256"
+                    ),
+                    "evidence_status": "formal_result_not_yet_evaluated",
+                },
+                sort_keys=True,
+            ),
+        },
+    )
+    (output_dir / "config.json").write_text(
+        json.dumps(config.model.to_dict(), indent=2) + "\n"
+    )
+    (output_dir / "tokenizer.json").write_text(
+        json.dumps(tokenizer_metadata, indent=2) + "\n"
+    )
+    (output_dir / "taxonomy.json").write_text(
+        json.dumps(taxonomy, indent=2, sort_keys=True) + "\n"
+    )
+    trainer_state = {
+        "global_step": global_step,
+        "stage_index": stage_index,
+        "stage_step": stage_step,
+        "optimizer": optimizer_state,
+        "scheduler": scheduler.state_dict(),
+        "manifest_sha256": manifest_hash,
+        "taxonomy": taxonomy,
+        "world_size": len(rng_by_rank),
+        "rng_by_rank": rng_by_rank,
+        "training_signature": _training_signature(config),
+        "context_draw_counts": dict(context_draw_counts or {}),
+        "source_sequence_sha256_by_rank": source_sequence_by_rank,
+        "auxiliary_state": auxiliary_state,
+    }
+    torch.save(trainer_state, output_dir / f"{stem}.trainer.pt")
+    latest_payload = (
+        json.dumps(
+            {
+                "weights": f"{stem}.safetensors",
+                "trainer": f"{stem}.trainer.pt",
+                "global_step": global_step,
+            },
+            indent=2,
+        )
+        + "\n"
+    )
+    latest_tmp = output_dir / f".latest.{os.getpid()}.json.tmp"
+    latest_tmp.write_text(latest_payload)
+    os.replace(latest_tmp, output_dir / "latest.json")
+
+
+def _load_resume_files(
+    config: ExperimentConfig,
+    wrapper: LongContextTrainingModel,
+    manifest_hash: str,
+    taxonomy: dict[str, Any],
+    device: torch.device,
+    rank: int,
+) -> dict[str, Any] | None:
+    if not config.resume:
+        return None
+    resume = Path(config.resume)
+    if resume.is_dir():
+        latest = json.loads((resume / "latest.json").read_text())
+        weights = resume / latest["weights"]
+        trainer_path = resume / latest["trainer"]
+    else:
+        trainer_path = resume
+        weights = Path(str(resume).replace(".trainer.pt", ".safetensors"))
+    from safetensors.torch import load_file
+
+    wrapper.model.load_state_dict(load_file(weights, device=str(device)))
+    state = torch.load(trainer_path, map_location=device, weights_only=False)
+    if state["manifest_sha256"] != manifest_hash:
+        raise RuntimeError("manifest changed since the resumed checkpoint")
+    if state.get("taxonomy") != taxonomy:
+        raise RuntimeError("dataset taxonomy changed since the resumed checkpoint")
+    requires_v2_signature = (
+        config.model.position_encoding == "rope"
+        or config.optimizer.min_lr_ratio > 0
+        or any(stage.context_distribution for stage in config.stages)
+        or config.augmentation.enabled
+        or config.distillation.teacher_checkpoint is not None
+    )
+    if state.get("training_signature") is None and requires_v2_signature:
+        raise RuntimeError(
+            "v2 experiments cannot resume checkpoints without a training signature"
+        )
+    if (
+        requires_v2_signature
+        and state.get("source_sequence_sha256_by_rank") is None
+    ):
+        raise RuntimeError(
+            "v2 experiments cannot resume checkpoints without a source-sequence audit"
+        )
+    if state.get("training_signature") is not None and state[
+        "training_signature"
+    ] != _training_signature(config):
+        raise RuntimeError(
+            "experiment configuration changed since the resumed checkpoint"
+        )
+    stage_index = int(state.get("stage_index", len(config.stages)))
+    if "context_draw_counts" in state and stage_index < len(config.stages):
+        expected_counts = _context_counts_before(
+            config.stages[stage_index],
+            seed=config.seed,
+            stage_step=int(state["stage_step"]),
+        )
+        saved_counts = {
+            int(chunks): int(count)
+            for chunks, count in state["context_draw_counts"].items()
+        }
+        if saved_counts != expected_counts:
+            raise RuntimeError("checkpoint context draw counts are inconsistent")
+    auxiliary_state = state.get("auxiliary_state", {})
+    if auxiliary_state or any(
+        not key.startswith("model.") for key in wrapper.state_dict()
+    ):
+        wrapper.load_auxiliary_state_dict(auxiliary_state)
+    if "rng_by_rank" in state:
+        current_world_size = dist.get_world_size() if dist.is_initialized() else 1
+        if state.get("world_size") != current_world_size:
+            raise RuntimeError(
+                "deterministic resume requires the original world size "
+                f"({state.get('world_size')} != {current_world_size})"
+            )
+        if rank >= len(state["rng_by_rank"]):
+            raise RuntimeError("checkpoint world size is smaller than the resumed rank")
+    return state
+
+
+def _restore_resume_rng(
+    state: dict[str, Any], *, rank: int, device: torch.device
+) -> None:
+    """Restore RNG only after wrappers/optimizer construction is complete."""
+
+    if "rng_by_rank" in state:
+        rank_rng = state["rng_by_rank"][rank]
+        random.setstate(rank_rng["python"])
+        np.random.set_state(rank_rng["numpy"])
+        torch.set_rng_state(rank_rng["torch"].cpu())
+        if torch.cuda.is_available() and rank_rng["cuda"] is not None:
+            torch.cuda.set_rng_state(rank_rng["cuda"].cpu(), device=device)
+    else:
+        # Backward-compatible resume for checkpoints created before per-rank
+        # RNG capture was introduced.
+        random.setstate(state["python_rng"])
+        np.random.set_state(state["numpy_rng"])
+        torch.set_rng_state(state["torch_rng"].cpu())
+        if torch.cuda.is_available() and state["cuda_rng"] is not None:
+            torch.cuda.set_rng_state_all(state["cuda_rng"])
+
+
+def _context_loader(
+    config: ExperimentConfig,
+    stage: StageConfig,
+    records,
+    *,
+    context_chunks: int,
+    world_size: int,
+    rank: int,
+    consumed_batches: int,
+    remaining_batches: int,
+    dataset_ids: dict[str, int],
+    augmentation_entries,
+) -> DataLoader:
+    selected = [
+        record
+        for record in records
+        if not stage.datasets or record.dataset in stage.datasets
+    ]
+    stage_augmentation_enabled = (
+        config.augmentation.enabled
+        if stage.augmentation is None
+        else stage.augmentation
+    )
+    if stage_augmentation_enabled and not config.augmentation.enabled:
+        raise RuntimeError(
+            f"stage {stage.name!r} enables augmentation but the experiment does not"
+        )
+    stage_augmentation = replace(
+        config.augmentation, enabled=stage_augmentation_enabled
+    )
+    dataset = ContinuousChunkDataset(
+        selected,
+        split=stage.split,
+        context_chunks=context_chunks,
+        segment_duration=config.model.segment_duration,
+        dataset_ids=dataset_ids,
+        include_boundary_targets=config.boundary_state_supervision.enabled,
+        augmentation_config=stage_augmentation,
+        augmentation_entries=(
+            augmentation_entries if stage_augmentation_enabled else []
+        ),
+    )
+    if not len(dataset):
+        raise RuntimeError(
+            f"stage {stage.name!r} has no "
+            f"{context_chunks * config.model.segment_duration:g}s "
+            "continuous training windows"
+        )
+    global_examples = max(
+        1,
+        round(
+            config.global_batch_audio_seconds
+            / (config.model.segment_duration * context_chunks)
+        ),
+    )
+    per_device = max(1, global_examples // world_size)
+    sampler = BalancedWindowBatchSampler(
+        dataset,
+        batch_size=per_device,
+        num_batches=remaining_batches,
+        seed=(
+            config.seed
+            + 10_007 * context_chunks
+            + int.from_bytes(
+                hashlib.sha256(stage.name.encode("utf-8")).digest()[:4], "big"
+            )
+        ),
+        rank=rank,
+        world_size=world_size,
+        start_batch=consumed_batches,
+        dataset_probabilities=stage.dataset_weights or None,
+    )
+    worker_generator = torch.Generator()
+    worker_generator.manual_seed(
+        config.seed
+        + 1_000_003 * rank
+        + 10_007 * context_chunks
+        + int.from_bytes(
+            hashlib.sha256(stage.name.encode("utf-8")).digest()[:4], "big"
+        )
+    )
+    return DataLoader(
+        dataset,
+        batch_sampler=sampler,
+        num_workers=config.num_workers,
+        pin_memory=torch.cuda.is_available(),
+        persistent_workers=config.num_workers > 0,
+        generator=worker_generator,
+        collate_fn=collate_training_examples,
+    )
+
+
+def _stage_loaders(
+    config: ExperimentConfig,
+    stage: StageConfig,
+    records,
+    *,
+    world_size: int,
+    rank: int,
+    stage_step: int,
+    dataset_ids: dict[str, int],
+    augmentation_entries,
+) -> dict[int, DataLoader]:
+    consumed = _context_counts_before(stage, seed=config.seed, stage_step=stage_step)
+    total = _context_counts_before(stage, seed=config.seed, stage_step=stage.steps)
+    loaders: dict[int, DataLoader] = {}
+    for chunks in stage.context_probabilities():
+        remaining = total[chunks] - consumed[chunks]
+        if remaining <= 0:
+            continue
+        loaders[chunks] = _context_loader(
+            config,
+            stage,
+            records,
+            context_chunks=chunks,
+            world_size=world_size,
+            rank=rank,
+            consumed_batches=consumed[chunks],
+            remaining_batches=remaining,
+            dataset_ids=dataset_ids,
+            augmentation_entries=augmentation_entries,
+        )
+    return loaders
+
+
+def train(config: ExperimentConfig) -> None:
+    rank, local_rank, world_size = _distributed()
+    if not torch.cuda.is_available():
+        raise RuntimeError("Hybrid-Mamba training requires a CUDA machine")
+    device = torch.device("cuda", local_rank)
+    torch.cuda.set_device(device)
+    _seed_everything(config.seed, rank)
+
+    output_validation: list[str | None] = [None]
+    if rank == 0:
+        try:
+            _assert_new_run_output_is_empty(config)
+        except Exception as exc:
+            output_validation[0] = str(exc)
+    if dist.is_initialized():
+        dist.broadcast_object_list(output_validation, src=0)
+    if output_validation[0] is not None:
+        raise RuntimeError(output_validation[0])
+
+    records = read_manifest(config.manifest)
+    manifest_hash = manifest_fingerprint(config.manifest)
+    augmentation_entries = []
+    augmentation_catalog_hash = None
+    if config.augmentation.enabled:
+        augmentation_entries = read_augmentation_catalog(config.augmentation.catalog)
+        maximum_context = max(
+            chunks
+            for stage in config.stages
+            for chunks in stage.context_probabilities()
+        )
+        validation_payload: list[dict[str, Any] | None] = [None]
+        if rank == 0:
+            try:
+                validate_augmentation_catalog(
+                    augmentation_entries,
+                    records,
+                    allowed_datasets=config.augmentation.allowed_datasets,
+                    required_duration=(
+                        maximum_context * config.model.segment_duration
+                    ),
+                    check_files=True,
+                )
+                validation_payload[0] = {
+                    "sha256": augmentation_catalog_fingerprint(
+                        config.augmentation.catalog
+                    )
+                }
+            except Exception as exc:
+                validation_payload[0] = {"error": str(exc)}
+        if dist.is_initialized():
+            dist.broadcast_object_list(validation_payload, src=0)
+        if validation_payload[0] is None:
+            raise RuntimeError("augmentation validation result was not broadcast")
+        if "error" in validation_payload[0]:
+            raise RuntimeError(validation_payload[0]["error"])
+        augmentation_catalog_hash = validation_payload[0]["sha256"]
+    dataset_ids = {
+        name: index
+        for index, name in enumerate(sorted({record.dataset for record in records}))
+    }
+    if len(dataset_ids) > config.model.num_dataset_condition_classes:
+        raise ValueError(
+            f"manifest has {len(dataset_ids)} datasets but the model allows "
+            f"{config.model.num_dataset_condition_classes}"
+        )
+    student_tokenizer = MT3Tokenizer(
+        instrument_vocabulary=config.model.tokenizer_name,
+        max_shift_steps=config.model.tokenizer_max_shift_steps,
+    )
+    student_tokenizer_contract = _tokenizer_contract(
+        student_tokenizer, config.model
+    )
+    taxonomy: dict[str, Any] = {
+        "datasets": dataset_ids,
+        "instrument_vocabulary": config.model.tokenizer_name,
+        "instrument_condition_classes": (config.model.num_instrument_condition_classes),
+        "augmentation_catalog_sha256": augmentation_catalog_hash,
+        "tokenizer_contract": student_tokenizer_contract,
+    }
+    teacher_provenance = _verify_teacher_checkpoint(config, rank=rank)
+    taxonomy["teacher"] = teacher_provenance
+    raw_model = _build_model(device, config.model)
+    for conditioner in raw_model.condition_provider.conditioners.values():
+        if isinstance(conditioner, MelSpectrogramConditioner):
+            conditioner.log_timing = False
+    if hasattr(raw_model.transformer, "set_gradient_checkpointing"):
+        raw_model.transformer.set_gradient_checkpointing(config.gradient_checkpointing)
+    raw_wrapper = LongContextTrainingModel(
+        raw_model,
+        config.boundary_state_supervision,
+        tokenizer=student_tokenizer,
+        clean_cache_config=config.clean_cache_training,
+    ).to(device)
+    teacher = None
+    shared_vocab_size = student_tokenizer.num_tokens
+    if config.distillation.teacher_checkpoint:
+        loaded_teacher = TranscriptionModel.load_model(
+            teacher_provenance["path"],
+            device=device,
+            dtype=config.precision,
+        )
+        teacher = loaded_teacher._model
+        teacher_tokenizer_contract = _tokenizer_contract(
+            loaded_teacher._tokenizer, teacher.model_config
+        )
+        if teacher_tokenizer_contract != student_tokenizer_contract:
+            raise RuntimeError(
+                "teacher/student tokenizer event or instrument mappings are not identical"
+            )
+        if teacher.card < shared_vocab_size or raw_model.card < shared_vocab_size:
+            raise RuntimeError(
+                "teacher/student output cards do not cover the tokenizer vocabulary"
+            )
+        teacher.eval()
+        for parameter in teacher.parameters():
+            parameter.requires_grad_(False)
+        if any(parameter.requires_grad for parameter in teacher.parameters()):
+            raise RuntimeError("teacher must remain fully frozen")
+        teacher_provenance.update(
+            {
+                "tokenizer_contract": teacher_tokenizer_contract,
+                "conditioning": "audio_only",
+                "chunk_policy": "independent_5s",
+                "teacher_microbatch_size": (
+                    config.distillation.teacher_microbatch_size
+                ),
+            }
+        )
+    resume_state = _load_resume_files(
+        config, raw_wrapper, manifest_hash, taxonomy, device, rank
+    )
+
+    if config.distributed == "fsdp":
+        from torch.distributed.fsdp import (
+            FullyShardedDataParallel as FSDP,
+            MixedPrecision,
+        )
+
+        wrapped: nn.Module = FSDP(
+            raw_wrapper,
+            device_id=device,
+            use_orig_params=True,
+            mixed_precision=MixedPrecision(
+                param_dtype=getattr(torch, config.precision),
+                reduce_dtype=torch.float32,
+                buffer_dtype=getattr(torch, config.precision),
+            ),
+        )
+    elif config.distributed == "ddp" and world_size > 1:
+        wrapped = DistributedDataParallel(
+            raw_wrapper,
+            device_ids=[local_rank],
+            broadcast_buffers=False,
+            find_unused_parameters=False,
+        )
+    else:
+        wrapped = raw_wrapper
+
+    optimizer = torch.optim.AdamW(
+        _optimizer_groups(wrapped, config.optimizer.weight_decay),
+        lr=config.optimizer.learning_rate,
+        betas=config.optimizer.betas,
+    )
+    total_steps = sum(stage.steps for stage in config.stages)
+    scheduler = torch.optim.lr_scheduler.LambdaLR(
+        optimizer,
+        lambda step: _scheduler_lambda(
+            step,
+            warmup=config.optimizer.warmup_steps,
+            total_steps=total_steps,
+            min_lr_ratio=config.optimizer.min_lr_ratio,
+        ),
+    )
+    if resume_state is not None:
+        if config.distributed == "fsdp":
+            from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
+
+            optimizer_state = FSDP.optim_state_dict_to_load(
+                wrapped, optimizer, resume_state["optimizer"]
+            )
+            optimizer.load_state_dict(optimizer_state)
+        else:
+            optimizer.load_state_dict(resume_state["optimizer"])
+        scheduler.load_state_dict(resume_state["scheduler"])
+        global_step = int(resume_state["global_step"])
+        resume_stage = int(resume_state["stage_index"])
+        resume_stage_step = int(resume_state["stage_step"])
+        source_hashes = resume_state.get("source_sequence_sha256_by_rank")
+        source_sequence_hash = (
+            str(source_hashes[rank])
+            if source_hashes is not None
+            else _EMPTY_SOURCE_SEQUENCE_SHA256
+        )
+    else:
+        global_step = resume_stage = resume_stage_step = 0
+        source_sequence_hash = _EMPTY_SOURCE_SEQUENCE_SHA256
+
+    output_dir = Path(config.output_dir)
+    if rank == 0:
+        output_dir.mkdir(parents=True, exist_ok=True)
+        (output_dir / "experiment.json").write_text(
+            json.dumps(asdict(config), indent=2) + "\n"
+        )
+    log_path = output_dir / f"metrics.rank{rank}.jsonl"
+    writer = None
+    if rank == 0:
+        try:
+            from torch.utils.tensorboard import SummaryWriter
+
+            writer = SummaryWriter(output_dir / "tensorboard")
+        except ImportError:
+            writer = None
+    if resume_state is not None:
+        # Make the checkpoint RNG the final mutable setup state.  DataLoader
+        # workers use dedicated generators below, so they cannot perturb the
+        # condition-dropout sequence after this point.
+        _restore_resume_rng(resume_state, rank=rank, device=device)
+    last_time = time.perf_counter()
+
+    for stage_index, stage in enumerate(config.stages):
+        if stage_index < resume_stage:
+            continue
+        stage_start = resume_stage_step if stage_index == resume_stage else 0
+        if stage_start >= stage.steps:
+            resume_stage_step = 0
+            continue
+        loaders = _stage_loaders(
+            config,
+            stage,
+            records,
+            world_size=world_size,
+            rank=rank,
+            stage_step=stage_start,
+            dataset_ids=dataset_ids,
+            augmentation_entries=augmentation_entries,
+        )
+        loader_iterators = {
+            chunks: iter(loader) for chunks, loader in loaders.items()
+        }
+        stage_context_counts = _context_counts_before(
+            stage, seed=config.seed, stage_step=stage_start
+        )
+        wrapped.train()
+        for local_index in range(stage_start, stage.steps):
+            context_chunks = _context_for_stage_step(
+                stage, seed=config.seed, stage_step=local_index
+            )
+            try:
+                batch = next(loader_iterators[context_chunks])
+            except (KeyError, StopIteration) as exc:
+                raise RuntimeError(
+                    f"stage {stage.name!r} exhausted context={context_chunks} "
+                    f"at stage_step={local_index}"
+                ) from exc
+            stage_context_counts[context_chunks] += 1
+            source_sequence_hash = _update_source_sequence_hash(
+                source_sequence_hash,
+                batch,
+                stage_index=stage_index,
+                stage_step=local_index,
+                context_chunks=context_chunks,
+            )
+            batch = batch.to(device)
+            optimizer.zero_grad(set_to_none=True)
+            with _autocast(device, config.precision):
+                dropout = config.condition_dropout
+                (
+                    logits,
+                    labels,
+                    token_count,
+                    active_logits,
+                    reentry_logits,
+                    symbolic_mode_counts,
+                ) = wrapped(
+                    batch,
+                    dropout.audio,
+                    dropout.instrument,
+                    dropout.dataset,
+                    config.conditioning.dropout_scope,
+                    global_step,
+                )
+                token_losses = F.cross_entropy(
+                    logits.reshape(-1, logits.shape[-1]).float(),
+                    labels.reshape(-1),
+                    ignore_index=IGNORE_INDEX,
+                    reduction="none",
+                )
+                valid_token = labels.reshape(-1).ne(IGNORE_INDEX)
+                token_weights = torch.ones_like(token_losses)
+                token_weights = torch.where(
+                    labels.reshape(-1).eq(student_tokenizer.eos_id),
+                    torch.full_like(token_weights, config.true_eos_loss_weight),
+                    token_weights,
+                )
+                ce = (token_losses[valid_token] * token_weights[valid_token]).sum()
+                ce = ce / token_weights[valid_token].sum().clamp_min(1.0)
+                loss = ce
+                active_loss = torch.zeros((), device=device)
+                reentry_loss = torch.zeros((), device=device)
+                boundary_config = config.boundary_state_supervision
+                if active_logits is not None:
+                    if batch.active_note_targets is None:
+                        raise RuntimeError("batch is missing active-note targets")
+                    active_loss = _balanced_active_note_loss(
+                        active_logits.float(), batch.active_note_targets
+                    )
+                    loss = loss + boundary_config.active_weight * active_loss
+                if reentry_logits is not None:
+                    if batch.reentry_targets is None or batch.reentry_valid is None:
+                        raise RuntimeError("batch is missing re-entry targets")
+                    valid = batch.reentry_valid
+                    if valid.any():
+                        reentry_loss = F.cross_entropy(
+                            reentry_logits[valid].float(),
+                            batch.reentry_targets[valid],
+                        )
+                    else:
+                        # Preserve a zero gradient for DDP/FSDP batches whose
+                        # sampled windows contain no uncensored re-entry label.
+                        reentry_loss = reentry_logits.sum() * 0.0
+                    loss = loss + boundary_config.reentry_weight * reentry_loss
+                kd = torch.zeros((), device=device)
+                if teacher is not None:
+                    with torch.no_grad():
+                        teacher_logits = _teacher_logits(
+                            teacher,
+                            batch,
+                            microbatch_size=(
+                                config.distillation.teacher_microbatch_size
+                            ),
+                        )
+                    kd = _distillation_loss(
+                        logits,
+                        labels,
+                        teacher_logits,
+                        temperature=config.distillation.temperature,
+                        shared_vocab_size=shared_vocab_size,
+                    )
+                    loss = loss + config.distillation.weight * kd
+            loss.backward()
+            grad_norm = torch.nn.utils.clip_grad_norm_(
+                wrapped.parameters(), config.optimizer.gradient_clip
+            )
+            health_checked = global_step < 1000 or (
+                (global_step + 1) % config.log_every == 0
+            )
+            teacher_frozen = True
+            distill_positive = True
+            if health_checked:
+                teacher_frozen = teacher is None or all(
+                    parameter.grad is None for parameter in teacher.parameters()
+                )
+                distill_positive = teacher is None or bool(kd.detach() > 0)
+                finite = all(
+                    bool(torch.isfinite(value.detach()))
+                    for value in (loss, ce, kd, grad_norm)
+                )
+                healthy = finite and distill_positive and teacher_frozen
+                health = torch.tensor(
+                    int(healthy), device=device, dtype=torch.int32
+                )
+                if dist.is_initialized():
+                    dist.all_reduce(health, op=dist.ReduceOp.MIN)
+                if not bool(health.item()):
+                    raise FloatingPointError(
+                        "training health check failed: require finite CE/KL/loss/grad, "
+                        "positive KL, and a frozen teacher"
+                    )
+            optimizer.step()
+            scheduler.step()
+            global_step += 1
+
+            if global_step % config.log_every == 0:
+                now = time.perf_counter()
+                interval_seconds = now - last_time
+                batch_audio_seconds = (
+                    batch.waveform.shape[0]
+                    * batch.waveform.shape[1]
+                    * config.model.segment_duration
+                    * world_size
+                )
+                metrics: dict[str, Any] = {
+                    "step": global_step,
+                    "stage": stage.name,
+                    "stage_step": local_index + 1,
+                    "optimizer_step": global_step,
+                    "context_chunks": context_chunks,
+                    "loss": float(loss.detach()),
+                    "ce": float(ce.detach()),
+                    "distill": float(kd.detach()),
+                    "active_note_loss": float(active_loss.detach()),
+                    "reentry_loss": float(reentry_loss.detach()),
+                    "grad_norm": float(grad_norm),
+                    "lr": scheduler.get_last_lr()[0],
+                    "tokens": token_count,
+                    "truncated_chunk_fraction": (
+                        float(batch.truncated_chunks.float().mean())
+                        if batch.truncated_chunks is not None
+                        else 0.0
+                    ),
+                    "dense_chunk_fraction": (
+                        float(
+                            (batch.original_target_lengths > 1500).float().mean()
+                        )
+                        if batch.original_target_lengths is not None
+                        else 0.0
+                    ),
+                    "target_tokens_p95": (
+                        float(
+                            torch.quantile(
+                                batch.original_target_lengths.float(), 0.95
+                            )
+                        )
+                        if batch.original_target_lengths is not None
+                        else 0.0
+                    ),
+                    "target_tokens_p99": (
+                        float(
+                            torch.quantile(
+                                batch.original_target_lengths.float(), 0.99
+                            )
+                        )
+                        if batch.original_target_lengths is not None
+                        else 0.0
+                    ),
+                    "augmentation_fraction": (
+                        float(batch.augmentation_applied.float().mean())
+                        if batch.augmentation_applied is not None
+                        else 0.0
+                    ),
+                    "remix_fraction": (
+                        float(batch.remixed.float().mean())
+                        if batch.remixed is not None
+                        else 0.0
+                    ),
+                    "pitch_shift_fraction": (
+                        float(batch.pitch_shift_semitones.ne(0).float().mean())
+                        if batch.pitch_shift_semitones is not None
+                        else 0.0
+                    ),
+                    "health_checked": health_checked,
+                    "distill_positive": distill_positive,
+                    "teacher_frozen": teacher_frozen,
+                    "source_sequence_sha256": source_sequence_hash,
+                    "steps_per_second": config.log_every / interval_seconds,
+                    "audio_seconds_per_second": (
+                        config.log_every * batch_audio_seconds / interval_seconds
+                    ),
+                    "peak_memory_gib": (
+                        torch.cuda.max_memory_allocated(device) / (1024**3)
+                    ),
+                    "symbolic_state_gt_fraction": float(
+                        symbolic_mode_counts[0].float()
+                        / symbolic_mode_counts.sum().clamp_min(1)
+                    ),
+                    "symbolic_state_corrupt_fraction": float(
+                        symbolic_mode_counts[1].float()
+                        / symbolic_mode_counts.sum().clamp_min(1)
+                    ),
+                    "symbolic_state_predicted_fraction": float(
+                        symbolic_mode_counts[2].float()
+                        / symbolic_mode_counts.sum().clamp_min(1)
+                    ),
+                }
+                last_time = now
+                with log_path.open("a") as stream:
+                    stream.write(json.dumps(metrics) + "\n")
+                if rank == 0:
+                    print(json.dumps(metrics), flush=True)
+                    if writer is not None:
+                        for key in (
+                            "loss",
+                            "ce",
+                            "distill",
+                            "active_note_loss",
+                            "reentry_loss",
+                            "grad_norm",
+                            "lr",
+                            "truncated_chunk_fraction",
+                            "dense_chunk_fraction",
+                            "target_tokens_p95",
+                            "target_tokens_p99",
+                            "augmentation_fraction",
+                            "remix_fraction",
+                            "pitch_shift_fraction",
+                            "symbolic_state_gt_fraction",
+                            "symbolic_state_corrupt_fraction",
+                            "symbolic_state_predicted_fraction",
+                        ):
+                            writer.add_scalar(key, metrics[key], global_step)
+
+            if global_step % config.save_every == 0:
+                _save_checkpoint(
+                    wrapped=wrapped,
+                    raw_wrapper=raw_wrapper,
+                    optimizer=optimizer,
+                    scheduler=scheduler,
+                    config=config,
+                    output_dir=output_dir,
+                    global_step=global_step,
+                    stage_index=stage_index,
+                    stage_step=local_index + 1,
+                    manifest_hash=manifest_hash,
+                    taxonomy=taxonomy,
+                    rank=rank,
+                    context_draw_counts=stage_context_counts,
+                    source_sequence_sha256=source_sequence_hash,
+                )
+        resume_stage_step = 0
+
+    _save_checkpoint(
+        wrapped=wrapped,
+        raw_wrapper=raw_wrapper,
+        optimizer=optimizer,
+        scheduler=scheduler,
+        config=config,
+        output_dir=output_dir,
+        global_step=global_step,
+        stage_index=len(config.stages),
+        stage_step=0,
+        manifest_hash=manifest_hash,
+        taxonomy=taxonomy,
+        rank=rank,
+        context_draw_counts={},
+        source_sequence_sha256=source_sequence_hash,
+    )
+    if dist.is_initialized():
+        dist.barrier()
+        dist.destroy_process_group()
+    if writer is not None:
+        writer.close()
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", required=True)
+    parser.add_argument("--seed", type=int)
+    parser.add_argument("--output-dir")
+    parser.add_argument("--name")
+    parser.add_argument("--preflight-steps", type=int)
+    parser.add_argument("--context-chunks", type=int, choices=(1, 2, 4, 8))
+    parser.add_argument("--global-batch-audio-seconds", type=int)
+    args = parser.parse_args()
+    from muscriptor.training.config import load_experiment_config
+
+    config = load_experiment_config(args.config)
+    if args.seed is not None and args.seed != config.seed and not args.output_dir:
+        parser.error("--seed overrides require a distinct --output-dir")
+    overrides = {}
+    if args.seed is not None:
+        overrides["seed"] = args.seed
+    if args.output_dir is not None:
+        overrides["output_dir"] = args.output_dir
+    if args.name is not None:
+        overrides["name"] = args.name
+    if args.global_batch_audio_seconds is not None:
+        overrides["global_batch_audio_seconds"] = args.global_batch_audio_seconds
+    config = replace(config, **overrides)
+    if args.preflight_steps is not None or args.context_chunks is not None:
+        if args.preflight_steps is None or args.context_chunks is None:
+            parser.error("preflight requires both --preflight-steps and --context-chunks")
+        if args.preflight_steps <= 0:
+            parser.error("--preflight-steps must be positive")
+        if args.output_dir is None:
+            parser.error("preflight requires a distinct --output-dir")
+        source_stage = config.stages[0]
+        preflight_stage = replace(
+            source_stage,
+            name=f"preflight_{args.context_chunks * 5}s",
+            steps=args.preflight_steps,
+            context_chunks=args.context_chunks,
+            context_distribution={},
+            datasets=["slakh2100_redux"],
+            dataset_weights={},
+            augmentation=False,
+        )
+        config = replace(config, stages=[preflight_stage], resume=None)
+    train(config)
+
+
+if __name__ == "__main__":
+    main()

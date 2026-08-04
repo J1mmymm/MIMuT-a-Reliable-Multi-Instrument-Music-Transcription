@@ -375,4 +375,940 @@ def aggregate_seeds(
         raise typer.BadParameter("formal seed aggregation is audio-only")
     if any(run.get("seed_verified") is not True for run in prediction_runs):
         raise typer.BadParameter(
-            "formal seed aggregation requires checkpoint-verified seed meë¯z¶‰žËkºwµç@€€€€€€€€€€€€€€€€€€€‰•ÉÉ½ÈˆèÍÑÈ¡•ÉÉ½È¤¹ÍÁ±¥Ñ±¥¹•Ì ¥lÁt°(€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€¤(€€€€€€€€€€€½¹Ñ¥¹Õ”(€€€€€€€ÍÑ…‰±•}ÍÕµµ…Éä€ôì(€€€€€€€€€€€­•äè}ÍÑ…‰±•}ÍÕµµ…Éä¡É½Ým­•åt™½ÈÉ½Ü¥¸ÍÑ…‰±”¤(€€€€€€€€€€€™½È­•ä¥¸€ (€€€€€€€€€€€€€€€€‰•±…ÁÍ•‘}Í•½¹‘Ìˆ°(€€€€€€€€€€€€€€€€‰É•…±}Ñ¥µ•}™…Ñ½Èˆ°(€€€€€€€€€€€€€€€€‰…Õ‘¥½}Í•½¹‘Í}Á•É}Í•½¹ˆ°(€€€€€€€€€€€€€€€€‰Á•…­}µ•µ½Éå}…±±½…Ñ•‘}‰åÑ•Ìˆ°(€€€€€€€€€€€€€€€€‰Á•…­}µ•µ½Éå}É•Í•ÉÙ•‘}‰åÑ•Ìˆ°(€€€€€€€€€€€€€€€€‰µ•…¹}¡Õ¹­}±…Ñ•¹å}Í•½¹‘Ìˆ°(€€€€€€€€€€€€¤(€€€€€€€ô(€€€€€€€ÍÑ…Ñ•}‰åÑ•Ì€ôl(€€€€€€€€€€€™±½…Ð ¡É½Ü¹•Ð ‰ÍÑÉ•…µ¥¹}ÍÑ…Ñ”ˆ¤½Èíô¤¹•Ð ‰‰åÑ•Ìˆ°€À¤¤™½ÈÉ½Ü¥¸ÍÑ…‰±”(€€€€€€€t(€€€€€€€…¡•}±•¹Ñ¡Ì€ôl(€€€€€€€€€€€™±½…Ð (€€€€€€€€€€€€€€€µ…à (€€€€€€€€€€€€€€€€€€€€¡É½Ü¹•Ð ‰ÍÑÉ•…µ¥¹}ÍÑ…Ñ”ˆ¤½Èíô¤¹•Ð ‰±½…±}…¡•}±•¹Ñ¡Ìˆ°mt¤(€€€€€€€€€€€€€€€€€€€½ÈlÁt(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€¤(€€€€€€€€€€€™½ÈÉ½Ü¥¸ÍÑ…‰±”(€€€€€€€t(€€€€€€€ÍÑ…‰±•}ÍÕµµ…Éål‰ÍÑÉ•…µ¥¹}ÍÑ…Ñ•}‰åÑ•Ì‰t€ô}ÍÑ…‰±•}ÍÕµµ…Éä¡ÍÑ…Ñ•}‰åÑ•Ì¤(€€€€€€€ÍÑ…‰±•}ÍÕµµ…Éål‰µ…á¥µÕµ}±½…±}…¡•}±•¹Ñ ‰t€ô}ÍÑ…‰±•}ÍÕµµ…Éä¡…¡•}±•¹Ñ¡Ì¤(€€€€€€€™½ÈÁÉ½™¥±•}­•ä¥¸€ (€€€€€€€€€€€€‰ÁÉ•™¥á}ÁÉ•™¥±±}Í•½¹‘Ìˆ°(€€€€€€€€€€€€‰…ÕÑ½É•É•ÍÍ¥Ù•}‘•½‘•}Í•½¹‘Ìˆ°(€€€€€€€€€€€€‰ÁÉ•™¥á}ÁÉ•™¥±±}Ñ½­•¹Ìˆ°(€€€€€€€€€€€€‰…ÕÑ½É•É•ÍÍ¥Ù•}‘•½‘•}Ñ½­•¹Ìˆ°(€€€€€€€€€€€€‰•¹•É…Ñ•‘}ÍÑ•ÁÌˆ°(€€€€€€€€¤è(€€€€€€€€€€€Ù…±Õ•Ì€ôl(€€€€€€€€€€€€€€€™±½…Ð ¡É½Ü¹•Ð ‰•¹•É…Ñ¥½¹}ÁÉ½™¥±”ˆ¤½Èíô¤¹•Ð¡ÁÉ½™¥±•}­•ä°€À¤¤(€€€€€€€€€€€€€€€™½ÈÉ½Ü¥¸ÍÑ…‰±”(€€€€€€€€€€€t(€€€€€€€€€€€ÍÑ…‰±•}ÍÕµµ…ÉåmÁÉ½™¥±•}­•åt€ô}ÍÑ…‰±•}ÍÕµµ…Éä¡Ù…±Õ•Ì¤((€€€€€€€‘•˜ÁÉ½™¥±•}É…Ñ”¡É½Üè‘¥Ð°Ñ½­•¹}­•äèÍÑÈ°Í•½¹‘Í}­•äèÍÑÈ¤€´ø™±½…Ðè(€€€€€€€€€€€ÁÉ½™¥±”€ôÉ½Ü¹•Ð ‰•¹•É…Ñ¥½¹}ÁÉ½™¥±”ˆ¤½Èíô(€€€€€€€€€€€Í•½¹‘Í}Ù…±Õ”€ô™±½…Ð¡ÁÉ½™¥±”¹•Ð¡Í•½¹‘Í}­•ä°€À¤¤(€€€€€€€€€€€É•ÑÕÉ¸€ (€€€€€€€€€€€€€€€™±½…Ð¡ÁÉ½™¥±”¹•Ð¡Ñ½­•¹}­•ä°€À¤¤€¼Í•½¹‘Í}Ù…±Õ”(€€€€€€€€€€€€€€€¥˜Í•½¹‘Í}Ù…±Õ”(€€€€€€€€€€€€€€€•±Í”€À¸À(€€€€€€€€€€€€¤((€€€€€€€ÍÑ…‰±•}ÍÕµµ…Éål‰ÁÉ•™¥á}ÁÉ•™¥±±}Ñ½­•¹Í}Á•É}Í•½¹‰t€ô}ÍÑ…‰±•}ÍÕµµ…Éä (€€€€€€€€€€€ÁÉ½™¥±•}É…Ñ” (€€€€€€€€€€€€€€€É½Ü°€‰ÁÉ•™¥á}ÁÉ•™¥±±}Ñ½­•¹Ìˆ°€‰ÁÉ•™¥á}ÁÉ•™¥±±}Í•½¹‘Ìˆ(€€€€€€€€€€€€¤(€€€€€€€€€€€™½ÈÉ½Ü¥¸ÍÑ…‰±”(€€€€€€€€¤(€€€€€€€ÍÑ…‰±•}ÍÕµµ…Éål‰…ÕÑ½É•É•ÍÍ¥Ù•}‘•½‘•}Ñ½­•¹Í}Á•É}Í•½¹‰t€ô}ÍÑ…‰±•}ÍÕµµ…Éä (€€€€€€€€€€€ÁÉ½™¥±•}É…Ñ” (€€€€€€€€€€€€€€€É½Ü°(€€€€€€€€€€€€€€€€‰…ÕÑ½É•É•ÍÍ¥Ù•}‘•½‘•}Ñ½­•¹Ìˆ°(€€€€€€€€€€€€€€€€‰…ÕÑ½É•É•ÍÍ¥Ù•}‘•½‘•}Í•½¹‘Ìˆ°(€€€€€€€€€€€€¤(€€€€€€€€€€€™½ÈÉ½Ü¥¸ÍÑ…‰±”(€€€€€€€€¤(€€€€€€€É½ÝÌ¹…ÁÁ•¹ (€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€‰±•¹Ñ¡}±…‰•°ˆè±…‰•°°(€€€€€€€€€€€€€€€€‰…Õ‘¥½}Í•½¹‘ÌˆèÍ•½¹‘Ì°(€€€€€€€€€€€€€€€€‰Í½ÕÉ•}µ½‘”ˆè€ ‰™Õ±°ˆ¥˜±…‰•°€ôô€‰™Õ±°ˆ•±Í”€‰É•Á•…Ñ}½É}ÑÉ¥µ}ÁÉ•™¥àˆ¤°(€€€€€€€€€€€€€€€€‰ÍÑ…ÑÕÌˆè€‰½¬ˆ°(€€€€€€€€€€€€€€€€‰½±‘}ÉÕ¸ˆè½±°(€€€€€€€€€€€€€€€€‰ÍÑ…‰±•}ÉÕ¹ÌˆèÍÑ…‰±”°(€€€€€€€€€€€€€€€€‰ÍÑ…‰±•}ÍÕµµ…ÉäˆèÍÑ…‰±•}ÍÕµµ…Éä°(€€€€€€€€€€€ô(€€€€€€€€¤((€€€‘•Ù¥•}¥¹™¼€ôì‰É•ÅÕ•ÍÑ•ˆè‘•Ù¥”°€‰Ñ½É ˆèÑ½É ¹}}Ù•ÉÍ¥½¹}}ô(€€€¥˜Ñ½É ¹Õ‘„¹¥Í}…Ù…¥±…‰±” ¤…¹Ñ½É ¹‘•Ù¥”¡‘•Ù¥”¤¹ÑåÁ”€ôô€‰Õ‘„ˆè(€€€€€€€‘•Ù¥•}¥¹™¼¹ÕÁ‘…Ñ” (€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€‰¹…µ”ˆèÑ½É ¹Õ‘„¹•Ñ}‘•Ù¥•}¹…µ”¡Ñ½É ¹‘•Ù¥”¡‘•Ù¥”¤¤°(€€€€€€€€€€€€€€€€‰Õ‘„ˆèÑ½É ¹Ù•ÉÍ¥½¸¹Õ‘„°(€€€€€€€€€€€ô(€€€€€€€€¤(€€€½É•}µ½‘•°€ô•Ñ…ÑÑÈ¡µ½‘•°°€‰}µ½‘•°ˆ°9½¹”¤(€€€Á…É…µ•Ñ•É}½Õ¹Ð€ô€ (€€€€€€€ÍÕ´¡Á…É…µ•Ñ•È¹¹Õµ•° ¤™½ÈÁ…É…µ•Ñ•È¥¸½É•}µ½‘•°¹Á…É…µ•Ñ•ÉÌ ¤¤(€€€€€€€¥˜½É•}µ½‘•°¥Ì¹½Ð9½¹”(€€€€€€€•±Í”9½¹”(€€€€¤(€€€Á…å±½…€ôì(€€€€€€€€‰ÁÉ½Ñ½½°ˆèì(€€€€€€€€€€€€‰µ½‘•°ˆèµ½‘•±}Á…Ñ °(€€€€€€€€€€€€‰µ½‘•±}Ý•¥¡ÑÍ}Í¡„ÈÔØˆè}±½…±}Ý•¥¡ÑÍ}Í¡„ÈÔØ¡µ½‘•±}Á…Ñ ¤°(€€€€€€€€€€€€‰µ½‘•±}Á…É…µ•Ñ•É}½Õ¹ÐˆèÁ…É…µ•Ñ•É}½Õ¹Ð°(€€€€€€€€€€€€‰…Õ‘¥¼ˆèÍÑÈ¡…Õ‘¥¼¤°(€€€€€€€€€€€€‰Í…µÁ±•}É…Ñ”ˆè€ÄÙ|ÀÀÀ°(€€€€€€€€€€€€‰‰…Ñ¡}Í¥é”ˆè€Ä°(€€€€€€€€€€€€‰Ý•¥¡Ñ}‘ÑåÁ”ˆè‘ÑåÁ”°(€€€€€€€€€€€€‰Õ‘…}…ÕÑ½…ÍÑ}‘ÑåÁ”ˆè€ (€€€€€€€€€€€€€€€€‰™±½…ÐÄØˆ(€€€€€€€€€€€€€€€¥˜Ñ½É ¹Õ‘„¹¥Í}…Ù…¥±…‰±” ¤…¹Ñ½É ¹‘•Ù¥”¡‘•Ù¥”¤¹ÑåÁ”€ôô€‰Õ‘„ˆ(€€€€€€€€€€€€€€€•±Í”9½¹”(€€€€€€€€€€€€¤°(€€€€€€€€€€€€‰‘•½‘¥¹œˆèì‰Í…µÁ±¥¹œˆè…±Í”°€‰‰•…µ}Í¥é”ˆè€Åô°(€€€€€€€€€€€€‰±½¹}½¹Ñ•áÐˆè±½¹}½¹Ñ•áÐ°(€€€€€€€€€€€€‰ÁÉ•±Õ‘•}™½É¥¹œˆèÁÉ•±Õ‘•}™½É¥¹œ°(€€€€€€€€€€€€‰ÁÉ•™¥±±}µ½‘”ˆè•Ñ…ÑÑÈ (€€€€€€€€€€€€€€€•Ñ…ÑÑÈ¡½É•}µ½‘•°°€‰µ½‘•±}½¹™¥œˆ°9½¹”¤°€‰ÁÉ•™¥±±}µ½‘”ˆ°9½¹”(€€€€€€€€€€€€¤°(€€€€€€€€€€€€‰½É…±•}¥¹ÍÑÉÕµ•¹ÑÌˆè…±Í”°(€€€€€€€€€€€€‰Ý…ÉµÕÁ}ÉÕ¹ÌˆèÝ…ÉµÕÁ}ÉÕ¹Ì°(€€€€€€€€€€€€‰ÍÑ…‰±•}É•Á•…ÑÌˆèÉ•Á•…ÑÌ°(€€€€€€€€€€€€‰‘•Ù¥”ˆè‘•Ù¥•}¥¹™¼°(€€€€€€€ô°(€€€€€€€€‰±•¹Ñ¡ÌˆèÉ½ÝÌ°(€€€ô(€€€½ÕÑÁÕÐ¹Á…É•¹Ð¹µ­‘¥È¡Á…É•¹ÑÌõQÉÕ”°•á¥ÍÑ}½¬õQÉÕ”¤(€€€½ÕÑÁÕÐ¹ÝÉ¥Ñ•}Ñ•áÐ¡©Í½¸¹‘ÕµÁÌ¡Á…å±½…°¥¹‘•¹ÐôÈ¤€¬€‰q¸ˆ°•¹½‘¥¹œô‰ÕÑ˜´àˆ¤(()‘•˜}‰•¹¡µ…É­}É½ÝÌ¡Á…å±½…è‘¥Ð¤€´ø‘¥Ñm™±½…Ð°‘¥Ñtè(€€€É•ÑÕÉ¸ì(€€€€€€€™±½…Ð¡É½Ýl‰…Õ‘¥½}Í•½¹‘Ì‰t¤èÉ½Ü(€€€€€€€™½ÈÉ½Ü¥¸Á…å±½…¹•Ð ‰±•¹Ñ¡Ìˆ°mt¤(€€€€€€€¥˜É½Ü¹•Ð ‰±•¹Ñ¡}±…‰•°ˆ¤€„ô€‰™Õ±°ˆ(€€€ô(()‘•˜}É½ÝÑ ¡™¥ÉÍÐè‘¥Ð°±…ÍÐè‘¥Ð°µ•ÑÉ¥ŒèÍÑÈ¤€´ø™±½…Ðð9½¹”è(€€€¥¹¥Ñ¥…°€ô™±½…Ð¡™¥ÉÍÑl‰ÍÑ…‰±•}ÍÕµµ…Éä‰umµ•ÑÉ¥ul‰µ•…¸‰t¤(€€€™¥¹…°€ô™±½…Ð¡±…ÍÑl‰ÍÑ…‰±•}ÍÕµµ…Éä‰umµ•ÑÉ¥ul‰µ•…¸‰t¤(€€€É•ÑÕÉ¸™¥¹…°€¼¥¹¥Ñ¥…°¥˜¥¹¥Ñ¥…°€ø€À•±Í”9½¹”(()‘•˜}¡Õ¹­}ÁÉ•™¥±±}…Ñ” (€€€‰…Í•±¥¹•}Á…å±½…è‘¥Ð°(€€€…¹‘¥‘…Ñ•}Á…å±½…è‘¥Ð°(€€€‰…Í•±¥¹•}É½ÝÌè‘¥Ñm™±½…Ð°‘¥Ñt°(€€€…¹‘¥‘…Ñ•}É½ÝÌè‘¥Ñm™±½…Ð°‘¥Ñt°(€€€€¨°(€€€µ¥¹¥µÕµ}ÍÁ••‘ÕÀè™±½…Ð€ô€Ä¸ÈÔ°(¤€´ø‘¥Ðè(€€€€ˆˆ‰Ù…±Õ…Ñ”…ÉÉ¥•µÁÉ•™¥àÍÁ••…Ð€Ô¼ÄÀ¼ÈÀ¼ÐÀÍ•½¹‘Ì½˜ÁÉ¥½ÈÍÑ…Ñ”¸ˆˆˆ((€€€‰…Í•±¥¹•}ÁÉ½Ñ½½°€ô‰…Í•±¥¹•}Á…å±½…¹•Ð ‰ÁÉ½Ñ½½°ˆ°íô¤(€€€…¹‘¥‘…Ñ•}ÁÉ½Ñ½½°€ô…¹‘¥‘…Ñ•}Á…å±½…¹•Ð ‰ÁÉ½Ñ½½°ˆ°íô¤(€€€Í…µ•}Ý•¥¡ÑÌ€ô€ (€€€€€€€‰…Í•±¥¹•}ÁÉ½Ñ½½°¹•Ð ‰µ½‘•±}Ý•¥¡ÑÍ}Í¡„ÈÔØˆ¤¥Ì¹½Ð9½¹”(€€€€€€€…¹‰…Í•±¥¹•}ÁÉ½Ñ½½°¹•Ð ‰µ½‘•±}Ý•¥¡ÑÍ}Í¡„ÈÔØˆ¤(€€€€€€€€ôô…¹‘¥‘…Ñ•}ÁÉ½Ñ½½°¹•Ð ‰µ½‘•±}Ý•¥¡ÑÍ}Í¡„ÈÔØˆ¤(€€€€¤(€€€µ½‘•Í}½¬€ô‰…Í•±¥¹•}ÁÉ½Ñ½½°¹•Ð ‰ÁÉ•™¥±±}µ½‘”ˆ¤€ôô€‰ÍÑ•Àˆ…¹€ (€€€€€€€…¹‘¥‘…Ñ•}ÁÉ½Ñ½½°¹•Ð ‰ÁÉ•™¥±±}µ½‘”ˆ¤¥¸ì‰…ÕÑ¼ˆ°€‰¡Õ¹¬‰ô(€€€€¤(€€€¥˜¹½ÐÍ…µ•}Ý•¥¡ÑÌ½È¹½Ðµ½‘•Í}½¬è(€€€€€€€É•ÑÕÉ¸ì(€€€€€€€€€€€€‰ÍÑ…ÑÕÌˆè€‰¹½Ñ}…ÁÁ±¥…‰±”ˆ°(€€€€€€€€€€€€‰É•…Í½¸ˆè€ (€€€€€€€€€€€€€€€€‰É•ÅÕ¥É•Ì¥‘•¹Ñ¥…°±½…°Ý•¥¡ÑÌ°ÍÑ•À‰…Í•±¥¹”°…¹…ÕÑ¼½¡Õ¹¬…¹‘¥‘…Ñ”ˆ(€€€€€€€€€€€€¤°(€€€€€€€€€€€€‰Á…ÍÍ•ˆè…±Í”°(€€€€€€€ô((€€€€ŒQ¼Ñ¥µ”Ñ¡”ÁÉ•™¥à…™Ñ•È8Í•½¹‘Ì½˜…ÉÉ¥•ÍÑ…Ñ”°¥¹ÍÁ•Ð¡Õ¹¬8¼Ô(€€€€Œ¥¸„ÉÕ¸±½¹œ•¹½Õ Ñ¼½¹Ñ…¥¸Ñ¡”™½±±½Ý¥¹œ¡Õ¹¬¸(€€€ÁÉ½‰•Ì€ôìÔ¸Àè€ ÄÀ¸À°€Ä¤°€ÄÀ¸Àè€ ÈÀ¸À°€È¤°€ÈÀ¸Àè€ ÐÀ¸À°€Ð¤°€ÐÀ¸Àè€ àÀ¸À°€à¥ô(€€€É½ÝÌ€ômt(€€€™½È½¹Ñ•áÑ}Í•½¹‘Ì°€¡…Õ‘¥½}Í•½¹‘Ì°¡Õ¹­}¥¹‘•à¤¥¸ÁÉ½‰•Ì¹¥Ñ•µÌ ¤è(€€€€€€€‰…Í•±¥¹•}É½Ü€ô‰…Í•±¥¹•}É½ÝÌ¹•Ð¡…Õ‘¥½}Í•½¹‘Ì¤(€€€€€€€…¹‘¥‘…Ñ•}É½Ü€ô…¹‘¥‘…Ñ•}É½ÝÌ¹•Ð¡…Õ‘¥½}Í•½¹‘Ì¤(€€€€€€€¥˜€ (€€€€€€€€€€€‰…Í•±¥¹•}É½Ü¥Ì9½¹”(€€€€€€€€€€€½È…¹‘¥‘…Ñ•}É½Ü¥Ì9½¹”(€€€€€€€€€€€½È‰…Í•±¥¹•}É½Ü¹•Ð ‰ÍÑ…ÑÕÌˆ°€‰½¬ˆ¤€„ô€‰½¬ˆ(€€€€€€€€€€€½È…¹‘¥‘…Ñ•}É½Ü¹•Ð ‰ÍÑ…ÑÕÌˆ°€‰½¬ˆ¤€„ô€‰½¬ˆ(€€€€€€€€¤è(€€€€€€€€€€€É½ÝÌ¹…ÁÁ•¹ (€€€€€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€€€€€‰½¹Ñ•áÑ}Í•½¹‘Ìˆè½¹Ñ•áÑ}Í•½¹‘Ì°(€€€€€€€€€€€€€€€€€€€€‰ÍÑ…ÑÕÌˆè€‰µ¥ÍÍ¥¹}½É}½½´ˆ°(€€€€€€€€€€€€€€€€€€€€‰Á…ÍÍ•ˆè…±Í”°(€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€¤(€€€€€€€€€€€½¹Ñ¥¹Õ”((€€€€€€€‘•˜ÁÉ•™¥á}Ñ¥µ•Ì¡É½Üè‘¥Ð¤€´ø±¥ÍÑm™±½…Ñtè(€€€€€€€€€€€É•ÍÕ±Ð€ômt(€€€€€€€€€€€™½ÈÉÕ¸¥¸É½Ü¹•Ð ‰ÍÑ…‰±•}ÉÕ¹Ìˆ°mt¤è(€€€€€€€€€€€€€€€¡Õ¹­Ì€ô€¡ÉÕ¸¹•Ð ‰•¹•É…Ñ¥½¹}ÁÉ½™¥±”ˆ¤½Èíô¤¹•Ð ‰¡Õ¹­Ìˆ°mt¤(€€€€€€€€€€€€€€€¥˜±•¸¡¡Õ¹­Ì¤€ø¡Õ¹­}¥¹‘•àè(€€€€€€€€€€€€€€€€€€€É•ÍÕ±Ð¹…ÁÁ•¹ (€€€€€€€€€€€€€€€€€€€€€€€™±½…Ð¡¡Õ¹­Ím¡Õ¹­}¥¹‘•át¹•Ð ‰ÁÉ•™¥á}ÁÉ•™¥±±}Í•½¹‘Ìˆ°€À¤¤(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€É•ÑÕÉ¸É•ÍÕ±Ð((€€€€€€€‰…Í•±¥¹•}Ñ¥µ•Ì€ôÁÉ•™¥á}Ñ¥µ•Ì¡‰…Í•±¥¹•}É½Ü¤(€€€€€€€…¹‘¥‘…Ñ•}Ñ¥µ•Ì€ôÁÉ•™¥á}Ñ¥µ•Ì¡…¹‘¥‘…Ñ•}É½Ü¤(€€€€€€€‰…Í•±¥¹•}¡…Í¡•Ì€ôì(€€€€€€€€€€€ÉÕ¸¹•Ð ‰Ñ½­•¹}ÍÑÉ•…µ}Í¡„ÈÔØˆ¤(€€€€€€€€€€€™½ÈÉÕ¸¥¸‰…Í•±¥¹•}É½Ü¹•Ð ‰ÍÑ…‰±•}ÉÕ¹Ìˆ°mt¤(€€€€€€€ô(€€€€€€€…¹‘¥‘…Ñ•}¡…Í¡•Ì€ôì(€€€€€€€€€€€ÉÕ¸¹•Ð ‰Ñ½­•¹}ÍÑÉ•…µ}Í¡„ÈÔØˆ¤(€€€€€€€€€€€™½ÈÉÕ¸¥¸…¹‘¥‘…Ñ•}É½Ü¹•Ð ‰ÍÑ…‰±•}ÉÕ¹Ìˆ°mt¤(€€€€€€€ô(€€€€€€€Ñ½­•¹Í}µ…Ñ €ô€ (€€€€€€€€€€€9½¹”¹½Ð¥¸‰…Í•±¥¹•}¡…Í¡•Ì(€€€€€€€€€€€…¹±•¸¡‰…Í•±¥¹•}¡…Í¡•Ì¤€ôô€Ä(€€€€€€€€€€€…¹‰…Í•±¥¹•}¡…Í¡•Ì€ôô…¹‘¥‘…Ñ•}¡…Í¡•Ì(€€€€€€€€¤(€€€€€€€¥˜¹½Ð‰…Í•±¥¹•}Ñ¥µ•Ì½È¹½Ð…¹‘¥‘…Ñ•}Ñ¥µ•Ìè(€€€€€€€€€€€ÍÁ••‘ÕÀ€ô9½¹”(€€€€€€€•±Í”è(€€€€€€€€€€€…¹‘¥‘…Ñ•}µ•‘¥…¸€ôÍÑ…Ñ¥ÍÑ¥Ì¹µ•‘¥…¸¡…¹‘¥‘…Ñ•}Ñ¥µ•Ì¤(€€€€€€€€€€€ÍÁ••‘ÕÀ€ô€ (€€€€€€€€€€€€€€€ÍÑ…Ñ¥ÍÑ¥Ì¹µ•‘¥…¸¡‰…Í•±¥¹•}Ñ¥µ•Ì¤€¼…¹‘¥‘…Ñ•}µ•‘¥…¸(€€€€€€€€€€€€€€€¥˜…¹‘¥‘…Ñ•}µ•‘¥…¸€ø€À(€€€€€€€€€€€€€€€•±Í”9½¹”(€€€€€€€€€€€€¤(€€€€€€€Á…ÍÍ•€ô‰½½° (€€€€€€€€€€€ÍÁ••‘ÕÀ¥Ì¹½Ð9½¹”…¹ÍÁ••‘ÕÀ€øôµ¥¹¥µÕµ}ÍÁ••‘ÕÀ…¹Ñ½­•¹Í}µ…Ñ (€€€€€€€€¤(€€€€€€€É½ÝÌ¹…ÁÁ•¹ (€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€‰½¹Ñ•áÑ}Í•½¹‘Ìˆè½¹Ñ•áÑ}Í•½¹‘Ì°(€€€€€€€€€€€€€€€€‰ÍÑ…ÑÕÌˆè€‰½¬ˆ°(€€€€€€€€€€€€€€€€‰ÍÑ•Á}ÁÉ•™¥á}µ•‘¥…¹}Í•½¹‘Ìˆè€ (€€€€€€€€€€€€€€€€€€€ÍÑ…Ñ¥ÍÑ¥Ì¹µ•‘¥…¸¡‰…Í•±¥¹•}Ñ¥µ•Ì¤¥˜‰…Í•±¥¹•}Ñ¥µ•Ì•±Í”9½¹”(€€€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€€€€€‰¡Õ¹­}ÁÉ•™¥á}µ•‘¥…¹}Í•½¹‘Ìˆè€ (€€€€€€€€€€€€€€€€€€€ÍÑ…Ñ¥ÍÑ¥Ì¹µ•‘¥…¸¡…¹‘¥‘…Ñ•}Ñ¥µ•Ì¤¥˜…¹‘¥‘…Ñ•}Ñ¥µ•Ì•±Í”9½¹”(€€€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€€€€€‰ÍÁ••‘ÕÀˆèÍÁ••‘ÕÀ°(€€€€€€€€€€€€€€€€‰‘•½‘•}Ñ½­•¹Í}¥‘•¹Ñ¥…°ˆèÑ½­•¹Í}µ…Ñ °(€€€€€€€€€€€€€€€€‰Á…ÍÍ•ˆèÁ…ÍÍ•°(€€€€€€€€€€€ô(€€€€€€€€¤(€€€É•ÑÕÉ¸ì(€€€€€€€€‰ÍÑ…ÑÕÌˆè€‰½¬ˆ°(€€€€€€€€‰µ¥¹¥µÕµ}ÍÁ••‘ÕÀˆèµ¥¹¥µÕµ}ÍÁ••‘ÕÀ°(€€€€€€€€‰É•ÅÕ¥É•‘}½¹Ñ•áÑ}Í•½¹‘ÌˆèÍ½ÉÑ•¡ÁÉ½‰•Ì¤°(€€€€€€€€‰ÁÉ½‰•ÌˆèÉ½ÝÌ°(€€€€€€€€‰Á…ÍÍ•ˆè…±°¡É½Ýl‰Á…ÍÍ•‰t™½ÈÉ½Ü¥¸É½ÝÌ¤°(€€€ô(()…ÁÀ¹½µµ…¹ ‰½µÁ…É”µ•™™¥¥•¹äˆ¤)‘•˜½µÁ…É•}•™™¥¥•¹ä (€€€‰…Í•±¥¹”è¹¹½Ñ…Ñ•‘mA…Ñ °ÑåÁ•È¹=ÁÑ¥½¸¡•á¥ÍÑÌõQÉÕ”°‘¥É}½­…äõ…±Í”¥t°(€€€…¹‘¥‘…Ñ”è¹¹½Ñ…Ñ•‘mA…Ñ °ÑåÁ•È¹=ÁÑ¥½¸¡•á¥ÍÑÌõQÉÕ”°‘¥É}½­…äõ…±Í”¥t°(€€€½ÕÑÁÕÐè¹¹½Ñ…Ñ•‘mA…Ñ °ÑåÁ•È¹=ÁÑ¥½¸ ˆ´µ½ÕÑÁÕÐˆ°€ˆµ¼ˆ¥t°(¤€´ø9½¹”è(€€€€ˆˆ‰½µÁ…É”µ…Ñ¡•±•¹Ñ µÍ…±¥¹œÕÉÙ•Ì…¹ÁÉ•Í•ÉÙ”==4½‰Í•ÉÙ…Ñ¥½¹Ì¸ˆˆˆ((€€€‰…Í•±¥¹•}Á…å±½…€ô©Í½¸¹±½…‘Ì¡‰…Í•±¥¹”¹É•…‘}Ñ•áÐ ¤¤(€€€…¹‘¥‘…Ñ•}Á…å±½…€ô©Í½¸¹±½…‘Ì¡…¹‘¥‘…Ñ”¹É•…‘}Ñ•áÐ ¤¤(€€€‰…Í•±¥¹•}ÁÉ½Ñ½½°€ô‰…Í•±¥¹•}Á…å±½…¹•Ð ‰ÁÉ½Ñ½½°ˆ°íô¤(€€€…¹‘¥‘…Ñ•}ÁÉ½Ñ½½°€ô…¹‘¥‘…Ñ•}Á…å±½…¹•Ð ‰ÁÉ½Ñ½½°ˆ°íô¤(€€€µ…Ñ¡•‘}™¥•±‘Ì€ô€ (€€€€€€€€‰…Õ‘¥¼ˆ°(€€€€€€€€‰Í…µÁ±•}É…Ñ”ˆ°(€€€€€€€€‰‰…Ñ¡}Í¥é”ˆ°(€€€€€€€€‰Ý•¥¡Ñ}‘ÑåÁ”ˆ°(€€€€€€€€‰Õ‘…}…ÕÑ½…ÍÑ}‘ÑåÁ”ˆ°(€€€€€€€€‰‘•½‘¥¹œˆ°(€€€€€€€€‰±½¹}½¹Ñ•áÐˆ°(€€€€€€€€‰ÁÉ•±Õ‘•}™½É¥¹œˆ°(€€€€€€€€‰Ý…ÉµÕÁ}ÉÕ¹Ìˆ°(€€€€€€€€‰ÍÑ…‰±•}É•Á•…ÑÌˆ°(€€€€€€€€‰‘•Ù¥”ˆ°(€€€€¤(€€€µ¥Íµ…Ñ¡•Ì€ôl(€€€€€€€™¥•±(€€€€€€€™½È™¥•±¥¸µ…Ñ¡•‘}™¥•±‘Ì(€€€€€€€¥˜‰…Í•±¥¹•}ÁÉ½Ñ½½°¹•Ð¡™¥•±¤€„ô…¹‘¥‘…Ñ•}ÁÉ½Ñ½½°¹•Ð¡™¥•±¤(€€€t(€€€¥˜µ¥Íµ…Ñ¡•Ìè(€€€€€€€É…¥Í”ÑåÁ•È¹	…‘A…É…µ•Ñ•È (€€€€€€€€€€€˜‰•™™¥¥•¹äÁÉ½Ñ½½±Ì‘¥™™•È½¸µ…Ñ¡•™¥•±‘Ìèíµ¥Íµ…Ñ¡•Íôˆ(€€€€€€€€¤((€€€‰…Í•±¥¹•}É½ÝÌ€ô}‰•¹¡µ…É­}É½ÝÌ¡‰…Í•±¥¹•}Á…å±½…¤(€€€…¹‘¥‘…Ñ•}É½ÝÌ€ô}‰•¹¡µ…É­}É½ÝÌ¡…¹‘¥‘…Ñ•}Á…å±½…¤(€€€¥˜‰…Í•±¥¹•}É½ÝÌ¹­•åÌ ¤€„ô…¹‘¥‘…Ñ•}É½ÝÌ¹­•åÌ ¤è(€€€€€€€É…¥Í”ÑåÁ•È¹	…‘A…É…µ•Ñ•È ‰•™™¥¥•¹ä‰•¹¡µ…É­ÌÕÍ”‘¥™™•É•¹Ð±•¹Ñ É¥‘Ìˆ¤(€€€ÍÕ•ÍÍ™Õ±}Í•½¹‘Ì€ôÍ½ÉÑ• (€€€€€€€Í•½¹‘Ì(€€€€€€€™½ÈÍ•½¹‘Ì¥¸‰…Í•±¥¹•}É½ÝÌ(€€€€€€€¥˜‰…Í•±¥¹•}É½ÝÍmÍ•½¹‘Ít¹•Ð ‰ÍÑ…ÑÕÌˆ°€‰½¬ˆ¤€ôô€‰½¬ˆ(€€€€€€€…¹…¹‘¥‘…Ñ•}É½ÝÍmÍ•½¹‘Ít¹•Ð ‰ÍÑ…ÑÕÌˆ°€‰½¬ˆ¤€ôô€‰½¬ˆ(€€€€¤(€€€½µÁ…É¥Í½¹Ì€ômt(€€€™½ÈÍ•½¹‘Ì¥¸ÍÕ•ÍÍ™Õ±}Í•½¹‘Ìè(€€€€€€€‰…Í•±¥¹•}É½Ü€ô‰…Í•±¥¹•}É½ÝÍmÍ•½¹‘Ít(€€€€€€€…¹‘¥‘…Ñ•}É½Ü€ô…¹‘¥‘…Ñ•}É½ÝÍmÍ•½¹‘Ít(€€€€€€€½µÁ…É¥Í½¹Ì¹…ÁÁ•¹ (€€€€€€€€€€€ì(€€€€€€€€€€€€€€€€‰…Õ‘¥½}Í•½¹‘ÌˆèÍ•½¹‘Ì°(€€€€€€€€€€€€€€€€‰‰…Í•±¥¹”ˆè‰…Í•±¥¹•}É½Ýl‰ÍÑ…‰±•}ÍÕµµ…Éä‰t°(€€€€€€€€€€€€€€€€‰…¹‘¥‘…Ñ”ˆè…¹‘¥‘…Ñ•}É½Ýl‰ÍÑ…‰±•}ÍÕµµ…Éä‰t°(€€€€€€€€€€€€€€€€‰…¹‘¥‘…Ñ•}½Ù•É}‰…Í•±¥¹”ˆèì(€€€€€€€€€€€€€€€€€€€µ•ÑÉ¥Œè€ (€€€€€€€€€€€€€€€€€€€€€€€™±½…Ð¡…¹‘¥‘…Ñ•}É½Ýl‰ÍÑ…‰±•}ÍÕµµ…Éä‰umµ•ÑÉ¥ul‰µ•…¸‰t¤(€€€€€€€€€€€€€€€€€€€€€€€€¼™±½…Ð¡‰…Í•±¥¹•}É½Ýl‰ÍÑ…‰±•}ÍÕµµ…Éä‰umµ•ÑÉ¥ul‰µ•…¸‰t¤(€€€€€€€€€€€€€€€€€€€€€€€¥˜™±½…Ð¡‰…Í•±¥¹•}É½Ýl‰ÍÑ…‰±•}ÍÕµµ…Éä‰umµ•ÑÉ¥ul‰µ•…¸‰t¤€ø€À(€€€€€€€€€€€€€€€€€€€€€€€•±Í”9½¹”(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€€€€€™½Èµ•ÑÉ¥Œ¥¸€ (€€€€€€€€€€€€€€€€€€€€€€€€‰•±…ÁÍ•‘}Í•½¹‘Ìˆ°(€€€€€€€€€€€€€€€€€€€€€€€€‰É•…±}Ñ¥µ•}™…Ñ½Èˆ°(€€€€€€€€€€€€€€€€€€€€€€€€‰Á•…­}µ•µ½Éå}…±±½…Ñ•‘}‰åÑ•Ìˆ°(€€€€€€€€€€€€€€€€€€€€€€€€‰Á•…­}µ•µ½Éå}É•Í•ÉÙ•‘}‰åÑ•Ìˆ°(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€ô°(€€€€€€€€€€€ô(€€€€€€€€¤((€€€Í…±¥¹œ€ô9½¹”(€€€¥˜±•¸¡ÍÕ•ÍÍ™Õ±}Í•½¹‘Ì¤€øô€Èè(€€€€€€€™¥ÉÍÑ}Í•½¹‘Ì°±…ÍÑ}Í•½¹‘Ì€ôÍÕ•ÍÍ™Õ±}Í•½¹‘ÍlÁt°ÍÕ•ÍÍ™Õ±}Í•½¹‘Íl´Åt(€€€€€€€‰…Í•±¥¹•}™¥ÉÍÐ°‰…Í•±¥¹•}±…ÍÐ€ô€ (€€€€€€€€€€€‰…Í•±¥¹•}É½ÝÍm™¥ÉÍÑ}Í•½¹‘Ít°(€€€€€€€€€€€‰…Í•±¥¹•}É½ÝÍm±…ÍÑ}Í•½¹‘Ít°(€€€€€€€€¤(€€€€€€€…¹‘¥‘…Ñ•}™¥ÉÍÐ°…¹‘¥‘…Ñ•}±…ÍÐ€ô€ (€€€€€€€€€€€…¹‘¥‘…Ñ•}É½ÝÍm™¥ÉÍÑ}Í•½¹‘Ít°(€€€€€€€€€€€…¹‘¥‘…Ñ•}É½ÝÍm±…ÍÑ}Í•½¹‘Ít°(€€€€€€€€¤(€€€€€€€‰…Í•±¥¹•}Ñ¥µ•}É½ÝÑ €ô}É½ÝÑ ¡‰…Í•±¥¹•}™¥ÉÍÐ°‰…Í•±¥¹•}±…ÍÐ°€‰•±…ÁÍ•‘}Í•½¹‘Ìˆ¤(€€€€€€€…¹‘¥‘…Ñ•}Ñ¥µ•}É½ÝÑ €ô}É½ÝÑ  (€€€€€€€€€€€…¹‘¥‘…Ñ•}™¥ÉÍÐ°…¹‘¥‘…Ñ•}±…ÍÐ°€‰•±…ÁÍ•‘}Í•½¹‘Ìˆ(€€€€€€€€¤(€€€€€€€‰…Í•±¥¹•}µ•µ½Éå}É½ÝÑ €ô}É½ÝÑ  (€€€€€€€€€€€‰…Í•±¥¹•}™¥ÉÍÐ°‰…Í•±¥¹•}±…ÍÐ°€‰Á•…­}µ•µ½Éå}…±±½…Ñ•‘}‰åÑ•Ìˆ(€€€€€€€€¤(€€€€€€€…¹‘¥‘…Ñ•}µ•µ½Éå}É½ÝÑ €ô}É½ÝÑ  (€€€€€€€€€€€…¹‘¥‘…Ñ•}™¥ÉÍÐ°…¹‘¥‘…Ñ•}±…ÍÐ°€‰Á•…­}µ•µ½Éå}…±±½…Ñ•‘}‰åÑ•Ìˆ(€€€€€€€€¤(€€€€€€€Ñ¥µ•}‰•ÑÑ•È€ô€ (€€€€€€€€€€€‰…Í•±¥¹•}Ñ¥µ•}É½ÝÑ ¥Ì¹½Ð9½¹”(€€€€€€€€€€€…¹…¹‘¥‘…Ñ•}Ñ¥µ•}É½ÝÑ ¥Ì¹½Ð9½¹”(€€€€€€€€€€€…¹…¹‘¥‘…Ñ•}Ñ¥µ•}É½ÝÑ €ð‰…Í•±¥¹•}Ñ¥µ•}É½ÝÑ (€€€€€€€€¤(€€€€€€€µ•µ½Éå}‰•ÑÑ•È€ô€ (€€€€€€€€€€€‰…Í•±¥¹•}µ•µ½Éå}É½ÝÑ ¥Ì¹½Ð9½¹”(€€€€€€€€€€€…¹…¹‘¥‘…Ñ•}µ•µ½Éå}É½ÝÑ ¥Ì¹½Ð9½¹”(€€€€€€€€€€€…¹…¹‘¥‘…Ñ•}µ•µ½Éå}É½ÝÑ €ð‰…Í•±¥¹•}µ•µ½Éå}É½ÝÑ (€€€€€€€€¤(€€€€€€€Í…±¥¹œ€ôì(€€€€€€€€€€€€‰™¥ÉÍÑ}…Õ‘¥½}Í•½¹‘Ìˆè™¥ÉÍÑ}Í•½¹‘Ì°(€€€€€€€€€€€€‰±…ÍÑ}½µµ½¹}…Õ‘¥½}Í•½¹‘Ìˆè±…ÍÑ}Í•½¹‘Ì°(€€€€€€€€€€€€‰‰…Í•±¥¹•}•±…ÁÍ•‘}É½ÝÑ ˆè‰…Í•±¥¹•}Ñ¥µ•}É½ÝÑ °(€€€€€€€€€€€€‰…¹‘¥‘…Ñ•}•±…ÁÍ•‘}É½ÝÑ ˆè…¹‘¥‘…Ñ•}Ñ¥µ•}É½ÝÑ °(€€€€€€€€€€€€‰‰…Í•±¥¹•}…±±½…Ñ•‘}µ•µ½Éå}É½ÝÑ ˆè‰…Í•±¥¹•}µ•µ½Éå}É½ÝÑ °(€€€€€€€€€€€€‰…¹‘¥‘…Ñ•}…±±½…Ñ•‘}µ•µ½Éå}É½ÝÑ ˆè…¹‘¥‘…Ñ•}µ•µ½Éå}É½ÝÑ °(€€€€€€€€€€€€‰ÉÕ¹Ñ¥µ•}É½ÝÑ¡}‰•ÑÑ•ÈˆèÑ¥µ•}‰•ÑÑ•È°(€€€€€€€€€€€€‰µ•µ½Éå}É½ÝÑ¡}‰•ÑÑ•Èˆèµ•µ½Éå}‰•ÑÑ•È°(€€€€€€€€€€€€‰½µµ½¹}É…¹•}…Ñ•}Á…ÍÍ•ˆèÑ¥µ•}‰•ÑÑ•È…¹µ•µ½Éå}‰•ÑÑ•È°(€€€€€€€ô((€€€‰…Í•±¥¹•}½½´€ôÍ½ÉÑ• (€€€€€€€Í•½¹‘Ì™½ÈÍ•½¹‘Ì°É½Ü¥¸‰…Í•±¥¹•}É½ÝÌ¹¥Ñ•µÌ ¤¥˜É½Ü¹•Ð ‰ÍÑ…ÑÕÌˆ¤€ôô€‰½½´ˆ(€€€€¤(€€€…¹‘¥‘…Ñ•}½½´€ôÍ½ÉÑ• (€€€€€€€Í•½¹‘Ì™½ÈÍ•½¹‘Ì°É½Ü¥¸…¹‘¥‘…Ñ•}É½ÝÌ¹¥Ñ•µÌ ¤¥˜É½Ü¹•Ð ‰ÍÑ…ÑÕÌˆ¤€ôô€‰½½´ˆ(€€€€¤(€€€…¹‘¥‘…Ñ•}ÍÕÉÙ¥Ù•Í}‰…Í•±¥¹•}½½´€ô…¹ä (€€€€€€€…¹‘¥‘…Ñ•}É½ÝÍmÍ•½¹‘Ít¹•Ð ‰ÍÑ…ÑÕÌˆ°€‰½¬ˆ¤€ôô€‰½¬ˆ™½ÈÍ•½¹‘Ì¥¸‰…Í•±¥¹•}½½´(€€€€¤(€€€É•ÍÕ±Ð€ôì(€€€€€€€€‰ÁÉ½Ñ½½°ˆèì(€€€€€€€€€€€€‰‰…Í•±¥¹”ˆèÍÑÈ¡‰…Í•±¥¹”¤°(€€€€€€€€€€€€‰…¹‘¥‘…Ñ”ˆèÍÑÈ¡…¹‘¥‘…Ñ”¤°(€€€€€€€€€€€€‰µ…Ñ¡•‘}™¥•±‘Ìˆè±¥ÍÐ¡µ…Ñ¡•‘}™¥•±‘Ì¤°(€€€€€€€€€€€€‰±…¥µ}‰½Õ¹‘…Éäˆè€ (€€€€€€€€€€€€€€€€‰ ÌÉ•ÅÕ¥É•Ìµ•…ÍÕÉ•ÉÕ¹Ñ¥µ”…¹…±±½…Ñ•µµ•µ½ÉäÉ½ÝÑ ì€ˆ(€€€€€€€€€€€€€€€€‰Ñ¡¥Ì‘•ÍÉ¥ÁÑ¥Ù”…Ñ”¥Ì¹½Ð„ÅÕ…±¥ÑäÉ•ÍÕ±Ð¸ˆ(€€€€€€€€€€€€¤°(€€€€€€€ô°(€€€€€€€€‰½µÁ…É¥Í½¹Ìˆè½µÁ…É¥Í½¹Ì°(€€€€€€€€‰Í…±¥¹œˆèÍ…±¥¹œ°(€€€€€€€€‰½½´ˆèì(€€€€€€€€€€€€‰‰…Í•±¥¹•}Í•½¹‘Ìˆè‰…Í•±¥¹•}½½´°(€€€€€€€€€€€€‰…¹‘¥‘…Ñ•}Í•½¹‘Ìˆè…¹‘¥‘…Ñ•}½½´°(€€€€€€€€€€€€‰…¹‘¥‘…Ñ•}ÍÕÉÙ¥Ù•Í}‰…Í•±¥¹•}½½´ˆè…¹‘¥‘…Ñ•}ÍÕÉÙ¥Ù•Í}‰…Í•±¥¹•}½½´°(€€€€€€€ô°(€€€€€€€€‰¡Õ¹­}ÁÉ•™¥±±}…Ñ”ˆè}¡Õ¹­}ÁÉ•™¥±±}…Ñ” (€€€€€€€€€€€‰…Í•±¥¹•}Á…å±½…°(€€€€€€€€€€€…¹‘¥‘…Ñ•}Á…å±½…°(€€€€€€€€€€€‰…Í•±¥¹•}É½ÝÌ°(€€€€€€€€€€€…¹‘¥‘…Ñ•}É½ÝÌ°(€€€€€€€€¤°(€€€€€€€€‰ Í}‘•ÍÉ¥ÁÑ¥Ù•}…Ñ•}Á…ÍÍ•ˆè‰½½° (€€€€€€€€€€€Í…±¥¹œ…¹Í…±¥¹l‰½µµ½¹}É…¹•}…Ñ•}Á…ÍÍ•‰t(€€€€€€€€¤°(€€€ô(€€€½ÕÑÁÕÐ¹Á…É•¹Ð¹µ­‘¥È¡Á…É•¹ÑÌõQÉÕ”°•á¥ÍÑ}½¬õQÉÕ”¤(€€€½ÕÑÁÕÐ¹ÝÉ¥Ñ•}Ñ•áÐ¡©Í½¸¹‘ÕµÁÌ¡É•ÍÕ±Ð°¥¹‘•¹ÐôÈ¤€¬€‰q¸ˆ°•¹½‘¥¹œô‰ÕÑ˜´àˆ¤(()‘•˜µ…¥¸ ¤€´ø9½¹”è(€€€…ÁÀ ¤(()¥˜}}¹…µ•}|€ôô€‰}}µ…¥¹}|ˆè(€€€µ…¥¸ ¤(
+            "formal seed aggregation requires checkpoint-verified seed metadata"
+        )
+    model_config_hashes = {
+        (run.get("checkpoint_audit") or {}).get("model_config_sha256")
+        for run in prediction_runs
+    }
+    training_manifest_hashes = {
+        (run.get("checkpoint_audit") or {}).get("training_manifest_sha256")
+        for run in prediction_runs
+    }
+    if None in model_config_hashes or len(model_config_hashes) != 1:
+        raise typer.BadParameter(
+            "seed checkpoints do not share one verified model configuration"
+        )
+    if None in training_manifest_hashes or len(training_manifest_hashes) != 1:
+        raise typer.BadParameter(
+            "seed checkpoints do not share one verified training manifest"
+        )
+
+    def keyed(payload: dict) -> dict[tuple[str, str], dict]:
+        return {
+            (str(row["dataset"]), str(row["track_id"])): row
+            for row in payload["tracks"]
+        }
+
+    keyed_payloads = [keyed(payload) for payload in payloads]
+    if any(
+        len(keyed_payload) != len(payload["tracks"])
+        for keyed_payload, payload in zip(keyed_payloads, payloads)
+    ):
+        raise typer.BadParameter(
+            "a seed evaluation contains duplicate track identifiers"
+        )
+    track_keys = [set(payload) for payload in keyed_payloads]
+    if any(keys != track_keys[0] for keys in track_keys[1:]):
+        raise typer.BadParameter("seed evaluations do not contain identical tracks")
+    tracks = []
+    for dataset, track_id in sorted(track_keys[0]):
+        metric_rows = [
+            _metric_only(payload[(dataset, track_id)]) for payload in keyed_payloads
+        ]
+        tracks.append(
+            {
+                "dataset": dataset,
+                "track_id": track_id,
+                **_mean_nested(metric_rows),
+            }
+        )
+
+    macros = [payload["summary"]["macro"] for payload in payloads]
+    micros = [payload["summary"]["micro"] for payload in payloads]
+    result = {
+        "protocol": {
+            "type": "seed_aggregate",
+            "manifest_sha256": next(iter(manifest_hashes)),
+            "seed_count": len(paths),
+            "seeds": sorted(expected_seed_set),
+            "experiment_id": next(iter(experiment_ids)),
+            "sources": [str(path) for path in paths],
+            "note": (
+                "Track metrics are averaged across seeds; paired bootstrap "
+                "still resamples whole tracks."
+            ),
+        },
+        "summary": {
+            "complete": True,
+            "expected_track_count": len(tracks),
+            "evaluated_track_count": len(tracks),
+            "macro": _mean_nested(macros),
+            "micro": _mean_nested(micros),
+            "macro_seed_statistics": _seed_statistics(macros),
+            "micro_seed_statistics": _seed_statistics(micros),
+        },
+        "tracks": tracks,
+    }
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    typer.echo(f"aggregated {len(paths)} seeds over {len(tracks)} tracks")
+
+
+@app.command("compare")
+def compare(
+    manifest: Annotated[Path, typer.Option(exists=True, dir_okay=False)],
+    predictions: Annotated[Path, typer.Option(exists=True, file_okay=False)],
+    output: Annotated[Path, typer.Option("--output", "-o")],
+    split: str = "test",
+    allow_missing: Annotated[bool, typer.Option("--allow-missing")] = False,
+    allow_oracle: Annotated[bool, typer.Option("--allow-oracle")] = False,
+    allow_unverified_conditions: Annotated[
+        bool, typer.Option("--allow-unverified-conditions")
+    ] = False,
+) -> None:
+    """Evaluate complete whole-track predictions with macro and pooled metrics."""
+
+    selected = [record for record in read_manifest(manifest) if record.split == split]
+    run_metadata = _read_run_metadata(predictions)
+    _validate_run_contract(
+        run_metadata,
+        manifest=manifest,
+        split=split,
+        expected_track_count=len(selected),
+        allow_missing=allow_missing,
+        allow_oracle=allow_oracle,
+        allow_unverified_conditions=allow_unverified_conditions,
+    )
+    missing = []
+    rows = []
+    for record in selected:
+        prediction_path = _prediction_path(predictions, record.dataset, record.track_id)
+        if prediction_path is None:
+            missing.append(f"{record.dataset}/{record.track_id}")
+            continue
+        result = evaluate_notes(
+            load_notes(record.notes_path), load_notes(prediction_path)
+        )
+        rows.append(
+            {
+                "track_id": record.track_id,
+                "dataset": record.dataset,
+                **result.to_dict(),
+            }
+        )
+
+    if missing and not allow_missing:
+        preview = ", ".join(missing[:10])
+        raise typer.BadParameter(
+            f"missing {len(missing)} of {len(selected)} prediction files: {preview}"
+        )
+
+    by_dataset = {}
+    for dataset in sorted({row["dataset"] for row in rows}):
+        dataset_rows = [_metric_only(row) for row in rows if row["dataset"] == dataset]
+        by_dataset[dataset] = {
+            "track_count": len(dataset_rows),
+            "macro": macro_average(dataset_rows),
+            "micro": micro_average(dataset_rows),
+            "elapsed_time_strata_support": _elapsed_strata_support(
+                [row for row in rows if row["dataset"] == dataset]
+            ),
+        }
+    metric_rows = [_metric_only(row) for row in rows]
+    payload = {
+        "protocol": {
+            "split": split,
+            "manifest_sha256": manifest_fingerprint(manifest),
+            "prediction_run": run_metadata,
+            "missing_allowed": allow_missing,
+            "oracle_allowed": allow_oracle,
+            "primary_metric": "macro.multi.f1",
+            "bootstrap_unit": "whole_track",
+        },
+        "summary": {
+            "expected_track_count": len(selected),
+            "evaluated_track_count": len(rows),
+            "complete": not missing,
+            "missing_tracks": missing,
+            "macro": macro_average(metric_rows),
+            "micro": micro_average(metric_rows),
+            "elapsed_time_strata_support": _elapsed_strata_support(rows),
+            "by_dataset": by_dataset,
+        },
+        "tracks": rows,
+    }
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    typer.echo(f"evaluated {len(rows)}/{len(selected)} complete tracks")
+
+
+@app.command("predict")
+def predict(
+    model_path: Annotated[str, typer.Option("--model", "-m")],
+    manifest: Annotated[Path, typer.Option(exists=True, dir_okay=False)],
+    output: Annotated[Path, typer.Option("--output", "-o")],
+    split: str = "test",
+    device: str = "cuda",
+    experiment_id: Annotated[str | None, typer.Option("--experiment-id")] = None,
+    seed: Annotated[int | None, typer.Option("--seed")] = None,
+    long_context: str = "carry",
+    prelude_forcing: Annotated[
+        bool, typer.Option("--prelude-forcing/--no-prelude-forcing")
+    ] = False,
+    committed_symbolic_state: Annotated[
+        bool,
+        typer.Option(
+            "--committed-symbolic-state/--no-committed-symbolic-state"
+        ),
+    ] = False,
+    oracle_instruments: Annotated[
+        bool,
+        typer.Option("--oracle-instruments/--no-oracle-instruments"),
+    ] = False,
+    condition_mode: Annotated[
+        str, typer.Option("--condition-mode")
+    ] = "audio_only",
+) -> None:
+    """Transcribe a manifest and persist enough metadata to audit conditions."""
+
+    checkpoint_audit = _local_checkpoint_audit(model_path)
+    if condition_mode not in {"audio_only", "conditioned"}:
+        raise typer.BadParameter("condition-mode must be audio_only or conditioned")
+    dataset_mapping = (
+        (checkpoint_audit or {}).get("taxonomy") or {}
+    ).get("datasets")
+    if condition_mode == "conditioned" and not isinstance(dataset_mapping, dict):
+        raise typer.BadParameter(
+            "conditioned inference requires checkpoint taxonomy dataset ids"
+        )
+    checkpoint_experiment = (
+        checkpoint_audit.get("experiment") if checkpoint_audit else None
+    )
+    declared_condition_mode = (
+        (checkpoint_experiment or {}).get("conditioning") or {}
+    ).get("mode")
+    if condition_mode == "conditioned" and declared_condition_mode != "conditioned":
+        raise typer.BadParameter(
+            "conditioned inference requires a checkpoint trained in conditioned mode"
+        )
+    if condition_mode == "conditioned" and oracle_instruments:
+        raise typer.BadParameter(
+            "conditioned dataset and oracle-instrument diagnostics must be separate"
+        )
+    checkpoint_seed = (
+        checkpoint_experiment.get("seed") if checkpoint_experiment else None
+    )
+    if seed is None and checkpoint_seed is not None:
+        seed = int(checkpoint_seed)
+    if (
+        seed is not None
+        and checkpoint_seed is not None
+        and int(seed) != int(checkpoint_seed)
+    ):
+        raise typer.BadParameter(
+            f"declared seed {seed} disagrees with checkpoint seed {checkpoint_seed}"
+        )
+    seed_verified = checkpoint_seed is not None and seed == int(checkpoint_seed)
+    model = TranscriptionModel.load_model(model_path, device=device)
+    selected = [record for record in read_manifest(manifest) if record.split == split]
+    if condition_mode == "conditioned":
+        missing_datasets = sorted(
+            {record.dataset for record in selected} - set(dataset_mapping)
+        )
+        if missing_datasets:
+            raise typer.BadParameter(
+                "checkpoint taxonomy lacks dataset ids for: "
+                + ", ".join(missing_datasets)
+            )
+    output.mkdir(parents=True, exist_ok=True)
+    metadata = {
+        "status": "running",
+        "model": model_path,
+        "experiment_id": experiment_id,
+        "seed": seed,
+        "seed_verified": seed_verified,
+        "checkpoint_audit": checkpoint_audit,
+        "manifest_sha256": manifest_fingerprint(manifest),
+        "split": split,
+        "expected_track_count": len(selected),
+        "completed_track_count": 0,
+        "long_context": long_context,
+        "prelude_forcing": prelude_forcing,
+        "committed_symbolic_state": committed_symbolic_state,
+        "oracle_instruments": oracle_instruments,
+        "instrument_condition": "reference" if oracle_instruments else None,
+        "dataset_condition": (
+            "manifest_dataset_id" if condition_mode == "conditioned" else None
+        ),
+        "condition_mode": (
+            "oracle_upper_bound" if oracle_instruments else condition_mode
+        ),
+    }
+    run_path = output / "run.json"
+    run_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+
+    for index, record in enumerate(selected, 1):
+        instruments = (
+            _oracle_names(record.instrument_groups) if oracle_instruments else None
+        )
+        transcription_kwargs = {}
+        if condition_mode == "conditioned":
+            transcription_kwargs["dataset_name"] = str(
+                dataset_mapping[record.dataset]
+            )
+        midi = model.transcribe_to_midi(
+            record.audio_path,
+            instruments=instruments,
+            long_context=long_context,
+            prelude_forcing=prelude_forcing,
+            committed_symbolic_state=committed_symbolic_state,
+            **transcription_kwargs,
+        )
+        path = output / record.dataset / f"{record.track_id}.mid"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(midi)
+        metadata["completed_track_count"] = index
+        run_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+        typer.echo(f"[{index}/{len(selected)}] {record.dataset}/{record.track_id}")
+
+    metadata["status"] = "complete"
+    run_path.write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+
+
+@app.command("bootstrap")
+def bootstrap(
+    baseline: Annotated[Path, typer.Option(exists=True, dir_okay=False)],
+    candidate: Annotated[Path, typer.Option(exists=True, dir_okay=False)],
+    output: Annotated[Path, typer.Option("--output", "-o")],
+    metrics: str = (
+        "multi.f1,boundary_multi.f1,"
+        "long_gap_reidentification.10-20.f1,"
+        "long_gap_reidentification.20+.f1,"
+        "long_gap_reidentification.10+.f1,"
+        "instrument_switch_error.rate"
+    ),
+    samples: int = 10_000,
+    seed: int = 3407,
+    include_elapsed_strata: Annotated[
+        bool, typer.Option("--elapsed-strata/--no-elapsed-strata")
+    ] = True,
+) -> None:
+    """Run paired whole-track bootstrap and Holm-adjust metric p-values."""
+
+    baseline_payload = json.loads(baseline.read_text())
+    candidate_payload = json.loads(candidate.read_text())
+    metric_paths = [item.strip() for item in metrics.split(",") if item.strip()]
+    lower_is_better = {
+        "instrument_switch_error.rate",
+        "boundary_errors.omission.rate",
+        "boundary_errors.truncation.rate",
+        "boundary_errors.duplication.rate",
+    }
+    result = paired_track_bootstrap(
+        baseline_payload["tracks"],
+        candidate_payload["tracks"],
+        metric_paths=metric_paths,
+        samples=samples,
+        seed=seed,
+        lower_is_better=lower_is_better,
+    )
+    if include_elapsed_strata:
+        elapsed_paths = [
+            f"elapsed_time_strata.{label}.{metric}"
+            for label in ("0-40", "40-80", "80-160", "160+")
+            for metric in (
+                "multi.f1",
+                "boundary_multi.f1",
+                "long_gap_reidentification.10+.f1",
+                "instrument_switch_error.rate",
+            )
+        ]
+        if all(
+            "elapsed_time_strata" in row
+            for payload in (baseline_payload, candidate_payload)
+            for row in payload.get("tracks", [])
+        ):
+            result["elapsed_time_strata"] = paired_track_bootstrap(
+                baseline_payload["tracks"],
+                candidate_payload["tracks"],
+                metric_paths=elapsed_paths,
+                samples=samples,
+                seed=seed,
+                lower_is_better={
+                    path
+                    for path in elapsed_paths
+                    if path.endswith("instrument_switch_error.rate")
+                },
+            )
+        else:
+            result["elapsed_time_strata"] = {
+                "status": "unavailable",
+                "reason": "input evaluations predate elapsed-time strata",
+            }
+    result["baseline"] = str(baseline)
+    result["candidate"] = str(candidate)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+
+
+def _benchmark_once(
+    model: TranscriptionModel,
+    clip: torch.Tensor,
+    *,
+    seconds: float,
+    long_context: str,
+    prelude_forcing: bool,
+    clear_cuda_cache: bool = False,
+) -> dict:
+    device = getattr(model, "_device", torch.device("cpu"))
+    use_cuda = torch.cuda.is_available() and torch.device(device).type == "cuda"
+    if use_cuda:
+        if clear_cuda_cache:
+            torch.cuda.empty_cache()
+        torch.cuda.reset_peak_memory_stats(device)
+        torch.cuda.synchronize(device)
+    start = time.perf_counter()
+    list(
+        model.transcribe(
+            (clip, 16_000),
+            use_sampling=False,
+            batch_size=1,
+            long_context=long_context,
+            prelude_forcing=prelude_forcing,
+            profile_generation=True,
+        )
+    )
+    if use_cuda:
+        torch.cuda.synchronize(device)
+        allocated = torch.cuda.max_memory_allocated(device)
+        reserved = torch.cuda.max_memory_reserved(device)
+    else:
+        allocated = reserved = 0
+    elapsed = time.perf_counter() - start
+    profile = getattr(model, "last_generation_profile", None)
+    return {
+        "elapsed_seconds": elapsed,
+        "mean_chunk_latency_seconds": elapsed / max(1, math.ceil(seconds / 5.0)),
+        "real_time_factor": elapsed / seconds,
+        "audio_seconds_per_second": seconds / elapsed,
+        "peak_memory_allocated_bytes": allocated,
+        "peak_memory_reserved_bytes": reserved,
+        "streaming_state": model.last_streaming_state,
+        "generation_profile": profile,
+        "token_stream_sha256": getattr(model, "last_token_stream_sha256", None),
+    }
+
+
+def _stable_summary(values) -> dict[str, float]:
+    values = [float(value) for value in values]
+    return {
+        "mean": statistics.fmean(values),
+        "median": statistics.median(values),
+        "std": statistics.pstdev(values),
+    }
+
+
+def _local_weights_sha256(model_path: str) -> str | None:
+    path = Path(model_path)
+    if not path.is_file():
+        return None
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(8 * 1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+@app.command("benchmark")
+def benchmark(
+    model_path: Annotated[str, typer.Option("--model", "-m")],
+    audio: Annotated[Path, typer.Option(exists=True, dir_okay=False)],
+    output: Annotated[Path, typer.Option("--output", "-o")],
+    lengths: str = "5,10,20,40,80,160,full",
+    device: str = "cuda",
+    dtype: str = "float32",
+    long_context: str = "carry",
+    prelude_forcing: Annotated[
+        bool, typer.Option("--prelude-forcing/--no-prelude-forcing")
+    ] = False,
+    warmup_runs: int = 1,
+    repeats: int = 3,
+) -> None:
+    """Measure cold and stable whole-track latency, memory, and state size."""
+
+    if warmup_runs < 0 or repeats <= 0:
+        raise typer.BadParameter(
+            "warmup-runs must be non-negative and repeats positive"
+        )
+    if dtype not in {"float32", "float16", "bfloat16"}:
+        raise typer.BadParameter("dtype must be float32, float16, or bfloat16")
+    model = TranscriptionModel.load_model(model_path, device=device, dtype=dtype)
+    waveform = load_audio(audio, target_sr=16_000)
+    full_seconds = waveform.shape[-1] / 16_000
+    requested: list[tuple[str, float]] = []
+    for raw in lengths.split(","):
+        raw = raw.strip().lower()
+        if raw == "full":
+            requested.append(("full", full_seconds))
+        else:
+            requested.append((raw, float(raw)))
+
+    rows = []
+    for label, seconds in requested:
+        samples = max(1, round(seconds * 16_000))
+        if waveform.shape[-1] < samples:
+            repeat = (samples + waveform.shape[-1] - 1) // waveform.shape[-1]
+            clip = waveform.repeat(1, repeat)[:, :samples]
+        else:
+            clip = waveform[:, :samples]
+
+        try:
+            cold = _benchmark_once(
+                model,
+                clip,
+                seconds=seconds,
+                long_context=long_context,
+                prelude_forcing=prelude_forcing,
+                clear_cuda_cache=True,
+            )
+            for _ in range(warmup_runs):
+                _benchmark_once(
+                    model,
+                    clip,
+                    seconds=seconds,
+                    long_context=long_context,
+                    prelude_forcing=prelude_forcing,
+                )
+            stable = [
+                _benchmark_once(
+                    model,
+                    clip,
+                    seconds=seconds,
+                    long_context=long_context,
+                    prelude_forcing=prelude_forcing,
+                )
+                for _ in range(repeats)
+            ]
+        except RuntimeError as error:
+            if "out of memory" not in str(error).lower():
+                raise
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            rows.append(
+                {
+                    "length_label": label,
+                    "audio_seconds": seconds,
+                    "source_mode": (
+                        "full" if label == "full" else "repeat_or_trim_prefix"
+                    ),
+                    "status": "oom",
+                    "error_type": type(error).__name__,
+                    "error": str(error).splitlines()[0],
+                }
+            )
+            continue
+        stable_summary = {
+            key: _stable_summary(row[key] for row in stable)
+            for key in (
+                "elapsed_seconds",
+                "real_time_factor",
+                "audio_seconds_per_second",
+                "peak_memory_allocated_bytes",
+                "peak_memory_reserved_bytes",
+                "mean_chunk_latency_seconds",
+            )
+        }
+        state_bytes = [
+            float((row.get("streaming_state") or {}).get("bytes", 0)) for row in stable
+        ]
+        cache_lengths = [
+            float(
+                max(
+                    (row.get("streaming_state") or {}).get("local_cache_lengths", [])
+                    or [0]
+                )
+            )
+            for row in stable
+        ]
+        stable_summary["streaming_state_bytes"] = _stable_summary(state_bytes)
+        stable_summary["maximum_local_cache_length"] = _stable_summary(cache_lengths)
+        for profile_key in (
+            "prefix_prefill_seconds",
+            "autoregressive_decode_seconds",
+            "prefix_prefill_tokens",
+            "autoregressive_decode_tokens",
+            "generated_steps",
+        ):
+            values = [
+                float((row.get("generation_profile") or {}).get(profile_key, 0))
+                for row in stable
+            ]
+            stable_summary[profile_key] = _stable_summary(values)
+
+        def profile_rate(row: dict, token_key: str, seconds_key: str) -> float:
+            profile = row.get("generation_profile") or {}
+            seconds_value = float(profile.get(seconds_key, 0))
+            return (
+                float(profile.get(token_key, 0)) / seconds_value
+                if seconds_value
+                else 0.0
+            )
+
+        stable_summary["prefix_prefill_tokens_per_second"] = _stable_summary(
+            profile_rate(
+                row, "prefix_prefill_tokens", "prefix_prefill_seconds"
+            )
+            for row in stable
+        )
+        stable_summary["autoregressive_decode_tokens_per_second"] = _stable_summary(
+            profile_rate(
+                row,
+                "autoregressive_decode_tokens",
+                "autoregressive_decode_seconds",
+            )
+            for row in stable
+        )
+        rows.append(
+            {
+                "length_label": label,
+                "audio_seconds": seconds,
+                "source_mode": ("full" if label == "full" else "repeat_or_trim_prefix"),
+                "status": "ok",
+                "cold_run": cold,
+                "stable_runs": stable,
+                "stable_summary": stable_summary,
+            }
+        )
+
+    device_info = {"requested": device, "torch": torch.__version__}
+    if torch.cuda.is_available() and torch.device(device).type == "cuda":
+        device_info.update(
+            {
+                "name": torch.cuda.get_device_name(torch.device(device)),
+                "cuda": torch.version.cuda,
+            }
+        )
+    core_model = getattr(model, "_model", None)
+    parameter_count = (
+        sum(parameter.numel() for parameter in core_model.parameters())
+        if core_model is not None
+        else None
+    )
+    payload = {
+        "protocol": {
+            "model": model_path,
+            "model_weights_sha256": _local_weights_sha256(model_path),
+            "model_parameter_count": parameter_count,
+            "audio": str(audio),
+            "sample_rate": 16_000,
+            "batch_size": 1,
+            "weight_dtype": dtype,
+            "cuda_autocast_dtype": (
+                "float16"
+                if torch.cuda.is_available() and torch.device(device).type == "cuda"
+                else None
+            ),
+            "decoding": {"sampling": False, "beam_size": 1},
+            "long_context": long_context,
+            "prelude_forcing": prelude_forcing,
+            "prefill_mode": getattr(
+                getattr(core_model, "model_config", None), "prefill_mode", None
+            ),
+            "oracle_instruments": False,
+            "warmup_runs": warmup_runs,
+            "stable_repeats": repeats,
+            "device": device_info,
+        },
+        "lengths": rows,
+    }
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
+def _benchmark_rows(payload: dict) -> dict[float, dict]:
+    return {
+        float(row["audio_seconds"]): row
+        for row in payload.get("lengths", [])
+        if row.get("length_label") != "full"
+    }
+
+
+def _growth(first: dict, last: dict, metric: str) -> float | None:
+    initial = float(first["stable_summary"][metric]["mean"])
+    final = float(last["stable_summary"][metric]["mean"])
+    return final / initial if initial > 0 else None
+
+
+def _chunk_prefill_gate(
+    baseline_payload: dict,
+    candidate_payload: dict,
+    baseline_rows: dict[float, dict],
+    candidate_rows: dict[float, dict],
+    *,
+    minimum_speedup: float = 1.25,
+) -> dict:
+    """Evaluate carried-prefix speed at 5/10/20/40 seconds of prior state."""
+
+    baseline_protocol = baseline_payload.get("protocol", {})
+    candidate_protocol = candidate_payload.get("protocol", {})
+    same_weights = (
+        baseline_protocol.get("model_weights_sha256") is not None
+        and baseline_protocol.get("model_weights_sha256")
+        == candidate_protocol.get("model_weights_sha256")
+    )
+    modes_ok = baseline_protocol.get("prefill_mode") == "step" and (
+        candidate_protocol.get("prefill_mode") in {"auto", "chunk"}
+    )
+    if not same_weights or not modes_ok:
+        return {
+            "status": "not_applicable",
+            "reason": (
+                "requires identical local weights, step baseline, and auto/chunk candidate"
+            ),
+            "passed": False,
+        }
+
+    # To time the prefix after N seconds of carried state, inspect chunk N/5
+    # in a run long enough to contain the following chunk.
+    probes = {5.0: (10.0, 1), 10.0: (20.0, 2), 20.0: (40.0, 4), 40.0: (80.0, 8)}
+    rows = []
+    for context_seconds, (audio_seconds, chunk_index) in probes.items():
+        baseline_row = baseline_rows.get(audio_seconds)
+        candidate_row = candidate_rows.get(audio_seconds)
+        if (
+            baseline_row is None
+            or candidate_row is None
+            or baseline_row.get("status", "ok") != "ok"
+            or candidate_row.get("status", "ok") != "ok"
+        ):
+            rows.append(
+                {
+                    "context_seconds": context_seconds,
+                    "status": "missing_or_oom",
+                    "passed": False,
+                }
+            )
+            continue
+
+        def prefix_times(row: dict) -> list[float]:
+            result = []
+            for run in row.get("stable_runs", []):
+                chunks = (run.get("generation_profile") or {}).get("chunks", [])
+                if len(chunks) > chunk_index:
+                    result.append(
+                        float(chunks[chunk_index].get("prefix_prefill_seconds", 0))
+                    )
+            return result
+
+        baseline_times = prefix_times(baseline_row)
+        candidate_times = prefix_times(candidate_row)
+        baseline_hashes = {
+            run.get("token_stream_sha256")
+            for run in baseline_row.get("stable_runs", [])
+        }
+        candidate_hashes = {
+            run.get("token_stream_sha256")
+            for run in candidate_row.get("stable_runs", [])
+        }
+        tokens_match = (
+            None not in baseline_hashes
+            and len(baseline_hashes) == 1
+            and baseline_hashes == candidate_hashes
+        )
+        if not baseline_times or not candidate_times:
+            speedup = None
+        else:
+            candidate_median = statistics.median(candidate_times)
+            speedup = (
+                statistics.median(baseline_times) / candidate_median
+                if candidate_median > 0
+                else None
+            )
+        passed = bool(
+            speedup is not None and speedup >= minimum_speedup and tokens_match
+        )
+        rows.append(
+            {
+                "context_seconds": context_seconds,
+                "status": "ok",
+                "step_prefix_median_seconds": (
+                    statistics.median(baseline_times) if baseline_times else None
+                ),
+                "chunk_prefix_median_seconds": (
+                    statistics.median(candidate_times) if candidate_times else None
+                ),
+                "speedup": speedup,
+                "decode_tokens_identical": tokens_match,
+                "passed": passed,
+            }
+        )
+    return {
+        "status": "ok",
+        "minimum_speedup": minimum_speedup,
+        "required_context_seconds": sorted(probes),
+        "probes": rows,
+        "passed": all(row["passed"] for row in rows),
+    }
+
+
+@app.command("compare-efficiency")
+def compare_efficiency(
+    baseline: Annotated[Path, typer.Option(exists=True, dir_okay=False)],
+    candidate: Annotated[Path, typer.Option(exists=True, dir_okay=False)],
+    output: Annotated[Path, typer.Option("--output", "-o")],
+) -> None:
+    """Compare matched length-scaling curves and preserve OOM observations."""
+
+    baseline_payload = json.loads(baseline.read_text())
+    candidate_payload = json.loads(candidate.read_text())
+    baseline_protocol = baseline_payload.get("protocol", {})
+    candidate_protocol = candidate_payload.get("protocol", {})
+    matched_fields = (
+        "audio",
+        "sample_rate",
+        "batch_size",
+        "weight_dtype",
+        "cuda_autocast_dtype",
+        "decoding",
+        "long_context",
+        "prelude_forcing",
+        "warmup_runs",
+        "stable_repeats",
+        "device",
+    )
+    mismatches = [
+        field
+        for field in matched_fields
+        if baseline_protocol.get(field) != candidate_protocol.get(field)
+    ]
+    if mismatches:
+        raise typer.BadParameter(
+            f"efficiency protocols differ on matched fields: {mismatches}"
+        )
+
+    baseline_rows = _benchmark_rows(baseline_payload)
+    candidate_rows = _benchmark_rows(candidate_payload)
+    if baseline_rows.keys() != candidate_rows.keys():
+        raise typer.BadParameter("efficiency benchmarks use different length grids")
+    successful_seconds = sorted(
+        seconds
+        for seconds in baseline_rows
+        if baseline_rows[seconds].get("status", "ok") == "ok"
+        and candidate_rows[seconds].get("status", "ok") == "ok"
+    )
+    comparisons = []
+    for seconds in successful_seconds:
+        baseline_row = baseline_rows[seconds]
+        candidate_row = candidate_rows[seconds]
+        comparisons.append(
+            {
+                "audio_seconds": seconds,
+                "baseline": baseline_row["stable_summary"],
+                "candidate": candidate_row["stable_summary"],
+                "candidate_over_baseline": {
+                    metric: (
+                        float(candidate_row["stable_summary"][metric]["mean"])
+                        / float(baseline_row["stable_summary"][metric]["mean"])
+                        if float(baseline_row["stable_summary"][metric]["mean"]) > 0
+                        else None
+                    )
+                    for metric in (
+                        "elapsed_seconds",
+                        "real_time_factor",
+                        "peak_memory_allocated_bytes",
+                        "peak_memory_reserved_bytes",
+                    )
+                },
+            }
+        )
+
+    scaling = None
+    if len(successful_seconds) >= 2:
+        first_seconds, last_seconds = successful_seconds[0], successful_seconds[-1]
+        baseline_first, baseline_last = (
+            baseline_rows[first_seconds],
+            baseline_rows[last_seconds],
+        )
+        candidate_first, candidate_last = (
+            candidate_rows[first_seconds],
+            candidate_rows[last_seconds],
+        )
+        baseline_time_growth = _growth(baseline_first, baseline_last, "elapsed_seconds")
+        candidate_time_growth = _growth(
+            candidate_first, candidate_last, "elapsed_seconds"
+        )
+        baseline_memory_growth = _growth(
+            baseline_first, baseline_last, "peak_memory_allocated_bytes"
+        )
+        candidate_memory_growth = _growth(
+            candidate_first, candidate_last, "peak_memory_allocated_bytes"
+        )
+        time_better = (
+            baseline_time_growth is not None
+            and candidate_time_growth is not None
+            and candidate_time_growth < baseline_time_growth
+        )
+        memory_better = (
+            baseline_memory_growth is not None
+            and candidate_memory_growth is not None
+            and candidate_memory_growth < baseline_memory_growth
+        )
+        scaling = {
+            "first_audio_seconds": first_seconds,
+            "last_common_audio_seconds": last_seconds,
+            "baseline_elapsed_growth": baseline_time_growth,
+            "candidate_elapsed_growth": candidate_time_growth,
+            "baseline_allocated_memory_growth": baseline_memory_growth,
+            "candidate_allocated_memory_growth": candidate_memory_growth,
+            "runtime_growth_better": time_better,
+            "memory_growth_better": memory_better,
+            "common_range_gate_passed": time_better and memory_better,
+        }
+
+    baseline_oom = sorted(
+        seconds for seconds, row in baseline_rows.items() if row.get("status") == "oom"
+    )
+    candidate_oom = sorted(
+        seconds for seconds, row in candidate_rows.items() if row.get("status") == "oom"
+    )
+    candidate_survives_baseline_oom = any(
+        candidate_rows[seconds].get("status", "ok") == "ok" for seconds in baseline_oom
+    )
+    result = {
+        "protocol": {
+            "baseline": str(baseline),
+            "candidate": str(candidate),
+            "matched_fields": list(matched_fields),
+            "claim_boundary": (
+                "H3 requires measured runtime and allocated-memory growth; "
+                "this descriptive gate is not a quality result."
+            ),
+        },
+        "comparisons": comparisons,
+        "scaling": scaling,
+        "oom": {
+            "baseline_seconds": baseline_oom,
+            "candidate_seconds": candidate_oom,
+            "candidate_survives_baseline_oom": candidate_survives_baseline_oom,
+        },
+        "chunk_prefill_gate": _chunk_prefill_gate(
+            baseline_payload,
+            candidate_payload,
+            baseline_rows,
+            candidate_rows,
+        ),
+        "h3_descriptive_gate_passed": bool(
+            scaling and scaling["common_range_gate_passed"]
+        ),
+    }
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+
+
+def main() -> None:
+    app()
+
+
+if __name__ == "__main__":
+    main()

@@ -395,4 +395,721 @@ class TranscriptionModel:
         batch_size = self._resolve_batch_size(batch_size, prelude_forcing)
         if long_context in {"carry", "clean_audio"} and batch_size != 1:
             raise ValueError(f"long-context {long_context} requires batch_size=1")
-        if committed_symbolic_state ç^ú¶‰žËkºwµçEÕ‘¥¼ÕÉÉ•¹Ñ±äÉ•ÅÕ¥É•Ì‰•…µ}Í¥é”ôÄˆ¤(€€€€€€€¥˜±•¸¡…±±}½¹‘¥Ñ¥½¹Ì¤€„ô±•¸¡Í••­}Ñ¥µ•Ì¤è(€€€€€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È ‰½¹‘¥Ñ¥½¸½Í••¬µÑ¥µ”±•¹Ñ µ¥Íµ…Ñ ˆ¤((€€€€€€€•½Í}¥€ôÍ•±˜¹}Ñ½­•¹¥é•È¹•½Í}¥(€€€€€€€¹Õµ}¡Õ¹­Ì€ô±•¸¡Í••­}Ñ¥µ•Ì¤(€€€€€€€±•…¹}ÍÑ…Ñ”€ô9½¹”(€€€€€€€ÍÑ…Ñ•}Í•ÅÕ•¹•}±•¹Ñ €ô¹Õµ}¡Õ¹­Ì€¨€¡µ…á}•¹}±•¸€¬€ØÐÀ¤(€€€€€€€½µµ¥ÑÑ•€ô€ (€€€€€€€€€€€=Á•¹9½Ñ•QÉ…­•È¡Í•±˜¹}Ñ½­•¹¥é•È¹}Ù½…ˆ°Í•±˜¹}Ñ½­•¹¥é•È¹™É…µ•}É…Ñ”¤(€€€€€€€€€€€¥˜ÁÉ•±Õ‘•}™½É¥¹œ½È½µµ¥ÑÑ•‘}Íåµ‰½±¥}ÍÑ…Ñ”(€€€€€€€€€€€•±Í”9½¹”(€€€€€€€€¤(€€€€€€€½µµ¥ÑÑ•‘}¡Õ¹­Ì€ô€À(€€€€€€€É•©•Ñ•‘}¡Õ¹­Ì€ô€À(€€€€€€€±•…¹}ÁÉ•™¥á}Ñ½­•¹Ì€ô€À(€€€€€€€‰½Õ¹‘…Éå}…É••µ•¹Ñ}ÍÕ´€ô€À¸À(€€€€€€€‰½Õ¹‘…Éå}…É••µ•¹Ñ}½Õ¹Ð€ô€À(€€€€€€€ÁÉ•Ù¥½ÕÍ}É••¹ÑÉä€ô9½¹”(€€€€€€€ÁÉ•Ù¥½ÕÍ}É••¹ÑÉå}Ù…±¥€ô9½¹”(€€€€€€€•¹•É…Ñ¥½¹}ÁÉ½™¥±•Ìè±¥ÍÑm‘¥ÑmÍÑÈ°™±½…Ðð¥¹Ñut€ômt((€€€€€€€™½È¡Õ¹­}¥¹‘•à°€¡½¹‘¥Ñ¥½¸°Í••­}Ñ¥µ”¤¥¸•¹Õµ•É…Ñ” (€€€€€€€€€€€é¥À¡…±±}½¹‘¥Ñ¥½¹Ì°Í••­}Ñ¥µ•Ì¤(€€€€€€€€¤è(€€€€€€€€€€€¹•áÑ}Í••¬€ô€ (€€€€€€€€€€€€€€€Í••­}Ñ¥µ•Ím¡Õ¹­}¥¹‘•à€¬€Åt(€€€€€€€€€€€€€€€¥˜¡Õ¹­}¥¹‘•à€¬€Ä€ð¹Õµ}¡Õ¹­Ì(€€€€€€€€€€€€€€€•±Í”9½¹”(€€€€€€€€€€€€¤(€€€€€€€€€€€‰½Õ¹‘…Éä€ô¡Õ¹­	½Õ¹‘…Éä¡Í••­}Ñ¥µ”°¹•áÑ}Í••¬¤(€€€€€€€€€€€…¹‘¥‘…Ñ”€ô½µµ¥ÑÑ•¹™½É¬ ¤¥˜½µµ¥ÑÑ•¥Ì¹½Ð9½¹”•±Í”9½¹”(€€€€€€€€€€€ÁÉ½µÁÐ€ô9½¹”(€€€€€€€€€€€¥˜…¹‘¥‘…Ñ”¥Ì¹½Ð9½¹”è(€€€€€€€€€€€€€€€…¹‘¥‘…Ñ”¹™••¡‰½Õ¹‘…Éä¤(€€€€€€€€€€€€€€€¥˜ÁÉ•±Õ‘•}™½É¥¹œ…¹¡Õ¹­}¥¹‘•à€ø€Àè(€€€€€€€€€€€€€€€€€€€ÁÉ½µÁÐ€ôÑ½É ¹Ñ•¹Í½È (€€€€€€€€€€€€€€€€€€€€€€€mÍ•±˜¹}Ñ½­•¹¥é•È¹Ñ¥•}Í•Ñ¥½¹}Ñ½­•¹}¥‘Ì¡…¹‘¥‘…Ñ”¹½Á•¹}­•åÌ ¤¥t°(€€€€€€€€€€€€€€€€€€€€€€€‘•Ù¥”õÍ•±˜¹}‘•Ù¥”°(€€€€€€€€€€€€€€€€€€€€€€€‘ÑåÁ”õÑ½É ¹±½¹œ°(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€å¥•±‰½Õ¹‘…Éä((€€€€€€€€€€€±•…¹}ÍÑ…Ñ”°±•…¹}¡¥‘‘•¸€ôÍ•±˜¹}µ½‘•°¹ÁÉ•™¥±±}½¹‘¥Ñ¥½¹}ÁÉ•™¥à (€€€€€€€€€€€€€€€m½¹‘¥Ñ¥½¹t°(€€€€€€€€€€€€€€€µ½‘•±}ÍÑ…Ñ”õ±•…¹}ÍÑ…Ñ”°(€€€€€€€€€€€€€€€ÍÑ…Ñ•}Í•ÅÕ•¹•}±•¹Ñ õÍÑ…Ñ•}Í•ÅÕ•¹•}±•¹Ñ °(€€€€€€€€€€€€€€€™}½•˜õ™}½•˜°(€€€€€€€€€€€€€€€±½}Ñ¥µ¥¹œõQÉÕ”°(€€€€€€€€€€€€¤(€€€€€€€€€€€±•…¹}ÁÉ•™¥á}Ñ½­•¹Ì€¬ô¥¹Ð¡±•…¹}¡¥‘‘•¸¹Í¡…Á•lÅt¤(€€€€€€€€€€€‘•½‘•}ÍÑ…Ñ”€ô±½¹•}µ½‘•±}ÍÑ…Ñ”¡±•…¹}ÍÑ…Ñ”°‘•Ñ… õQÉÕ”¤(€€€€€€€€€€€ÕÉÉ•¹Ñ}…Ñ¥Ù•}±½¥ÑÌ€ôÕÉÉ•¹Ñ}É••¹ÑÉå}±½¥ÑÌ€ô9½¹”(€€€€€€€€€€€¥˜Í•±˜¹}µ½‘•°¹µ½‘•±}½¹™¥œ¹±•…¹}…½ÕÍÑ¥}…¡”è(€€€€€€€€€€€€€€€ÕÉÉ•¹Ñ}…Ñ¥Ù•}±½¥ÑÌ°ÕÉÉ•¹Ñ}É••¹ÑÉå}±½¥ÑÌ€ô€ (€€€€€€€€€€€€€€€€€€€Í•±˜¹}µ½‘•°¹‰½Õ¹‘…Éå}ÍÑ…Ñ•}±½¥ÑÌ¡±•…¹}¡¥‘‘•¹lè°€´Åt¤(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€¥˜½µµ¥ÑÑ•‘}Íåµ‰½±¥}ÍÑ…Ñ”è(€€€€€€€€€€€€€€€¥˜…¹‘¥‘…Ñ”¥Ì9½¹”è(€€€€€€€€€€€€€€€€€€€É…¥Í”IÕ¹Ñ¥µ•ÉÉ½È ‰½µµ¥ÑÑ•ÑÉ…­•ÈÝ…Ì¹½Ð¥¹¥Ñ¥…±¥é•ˆ¤(€€€€€€€€€€€€€€€™œ€ôÍ•±˜¹}µ½‘•°¹µ½‘•±}½¹™¥œ(€€€€€€€€€€€€€€€ÍÑ…Ñ•}‰…Ñ €ô€Ä¥˜™}½•˜€ôô€Ä¸À•±Í”€È(€€€€€€€€€€€€€€€…Ñ¥Ù”€ôÑ½É ¹é•É½Ì (€€€€€€€€€€€€€€€€€€€ÍÑ…Ñ•}‰…Ñ °(€€€€€€€€€€€€€€€€€€€™œ¹¹Õµ}Íåµ‰½±¥}¥¹ÍÑÉÕµ•¹Ñ}É½ÕÁÌ°(€€€€€€€€€€€€€€€€€€€™œ¹¹Õµ}Íåµ‰½±¥}Á¥Ñ¡•Ì°(€€€€€€€€€€€€€€€€€€€‘ÑåÁ”õÑ½É ¹‰½½°°(€€€€€€€€€€€€€€€€€€€‘•Ù¥”õÍ•±˜¹}‘•Ù¥”°(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€É•Ù•ÉÍ”€ôì(€€€€€€€€€€€€€€€€€€€ÁÉ½É…´èÉ½ÕÀ(€€€€€€€€€€€€€€€€€€€™½ÈÉ½ÕÀ°ÁÉ½É…µÌ¥¸Í•±˜¹}Ñ½­•¹¥é•È¹É½ÕÁ}ÁÉ½É…µ}µ…À¹¥Ñ•µÌ ¤(€€€€€€€€€€€€€€€€€€€™½ÈÁÉ½É…´¥¸ÁÉ½É…µÌ(€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€™½ÈÁÉ½É…´°Á¥Ñ ¥¸…¹‘¥‘…Ñ”¹½Á•¹}­•åÌ ¤è(€€€€€€€€€€€€€€€€€€€É½ÕÀ€ôÉ•Ù•ÉÍ”¹•Ð¡ÁÉ½É…´¤(€€€€€€€€€€€€€€€€€€€¥˜É½ÕÀ¥Ì¹½Ð9½¹”…¹€À€ðôÁ¥Ñ €ð…Ñ¥Ù”¹Í¡…Á•l´Åtè(€€€€€€€€€€€€€€€€€€€€€€€…Ñ¥Ù•lÀ°É½ÕÀ°Á¥Ñ¡t€ôQÉÕ”(€€€€€€€€€€€€€€€É••¹ÑÉä€ôÉ••¹ÑÉå}Ù…±¥€ô9½¹”(€€€€€€€€€€€€€€€¥˜ÁÉ•Ù¥½ÕÍ}É••¹ÑÉä¥Ì¹½Ð9½¹”è(€€€€€€€€€€€€€€€€€€€É••¹ÑÉä€ôÑ½É ¹™Õ±° (€€€€€€€€€€€€€€€€€€€€€€€€¡ÍÑ…Ñ•}‰…Ñ °™œ¹¹Õµ}Íåµ‰½±¥}¥¹ÍÑÉÕµ•¹Ñ}É½ÕÁÌ¤°(€€€€€€€€€€€€€€€€€€€€€€€™œ¹¹Õµ}É••¹ÑÉå}±…ÍÍ•Ì€´€Ä°(€€€€€€€€€€€€€€€€€€€€€€€‘ÑåÁ”õÑ½É ¹±½¹œ°(€€€€€€€€€€€€€€€€€€€€€€€‘•Ù¥”õÍ•±˜¹}‘•Ù¥”°(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€€€€€É••¹ÑÉå}Ù…±¥€ôÑ½É ¹é•É½Í}±¥­”¡É••¹ÑÉä°‘ÑåÁ”õÑ½É ¹‰½½°¤(€€€€€€€€€€€€€€€€€€€É••¹ÑÉålÁt€ôÁÉ•Ù¥½ÕÍ}É••¹ÑÉä(€€€€€€€€€€€€€€€€€€€É••¹ÑÉå}Ù…±¥‘lÁt€ôÁÉ•Ù¥½ÕÍ}É••¹ÑÉå}Ù…±¥(€€€€€€€€€€€€€€€Í•±˜¹}µ½‘•°¹ÁÉ•™¥±±}Íåµ‰½±¥}ÍÑ…Ñ” (€€€€€€€€€€€€€€€€€€€‘•½‘•}ÍÑ…Ñ”°(€€€€€€€€€€€€€€€€€€€…Ñ¥Ù”°(€€€€€€€€€€€€€€€€€€€É••¹ÑÉäõÉ••¹ÑÉä°(€€€€€€€€€€€€€€€€€€€É••¹ÑÉå}Ù…±¥õÉ••¹ÑÉå}Ù…±¥°(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€•µ¥ÑÑ•‘}•½Ì€ô…±Í”(€€€€€€€€€€€™½ÈÍÑ•À¥¸Í•±˜¹}µ½‘•°¹•¹•É…Ñ” (€€€€€€€€€€€€€€€ÁÉ½µÁÐõÁÉ½µÁÐ°(€€€€€€€€€€€€€€€½¹‘¥Ñ¥½¹Ìõmt°(€€€€€€€€€€€€€€€¹Õµ}Í…µÁ±•ÌôÄ°(€€€€€€€€€€€€€€€µ…á}•¹}±•¸õµ…á}•¹}±•¸°(€€€€€€€€€€€€€€€ÕÍ•}Í…µÁ±¥¹œõÕÍ•}Í…µÁ±¥¹œ°(€€€€€€€€€€€€€€€Ñ•µÀõÑ•µÁ•É…ÑÕÉ”°(€€€€€€€€€€€€€€€Ñ½Á}¬ôÀ°(€€€€€€€€€€€€€€€Ñ½Á}ÀôÀ¸À°(€€€€€€€€€€€€€€€™}½•˜õ™}½•˜°(€€€€€€€€€€€€€€€•…É±å}ÍÑ½Á}½¹}Ñ½­•¸õ•½Í}¥°(€€€€€€€€€€€€€€€‰•…µ}Í¥é”õ‰•…µ}Í¥é”°(€€€€€€€€€€€€€€€™½É‰¥‘‘•¹}Ñ½­•¹Ìõ™½É‰¥‘‘•¹}Ñ½­•¹Ì°(€€€€€€€€€€€€€€€µ½‘•±}ÍÑ…Ñ”õ‘•½‘•}ÍÑ…Ñ”°(€€€€€€€€€€€€€€€ÍÑ…Ñ•}Í•ÅÕ•¹•}±•¹Ñ õÍÑ…Ñ•}Í•ÅÕ•¹•}±•¹Ñ °(€€€€€€€€€€€€€€€ÁÉ½™¥±•}•¹•É…Ñ¥½¸õÁÉ½™¥±•}•¹•É…Ñ¥½¸°(€€€€€€€€€€€€€€€ÁÉ•™¥á}…±É•…‘å}ÁÉ•™¥±±•õQÉÕ”°(€€€€€€€€€€€€¤è(€€€€€€€€€€€€€€€Ñ½­•¸€ô¥¹Ð¡ÍÑ•ÁlÁt¤(€€€€€€€€€€€€€€€¥˜Ñ½­•¸€ôô•½Í}¥è(€€€€€€€€€€€€€€€€€€€•µ¥ÑÑ•‘}•½Ì€ôQÉÕ”(€€€€€€€€€€€€€€€€€€€½¹Ñ¥¹Õ”(€€€€€€€€€€€€€€€¥˜…¹‘¥‘…Ñ”¥Ì¹½Ð9½¹”è(€€€€€€€€€€€€€€€€€€€…¹‘¥‘…Ñ”¹™••¡Ñ½­•¸¤(€€€€€€€€€€€€€€€å¥•±Ñ½­•¸((€€€€€€€€€€€€Œ‘•½‘•}ÍÑ…Ñ•€¥Ì¥¹Ñ•¹Ñ¥½¹…±±ä¹½Ð…ÍÍ¥¹•‰…¬Ñ¼±•…¹}ÍÑ…Ñ”¸(€€€€€€€€€€€‘•°‘•½‘•}ÍÑ…Ñ”(€€€€€€€€€€€¥˜…¹‘¥‘…Ñ”¥Ì¹½Ð9½¹”è(€€€€€€€€€€€€€€€¥˜•µ¥ÑÑ•‘}•½Ì…¹…¹‘¥‘…Ñ”¹½µµ¥Ñ}É•…‘äè(€€€€€€€€€€€€€€€€€€€½µµ¥ÑÑ•€ô…¹‘¥‘…Ñ”(€€€€€€€€€€€€€€€€€€€½µµ¥ÑÑ•‘}¡Õ¹­Ì€¬ô€Ä(€€€€€€€€€€€€€€€€€€€¥˜ÕÉÉ•¹Ñ}…Ñ¥Ù•}±½¥ÑÌ¥Ì¹½Ð9½¹”è(€€€€€€€€€€€€€€€€€€€€€€€™œ€ôÍ•±˜¹}µ½‘•°¹µ½‘•±}½¹™¥œ(€€€€€€€€€€€€€€€€€€€€€€€ÑÉÕÑ €ôÑ½É ¹é•É½Ì (€€€€€€€€€€€€€€€€€€€€€€€€€€€™œ¹¹Õµ}Íåµ‰½±¥}¥¹ÍÑÉÕµ•¹Ñ}É½ÕÁÌ°(€€€€€€€€€€€€€€€€€€€€€€€€€€€™œ¹¹Õµ}Íåµ‰½±¥}Á¥Ñ¡•Ì°(€€€€€€€€€€€€€€€€€€€€€€€€€€€‘ÑåÁ”õÑ½É ¹‰½½°°(€€€€€€€€€€€€€€€€€€€€€€€€€€€‘•Ù¥”õÍ•±˜¹}‘•Ù¥”°(€€€€€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€€€€€€€€€É•Ù•ÉÍ”€ôì(€€€€€€€€€€€€€€€€€€€€€€€€€€€ÁÉ½É…´èÉ½ÕÀ(€€€€€€€€€€€€€€€€€€€€€€€€€€€™½ÈÉ½ÕÀ°ÁÉ½É…µÌ¥¸Í•±˜¹}Ñ½­•¹¥é•È¹É½ÕÁ}ÁÉ½É…µ}µ…À¹¥Ñ•µÌ ¤(€€€€€€€€€€€€€€€€€€€€€€€€€€€™½ÈÁÉ½É…´¥¸ÁÉ½É…µÌ(€€€€€€€€€€€€€€€€€€€€€€€ô(€€€€€€€€€€€€€€€€€€€€€€€™½ÈÁÉ½É…´°Á¥Ñ ¥¸…¹‘¥‘…Ñ”¹½Á•¹}­•åÌ ¤è(€€€€€€€€€€€€€€€€€€€€€€€€€€€É½ÕÀ€ôÉ•Ù•ÉÍ”¹•Ð¡ÁÉ½É…´¤(€€€€€€€€€€€€€€€€€€€€€€€€€€€¥˜É½ÕÀ¥Ì¹½Ð9½¹”…¹€À€ðôÁ¥Ñ €ðÑÉÕÑ ¹Í¡…Á•l´Åtè(€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ÑÉÕÑ¡mÉ½ÕÀ°Á¥Ñ¡t€ôQÉÕ”(€€€€€€€€€€€€€€€€€€€€€€€ÁÉ•‘¥Ñ•€ôÑ½É ¹Í¥µ½¥¡ÕÉÉ•¹Ñ}…Ñ¥Ù•}±½¥ÑÍlÁt¤€øô€À¸Ô(€€€€€€€€€€€€€€€€€€€€€€€¥¹Ñ•ÉÍ•Ñ¥½¸€ô€¡ÁÉ•‘¥Ñ•€˜ÑÉÕÑ ¤¹ÍÕ´ ¤¹™±½…Ð ¤(€€€€€€€€€€€€€€€€€€€€€€€‘•¹½µ¥¹…Ñ½È€ôÁÉ•‘¥Ñ•¹ÍÕ´ ¤€¬ÑÉÕÑ ¹ÍÕ´ ¤(€€€€€€€€€€€€€€€€€€€€€€€…É••µ•¹Ð€ôÑ½É ¹Ý¡•É” (€€€€€€€€€€€€€€€€€€€€€€€€€€€‘•¹½µ¥¹…Ñ½È€ø€À°(€€€€€€€€€€€€€€€€€€€€€€€€€€€€È€¨¥¹Ñ•ÉÍ•Ñ¥½¸€¼‘•¹½µ¥¹…Ñ½È°(€€€€€€€€€€€€€€€€€€€€€€€€€€€Ñ½É ¹½¹•Í}±¥­”¡¥¹Ñ•ÉÍ•Ñ¥½¸¤°(€€€€€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€€€€€€€€€‰½Õ¹‘…Éå}…É••µ•¹Ñ}ÍÕ´€¬ô™±½…Ð¡…É••µ•¹Ð¤(€€€€€€€€€€€€€€€€€€€€€€€‰½Õ¹‘…Éå}…É••µ•¹Ñ}½Õ¹Ð€¬ô€Ä(€€€€€€€€€€€€€€€•±Í”è(€€€€€€€€€€€€€€€€€€€É•©•Ñ•‘}¡Õ¹­Ì€¬ô€Ä((€€€€€€€€€€€¥˜ÕÉÉ•¹Ñ}É••¹ÑÉå}±½¥ÑÌ¥Ì¹½Ð9½¹”è(€€€€€€€€€€€€€€€ÁÉ½‰…‰¥±¥Ñ¥•Ì€ôÑ½É ¹Í½™Ñµ…à¡ÕÉÉ•¹Ñ}É••¹ÑÉå}±½¥ÑÍlÁt¹™±½…Ð ¤°‘¥´ô´Ä¤(€€€€€€€€€€€€€€€½¹™¥‘•¹”°ÁÉ•Ù¥½ÕÍ}É••¹ÑÉä€ôÁÉ½‰…‰¥±¥Ñ¥•Ì¹µ…à¡‘¥´ô´Ä¤(€€€€€€€€€€€€€€€ÁÉ•Ù¥½ÕÍ}É••¹ÑÉå}Ù…±¥€ô½¹™¥‘•¹”€øô€À¸ÐÀ((€€€€€€€€€€€¥˜¹½Ð•µ¥ÑÑ•‘}•½Ìè(€€€€€€€€€€€€€€€µ•ÍÍ…”€ô€ (€€€€€€€€€€€€€€€€€€€˜‰¡Õ¹¬í¡Õ¹­}¥¹‘•áô€¡Í••¬õíÍ••­}Ñ¥µ”è¸Å™õÌ¤‘¥¹½Ð•µ¥Ð=L€ˆ(€€€€€€€€€€€€€€€€€€€˜‰Ý¥Ñ¡¥¸íµ…á}•¹}±•¹ôÑ½­•¹Ìˆ(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€¥˜¹½}•½Í}¥Í}½¬è(€€€€€€€€€€€€€€€€€€€Ý…É¹¥¹Ì¹Ý…É¸¡µ•ÍÍ…”°IÕ¹Ñ¥µ•]…É¹¥¹œ°ÍÑ…­±•Ù•°ôÈ¤(€€€€€€€€€€€€€€€•±Í”è(€€€€€€€€€€€€€€€€€€€É…¥Í”IÕ¹Ñ¥µ•ÉÉ½È (€€€€€€€€€€€€€€€€€€€€€€€µ•ÍÍ…”€¬€ˆ€¡Ñ¡¥Ì¥Ì½¹±äÉ…¥Í•Õ¹‘•È€´µÍÑÉ¥Ðµ•½Ì¤ˆ(€€€€€€€€€€€€€€€€€€€€¤((€€€€€€€€€€€å¥•±AÉ½É•ÍÍÙ•¹Ð¡½µÁ±•Ñ•õ¡Õ¹­}¥¹‘•à€¬€Ä°Ñ½Ñ…°õ¹Õµ}¡Õ¹­Ì¤(€€€€€€€€€€€¥˜ÁÉ½™¥±•}•¹•É…Ñ¥½¸…¹Í•±˜¹}µ½‘•°¹±…ÍÑ}•¹•É…Ñ¥½¹}ÁÉ½™¥±”¥Ì¹½Ð9½¹”è(€€€€€€€€€€€€€€€•¹•É…Ñ¥½¹}ÁÉ½™¥±•Ì¹…ÁÁ•¹¡‘¥Ð¡Í•±˜¹}µ½‘•°¹±…ÍÑ}•¹•É…Ñ¥½¹}ÁÉ½™¥±”¤¤((€€€€€€€¥˜±•…¹}ÍÑ…Ñ”¥Ì¹½Ð9½¹”è(€€€€€€€€€€€±½…±}…¡•}±•¹Ñ¡Ì€ôl(€€€€€€€€€€€€€€€¥¹Ð¡Ù…±Õ•l‰­•ä‰t¹Í¡…Á•lÉt¤(€€€€€€€€€€€€€€€™½ÈÙ…±Õ”¥¸±•…¹}ÍÑ…Ñ”¹Ù…±Õ•Ì ¤(€€€€€€€€€€€€€€€¥˜¥Í¥¹ÍÑ…¹”¡Ù…±Õ”°‘¥Ð¤…¹€‰­•äˆ¥¸Ù…±Õ”(€€€€€€€€€€€t(€€€€€€€€€€€Í•±˜¹±…ÍÑ}ÍÑÉ•…µ¥¹}ÍÑ…Ñ”€ôì(€€€€€€€€€€€€€€€€‰‰åÑ•ÌˆèÍÑ…Ñ•}Í¥é•}‰åÑ•Ì¡±•…¹}ÍÑ…Ñ”¤°(€€€€€€€€€€€€€€€€‰±½…±}…¡•}±•¹Ñ¡Ìˆè±½…±}…¡•}±•¹Ñ¡Ì°(€€€€€€€€€€€€€€€€‰±•…¹}ÁÉ•™¥á}Ñ½­•¹Ìˆè±•…¹}ÁÉ•™¥á}Ñ½­•¹Ì°(€€€€€€€€€€€€€€€€‰½µµ¥ÑÑ•‘}Íåµ‰½±¥}¡Õ¹­Ìˆè½µµ¥ÑÑ•‘}¡Õ¹­Ì°(€€€€€€€€€€€€€€€€‰É•©•Ñ•‘}Íåµ‰½±¥}¡Õ¹­ÌˆèÉ•©•Ñ•‘}¡Õ¹­Ì°(€€€€€€€€€€€€€€€€‰‰½Õ¹‘…Éå}…Ñ¥Ù•}˜Äˆè€ (€€€€€€€€€€€€€€€€€€€‰½Õ¹‘…Éå}…É••µ•¹Ñ}ÍÕ´€¼‰½Õ¹‘…Éå}…É••µ•¹Ñ}½Õ¹Ð(€€€€€€€€€€€€€€€€€€€¥˜‰½Õ¹‘…Éå}…É••µ•¹Ñ}½Õ¹Ð(€€€€€€€€€€€€€€€€€€€•±Í”€À¸À(€€€€€€€€€€€€€€€€¤°(€€€€€€€€€€€ô(€€€€€€€¥˜ÁÉ½™¥±•}•¹•É…Ñ¥½¸è(€€€€€€€€€€€Í•±˜¹±…ÍÑ}•¹•É…Ñ¥½¹}ÁÉ½™¥±”€ôì(€€€€€€€€€€€€€€€­•äèÍÕ´¡™±½…Ð¡ÁÉ½™¥±”¹•Ð¡­•ä°€À¤¤™½ÈÁÉ½™¥±”¥¸•¹•É…Ñ¥½¹}ÁÉ½™¥±•Ì¤(€€€€€€€€€€€€€€€™½È­•ä¥¸€ (€€€€€€€€€€€€€€€€€€€€‰ÁÉ•™¥á}ÁÉ•™¥±±}Í•½¹‘Ìˆ°(€€€€€€€€€€€€€€€€€€€€‰…ÕÑ½É•É•ÍÍ¥Ù•}‘•½‘•}Í•½¹‘Ìˆ°(€€€€€€€€€€€€€€€€€€€€‰ÁÉ•™¥á}ÁÉ•™¥±±}Ñ½­•¹Ìˆ°(€€€€€€€€€€€€€€€€€€€€‰…ÕÑ½É•É•ÍÍ¥Ù•}‘•½‘•}Ñ½­•¹Ìˆ°(€€€€€€€€€€€€€€€€€€€€‰•¹•É…Ñ•‘}ÍÑ•ÁÌˆ°(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€ô(€€€€€€€€€€€Í•±˜¹±…ÍÑ}•¹•É…Ñ¥½¹}ÁÉ½™¥±•l‰±•…¹}…Õ‘¥½}ÁÉ•™¥±±}Ñ½­•¹Ì‰t€ô€ (€€€€€€€€€€€€€€€±•…¹}ÁÉ•™¥á}Ñ½­•¹Ì(€€€€€€€€€€€€¤(€€€€€€€€€€€Í•±˜¹±…ÍÑ}•¹•É…Ñ¥½¹}ÁÉ½™¥±•l‰¡Õ¹­Ì‰t€ô•¹•É…Ñ¥½¹}ÁÉ½™¥±•Ì((€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´(€€€‘•˜ÑÉ…¹ÍÉ¥‰•}Ñ½}µ¥‘¤ (€€€€€€€Í•±˜°(€€€€€€€…Õ‘¥¼èÍÑÈðA…Ñ ðÑÕÁ±•mÑ½É ¹Q•¹Í½È°¥¹Ñt°(€€€€€€€ÕÍ•}Í…µÁ±¥¹œè‰½½°€ô…±Í”°(€€€€€€€Ñ•µÁ•É…ÑÕÉ”è™±½…Ð€ô€Ä¸À°(€€€€€€€™}½•˜è™±½…Ð€ô€Ä¸À°(€€€€€€€¥¹ÍÑÉÕµ•¹ÑÌè±¥ÍÑmÍÑÉtð9½¹”€ô9½¹”°(€€€€€€€‰…Ñ¡}Í¥é”è¥¹Ðð9½¹”€ô9½¹”°(€€€€€€€¹½}•½Í}¥Í}½¬è‰½½°€ôQÉÕ”°(€€€€€€€‰•…µ}Í¥é”è¥¹Ð€ô€Ä°(€€€€€€€ÁÉ•±Õ‘•}™½É¥¹œè‰½½°€ôQÉÕ”°(€€€€€€€±½¹}½¹Ñ•áÐèÍÑÈ€ô€‰…ÕÑ¼ˆ°(€€€€€€€‘…Ñ…Í•Ñ}¹…µ”èÍÑÈð9½¹”€ô9½¹”°(€€€€€€€½µµ¥ÑÑ•‘}Íåµ‰½±¥}ÍÑ…Ñ”è‰½½°€ô…±Í”°(€€€€¤€´ø‰åÑ•Ìè(€€€€€€€€ˆˆ‰M…µ”…Ì€éµ•Ñ éÑÉ…¹ÍÉ¥‰•€‰ÕÐÉ•ÑÕÉ¹Ì„5%$™¥±”…Ì‰åÑ•Ì¸ˆˆˆ(€€€€€€€•Ù•¹ÑÌ€ôÍ•±˜¹ÑÉ…¹ÍÉ¥‰” (€€€€€€€€€€€…Õ‘¥¼°(€€€€€€€€€€€ÕÍ•}Í…µÁ±¥¹œõÕÍ•}Í…µÁ±¥¹œ°(€€€€€€€€€€€Ñ•µÁ•É…ÑÕÉ”õÑ•µÁ•É…ÑÕÉ”°(€€€€€€€€€€€™}½•˜õ™}½•˜°(€€€€€€€€€€€¥¹ÍÑÉÕµ•¹ÑÌõ¥¹ÍÑÉÕµ•¹ÑÌ°(€€€€€€€€€€€‰…Ñ¡}Í¥é”õ‰…Ñ¡}Í¥é”°(€€€€€€€€€€€¹½}•½Í}¥Í}½¬õ¹½}•½Í}¥Í}½¬°(€€€€€€€€€€€‰•…µ}Í¥é”õ‰•…µ}Í¥é”°(€€€€€€€€€€€ÁÉ•±Õ‘•}™½É¥¹œõÁÉ•±Õ‘•}™½É¥¹œ°(€€€€€€€€€€€±½¹}½¹Ñ•áÐõ±½¹}½¹Ñ•áÐ°(€€€€€€€€€€€‘…Ñ…Í•Ñ}¹…µ”õ‘…Ñ…Í•Ñ}¹…µ”°(€€€€€€€€€€€½µµ¥ÑÑ•‘}Íåµ‰½±¥}ÍÑ…Ñ”õ½µµ¥ÑÑ•‘}Íåµ‰½±¥}ÍÑ…Ñ”°(€€€€€€€€¤(€€€€€€€É•ÑÕÉ¸Í•±˜¹•Ù•¹ÑÍ}Ñ½}µ¥‘¥}‰åÑ•Ì¡•Ù•¹ÑÌ¤((€€€‘•˜•Ù•¹ÑÍ}Ñ½}µ¥‘¥}‰åÑ•Ì (€€€€€€€Í•±˜°•Ù•¹ÑÌè%Ñ•É…Ñ½Ém9½Ñ•MÑ…ÉÑÙ•¹Ðð9½Ñ•¹‘Ù•¹ÐðAÉ½É•ÍÍÙ•¹Ñt(€€€€¤€´ø‰åÑ•Ìè(€€€€€€€€ˆˆ‰I•…ÍÍ•µ‰±”9½Ñ•Ì™É½´„9½Ñ•MÑ…ÉÐ½9½Ñ•¹ÍÑÉ•…´…¹Í•É¥…±¥é”5%$¸((€€€€€€€M¡…É•‰ä€éµ•Ñ éÑÉ…¹ÍÉ¥‰•}Ñ½}µ¥‘¥€…¹Ñ¡”!QQ@Í•ÉÙ•È°Í¼Ñ¡”5%$(€€€€€€€‰åÑ•Ì…É”¥‘•¹Ñ¥…°É•…É‘±•ÍÌ½˜¡½ÜÑ¡”•Ù•¹ÑÌÝ•É”½‰Ñ…¥¹•¸(€€€€€€€€ˆˆˆ(€€€€€€€¹½Ñ•Ìè±¥ÍÑm9½Ñ•t€ômt(€€€€€€€½Á•¹}¹½Ñ•Ìè‘¥Ñm¥¹Ð°9½Ñ•t€ôíô(€€€€€€€ÁÉ½É…µ}¹…µ•Ìè‘¥Ñm¥¹Ð°ÍÑÉt€ôíô(€€€€€€€™½È•Ø¥¸•Ù•¹ÑÌè(€€€€€€€€€€€¥˜¥Í¥¹ÍÑ…¹”¡•Ø°AÉ½É•ÍÍÙ•¹Ð¤è(€€€€€€€€€€€€€€€½¹Ñ¥¹Õ”(€€€€€€€€€€€¥˜¥Í¥¹ÍÑ…¹”¡•Ø°9½Ñ•MÑ…ÉÑÙ•¹Ð¤è(€€€€€€€€€€€€€€€¥Í}‘ÉÕ´€ô•Ø¹¥¹ÍÑÉÕµ•¹Ð€ôô€‰‘ÉÕµÌˆ(€€€€€€€€€€€€€€€ÁÉ½É…´€ô€ (€€€€€€€€€€€€€€€€€€€IU5}AI=I4(€€€€€€€€€€€€€€€€€€€¥˜¥Í}‘ÉÕ´(€€€€€€€€€€€€€€€€€€€•±Í”Í•±˜¹}ÁÉ½É…µ}™½É}¥¹ÍÑÉÕµ•¹Ð¡•Ø¹¥¹ÍÑÉÕµ•¹Ð¤(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€ÁÉ½É…µ}¹…µ•ÍmÁÉ½É…µt€ô•Ø¹¥¹ÍÑÉÕµ•¹Ð¹É•Á±…” ‰|ˆ°€ˆ€ˆ¤(€€€€€€€€€€€€€€€¹½Ñ”€ô9½Ñ” (€€€€€€€€€€€€€€€€€€€¥Í}‘ÉÕ´õ¥Í}‘ÉÕ´°(€€€€€€€€€€€€€€€€€€€ÁÉ½É…´õÁÉ½É…´°(€€€€€€€€€€€€€€€€€€€½¹Í•Ðõ•Ø¹ÍÑ…ÉÑ}Ñ¥µ”°(€€€€€€€€€€€€€€€€€€€½™™Í•Ðõ•Ø¹ÍÑ…ÉÑ}Ñ¥µ”°€€ŒÁ…Ñ¡•½¸9½Ñ•¹‘Ù•¹Ð(€€€€€€€€€€€€€€€€€€€Á¥Ñ õ•Ø¹Á¥Ñ °(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€½Á•¹}¹½Ñ•Ím•Ø¹¥¹‘•át€ô¹½Ñ”(€€€€€€€€€€€•±Í”è€€Œ9½Ñ•¹‘Ù•¹Ð(€€€€€€€€€€€€€€€¹½Ñ”€ô½Á•¹}¹½Ñ•Ì¹Á½À¡•Ø¹ÍÑ…ÉÑ}•Ù•¹Ñ}¥¹‘•à¤(€€€€€€€€€€€€€€€¹½Ñ”¹½™™Í•Ð€ô•Ø¹•¹‘}Ñ¥µ”(€€€€€€€€€€€€€€€¹½Ñ•Ì¹…ÁÁ•¹¡¹½Ñ”¤((€€€€€€€€Œ5…Ñ Ñ¡”±•…ä‘•½‘•ÈÌ¹½Ñ”µ±•…¹ÕÀÁ…ÍÌÍ¼Ñ¡”5%$‰åÑ•Ì(€€€€€€€€Œ‘½¸Ð‘É¥™Ð™É½´•…É±¥•ÈÉ•™•É•¹”½ÕÑÁÕÑÌ¸(€€€€€€€¹½Ñ•Ì€ôÙ…±¥‘…Ñ•}¹½Ñ•Ì¡¹½Ñ•Ì°™¥àõQÉÕ”¤(€€€€€€€¹½Ñ•Ì€ôÑÉ¥µ}½Ù•É±…ÁÁ¥¹}¹½Ñ•Ì¡¹½Ñ•Ì°Í½ÉÐõQÉÕ”¤(€€€€€€€µ¥‘¤€ô¹½Ñ•Í}Ñ½}µ¥‘¤¡¹½Ñ•Ì°ÁÉ½É…µ}¹…µ•ÌõÁÉ½É…µ}¹…µ•Ì¤(€€€€€€€‰Õ˜€ô¥¼¹	åÑ•Í%< ¤(€€€€€€€µ¥‘¤¹Í…Ù”¡™¥±”õ‰Õ˜¤(€€€€€€€É•ÑÕÉ¸‰Õ˜¹•ÑÙ…±Õ” ¤((€€€‘•˜}ÁÉ½É…µ}™½É}¥¹ÍÑÉÕµ•¹Ð¡Í•±˜°¥¹ÍÑÉÕµ•¹ÐèÍÑÈ¤€´ø¥¹Ðè(€€€€€€€€ˆˆ‰%¹Ù•ÉÍ”½˜}¥¹ÍÑÉÕµ•¹Ñ}™½É}ÁÉ½É…µ€™½È¹½¸µ‘ÉÕ´¥¹ÍÑÉÕµ•¹ÑÌ¸ˆˆˆ(€€€€€€€¥˜¹½Ð¡…Í…ÑÑÈ¡Í•±˜°€‰}¥¹ÍÑ}Ñ½}ÁÉ½É…´ˆ¤è(€€€€€€€€€€€É½ÕÁ}µ…À€ôÍ•±˜¹}Ñ½­•¹¥é•È¹É½ÕÁ}ÁÉ½É…µ}µ…À(€€€€€€€€€€€Í•±˜¹}¥¹ÍÑ}Ñ½}ÁÉ½É…´€ôì(€€€€€€€€€€€€€€€¹…µ”èÉ½ÕÁ}µ…Ám¥‘ulÁt(€€€€€€€€€€€€€€€™½È¹…µ”°¥¥¸5PÍ}U11}A1UM}I=UA}95L¹¥Ñ•µÌ ¤(€€€€€€€€€€€€€€€¥˜¥¥¸É½ÕÁ}µ…À…¹É½ÕÁ}µ…Ám¥‘t(€€€€€€€€€€€ô(€€€€€€€¥˜¥¹ÍÑÉÕµ•¹Ð¥¸Í•±˜¹}¥¹ÍÑ}Ñ½}ÁÉ½É…´è(€€€€€€€€€€€É•ÑÕÉ¸Í•±˜¹}¥¹ÍÑ}Ñ½}ÁÉ½É…µm¥¹ÍÑÉÕµ•¹Ñt(€€€€€€€€Œ™…±±‰…¬™½ÈÕ¹­¹½Ý¸¹…µ•Ì±¥­”€‰ÁÉ½É…µ|ÐÈˆ(€€€€€€€¥˜¥¹ÍÑÉÕµ•¹Ð¹ÍÑ…ÉÑÍÝ¥Ñ  ‰ÁÉ½É…µ|ˆ¤è(€€€€€€€€€€€É•ÑÕÉ¸¥¹Ð¡¥¹ÍÑÉÕµ•¹Ð¹É•µ½Ù•ÁÉ•™¥à ‰ÁÉ½É…µ|ˆ¤¤(€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È¡˜‰U¹­¹½Ý¸¥¹ÍÑÉÕµ•¹Ð¹…µ”èí¥¹ÍÑÉÕµ•¹Ð…Éôˆ¤((€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´(€€€‘•˜}±½…‘}Ý…Ø (€€€€€€€Í•±˜°…Õ‘¥¼èÍÑÈðA…Ñ ðÑ½É ¹Q•¹Í½È°Í…µÁ±•}É…Ñ”è¥¹Ðð9½¹”(€€€€¤€´øÑ½É ¹Q•¹Í½Èè(€€€€€€€€ˆˆ‰I•ÑÕÉ¸µ½¹¼™±½…ÐÌÈÝ…Ù•™½É´…Ð€ÄØ­!è°Í¡…Á”lÄ°Qt¸ˆˆˆ(€€€€€€€¥˜¥Í¥¹ÍÑ…¹”¡…Õ‘¥¼°€¡ÍÑÈ°A…Ñ ¤¤è(€€€€€€€€€€€Ý…Ø€ô±½…‘}…Õ‘¥¼¡…Õ‘¥¼°Ñ…É•Ñ}ÍÈõ}M5A1}IQ¤(€€€€€€€•±Í”è(€€€€€€€€€€€Ý…Ø€ô…Õ‘¥¼¹™±½…Ð ¤(€€€€€€€€€€€¥˜Ý…Ø¹‘¥´ ¤€ôô€Äè(€€€€€€€€€€€€€€€Ý…Ø€ôÝ…Ø¹Õ¹ÍÅÕ••é” À¤(€€€€€€€€€€€¥˜Ý…Ø¹‘¥´ ¤€ôô€Ìè(€€€€€€€€€€€€€€€Ý…Ø€ôÝ…Ø¹ÍÅÕ••é” À¤(€€€€€€€€€€€¥˜Ý…Ø¹Í¡…Á•lÁt€ø€Äè(€€€€€€€€€€€€€€€Ý…Ø€ôÝ…Ø¹µ•…¸ À°­••Á‘¥´õQÉÕ”¤(€€€€€€€€€€€¥˜Í…µÁ±•}É…Ñ”¥Ì¹½Ð9½¹”…¹Í…µÁ±•}É…Ñ”€„ô}M5A1}IQè(€€€€€€€€€€€€€€€Ý…Ø€ôÉ•Í…µÁ±”¡Ý…Ø°Í…µÁ±•}É…Ñ”°}M5A1}IQ¤(€€€€€€€É•ÑÕÉ¸Ý…Ø¹Ñ¼¡Í•±˜¹}‘•Ù¥”¤((€€€‘•˜}‰Õ¥±‘}½¹‘¥Ñ¥½¹Ì (€€€€€€€Í•±˜°(€€€€€€€Ý…ØèÑ½É ¹Q•¹Í½È°(€€€€€€€¥¹ÍÑÉÕµ•¹Ñ}É½ÕÀèÍÑÈð9½¹”€ô9½¹”°(€€€€€€€‘…Ñ…Í•Ñ}¹…µ”èÍÑÈð9½¹”€ô9½¹”°(€€€€¤€´ø±¥ÍÑm½¹‘¥Ñ¥½¹¥¹ÑÑÉ¥‰ÕÑ•Ítè(€€€€€€€€ˆˆ‰	Õ¥±„Í¥¹±”µ•±•µ•¹Ð±¥ÍÐ½˜½¹‘¥Ñ¥½¹¥¹ÑÑÉ¥‰ÕÑ•Ì™½È½¹”€ÔµÍ•½¹¡Õ¹¬¸ˆˆˆ(€€€€€€€P€ôÝ…Ø¹Í¡…Á•l´Åt(€€€€€€€Ý…Ù|Í€ôÝ…Ø¹Õ¹ÍÅÕ••é” À¤€€ŒlÄ°€Ä°Qt(€€€€€€€±•¹Ñ €ôÑ½É ¹Ñ•¹Í½È¡mQt°‘•Ù¥”õÍ•±˜¹}‘•Ù¥”¤(€€€€€€€Ý…Ù}½¹€ô]…Ù½¹‘¥Ñ¥½¸ (€€€€€€€€€€€Ý…ØõÝ…Ù|Í°(€€€€€€€€€€€±•¹Ñ õ±•¹Ñ °(€€€€€€€€€€€Í…µÁ±•}É…Ñ”õm}M5A1}IQt°(€€€€€€€€€€€Á…Ñ õm9½¹•t°(€€€€€€€€€€€Í••­}Ñ¥µ”õlÀ¸Át°(€€€€€€€€¤(€€€€€€€É•ÑÕÉ¸l(€€€€€€€€€€€½¹‘¥Ñ¥½¹¥¹ÑÑÉ¥‰ÕÑ•Ì (€€€€€€€€€€€€€€€Ý…Øõì‰Í•±™}Ý…ØˆèÝ…Ù}½¹‘ô°(€€€€€€€€€€€€€€€Ñ•áÐõì(€€€€€€€€€€€€€€€€€€€€‰¥¹ÍÑÉÕµ•¹Ñ}É½ÕÀˆè¥¹ÍÑÉÕµ•¹Ñ}É½ÕÀ°(€€€€€€€€€€€€€€€€€€€€Œ±Ý…åÌÕ¹½¹‘¥Ñ¥½¹…°½¸‘…Ñ…Í•ÐèÑ¡”¹Õ±°½Á…±…ÍÌ¸(€€€€€€€€€€€€€€€€€€€€‰‘…Ñ…Í•Ñ}¹…µ”ˆè‘…Ñ…Í•Ñ}¹…µ”°(€€€€€€€€€€€€€€€ô°(€€€€€€€€€€€€¤(€€€€€€€t
+        if committed_symbolic_state and long_context != "clean_audio":
+            raise ValueError(
+                "committed_symbolic_state requires long_context='clean_audio'"
+            )
+        self.last_streaming_state = None
+        self.last_generation_profile = None
+        self.last_token_stream_sha256 = None
+
+        # Exact names only here â€” the CLI resolves abbreviations before
+        # calling in (resolve_instrument_names).
+        instrument_group = (
+            instrument_group_from_names(instruments) if instruments else None
+        )
+        forbidden_tokens = None
+        if instruments:
+            forbidden_tokens = torch.tensor(
+                self._tokenizer.forbidden_token_ids(instruments),
+                device=self._device,
+                dtype=torch.long,
+            )
+
+        timings: list[tuple[str, float]] = []
+        t_total = time.perf_counter()
+
+        if isinstance(audio, tuple):
+            tensor, sample_rate = audio
+            with _timed("load audio", timings):
+                wav = self._load_wav(tensor, sample_rate)
+        else:
+            with _timed("load audio", timings):
+                wav = self._load_wav(audio, None)
+
+        total_samples = wav.shape[-1]
+        total_duration = total_samples / _SAMPLE_RATE
+
+        segment_samples = int(_SEGMENT_DURATION * _SAMPLE_RATE)
+        num_chunks = math.ceil(total_samples / segment_samples)
+        max_gen_len = 2000
+        print(
+            f"[muscriptor] audio: {total_duration:.1f}s â†’ {num_chunks} chunk(s) of {_SEGMENT_DURATION}s",
+            file=sys.stderr,
+        )
+
+        with _timed("build conditions", timings):
+            all_conditions: list[ConditioningAttributes] = []
+            seek_times: list[float] = []
+            for i in range(num_chunks):
+                start = i * segment_samples
+                chunk = wav[:, start : start + segment_samples]
+                if chunk.shape[-1] < segment_samples:
+                    chunk = F.pad(chunk, (0, segment_samples - chunk.shape[-1]))
+                condition = (
+                    self._build_conditions(chunk, instrument_group)[0]
+                    if dataset_name is None
+                    else self._build_conditions(
+                        chunk, instrument_group, dataset_name
+                    )[0]
+                )
+                all_conditions.append(condition)
+                seek_times.append(i * _SEGMENT_DURATION)
+
+        t_gen = time.perf_counter()
+
+        # Up-front anchor: tells consumers the total chunk count and gives them a
+        # timing baseline (t0) for the first chunk, before any tokens are gen'd.
+        yield ProgressEvent(completed=0, total=num_chunks)
+
+        stream_args = (
+            all_conditions,
+            seek_times,
+            batch_size,
+            max_gen_len,
+            use_sampling,
+            temperature,
+            cfg_coef,
+            no_eos_is_ok,
+            prelude_forcing,
+            beam_size,
+            long_context,
+            forbidden_tokens,
+        )
+        # Keep the historical positional call shape when profiling is off.
+        # Several downstream wrappers override this private hook with ``*args``
+        # and treat the final argument as the strict-instrument token mask.
+        extra_stream_args = {}
+        if committed_symbolic_state:
+            extra_stream_args["committed_symbolic_state"] = True
+        if profile_generation:
+            extra_stream_args["profile_generation"] = True
+        token_stream = self._generate_token_stream(
+            *stream_args, **extra_stream_args
+        )
+        token_digest = hashlib.sha256()
+
+        def audited_token_stream():
+            try:
+                for item in token_stream:
+                    if isinstance(item, int) and not isinstance(item, bool):
+                        token_digest.update(
+                            int(item).to_bytes(4, "big", signed=True)
+                        )
+                    yield item
+            finally:
+                self.last_token_stream_sha256 = token_digest.hexdigest()
+
+        self.last_token_stream_sha256 = None
+        yield from decode_model_tokens(
+            audited_token_stream(),
+            self._tokenizer._vocab,
+            self._instrument_for_program,
+            frame_rate=self._tokenizer.frame_rate,
+        )
+
+        muscriptor.accelerator.synchronize()
+        print(
+            f"[muscriptor] generate total: {time.perf_counter() - t_gen:.2f}s",
+            file=sys.stderr,
+        )
+        print(
+            f"[muscriptor] transcribe total: {time.perf_counter() - t_total:.2f}s "
+            f"({total_duration:.1f}s audio)",
+            file=sys.stderr,
+        )
+
+    def _resolve_batch_size(self, batch_size: int | None, prelude_forcing: bool) -> int:
+        """Default the batch size, favouring transcription quality.
+
+        Prelude forcing needs chunks generated strictly in order, so while it
+        is on (the default) the batch size defaults to â€” and must be â€” 1.
+        Batching is an explicit quality trade-off: asking for both raises
+        instead of silently dropping the forcing.
+        """
+        if batch_size is None:
+            if prelude_forcing:
+                return 1
+            return 4 if self._device.type in ("cuda", "mps") else 1
+        if prelude_forcing and batch_size > 1:
+            raise ValueError(
+                f"batch_size={batch_size} disables prelude forcing, which lowers "
+                "quality at chunk boundaries; pass prelude_forcing=False to "
+                "accept that trade-off"
+            )
+        return batch_size
+
+    # ------------------------------------------------------------------
+    def _generate_token_stream(
+        self,
+        all_conditions: list[ConditioningAttributes],
+        seek_times: list[float],
+        batch_size: int,
+        max_gen_len: int,
+        use_sampling: bool,
+        temperature: float,
+        cfg_coef: float,
+        no_eos_is_ok: bool,
+        prelude_forcing: bool = True,
+        beam_size: int = 1,
+        long_context: str = "reset",
+        forbidden_tokens: torch.Tensor | None = None,
+        profile_generation: bool = False,
+        committed_symbolic_state: bool = False,
+    ) -> Iterator[int | ChunkBoundary | ProgressEvent]:
+        """Generate tokens and yield them per chunk, as soon as they are ready.
+
+        The model emits one token per chunk per timestep across the batch, but
+        the decoder consumes whole chunks in order. So within each batch we
+        stream the first chunk's tokens live as they are generated and buffer
+        the others; once the first chunk hits EOS we flush the next chunk's
+        buffered tokens and stream it live, and so on. EOS (and anything after
+        it) is dropped.
+
+        With ``prelude_forcing`` (and ``batch_size == 1``, so chunks generate
+        strictly in order), every chunk after the first has its tie prologue
+        teacher-forced: the notes left open by the previous chunk are encoded
+        as ``(program, pitch)â€¦tie`` tokens and passed to ``generate`` as a
+        prompt, so the model can't restate them with the wrong instruments.
+        The forced tokens flow through this stream like generated ones, which
+        keeps the downstream decoder's view consistent by construction.
+        """
+        if long_context == "clean_audio":
+            yield from self._generate_clean_audio_token_stream(
+                all_conditions=all_conditions,
+                seek_times=seek_times,
+                max_gen_len=max_gen_len,
+                use_sampling=use_sampling,
+                temperature=temperature,
+                cfg_coef=cfg_coef,
+                no_eos_is_ok=no_eos_is_ok,
+                prelude_forcing=prelude_forcing,
+                beam_size=beam_size,
+                forbidden_tokens=forbidden_tokens,
+                profile_generation=profile_generation,
+                committed_symbolic_state=committed_symbolic_state,
+            )
+            return
+
+        eos_id = self._tokenizer.eos_id
+        num_chunks = len(seek_times)
+        generation_profiles: list[dict[str, float | int]] = []
+
+        # Chunks in a batch generate concurrently, so with batch_size > 1 the
+        # previous chunk's open notes aren't known when the next one starts â€”
+        # forcing is only possible chunk-by-chunk. transcribe() rejects that
+        # combination up front (_resolve_batch_size); this guard keeps the
+        # invariant for direct callers too.
+        tracker = None
+        if prelude_forcing and batch_size == 1:
+            tracker = OpenNoteTracker(
+                self._tokenizer._vocab, self._tokenizer.frame_rate
+            )
+
+        persistent_state = None
+        if long_context == "carry":
+            state_batch = 1 if cfg_coef == 1.0 else 2
+            # Official Mamba only uses this as a maximum-position bound; its
+            # conv/SSM state remains constant-sized. Local attention allocates
+            # a fixed window independently of this value.
+            state_sequence_length = num_chunks * (max_gen_len + 640)
+            persistent_state = init_states(
+                self._model,
+                batch_size=state_batch,
+                sequence_length=state_sequence_length,
+            )
+
+        def boundary(chunk_index: int) -> ChunkBoundary:
+            next_seek_time = (
+                seek_times[chunk_index + 1] if chunk_index + 1 < num_chunks else None
+            )
+            return ChunkBoundary(seek_times[chunk_index], next_seek_time)
+
+        for batch_start in range(0, num_chunks, batch_size):
+            batch_conditions = all_conditions[batch_start : batch_start + batch_size]
+            n = len(batch_conditions)
+            buffers: list[list[int]] = [[] for _ in range(n)]
+            done = [False] * n
+            active = 0  # within-batch index of the chunk streaming live
+
+            # The first chunk in the batch streams live from the start.
+            bnd = boundary(batch_start)
+            prompt = None
+            if tracker is not None:
+                # Feed the boundary first: it settles the tracker (e.g. a
+                # previous chunk that never emitted its tie token drops all
+                # open notes) so open_keys() is exactly the decoder's view.
+                tracker.feed(bnd)
+                if batch_start > 0:
+                    prompt = torch.tensor(
+                        [self._tokenizer.tie_section_token_ids(tracker.open_keys())],
+                        device=self._device,
+                        dtype=torch.long,
+                    )
+            yield bnd
+
+            for step in self._model.generate(
+                prompt=prompt,
+                conditions=batch_conditions,
+                max_gen_len=max_gen_len,
+                use_sampling=use_sampling,
+                temp=temperature,
+                top_k=0,
+                top_p=0.0,
+                cfg_coef=cfg_coef,
+                early_stop_on_token=eos_id,
+                beam_size=beam_size,
+                forbidden_tokens=forbidden_tokens,
+                model_state=persistent_state,
+                profile_generation=profile_generation,
+            ):
+                row = step.tolist()  # one token per chunk: [n]
+                for j in range(n):
+                    if done[j]:
+                        continue
+                    tok = row[j]
+                    if tok == eos_id:
+                        done[j] = True
+                    else:
+                        if tracker is not None:
+                            tracker.feed(tok)
+                        if j == active:
+                            yield tok
+                        else:
+                            buffers[j].append(tok)
+                # When the live chunk finishes, flush and stream the next one(s).
+                while active < n and done[active]:
+                    active += 1
+                    if active < n:
+                        yield boundary(batch_start + active)
+                        yield from buffers[active]
+                        buffers[active] = []
+
+            # Any chunk still open never emitted EOS within max_gen_len.
+            for j in range(active, n):
+                if not done[j]:
+                    chunk_index = batch_start + j
+                    msg = (
+                        f"chunk {chunk_index} (seek={seek_times[chunk_index]:.1f}s) "
+                        f"did not emit EOS within {max_gen_len} tokens"
+                    )
+                    if no_eos_is_ok:
+                        warnings.warn(msg, RuntimeWarning, stacklevel=2)
+                    else:
+                        raise RuntimeError(
+                            msg + " (this is only raised under --strict-eos)"
+                        )
+                # The live (active) chunk has already streamed; emit the rest.
+                if j != active:
+                    yield boundary(batch_start + j)
+                    yield from buffers[j]
+
+            # This batch's chunks are fully generated: emit a completion anchor.
+            # (batch_size=1 on the web path => one event per chunk.) The event
+            # trails the chunk's tokens, so by the time it surfaces from
+            # decode_model_tokens all of that chunk's notes have been yielded.
+            yield ProgressEvent(completed=batch_start + n, total=num_chunks)
+
+            if profile_generation and self._model.last_generation_profile is not None:
+                generation_profiles.append(dict(self._model.last_generation_profile))
+
+        if persistent_state is not None:
+            local_cache_lengths = [
+                int(value["key"].shape[2])
+                for value in persistent_state.values()
+                if isinstance(value, dict) and "key" in value
+            ]
+            self.last_streaming_state = {
+                "bytes": state_size_bytes(persistent_state),
+                "local_cache_lengths": local_cache_lengths,
+            }
+        if profile_generation:
+            self.last_generation_profile = {
+                key: sum(float(profile.get(key, 0)) for profile in generation_profiles)
+                for key in (
+                    "prefix_prefill_seconds",
+                    "autoregressive_decode_seconds",
+                    "prefix_prefill_tokens",
+                    "autoregressive_decode_tokens",
+                    "generated_steps",
+                )
+            }
+            self.last_generation_profile["chunks"] = generation_profiles
+
+    def _generate_clean_audio_token_stream(
+        self,
+        *,
+        all_conditions: list[ConditioningAttributes],
+        seek_times: list[float],
+        max_gen_len: int,
+        use_sampling: bool,
+        temperature: float,
+        cfg_coef: float,
+        no_eos_is_ok: bool,
+        prelude_forcing: bool,
+        beam_size: int,
+        forbidden_tokens: torch.Tensor | None,
+        profile_generation: bool,
+        committed_symbolic_state: bool,
+    ) -> Iterator[int | ChunkBoundary | ProgressEvent]:
+        """Generate from an audio-only persistent state and throw events away.
+
+        Every chunk first advances ``clean_state`` using only its chunk marker,
+        audio frames, and NULL metadata.  BOS/tie/MIDI/EOS generation runs on
+        a deep state fork.  The fork is discarded even after a successful EOS,
+        so a bad event history can never contaminate future acoustic state.
+        """
+
+        if beam_size != 1:
+            raise ValueError("clean_audio currently requires beam_size=1")
+        if len(all_conditions) != len(seek_times):
+            raise ValueError("condition/seek-time length mismatch")
+
+        eos_id = self._tokenizer.eos_id
+        num_chunks = len(seek_times)
+        clean_state = None
+        state_sequence_length = num_chunks * (max_gen_len + 640)
+        committed = (
+            OpenNoteTracker(self._tokenizer._vocab, self._tokenizer.frame_rate)
+            if prelude_forcing or committed_symbolic_state
+            else None
+        )
+        committed_chunks = 0
+        rejected_chunks = 0
+        clean_prefix_tokens = 0
+        boundary_agreement_sum = 0.0
+        boundary_agreement_count = 0
+        previous_reentry = None
+        previous_reentry_valid = None
+        generation_profiles: list[dict[str, float | int]] = []
+
+        for chunk_index, (condition, seek_time) in enumerate(
+            zip(all_conditions, seek_times)
+        ):
+            next_seek = (
+                seek_times[chunk_index + 1]
+                if chunk_index + 1 < num_chunks
+                else None
+            )
+            boundary = ChunkBoundary(seek_time, next_seek)
+            candidate = committed.fork() if committed is not None else None
+            prompt = None
+            if candidate is not None:
+                candidate.feed(boundary)
+                if prelude_forcing and chunk_index > 0:
+                    prompt = torch.tensor(
+                        [self._tokenizer.tie_section_token_ids(candidate.open_keys())],
+                        device=self._device,
+                        dtype=torch.long,
+                    )
+            yield boundary
+
+            clean_state, clean_hidden = self._model.prefill_condition_prefix(
+                [condition],
+                model_state=clean_state,
+                state_sequence_length=state_sequence_length,
+                cfg_coef=cfg_coef,
+                log_timing=True,
+            )
+            clean_prefix_tokens += int(clean_hidden.shape[1])
+            decode_state = clone_model_state(clean_state, detach=True)
+            current_active_logits = current_reentry_logits = None
+            if self._model.model_config.clean_acoustic_cache:
+                current_active_logits, current_reentry_logits = (
+                    self._model.boundary_state_logits(clean_hidden[:, -1])
+                )
+            if committed_symbolic_state:
+                if candidate is None:
+                    raise RuntimeError("committed tracker was not initialized")
+                cfg = self._model.model_config
+                state_batch = 1 if cfg_coef == 1.0 else 2
+                active = torch.zeros(
+                    state_batch,
+                    cfg.num_symbolic_instrument_groups,
+                    cfg.num_symbolic_pitches,
+                    dtype=torch.bool,
+                    device=self._device,
+                )
+                reverse = {
+                    program: group
+                    for group, programs in self._tokenizer.group_program_map.items()
+                    for program in programs
+                }
+                for program, pitch in candidate.open_keys():
+                    group = reverse.get(program)
+                    if group is not None and 0 <= pitch < active.shape[-1]:
+                        active[0, group, pitch] = True
+                reentry = reentry_valid = None
+                if previous_reentry is not None:
+                    reentry = torch.full(
+                        (state_batch, cfg.num_symbolic_instrument_groups),
+                        cfg.num_reentry_classes - 1,
+                        dtype=torch.long,
+                        device=self._device,
+                    )
+                    reentry_valid = torch.zeros_like(reentry, dtype=torch.bool)
+                    reentry[0] = previous_reentry
+                    reentry_valid[0] = previous_reentry_valid
+                self._model.prefill_symbolic_state(
+                    decode_state,
+                    active,
+                    reentry=reentry,
+                    reentry_valid=reentry_valid,
+                )
+            emitted_eos = False
+            for step in self._model.generate(
+                prompt=prompt,
+                conditions=[],
+                num_samples=1,
+                max_gen_len=max_gen_len,
+                use_sampling=use_sampling,
+                temp=temperature,
+                top_k=0,
+                top_p=0.0,
+                cfg_coef=cfg_coef,
+                early_stop_on_token=eos_id,
+                beam_size=beam_size,
+                forbidden_tokens=forbidden_tokens,
+                model_state=decode_state,
+                state_sequence_length=state_sequence_length,
+                profile_generation=profile_generation,
+                prefix_already_prefilled=True,
+            ):
+                token = int(step[0])
+                if token == eos_id:
+                    emitted_eos = True
+                    continue
+                if candidate is not None:
+                    candidate.feed(token)
+                yield token
+
+            # ``decode_state`` is intentionally not assigned back to clean_state.
+            del decode_state
+            if candidate is not None:
+                if emitted_eos and candidate.commit_ready:
+                    committed = candidate
+                    committed_chunks += 1
+                    if current_active_logits is not None:
+                        cfg = self._model.model_config
+                        truth = torch.zeros(
+                            cfg.num_symbolic_instrument_groups,
+                            cfg.num_symbolic_pitches,
+                            dtype=torch.bool,
+                            device=self._device,
+                        )
+                        reverse = {
+                            program: group
+                            for group, programs in self._tokenizer.group_program_map.items()
+                            for program in programs
+                        }
+                        for program, pitch in candidate.open_keys():
+                            group = reverse.get(program)
+                            if group is not None and 0 <= pitch < truth.shape[-1]:
+                                truth[group, pitch] = True
+                        predicted = torch.sigmoid(current_active_logits[0]) >= 0.5
+                        intersection = (predicted & truth).sum().float()
+                        denominator = predicted.sum() + truth.sum()
+                        agreement = torch.where(
+                            denominator > 0,
+                            2 * intersection / denominator,
+                            torch.ones_like(intersection),
+                        )
+                        boundary_agreement_sum += float(agreement)
+                        boundary_agreement_count += 1
+                else:
+                    rejected_chunks += 1
+
+            if current_reentry_logits is not None:
+                probabilities = torch.softmax(current_reentry_logits[0].float(), dim=-1)
+                confidence, previous_reentry = probabilities.max(dim=-1)
+                previous_reentry_valid = confidence >= 0.40
+
+            if not emitted_eos:
+                message = (
+                    f"chunk {chunk_index} (seek={seek_time:.1f}s) did not emit EOS "
+                    f"within {max_gen_len} tokens"
+                )
+                if no_eos_is_ok:
+                    warnings.warn(message, RuntimeWarning, stacklevel=2)
+                else:
+                    raise RuntimeError(
+                        message + " (this is only raised under --strict-eos)"
+                    )
+
+            yield ProgressEvent(completed=chunk_index + 1, total=num_chunks)
+            if profile_generation and self._model.last_generation_profile is not None:
+                generation_profiles.append(dict(self._model.last_generation_profile))
+
+        if clean_state is not None:
+            local_cache_lengths = [
+                int(value["key"].shape[2])
+                for value in clean_state.values()
+                if isinstance(value, dict) and "key" in value
+            ]
+            self.last_streaming_state = {
+                "bytes": state_size_bytes(clean_state),
+                "local_cache_lengths": local_cache_lengths,
+                "clean_prefix_tokens": clean_prefix_tokens,
+                "committed_symbolic_chunks": committed_chunks,
+                "rejected_symbolic_chunks": rejected_chunks,
+                "boundary_active_f1": (
+                    boundary_agreement_sum / boundary_agreement_count
+                    if boundary_agreement_count
+                    else 0.0
+                ),
+            }
+        if profile_generation:
+            self.last_generation_profile = {
+                key: sum(float(profile.get(key, 0)) for profile in generation_profiles)
+                for key in (
+                    "prefix_prefill_seconds",
+                    "autoregressive_decode_seconds",
+                    "prefix_prefill_tokens",
+                    "autoregressive_decode_tokens",
+                    "generated_steps",
+                )
+            }
+            self.last_generation_profile["clean_audio_prefill_tokens"] = (
+                clean_prefix_tokens
+            )
+            self.last_generation_profile["chunks"] = generation_profiles
+
+    # ------------------------------------------------------------------
+    def transcribe_to_midi(
+        self,
+        audio: str | Path | tuple[torch.Tensor, int],
+        use_sampling: bool = False,
+        temperature: float = 1.0,
+        cfg_coef: float = 1.0,
+        instruments: list[str] | None = None,
+        batch_size: int | None = None,
+        no_eos_is_ok: bool = True,
+        beam_size: int = 1,
+        prelude_forcing: bool = True,
+        long_context: str = "auto",
+        dataset_name: str | None = None,
+        committed_symbolic_state: bool = False,
+    ) -> bytes:
+        """Same as :meth:`transcribe` but returns a MIDI file as bytes."""
+        events = self.transcribe(
+            audio,
+            use_sampling=use_sampling,
+            temperature=temperature,
+            cfg_coef=cfg_coef,
+            instruments=instruments,
+            batch_size=batch_size,
+            no_eos_is_ok=no_eos_is_ok,
+            beam_size=beam_size,
+            prelude_forcing=prelude_forcing,
+            long_context=long_context,
+            dataset_name=dataset_name,
+            committed_symbolic_state=committed_symbolic_state,
+        )
+        return self.events_to_midi_bytes(events)
+
+    def events_to_midi_bytes(
+        self, events: Iterator[NoteStartEvent | NoteEndEvent | ProgressEvent]
+    ) -> bytes:
+        """Reassemble Notes from a NoteStart/NoteEnd stream and serialize MIDI.
+
+        Shared by :meth:`transcribe_to_midi` and the HTTP server, so the MIDI
+        bytes are identical regardless of how the events were obtained.
+        """
+        notes: list[Note] = []
+        open_notes: dict[int, Note] = {}
+        program_names: dict[int, str] = {}
+        for ev in events:
+            if isinstance(ev, ProgressEvent):
+                continue
+            if isinstance(ev, NoteStartEvent):
+                is_drum = ev.instrument == "drums"
+                program = (
+                    DRUM_PROGRAM
+                    if is_drum
+                    else self._program_for_instrument(ev.instrument)
+                )
+                program_names[program] = ev.instrument.replace("_", " ")
+                note = Note(
+                    is_drum=is_drum,
+                    program=program,
+                    onset=ev.start_time,
+                    offset=ev.start_time,  # patched on NoteEndEvent
+                    pitch=ev.pitch,
+                )
+                open_notes[ev.index] = note
+            else:  # NoteEndEvent
+                note = open_notes.pop(ev.start_event_index)
+                note.offset = ev.end_time
+                notes.append(note)
+
+        # Match the legacy decoder's note-cleanup pass so the MIDI bytes
+        # don't drift from earlier reference outputs.
+        notes = validate_notes(notes, fix=True)
+        notes = trim_overlapping_notes(notes, sort=True)
+        midi = notes_to_midi(notes, program_names=program_names)
+        buf = io.BytesIO()
+        midi.save(file=buf)
+        return buf.getvalue()
+
+    def _program_for_instrument(self, instrument: str) -> int:
+        """Inverse of `_instrument_for_program` for non-drum instruments."""
+        if not hasattr(self, "_inst_to_program"):
+            group_map = self._tokenizer.group_program_map
+            self._inst_to_program = {
+                name: group_map[gid][0]
+                for name, gid in MT3_FULL_PLUS_GROUP_NAMES.items()
+                if gid in group_map and group_map[gid]
+            }
+        if instrument in self._inst_to_program:
+            return self._inst_to_program[instrument]
+        # fallback for unknown names like "program_42"
+        if instrument.startswith("program_"):
+            return int(instrument.removeprefix("program_"))
+        raise ValueError(f"Unknown instrument name: {instrument!r}")
+
+    # ------------------------------------------------------------------
+    def _load_wav(
+        self, audio: str | Path | torch.Tensor, sample_rate: int | None
+    ) -> torch.Tensor:
+        """Return mono float32 waveform at 16 kHz, shape [1, T]."""
+        if isinstance(audio, (str, Path)):
+            wav = load_audio(audio, target_sr=_SAMPLE_RATE)
+        else:
+            wav = audio.float()
+            if wav.dim() == 1:
+                wav = wav.unsqueeze(0)
+            if wav.dim() == 3:
+                wav = wav.squeeze(0)
+            if wav.shape[0] > 1:
+                wav = wav.mean(0, keepdim=True)
+            if sample_rate is not None and sample_rate != _SAMPLE_RATE:
+                wav = resample(wav, sample_rate, _SAMPLE_RATE)
+        return wav.to(self._device)
+
+    def _build_conditions(
+        self,
+        wav: torch.Tensor,
+        instrument_group: str | None = None,
+        dataset_name: str | None = None,
+    ) -> list[ConditioningAttributes]:
+        """Build a single-element list of ConditioningAttributes for one 5-second chunk."""
+        T = wav.shape[-1]
+        wav_3d = wav.unsqueeze(0)  # [1, 1, T]
+        length = torch.tensor([T], device=self._device)
+        wav_cond = WavCondition(
+            wav=wav_3d,
+            length=length,
+            sample_rate=[_SAMPLE_RATE],
+            path=[None],
+            seek_time=[0.0],
+        )
+        return [
+            ConditioningAttributes(
+                wav={"self_wav": wav_cond},
+                text={
+                    "instrument_group": instrument_group,
+                    # Always unconditional on dataset: the null/pad class.
+                    "dataset_name": dataset_name,
+                },
+            )
+        ]

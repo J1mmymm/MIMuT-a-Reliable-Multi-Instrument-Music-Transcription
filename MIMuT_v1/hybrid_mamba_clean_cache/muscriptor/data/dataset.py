@@ -396,4 +396,556 @@ class ContinuousChunkDataset(Dataset[TrainingExample]):
         draw = rng.random() * total
         cumulative = 0.0
         for count, weight in sorted(probabilities.items()):
-     ÛŽµ¶‰žËkºwµçE¹‘½´ ¤€ðÍ•±˜¹…Õµ•¹Ñ…Ñ¥½¹}½¹™¥œ¹Á¥Ñ¡}Í¡¥™Ñ}ÁÉ½‰…‰¥±¥Ñä(€€€€€€€€€€€€¤(€€€€€€€€€€€¥˜É•µ¥á}É•ÅÕ•ÍÑ•è(€€€€€€€€€€€€€€€Ý…Ù•™½É´°¹½Ñ•Ì°±¥¹•…”°Á¥Ñ¡}Í•µ¥Ñ½¹•Ì€ôÍ•±˜¹}É•µ¥á}Ý¥¹‘½Ü (€€€€€€€€€€€€€€€€€€€É¹œ°(€€€€€€€€€€€€€€€€€€€‘ÕÉ…Ñ¥½¸õÑ½Ñ…±}‘ÕÉ…Ñ¥½¸°(€€€€€€€€€€€€€€€€€€€Á¥Ñ¡}É•ÅÕ•ÍÑ•õÁ¥Ñ¡}É•ÅÕ•ÍÑ•°(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€É•µ¥á•€ôQÉÕ”(€€€€€€€€€€€€€€€ÍÑ…ÉÑ}Ñ¥µ”€ô€À¸À(€€€€€€€€€€€€€€€ÑÉ…­}‘ÕÉ…Ñ¥½¸€ôÑ½Ñ…±}‘ÕÉ…Ñ¥½¸(€€€€€€€€€€€€€€€É½ÕÁ}¥‘Ì€ô¥¹ÍÑÉÕµ•¹Ñ}É½ÕÁ}¥‘Ì¡Í•±˜¹Ñ½­•¹¥é•È°¹½Ñ•Ì¤(€€€€€€€€€€€€€€€…Á}‰¥¸€ô}É•½É‘}Ý¥¹‘½Ý}…Á}‰¥¹Ì (€€€€€€€€€€€€€€€€€€€ÑÕÁ±”¡¹½Ñ•Ì¤°(€€€€€€€€€€€€€€€€€€€Ñ½­•¹¥é•ÈõÍ•±˜¹Ñ½­•¹¥é•È°(€€€€€€€€€€€€€€€€€€€¹Õµ}Ý¥¹‘½ÝÌôÄ°(€€€€€€€€€€€€€€€€€€€½¹Ñ•áÑ}‘ÕÉ…Ñ¥½¸õÑ½Ñ…±}‘ÕÉ…Ñ¥½¸°(€€€€€€€€€€€€€€€€€€€Í•µ•¹Ñ}‘ÕÉ…Ñ¥½¸õÍ•±˜¹Í•µ•¹Ñ}‘ÕÉ…Ñ¥½¸°(€€€€€€€€€€€€€€€€¥lÁt(€€€€€€€€€€€€€€€¡…Í}±½¹}…À€ô…Á}‰¥¸¥¸ìˆÔ´ÄÀˆ°€ˆÄÀ´ÈÀˆ°€ˆÈÀ¬‰ô(€€€€€€€€€€€€€€€ÑÉ…­}¥€ô€‰…Õœèˆ€¬¡…Í¡±¥ˆ¹Í¡„Ä (€€€€€€€€€€€€€€€€€€€€ ‰ðˆ¹©½¥¸¡±¥¹•…”¤€¬˜ˆéí…Õµ•¹Ñ…Ñ¥½¹}Í••‘ôˆ¤¹•¹½‘” ‰ÕÑ˜´àˆ¤(€€€€€€€€€€€€€€€€¤¹¡•á‘¥•ÍÐ ¥lèÄÙt(€€€€€€€€€€€•±¥˜Á¥Ñ¡}É•ÅÕ•ÍÑ•è(€€€€€€€€€€€€€€€Í½ÕÉ”€ôÍ•±˜¹…Õµ•¹Ñ…Ñ¥½¹}‰å}…Õ‘¥¼¹•Ð (€€€€€€€€€€€€€€€€€€€ÍÑÈ¡A…Ñ ¡É•½É¹…Õ‘¥½}Á…Ñ ¤¹É•Í½±Ù” ¤¤(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€¥˜Í½ÕÉ”¥Ì¹½Ð9½¹”…¹¹½ÐÍ½ÕÉ”¹¥Í}‘ÉÕµ}½¹±äè(€€€€€€€€€€€€€€€€€€€Ý…Ù•™½É´°Í¡¥™Ñ•‘}¹½Ñ•Ì°Á¥Ñ¡}Í•µ¥Ñ½¹•Ì€ôÍ•±˜¹}Á¥Ñ¡}Í¡¥™Ð (€€€€€€€€€€€€€€€€€€€€€€€Ý…Ù•™½É´°±¥ÍÐ¡¹½Ñ•Ì¤°É¹œ(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€€€€€¹½Ñ•Ì€ôÍ¡¥™Ñ•‘}¹½Ñ•Ì(€€€€€€€€€€€€€€€€€€€±¥¹•…”€ô±¥ÍÐ¡Í½ÕÉ”¹±¥¹•…”¤((€€€€€€€Ý…Ù•™½É´€ôÝ…Ù•™½É´¹Ù¥•Ü (€€€€€€€€€€€€Ä°(€€€€€€€€€€€Í•±˜¹½¹Ñ•áÑ}¡Õ¹­Ì°(€€€€€€€€€€€É½Õ¹¡Í•±˜¹Í•µ•¹Ñ}‘ÕÉ…Ñ¥½¸€¨Í•±˜¹Í…µÁ±•}É…Ñ”¤°(€€€€€€€€¤¹ÑÉ…¹ÍÁ½Í” À°€Ä¤(€€€€€€€¡Õ¹­Ì€ô•¹½‘•}½¹Ñ¥Õ½ÕÍ}¡Õ¹­Ì (€€€€€€€€€€€Í•±˜¹Ñ½­•¹¥é•È°(€€€€€€€€€€€±¥ÍÐ¡¹½Ñ•Ì¤°(€€€€€€€€€€€ÍÑ…ÉÑ}Ñ¥µ”õÍÑ…ÉÑ}Ñ¥µ”°(€€€€€€€€€€€¹Õµ}¡Õ¹­ÌõÍ•±˜¹½¹Ñ•áÑ}¡Õ¹­Ì°(€€€€€€€€€€€‘ÕÉ…Ñ¥½¸õÍ•±˜¹Í•µ•¹Ñ}‘ÕÉ…Ñ¥½¸°(€€€€€€€€¤(€€€€€€€Ñ…É•ÑÌ€ômt(€€€€€€€Ñ…É•Ñ}±½ÍÍ}µ…Í­Ì€ômt(€€€€€€€½É¥¥¹…±}Ñ…É•Ñ}±•¹Ñ¡Ì€ômt(€€€€€€€ÑÉÕ¹…Ñ•‘}¡Õ¹­Ì€ômt(€€€€€€€™½È¡Õ¹¬¥¸¡Õ¹­Ìè(€€€€€€€€€€€¥‘Ì€ô±¥ÍÐ¡¡Õ¹¬¹Ñ…É•Ñ}¥‘Ì¤(€€€€€€€€€€€½É¥¥¹…±}Ñ…É•Ñ}±•¹Ñ¡Ì¹…ÁÁ•¹¡±•¸¡¥‘Ì¤¤(€€€€€€€€€€€ÑÉÕ¹…Ñ•€ô±•¸¡¥‘Ì¤€øÍ•±˜¹µ…á}Ñ½­•¹Í}Á•É}¡Õ¹¬(€€€€€€€€€€€¥˜±•¸¡¥‘Ì¤€øÍ•±˜¹µ…á}Ñ½­•¹Í}Á•É}¡Õ¹¬è(€€€€€€€€€€€€€€€¥‘Ì€ô¥‘ÍlèÍ•±˜¹µ…á}Ñ½­•¹Í}Á•É}¡Õ¹¬€´€Åt€¬mÍ•±˜¹Ñ½­•¹¥é•È¹•½Í}¥‘t(€€€€€€€€€€€Ñ…É•ÑÌ¹…ÁÁ•¹¡¥‘Ì¤(€€€€€€€€€€€µ…Í¬€ômQÉÕ•t€¨±•¸¡¥‘Ì¤(€€€€€€€€€€€¥˜ÑÉÕ¹…Ñ•è(€€€€€€€€€€€€€€€€ŒQ¡”Íå¹Ñ¡•Ñ¥Œ=LÉ•µ…¥¹Ì„ÍÑÉÕÑÕÉ…°‘•±¥µ¥Ñ•È½¥¹ÁÕÐ‰ÕÐ(€€€€€€€€€€€€€€€€Œ¥Ì¹½Ð„ÍÕÁ•ÉÙ¥Í••…É±äµÍÑ½ÀÑ…É•Ð¸(€€€€€€€€€€€€€€€µ…Í­l´Åt€ô…±Í”(€€€€€€€€€€€Ñ…É•Ñ}±½ÍÍ}µ…Í­Ì¹…ÁÁ•¹¡µ…Í¬¤(€€€€€€€€€€€ÑÉÕ¹…Ñ•‘}¡Õ¹­Ì¹…ÁÁ•¹¡ÑÉÕ¹…Ñ•¤(€€€€€€€É½ÕÀ€ô€ˆ€ˆ¹©½¥¸¡µ…À¡ÍÑÈ°É½ÕÁ}¥‘Ì¤¤(€€€€€€€…Ñ¥Ù•}Ñ…É•ÑÌ€ôÉ••¹ÑÉå}Ñ…É•ÑÌ€ôÉ••¹ÑÉå}Ù…±¥€ô9½¹”(€€€€€€€¥˜Í•±˜¹¥¹±Õ‘•}‰½Õ¹‘…Éå}Ñ…É•ÑÌè(€€€€€€€€€€€‰½Õ¹‘…É¥•Ì€ôl(€€€€€€€€€€€€€€€ÍÑ…ÉÑ}Ñ¥µ”€¬€¡¥¹‘•à€¬€Ä¤€¨Í•±˜¹Í•µ•¹Ñ}‘ÕÉ…Ñ¥½¸(€€€€€€€€€€€€€€€™½È¥¹‘•à¥¸É…¹”¡Í•±˜¹½¹Ñ•áÑ}¡Õ¹­Ì¤(€€€€€€€€€€€t(€€€€€€€€€€€…Ñ¥Ù•}Ñ…É•ÑÌ°É••¹ÑÉå}Ñ…É•ÑÌ°É••¹ÑÉå}Ù…±¥€ô‰½Õ¹‘…Éå}ÍÑ…Ñ•}Ñ…É•ÑÌ (€€€€€€€€€€€€€€€Í•±˜¹Ñ½­•¹¥é•È°(€€€€€€€€€€€€€€€¹½Ñ•Ì°(€€€€€€€€€€€€€€€‰½Õ¹‘…É¥•Ìõ‰½Õ¹‘…É¥•Ì°(€€€€€€€€€€€€€€€ÑÉ…­}‘ÕÉ…Ñ¥½¸õÑÉ…­}‘ÕÉ…Ñ¥½¸°(€€€€€€€€€€€€¤(€€€€€€€É•ÑÕÉ¸QÉ…¥¹¥¹á…µÁ±” (€€€€€€€€€€€Ý…Ù•™½É´õÝ…Ù•™½É´°(€€€€€€€€€€€Ñ…É•Ñ}¡Õ¹­ÌõÑ…É•ÑÌ°(€€€€€€€€€€€¥¹ÍÑÉÕµ•¹Ñ}É½ÕÀõÉ½ÕÀ½È9½¹”°(€€€€€€€€€€€‘…Ñ…Í•Ñ}¥õÍ•±˜¹‘…Ñ…Í•Ñ}¥‘ÍmÉ•½É¹‘…Ñ…Í•Ñt°(€€€€€€€€€€€ÑÉ…­}¥õÑÉ…­}¥°(€€€€€€€€€€€ÍÑ…ÉÑ}Ñ¥µ”õÍÑ…ÉÑ}Ñ¥µ”°(€€€€€€€€€€€¡…Í}±½¹}…Àõ¡…Í}±½¹}…À°(€€€€€€€€€€€Ñ…É•Ñ}±½ÍÍ}µ…Í­ÌõÑ…É•Ñ}±½ÍÍ}µ…Í­Ì°(€€€€€€€€€€€½É¥¥¹…±}Ñ…É•Ñ}±•¹Ñ¡Ìõ½É¥¥¹…±}Ñ…É•Ñ}±•¹Ñ¡Ì°(€€€€€€€€€€€ÑÉÕ¹…Ñ•‘}¡Õ¹­ÌõÑÉÕ¹…Ñ•‘}¡Õ¹­Ì°(€€€€€€€€€€€…Õµ•¹Ñ…Ñ¥½¹}…ÁÁ±¥•õÉ•µ¥á•½È‰½½°¡Á¥Ñ¡}Í•µ¥Ñ½¹•Ì¤°(€€€€€€€€€€€É•µ¥á•õÉ•µ¥á•°(€€€€€€€€€€€Á¥Ñ¡}Í¡¥™Ñ}Í•µ¥Ñ½¹•ÌõÁ¥Ñ¡}Í•µ¥Ñ½¹•Ì°(€€€€€€€€€€€…Õµ•¹Ñ…Ñ¥½¹}±¥¹•…”õ±¥¹•…”°(€€€€€€€€€€€…Ñ¥Ù•}¹½Ñ•}Ñ…É•ÑÌõ…Ñ¥Ù•}Ñ…É•ÑÌ°(€€€€€€€€€€€É••¹ÑÉå}Ñ…É•ÑÌõÉ••¹ÑÉå}Ñ…É•ÑÌ°(€€€€€€€€€€€É••¹ÑÉå}Ù…±¥õÉ••¹ÑÉå}Ù…±¥°(€€€€€€€€¤(()‘•˜½±±…Ñ•}ÑÉ…¥¹¥¹}•á…µÁ±•Ì (€€€•á…µÁ±•Ìè±¥ÍÑmQÉ…¥¹¥¹á…µÁ±•t°(¤€´øQÉ…¥¹¥¹	…Ñ è(€€€¥˜¹½Ð•á…µÁ±•Ìè(€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È ‰…¹¹½Ð½±±…Ñ”…¸•µÁÑä‰…Ñ ˆ¤(€€€‰…Ñ €ô±•¸¡•á…µÁ±•Ì¤(€€€¡Õ¹­Ì€ô•á…µÁ±•ÍlÁt¹Ý…Ù•™½É´¹Í¡…Á•lÁt(€€€µ…á}±•¹Ñ €ôµ…à¡±•¸¡¥‘Ì¤™½È•á…µÁ±”¥¸•á…µÁ±•Ì™½È¥‘Ì¥¸•á…µÁ±”¹Ñ…É•Ñ}¡Õ¹­Ì¤(€€€Ñ…É•Ñ}¥‘Ì€ôÑ½É ¹é•É½Ì¡‰…Ñ °¡Õ¹­Ì°µ…á}±•¹Ñ °‘ÑåÁ”õÑ½É ¹±½¹œ¤(€€€±•¹Ñ¡Ì€ôÑ½É ¹é•É½Ì¡‰…Ñ °¡Õ¹­Ì°‘ÑåÁ”õÑ½É ¹±½¹œ¤(€€€±½ÍÍ}µ…Í¬€ôÑ½É ¹é•É½Ì¡‰…Ñ °¡Õ¹­Ì°µ…á}±•¹Ñ °‘ÑåÁ”õÑ½É ¹‰½½°¤(€€€½É¥¥¹…±}±•¹Ñ¡Ì€ôÑ½É ¹é•É½Ì¡‰…Ñ °¡Õ¹­Ì°‘ÑåÁ”õÑ½É ¹±½¹œ¤(€€€ÑÉÕ¹…Ñ•€ôÑ½É ¹é•É½Ì¡‰…Ñ °¡Õ¹­Ì°‘ÑåÁ”õÑ½É ¹‰½½°¤(€€€™½È‰…Ñ¡}¥¹‘•à°•á…µÁ±”¥¸•¹Õµ•É…Ñ”¡•á…µÁ±•Ì¤è(€€€€€€€¥˜•á…µÁ±”¹Ý…Ù•™½É´¹Í¡…Á•lÁt€„ô¡Õ¹­Ìè(€€€€€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È ‰…±°•á…µÁ±•ÌµÕÍÐÕÍ”Ñ¡”Í…µ”½¹Ñ•áÐ±•¹Ñ ˆ¤(€€€€€€€™½È¡Õ¹­}¥¹‘•à°¥‘Ì¥¸•¹Õµ•É…Ñ”¡•á…µÁ±”¹Ñ…É•Ñ}¡Õ¹­Ì¤è(€€€€€€€€€€€±•¹Ñ €ô±•¸¡¥‘Ì¤(€€€€€€€€€€€Ñ…É•Ñ}¥‘Ím‰…Ñ¡}¥¹‘•à°¡Õ¹­}¥¹‘•à°€é±•¹Ñ¡t€ôÑ½É ¹Ñ•¹Í½È¡¥‘Ì¤(€€€€€€€€€€€±•¹Ñ¡Ím‰…Ñ¡}¥¹‘•à°¡Õ¹­}¥¹‘•át€ô±•¹Ñ (€€€€€€€€€€€µ…Í­Ì€ô€ (€€€€€€€€€€€€€€€•á…µÁ±”¹Ñ…É•Ñ}±½ÍÍ}µ…Í­Ím¡Õ¹­}¥¹‘•át(€€€€€€€€€€€€€€€¥˜•á…µÁ±”¹Ñ…É•Ñ}±½ÍÍ}µ…Í­Ì¥Ì¹½Ð9½¹”(€€€€€€€€€€€€€€€•±Í”mQÉÕ•t€¨±•¹Ñ (€€€€€€€€€€€€¤(€€€€€€€€€€€¥˜±•¸¡µ…Í­Ì¤€„ô±•¹Ñ è(€€€€€€€€€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È ‰Ñ…É•Ð±½ÍÌµ…Í¬±•¹Ñ ‘½•Ì¹½Ðµ…Ñ Ñ…É•Ð¥‘Ìˆ¤(€€€€€€€€€€€±½ÍÍ}µ…Í­m‰…Ñ¡}¥¹‘•à°¡Õ¹­}¥¹‘•à°€é±•¹Ñ¡t€ôÑ½É ¹Ñ•¹Í½È (€€€€€€€€€€€€€€€µ…Í­Ì°‘ÑåÁ”õÑ½É ¹‰½½°(€€€€€€€€€€€€¤(€€€€€€€€€€€½É¥¥¹…±}±•¹Ñ¡Ím‰…Ñ¡}¥¹‘•à°¡Õ¹­}¥¹‘•át€ô€ (€€€€€€€€€€€€€€€•á…µÁ±”¹½É¥¥¹…±}Ñ…É•Ñ}±•¹Ñ¡Ím¡Õ¹­}¥¹‘•át(€€€€€€€€€€€€€€€¥˜•á…µÁ±”¹½É¥¥¹…±}Ñ…É•Ñ}±•¹Ñ¡Ì¥Ì¹½Ð9½¹”(€€€€€€€€€€€€€€€•±Í”±•¹Ñ (€€€€€€€€€€€€¤(€€€€€€€€€€€ÑÉÕ¹…Ñ•‘m‰…Ñ¡}¥¹‘•à°¡Õ¹­}¥¹‘•át€ô€ (€€€€€€€€€€€€€€€•á…µÁ±”¹ÑÉÕ¹…Ñ•‘}¡Õ¹­Ím¡Õ¹­}¥¹‘•át(€€€€€€€€€€€€€€€¥˜•á…µÁ±”¹ÑÉÕ¹…Ñ•‘}¡Õ¹­Ì¥Ì¹½Ð9½¹”(€€€€€€€€€€€€€€€•±Í”…±Í”(€€€€€€€€€€€€¤(€€€É•ÑÕÉ¸QÉ…¥¹¥¹	…Ñ  (€€€€€€€Ý…Ù•™½É´õÑ½É ¹ÍÑ…¬¡m•á…µÁ±”¹Ý…Ù•™½É´™½È•á…µÁ±”¥¸•á…µÁ±•Ít¤°(€€€€€€€Ñ…É•Ñ}¥‘ÌõÑ…É•Ñ}¥‘Ì°(€€€€€€€Ñ…É•Ñ}±•¹Ñ¡Ìõ±•¹Ñ¡Ì°(€€€€€€€¥¹ÍÑÉÕµ•¹Ñ}É½ÕÁÌõm•á…µÁ±”¹¥¹ÍÑÉÕµ•¹Ñ}É½ÕÀ™½È•á…µÁ±”¥¸•á…µÁ±•Ít°(€€€€€€€‘…Ñ…Í•Ñ}¥‘ÌõÑ½É ¹Ñ•¹Í½È (€€€€€€€€€€€m•á…µÁ±”¹‘…Ñ…Í•Ñ}¥™½È•á…µÁ±”¥¸•á…µÁ±•Ít°‘ÑåÁ”õÑ½É ¹±½¹œ(€€€€€€€€¤°(€€€€€€€ÑÉ…­}¥‘Ìõm•á…µÁ±”¹ÑÉ…­}¥™½È•á…µÁ±”¥¸•á…µÁ±•Ít°(€€€€€€€ÍÑ…ÉÑ}Ñ¥µ•ÌõÑ½É ¹Ñ•¹Í½È (€€€€€€€€€€€m•á…µÁ±”¹ÍÑ…ÉÑ}Ñ¥µ”™½È•á…µÁ±”¥¸•á…µÁ±•Ít°‘ÑåÁ”õÑ½É ¹™±½…Ð(€€€€€€€€¤°(€€€€€€€¡…Í}±½¹}…ÀõÑ½É ¹Ñ•¹Í½È (€€€€€€€€€€€m•á…µÁ±”¹¡…Í}±½¹}…À™½È•á…µÁ±”¥¸•á…µÁ±•Ít°‘ÑåÁ”õÑ½É ¹‰½½°(€€€€€€€€¤°(€€€€€€€Ñ…É•Ñ}±½ÍÍ}µ…Í¬õ±½ÍÍ}µ…Í¬°(€€€€€€€½É¥¥¹…±}Ñ…É•Ñ}±•¹Ñ¡Ìõ½É¥¥¹…±}±•¹Ñ¡Ì°(€€€€€€€ÑÉÕ¹…Ñ•‘}¡Õ¹­ÌõÑÉÕ¹…Ñ•°(€€€€€€€…Õµ•¹Ñ…Ñ¥½¹}…ÁÁ±¥•õÑ½É ¹Ñ•¹Í½È (€€€€€€€€€€€m•á…µÁ±”¹…Õµ•¹Ñ…Ñ¥½¹}…ÁÁ±¥•™½È•á…µÁ±”¥¸•á…µÁ±•Ít°(€€€€€€€€€€€‘ÑåÁ”õÑ½É ¹‰½½°°(€€€€€€€€¤°(€€€€€€€É•µ¥á•õÑ½É ¹Ñ•¹Í½È (€€€€€€€€€€€m•á…µÁ±”¹É•µ¥á•™½È•á…µÁ±”¥¸•á…µÁ±•Ít°‘ÑåÁ”õÑ½É ¹‰½½°(€€€€€€€€¤°(€€€€€€€Á¥Ñ¡}Í¡¥™Ñ}Í•µ¥Ñ½¹•ÌõÑ½É ¹Ñ•¹Í½È (€€€€€€€€€€€m•á…µÁ±”¹Á¥Ñ¡}Í¡¥™Ñ}Í•µ¥Ñ½¹•Ì™½È•á…µÁ±”¥¸•á…µÁ±•Ít°(€€€€€€€€€€€‘ÑåÁ”õÑ½É ¹±½¹œ°(€€€€€€€€¤°(€€€€€€€…Õµ•¹Ñ…Ñ¥½¹}±¥¹•…”õl(€€€€€€€€€€€±¥ÍÐ¡•á…µÁ±”¹…Õµ•¹Ñ…Ñ¥½¹}±¥¹•…”½Èmt¤™½È•á…µÁ±”¥¸•á…µÁ±•Ì(€€€€€€€t°(€€€€€€€…Ñ¥Ù•}¹½Ñ•}Ñ…É•ÑÌô (€€€€€€€€€€€Ñ½É ¹ÍÑ…¬¡m•á…µÁ±”¹…Ñ¥Ù•}¹½Ñ•}Ñ…É•ÑÌ™½È•á…µÁ±”¥¸•á…µÁ±•Ít¤(€€€€€€€€€€€¥˜…±°¡•á…µÁ±”¹…Ñ¥Ù•}¹½Ñ•}Ñ…É•ÑÌ¥Ì¹½Ð9½¹”™½È•á…µÁ±”¥¸•á…µÁ±•Ì¤(€€€€€€€€€€€•±Í”9½¹”(€€€€€€€€¤°(€€€€€€€É••¹ÑÉå}Ñ…É•ÑÌô (€€€€€€€€€€€Ñ½É ¹ÍÑ…¬¡m•á…µÁ±”¹É••¹ÑÉå}Ñ…É•ÑÌ™½È•á…µÁ±”¥¸•á…µÁ±•Ít¤(€€€€€€€€€€€¥˜…±°¡•á…µÁ±”¹É••¹ÑÉå}Ñ…É•ÑÌ¥Ì¹½Ð9½¹”™½È•á…µÁ±”¥¸•á…µÁ±•Ì¤(€€€€€€€€€€€•±Í”9½¹”(€€€€€€€€¤°(€€€€€€€É••¹ÑÉå}Ù…±¥ô (€€€€€€€€€€€Ñ½É ¹ÍÑ…¬¡m•á…µÁ±”¹É••¹ÑÉå}Ù…±¥™½È•á…µÁ±”¥¸•á…µÁ±•Ít¤(€€€€€€€€€€€¥˜…±°¡•á…µÁ±”¹É••¹ÑÉå}Ù…±¥¥Ì¹½Ð9½¹”™½È•á…µÁ±”¥¸•á…µÁ±•Ì¤(€€€€€€€€€€€•±Í”9½¹”(€€€€€€€€¤°(€€€€¤(()‘•˜}…ÁÁ•‘}ÁÉ½‰…‰¥±¥Ñ¥•Ì (€€€Ù…±Õ•Ìè‘¥ÑmÍÑÈ°™±½…Ñt°…Àè™±½…Ð€ô€À¸ÌÔ(¤€´ø‘¥ÑmÍÑÈ°™±½…Ñtè(€€€¥˜¹½ÐÙ…±Õ•Ìè(€€€€€€€É•ÑÕÉ¸íô(€€€¥˜±•¸¡Ù…±Õ•Ì¤€¨…À€ð€Ä¸Àè(€€€€€€€Ñ½Ñ…°€ôÍÕ´¡Ù…±Õ•Ì¹Ù…±Õ•Ì ¤¤(€€€€€€€É•ÑÕÉ¸í­•äèÙ…±Õ”€¼Ñ½Ñ…°™½È­•ä°Ù…±Õ”¥¸Ù…±Õ•Ì¹¥Ñ•µÌ ¥ô(€€€É•µ…¥¹¥¹œ€ôÍ•Ð¡Ù…±Õ•Ì¤(€€€É•ÍÕ±Ðè‘¥ÑmÍÑÈ°™±½…Ñt€ôíô(€€€µ…ÍÌ€ô€Ä¸À(€€€Ý¡¥±”É•µ…¥¹¥¹œè(€€€€€€€Ñ½Ñ…°€ôÍÕ´¡Ù…±Õ•Ím­•åt™½È­•ä¥¸É•µ…¥¹¥¹œ¤(€€€€€€€¡…¹•€ô…±Í”(€€€€€€€™½È­•ä¥¸±¥ÍÐ¡É•µ…¥¹¥¹œ¤è(€€€€€€€€€€€ÁÉ½Á½Í•€ôµ…ÍÌ€¨Ù…±Õ•Ím­•åt€¼Ñ½Ñ…°(€€€€€€€€€€€¥˜ÁÉ½Á½Í•€ø…Àè(€€€€€€€€€€€€€€€É•ÍÕ±Ñm­•åt€ô…À(€€€€€€€€€€€€€€€µ…ÍÌ€´ô…À(€€€€€€€€€€€€€€€É•µ…¥¹¥¹œ¹É•µ½Ù”¡­•ä¤(€€€€€€€€€€€€€€€¡…¹•€ôQÉÕ”(€€€€€€€¥˜¹½Ð¡…¹•è(€€€€€€€€€€€™½È­•ä¥¸É•µ…¥¹¥¹œè(€€€€€€€€€€€€€€€É•ÍÕ±Ñm­•åt€ôµ…ÍÌ€¨Ù…±Õ•Ím­•åt€¼Ñ½Ñ…°(€€€€€€€€€€€‰É•…¬(€€€É•ÑÕÉ¸É•ÍÕ±Ð(()±…ÍÌ	…±…¹•‘]¥¹‘½Ý	…Ñ¡M…µÁ±•È¡M…µÁ±•Ém±¥ÍÑm¥¹ÐðÑÕÁ±•m¥¹Ð°¥¹Ñuut¤è(€€€€ˆˆ‰]•¥¡Ñ•‰…Ñ¡•ÌÝ¥Ñ …¸•áÁ±¥¥ÐµÕ±Ñ¤µ¥¹ÍÑÉÕµ•¹Ð¡…±˜µ‰…Ñ ¸ˆˆˆ((€€€‘•˜}}¥¹¥Ñ}| (€€€€€€€Í•±˜°(€€€€€€€‘…Ñ…Í•Ðè½¹Ñ¥¹Õ½ÕÍ¡Õ¹­…Ñ…Í•Ð°(€€€€€€€€¨°(€€€€€€€‰…Ñ¡}Í¥é”è¥¹Ð°(€€€€€€€¹Õµ}‰…Ñ¡•Ìè¥¹Ð°(€€€€€€€Í••è¥¹Ð€ô€À°(€€€€€€€É…¹¬è¥¹Ð€ô€À°(€€€€€€€Ý½É±‘}Í¥é”è¥¹Ð€ô€Ä°(€€€€€€€ÍÑ…ÉÑ}‰…Ñ è¥¹Ð€ô€À°(€€€€€€€‘…Ñ…Í•Ñ}ÁÉ½‰…‰¥±¥Ñ¥•Ìè‘¥ÑmÍÑÈ°™±½…Ñtð9½¹”€ô9½¹”°(€€€€¤è(€€€€€€€¥˜‰…Ñ¡}Í¥é”€ðô€À½È¹Õµ}‰…Ñ¡•Ì€ðô€Àè(€€€€€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È ‰‰…Ñ¡}Í¥é”…¹¹Õµ}‰…Ñ¡•ÌµÕÍÐ‰”Á½Í¥Ñ¥Ù”ˆ¤(€€€€€€€Í•±˜¹‘…Ñ…Í•Ð€ô‘…Ñ…Í•Ð(€€€€€€€Í•±˜¹‰…Ñ¡}Í¥é”€ô‰…Ñ¡}Í¥é”(€€€€€€€Í•±˜¹¹Õµ}‰…Ñ¡•Ì€ô¹Õµ}‰…Ñ¡•Ì(€€€€€€€Í•±˜¹Í••€ôÍ••(€€€€€€€Í•±˜¹É…¹¬€ôÉ…¹¬(€€€€€€€Í•±˜¹Ý½É±‘}Í¥é”€ôÝ½É±‘}Í¥é”(€€€€€€€Í•±˜¹ÍÑ…ÉÑ}‰…Ñ €ôÍÑ…ÉÑ}‰…Ñ (€€€€€€€¡½ÕÉÌè‘¥ÑmÍÑÈ°™±½…Ñt€ôíô(€€€€€€€…Ñ¥Ù•}É•½É‘Ì€ôíÉ•½É‘}¥¹‘•à™½ÈÉ•½É‘}¥¹‘•à°|¥¸‘…Ñ…Í•Ð¹Ý¥¹‘½ÝÍô(€€€€€€€™½ÈÉ•½É‘}¥¹‘•à¥¸…Ñ¥Ù•}É•½É‘Ìè(€€€€€€€€€€€É•½É€ô‘…Ñ…Í•Ð¹É•½É‘ÍmÉ•½É‘}¥¹‘•át(€€€€€€€€€€€¡½ÕÉÍmÉ•½É¹‘…Ñ…Í•Ñt€ô¡½ÕÉÌ¹•Ð¡É•½É¹‘…Ñ…Í•Ð°€À¸À¤€¬€ (€€€€€€€€€€€€€€€É•½É¹‘ÕÉ…Ñ¥½¸€¼€ÌØÀÀ(€€€€€€€€€€€€¤(€€€€€€€¥˜‘…Ñ…Í•Ñ}ÁÉ½‰…‰¥±¥Ñ¥•Ìè(€€€€€€€€€€€ÁÉ½Ù¥‘•€ôì(€€€€€€€€€€€€€€€¹…µ”èµ…à À¸À°‘…Ñ…Í•Ñ}ÁÉ½‰…‰¥±¥Ñ¥•Ì¹•Ð¡¹…µ”°€À¸À¤¤™½È¹…µ”¥¸¡½ÕÉÌ(€€€€€€€€€€€ô(€€€€€€€€€€€Ñ½Ñ…°€ôÍÕ´¡ÁÉ½Ù¥‘•¹Ù…±Õ•Ì ¤¤(€€€€€€€€€€€¥˜Ñ½Ñ…°€ðô€Àè(€€€€€€€€€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È ‰‘…Ñ…Í•ÐÁÉ½‰…‰¥±¥Ñ¥•ÌÍÕ´Ñ¼é•É¼ˆ¤(€€€€€€€€€€€ÁÉ½‰…‰¥±¥Ñ¥•Ì€ô}…ÁÁ•‘}ÁÉ½‰…‰¥±¥Ñ¥•Ì¡ÁÉ½Ù¥‘•¤(€€€€€€€•±Í”è(€€€€€€€€€€€ÁÉ½‰…‰¥±¥Ñ¥•Ì€ô}…ÁÁ•‘}ÁÉ½‰…‰¥±¥Ñ¥•Ì (€€€€€€€€€€€€€€€í¹…µ”èµ…à¡Ù…±Õ”°€Å”´Ø¤€¨¨€À¸Ô™½È¹…µ”°Ù…±Õ”¥¸¡½ÕÉÌ¹¥Ñ•µÌ ¥ô(€€€€€€€€€€€€¤(€€€€€€€Ý•¥¡ÑÌ€ômt(€€€€€€€µÕ±Ñ¥}¥¹‘¥•Ì€ômt(€€€€€€€…Á}‰¥¹Ì€ô•Ñ…ÑÑÈ (€€€€€€€€€€€‘…Ñ…Í•Ð°(€€€€€€€€€€€€‰±½¹}…Á}‰¥¹Ìˆ°(€€€€€€€€€€€lˆÔ´ÄÀˆ¥˜™±…œ•±Í”€ˆÀ´Ôˆ™½È™±…œ¥¸‘…Ñ…Í•Ð¹±½¹}…Á}™±…Ít°(€€€€€€€€¤(€€€€€€€…Á}½Õ¹ÑÌè‘¥ÑmÑÕÁ±•mÍÑÈ°ÍÑÉt°¥¹Ñt€ôíô(€€€€€€€™½ÈÝ¥¹‘½Ý}¥¹‘•à°€¡É•½É‘}¥¹‘•à°|¤¥¸•¹Õµ•É…Ñ”¡‘…Ñ…Í•Ð¹Ý¥¹‘½ÝÌ¤è(€€€€€€€€€€€É•½É€ô‘…Ñ…Í•Ð¹É•½É‘ÍmÉ•½É‘}¥¹‘•át(€€€€€€€€€€€­•ä€ô€¡É•½É¹‘…Ñ…Í•Ð°…Á}‰¥¹ÍmÝ¥¹‘½Ý}¥¹‘•át¤(€€€€€€€€€€€…Á}½Õ¹ÑÍm­•åt€ô…Á}½Õ¹ÑÌ¹•Ð¡­•ä°€À¤€¬€Ä(€€€€€€€€€€€¥˜É•½É¹¥Í}µÕ±Ñ¥}¥¹ÍÑÉÕµ•¹Ðè(€€€€€€€€€€€€€€€µÕ±Ñ¥}¥¹‘¥•Ì¹…ÁÁ•¹¡Ý¥¹‘½Ý}¥¹‘•à¤(€€€€€€€Ñ…É•Ñ}…Á}µ…ÍÌ€ôì(€€€€€€€€€€€€‰¹½¹”ˆè€À¸ÄÀ°(€€€€€€€€€€€€ˆÀ´Ôˆè€À¸ÈÀ°(€€€€€€€€€€€€ˆÔ´ÄÀˆè€À¸ÈÔ°(€€€€€€€€€€€€ˆÄÀ´ÈÀˆè€À¸ÈÔ°(€€€€€€€€€€€€ˆÈÀ¬ˆè€À¸ÈÀ°(€€€€€€€ô(€€€€€€€…Ù…¥±…‰±•}µ…ÍÌè‘¥ÑmÍÑÈ°™±½…Ñt€ôíô(€€€€€€€™½È‘…Ñ…Í•Ñ}¹…µ”¥¸ÁÉ½‰…‰¥±¥Ñ¥•Ìè(€€€€€€€€€€€…Ù…¥±…‰±•}µ…ÍÍm‘…Ñ…Í•Ñ}¹…µ•t€ôÍÕ´ (€€€€€€€€€€€€€€€µ…ÍÌ(€€€€€€€€€€€€€€€™½È…Á}‰¥¸°µ…ÍÌ¥¸Ñ…É•Ñ}…Á}µ…ÍÌ¹¥Ñ•µÌ ¤(€€€€€€€€€€€€€€€¥˜…Á}½Õ¹ÑÌ¹•Ð ¡‘…Ñ…Í•Ñ}¹…µ”°…Á}‰¥¸¤°€À¤(€€€€€€€€€€€€¤(€€€€€€€™½ÈÝ¥¹‘½Ý}¥¹‘•à°€¡É•½É‘}¥¹‘•à°|¤¥¸•¹Õµ•É…Ñ”¡‘…Ñ…Í•Ð¹Ý¥¹‘½ÝÌ¤è(€€€€€€€€€€€É•½É€ô‘…Ñ…Í•Ð¹É•½É‘ÍmÉ•½É‘}¥¹‘•át(€€€€€€€€€€€…Á}‰¥¸€ô…Á}‰¥¹ÍmÝ¥¹‘½Ý}¥¹‘•át(€€€€€€€€€€€‰¥¹}½Õ¹Ð€ô…Á}½Õ¹ÑÍl¡É•½É¹‘…Ñ…Í•Ð°…Á}‰¥¸¥t(€€€€€€€€€€€Ý•¥¡Ð€ô€ (€€€€€€€€€€€€€€€ÁÉ½‰…‰¥±¥Ñ¥•ÍmÉ•½É¹‘…Ñ…Í•Ñt(€€€€€€€€€€€€€€€€¨Ñ…É•Ñ}…Á}µ…ÍÍm…Á}‰¥¹t(€€€€€€€€€€€€€€€€¼…Ù…¥±…‰±•}µ…ÍÍmÉ•½É¹‘…Ñ…Í•Ñt(€€€€€€€€€€€€€€€€¼‰¥¹}½Õ¹Ð(€€€€€€€€€€€€¤(€€€€€€€€€€€Ý•¥¡ÑÌ¹…ÁÁ•¹¡Ý•¥¡Ð¤(€€€€€€€Í•±˜¹Ý•¥¡ÑÌ€ôÑ½É ¹Ñ•¹Í½È¡Ý•¥¡ÑÌ°‘ÑåÁ”õÑ½É ¹‘½Õ‰±”¤(€€€€€€€Í•±˜¹µÕ±Ñ¥}¥¹‘¥•Ì€ôÑ½É ¹Ñ•¹Í½È¡µÕ±Ñ¥}¥¹‘¥•Ì°‘ÑåÁ”õÑ½É ¹±½¹œ¤(€€€€€€€Í•±˜¹µÕ±Ñ¥}Ý•¥¡ÑÌ€ô€ (€€€€€€€€€€€Í•±˜¹Ý•¥¡ÑÍmÍ•±˜¹µÕ±Ñ¥}¥¹‘¥•Ít(€€€€€€€€€€€¥˜±•¸¡µÕ±Ñ¥}¥¹‘¥•Ì¤(€€€€€€€€€€€•±Í”Ñ½É ¹•µÁÑä À°‘ÑåÁ”õÑ½É ¹‘½Õ‰±”¤(€€€€€€€€¤((€€€‘•˜}}±•¹}|¡Í•±˜¤€´ø¥¹Ðè(€€€€€€€É•ÑÕÉ¸Í•±˜¹¹Õµ}‰…Ñ¡•Ì((€€€‘•˜}}¥Ñ•É}|¡Í•±˜¤è(€€€€€€€µÕ±Ñ¥}½Õ¹Ð€ô€¡Í•±˜¹‰…Ñ¡}Í¥é”€¬€Ä¤€¼¼€È¥˜±•¸¡Í•±˜¹µÕ±Ñ¥}¥¹‘¥•Ì¤•±Í”€À(€€€€€€€½Ñ¡•É}½Õ¹Ð€ôÍ•±˜¹‰…Ñ¡}Í¥é”€´µÕ±Ñ¥}½Õ¹Ð(€€€€€€€€ŒM•••Ù•Éä‰…Ñ ¥¹‘•Á•¹‘•¹Ñ±ä¸€É•ÍÕµ•©½ˆ‰•¥¹¹¥¹œ…Ð(€€€€€€€€ŒÍÑ…ÉÑ}‰…Ñ¡€Ñ¡•É•™½É”Í…µÁ±•ÌÑ¡”•á…ÐÍÕ™™¥àÑ¡…Ð…¸(€€€€€€€€ŒÕ¹¥¹Ñ•ÉÉÕÁÑ•ÉÕ¸Ý½Õ±¡…Ù”ÁÉ½‘Õ•°¥ÉÉ•ÍÁ•Ñ¥Ù”½˜…Ñ…1½…‘•È(€€€€€€€€ŒÁÉ•™•Ñ¡¥¹œ½ÈÝ½É­•È±¥™•Ñ¥µ”¸(€€€€€€€™½È‰…Ñ¡}¥¹‘•à¥¸É…¹”¡Í•±˜¹ÍÑ…ÉÑ}‰…Ñ °Í•±˜¹ÍÑ…ÉÑ}‰…Ñ €¬Í•±˜¹¹Õµ}‰…Ñ¡•Ì¤è(€€€€€€€€€€€•¹•É…Ñ½È€ôÑ½É ¹•¹•É…Ñ½È ¤(€€€€€€€€€€€•¹•É…Ñ½È¹µ…¹Õ…±}Í•• (€€€€€€€€€€€€€€€Í•±˜¹Í••€¬€Å|ÀÀÁ|ÀÀÌ€¨Í•±˜¹É…¹¬€¬€ÄÁ|ÀÀÁ|ÀÄä€¨‰…Ñ¡}¥¹‘•à(€€€€€€€€€€€€¤(€€€€€€€€€€€Í•±•Ñ•€ômt(€€€€€€€€€€€¥˜µÕ±Ñ¥}½Õ¹Ðè(€€€€€€€€€€€€€€€±½…°€ôÑ½É ¹µÕ±Ñ¥¹½µ¥…° (€€€€€€€€€€€€€€€€€€€Í•±˜¹µÕ±Ñ¥}Ý•¥¡ÑÌ°(€€€€€€€€€€€€€€€€€€€µÕ±Ñ¥}½Õ¹Ð°(€€€€€€€€€€€€€€€€€€€É•Á±…•µ•¹ÐõQÉÕ”°(€€€€€€€€€€€€€€€€€€€•¹•É…Ñ½Èõ•¹•É…Ñ½È°(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€Í•±•Ñ•¹•áÑ•¹¡Í•±˜¹µÕ±Ñ¥}¥¹‘¥•Ím±½…±t¹Ñ½±¥ÍÐ ¤¤(€€€€€€€€€€€¥˜½Ñ¡•É}½Õ¹Ðè(€€€€€€€€€€€€€€€Í•±•Ñ•¹•áÑ•¹ (€€€€€€€€€€€€€€€€€€€Ñ½É ¹µÕ±Ñ¥¹½µ¥…° (€€€€€€€€€€€€€€€€€€€€€€€Í•±˜¹Ý•¥¡ÑÌ°(€€€€€€€€€€€€€€€€€€€€€€€½Ñ¡•É}½Õ¹Ð°(€€€€€€€€€€€€€€€€€€€€€€€É•Á±…•µ•¹ÐõQÉÕ”°(€€€€€€€€€€€€€€€€€€€€€€€•¹•É…Ñ½Èõ•¹•É…Ñ½È°(€€€€€€€€€€€€€€€€€€€€¤¹Ñ½±¥ÍÐ ¤(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€Á•ÉµÕÑ…Ñ¥½¸€ôÑ½É ¹É…¹‘Á•É´¡±•¸¡Í•±•Ñ•¤°•¹•É…Ñ½Èõ•¹•É…Ñ½È¤¹Ñ½±¥ÍÐ ¤(€€€€€€€€€€€½É‘•É•€ômÍ•±•Ñ•‘m¥¹‘•át™½È¥¹‘•à¥¸Á•ÉµÕÑ…Ñ¥½¹t(€€€€€€€€€€€¥˜•Ñ…ÑÑÈ¡Í•±˜¹‘…Ñ…Í•Ð°€‰…Õµ•¹Ñ…Ñ¥½¹}•¹…‰±•ˆ°…±Í”¤è(€€€€€€€€€€€€€€€…Õµ•¹Ñ…Ñ¥½¹}Í••‘Ì€ômt(€€€€€€€€€€€€€€€™½ÈÍ±½Ð°Ý¥¹‘½Ý}¥¹‘•à¥¸•¹Õµ•É…Ñ”¡½É‘•É•¤è(€€€€€€€€€€€€€€€€€€€É•½É‘}¥¹‘•à°|€ôÍ•±˜¹‘…Ñ…Í•Ð¹Ý¥¹‘½ÝÍmÝ¥¹‘½Ý}¥¹‘•át(€€€€€€€€€€€€€€€€€€€É•½É€ôÍ•±˜¹‘…Ñ…Í•Ð¹É•½É‘ÍmÉ•½É‘}¥¹‘•át(€€€€€€€€€€€€€€€€€€€…‰Í½±ÕÑ•}Á½Í¥Ñ¥½¸€ô€ (€€€€€€€€€€€€€€€€€€€€€€€€¡‰…Ñ¡}¥¹‘•à€¨Í•±˜¹Ý½É±‘}Í¥é”€¬Í•±˜¹É…¹¬¤(€€€€€€€€€€€€€€€€€€€€€€€€¨Í•±˜¹‰…Ñ¡}Í¥é”(€€€€€€€€€€€€€€€€€€€€€€€€¬Í±½Ð(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€€€€€Í½ÕÉ•}É½ÕÀ€ô•Ñ…ÑÑÈ¡É•½É°€‰É½ÕÁ}¥ˆ°ÍÑÈ¡É•½É‘}¥¹‘•à¤¤(€€€€€€€€€€€€€€€€€€€‘¥•ÍÐ€ô¡…Í¡±¥ˆ¹Í¡„ÈÔØ (€€€€€€€€€€€€€€€€€€€€€€€€ (€€€€€€€€€€€€€€€€€€€€€€€€€€€˜‰íÍ•±˜¹Í••‘ôéí…‰Í½±ÕÑ•}Á½Í¥Ñ¥½¹ôèˆ(€€€€€€€€€€€€€€€€€€€€€€€€€€€˜‰íÉ•½É¹‘…Ñ…Í•ÑôéíÍ½ÕÉ•}É½ÕÁôˆ(€€€€€€€€€€€€€€€€€€€€€€€€¤¹•¹½‘” ‰ÕÑ˜´àˆ¤(€€€€€€€€€€€€€€€€€€€€¤¹‘¥•ÍÐ ¤(€€€€€€€€€€€€€€€€€€€…Õµ•¹Ñ…Ñ¥½¹}Í••‘Ì¹…ÁÁ•¹ (€€€€€€€€€€€€€€€€€€€€€€€¥¹Ð¹™É½µ}‰åÑ•Ì¡‘¥•ÍÑlèát°€‰‰¥œˆ¤€˜€  Ä€ðð€ØÌ¤€´€Ä¤(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€å¥•±±¥ÍÐ¡é¥À¡½É‘•É•°…Õµ•¹Ñ…Ñ¥½¹}Í••‘Ì¤¤(€€€€€€€€€€€•±Í”è(€€€€€€€€€€€€€€€å¥•±½É‘•É•
+            cumulative += weight
+            if draw < cumulative:
+                return int(count)
+        return int(max(probabilities))
+
+    def _select_remix_sources(
+        self, rng: random.Random, *, duration: float
+    ) -> list[AugmentationCatalogEntry]:
+        eligible = [
+            entry
+            for entry in self.augmentation_entries
+            if entry.duration >= duration
+        ]
+        by_dataset: dict[str, list[AugmentationCatalogEntry]] = {}
+        for entry in eligible:
+            by_dataset.setdefault(entry.dataset, []).append(entry)
+        if len(by_dataset) < 2:
+            raise RuntimeError(
+                "augmentation catalog cannot satisfy a cross-dataset remix"
+            )
+        count = self._source_count(rng)
+        first_datasets = rng.sample(sorted(by_dataset), 2)
+        selected = [rng.choice(by_dataset[name]) for name in first_datasets]
+        used_groups = {(entry.dataset, entry.group_id) for entry in selected}
+        candidates = [
+            entry
+            for entry in eligible
+            if (entry.dataset, entry.group_id) not in used_groups
+        ]
+        rng.shuffle(candidates)
+        for entry in candidates:
+            if len(selected) >= count:
+                break
+            key = (entry.dataset, entry.group_id)
+            if key in used_groups:
+                continue
+            selected.append(entry)
+            used_groups.add(key)
+        if len(selected) != count:
+            raise RuntimeError(
+                f"augmentation catalog cannot provide {count} distinct groups"
+            )
+        return selected
+
+    def _pitch_shift(
+        self,
+        waveform: torch.Tensor,
+        notes: list[Note],
+        rng: random.Random,
+    ) -> tuple[torch.Tensor, list[Note], int]:
+        pitched = [note for note in notes if not note.is_drum]
+        if not pitched:
+            return waveform, notes, 0
+        feasible = [
+            value
+            for value in self.augmentation_config.semitone_choices
+            if all(0 <= note.pitch + value <= 127 for note in pitched)
+        ]
+        if not feasible:
+            return waveform, notes, 0
+        semitones = int(rng.choice(feasible))
+        try:
+            from torchaudio.functional import pitch_shift
+        except ImportError as exc:
+            raise ImportError(
+                "pitch augmentation requires torchaudio; install the train extra"
+            ) from exc
+        shifted_waveform = pitch_shift(
+            waveform,
+            self.sample_rate,
+            n_steps=semitones,
+        )
+        shifted_notes = [
+            Note(
+                is_drum=note.is_drum,
+                program=note.program,
+                onset=note.onset,
+                offset=note.offset,
+                pitch=note.pitch if note.is_drum else note.pitch + semitones,
+            )
+            for note in notes
+        ]
+        return shifted_waveform, shifted_notes, semitones
+
+    def _remix_window(
+        self,
+        rng: random.Random,
+        *,
+        duration: float,
+        pitch_requested: bool,
+    ) -> tuple[torch.Tensor, list[Note], list[str], int]:
+        sources = self._select_remix_sources(rng, duration=duration)
+        waveforms = []
+        all_notes = []
+        lineage = []
+        semitones = 0
+        # Choose one feasible shared transposition so pitched stems retain
+        # their relative harmony; drum-only stems are never pitch-shifted.
+        requested_semitones = None
+        if pitch_requested:
+            combined_notes = []
+            for entry in sources:
+                combined_notes.extend(_load_notes(entry.notes_path))
+            feasible = [
+                value
+                for value in self.augmentation_config.semitone_choices
+                if all(
+                    note.is_drum or 0 <= note.pitch + value <= 127
+                    for note in combined_notes
+                )
+            ]
+            if feasible:
+                requested_semitones = int(rng.choice(feasible))
+
+        for entry in sources:
+            maximum_start = max(0, math.floor((entry.duration - duration) / self.segment_duration))
+            source_start = rng.randint(0, maximum_start) * self.segment_duration
+            waveform = self._load_audio(entry.audio_path, source_start, duration)
+            notes = self._shift_window_notes(
+                _load_notes(entry.notes_path),
+                start_time=source_start,
+                duration=duration,
+            )
+            if requested_semitones is not None and not entry.is_drum_only:
+                try:
+                    from torchaudio.functional import pitch_shift
+                except ImportError as exc:
+                    raise ImportError(
+                        "pitch augmentation requires torchaudio; install the train extra"
+                    ) from exc
+                waveform = pitch_shift(
+                    waveform,
+                    self.sample_rate,
+                    n_steps=requested_semitones,
+                )
+                notes = [
+                    Note(
+                        is_drum=note.is_drum,
+                        program=note.program,
+                        onset=note.onset,
+                        offset=note.offset,
+                        pitch=(
+                            note.pitch
+                            if note.is_drum
+                            else note.pitch + requested_semitones
+                        ),
+                    )
+                    for note in notes
+                ]
+                semitones = requested_semitones
+            gain_db = rng.uniform(
+                self.augmentation_config.gain_db_min,
+                self.augmentation_config.gain_db_max,
+            )
+            waveforms.append(waveform * (10.0 ** (gain_db / 20.0)))
+            all_notes.extend(notes)
+            lineage.extend(entry.lineage)
+
+        mixed = torch.stack(waveforms).sum(dim=0)
+        peak = float(mixed.abs().max())
+        if peak > 0.99:
+            mixed = mixed * (0.99 / peak)
+        all_notes.sort(key=lambda note: (note.onset, note.offset, note.pitch))
+        return mixed, all_notes, sorted(set(lineage)), semitones
+
+    def __getitem__(self, index: int | tuple[int, int]) -> TrainingExample:
+        augmentation_seed = None
+        if isinstance(index, tuple):
+            index, augmentation_seed = int(index[0]), int(index[1])
+        record_index, start_chunk = self.windows[index]
+        record = self.records[record_index]
+        start_time = start_chunk * self.segment_duration
+        total_duration = self.context_chunks * self.segment_duration
+        waveform = self._load_audio(record.audio_path, start_time, total_duration)
+        notes: list[Note] | tuple[Note, ...] = _load_notes(record.notes_path)
+        track_id = record.track_id
+        group_ids = list(record.instrument_groups)
+        has_long_gap = self.long_gap_flags[index]
+        track_duration = record.duration
+        remixed = False
+        pitch_semitones = 0
+        lineage: list[str] = []
+
+        if self.augmentation_enabled and augmentation_seed is not None:
+            rng = random.Random(augmentation_seed)
+            remix_requested = (
+                rng.random() < self.augmentation_config.remix_probability
+            )
+            pitch_requested = (
+                rng.random() < self.augmentation_config.pitch_shift_probability
+            )
+            if remix_requested:
+                waveform, notes, lineage, pitch_semitones = self._remix_window(
+                    rng,
+                    duration=total_duration,
+                    pitch_requested=pitch_requested,
+                )
+                remixed = True
+                start_time = 0.0
+                track_duration = total_duration
+                group_ids = instrument_group_ids(self.tokenizer, notes)
+                gap_bin = _record_window_gap_bins(
+                    tuple(notes),
+                    tokenizer=self.tokenizer,
+                    num_windows=1,
+                    context_duration=total_duration,
+                    segment_duration=self.segment_duration,
+                )[0]
+                has_long_gap = gap_bin in {"5-10", "10-20", "20+"}
+                track_id = "aug:" + hashlib.sha1(
+                    ("|".join(lineage) + f":{augmentation_seed}").encode("utf-8")
+                ).hexdigest()[:16]
+            elif pitch_requested:
+                source = self.augmentation_by_audio.get(
+                    str(Path(record.audio_path).resolve())
+                )
+                if source is not None and not source.is_drum_only:
+                    waveform, shifted_notes, pitch_semitones = self._pitch_shift(
+                        waveform, list(notes), rng
+                    )
+                    notes = shifted_notes
+                    lineage = list(source.lineage)
+
+        waveform = waveform.view(
+            1,
+            self.context_chunks,
+            round(self.segment_duration * self.sample_rate),
+        ).transpose(0, 1)
+        chunks = encode_contiguous_chunks(
+            self.tokenizer,
+            list(notes),
+            start_time=start_time,
+            num_chunks=self.context_chunks,
+            duration=self.segment_duration,
+        )
+        targets = []
+        target_loss_masks = []
+        original_target_lengths = []
+        truncated_chunks = []
+        for chunk in chunks:
+            ids = list(chunk.target_ids)
+            original_target_lengths.append(len(ids))
+            truncated = len(ids) > self.max_tokens_per_chunk
+            if len(ids) > self.max_tokens_per_chunk:
+                ids = ids[: self.max_tokens_per_chunk - 1] + [self.tokenizer.eos_id]
+            targets.append(ids)
+            mask = [True] * len(ids)
+            if truncated:
+                # The synthetic EOS remains a structural delimiter/input but
+                # is not a supervised early-stop target.
+                mask[-1] = False
+            target_loss_masks.append(mask)
+            truncated_chunks.append(truncated)
+        group = " ".join(map(str, group_ids))
+        active_targets = reentry_targets = reentry_valid = None
+        if self.include_boundary_targets:
+            boundaries = [
+                start_time + (index + 1) * self.segment_duration
+                for index in range(self.context_chunks)
+            ]
+            active_targets, reentry_targets, reentry_valid = boundary_state_targets(
+                self.tokenizer,
+                notes,
+                boundaries=boundaries,
+                track_duration=track_duration,
+            )
+        return TrainingExample(
+            waveform=waveform,
+            target_chunks=targets,
+            instrument_group=group or None,
+            dataset_id=self.dataset_ids[record.dataset],
+            track_id=track_id,
+            start_time=start_time,
+            has_long_gap=has_long_gap,
+            target_loss_masks=target_loss_masks,
+            original_target_lengths=original_target_lengths,
+            truncated_chunks=truncated_chunks,
+            augmentation_applied=remixed or bool(pitch_semitones),
+            remixed=remixed,
+            pitch_shift_semitones=pitch_semitones,
+            augmentation_lineage=lineage,
+            active_note_targets=active_targets,
+            reentry_targets=reentry_targets,
+            reentry_valid=reentry_valid,
+        )
+
+
+def collate_training_examples(
+    examples: list[TrainingExample],
+) -> TrainingBatch:
+    if not examples:
+        raise ValueError("cannot collate an empty batch")
+    batch = len(examples)
+    chunks = examples[0].waveform.shape[0]
+    max_length = max(len(ids) for example in examples for ids in example.target_chunks)
+    target_ids = torch.zeros(batch, chunks, max_length, dtype=torch.long)
+    lengths = torch.zeros(batch, chunks, dtype=torch.long)
+    loss_mask = torch.zeros(batch, chunks, max_length, dtype=torch.bool)
+    original_lengths = torch.zeros(batch, chunks, dtype=torch.long)
+    truncated = torch.zeros(batch, chunks, dtype=torch.bool)
+    for batch_index, example in enumerate(examples):
+        if example.waveform.shape[0] != chunks:
+            raise ValueError("all examples must use the same context length")
+        for chunk_index, ids in enumerate(example.target_chunks):
+            length = len(ids)
+            target_ids[batch_index, chunk_index, :length] = torch.tensor(ids)
+            lengths[batch_index, chunk_index] = length
+            masks = (
+                example.target_loss_masks[chunk_index]
+                if example.target_loss_masks is not None
+                else [True] * length
+            )
+            if len(masks) != length:
+                raise ValueError("target loss mask length does not match target ids")
+            loss_mask[batch_index, chunk_index, :length] = torch.tensor(
+                masks, dtype=torch.bool
+            )
+            original_lengths[batch_index, chunk_index] = (
+                example.original_target_lengths[chunk_index]
+                if example.original_target_lengths is not None
+                else length
+            )
+            truncated[batch_index, chunk_index] = (
+                example.truncated_chunks[chunk_index]
+                if example.truncated_chunks is not None
+                else False
+            )
+    return TrainingBatch(
+        waveform=torch.stack([example.waveform for example in examples]),
+        target_ids=target_ids,
+        target_lengths=lengths,
+        instrument_groups=[example.instrument_group for example in examples],
+        dataset_ids=torch.tensor(
+            [example.dataset_id for example in examples], dtype=torch.long
+        ),
+        track_ids=[example.track_id for example in examples],
+        start_times=torch.tensor(
+            [example.start_time for example in examples], dtype=torch.float
+        ),
+        has_long_gap=torch.tensor(
+            [example.has_long_gap for example in examples], dtype=torch.bool
+        ),
+        target_loss_mask=loss_mask,
+        original_target_lengths=original_lengths,
+        truncated_chunks=truncated,
+        augmentation_applied=torch.tensor(
+            [example.augmentation_applied for example in examples],
+            dtype=torch.bool,
+        ),
+        remixed=torch.tensor(
+            [example.remixed for example in examples], dtype=torch.bool
+        ),
+        pitch_shift_semitones=torch.tensor(
+            [example.pitch_shift_semitones for example in examples],
+            dtype=torch.long,
+        ),
+        augmentation_lineage=[
+            list(example.augmentation_lineage or []) for example in examples
+        ],
+        active_note_targets=(
+            torch.stack([example.active_note_targets for example in examples])
+            if all(example.active_note_targets is not None for example in examples)
+            else None
+        ),
+        reentry_targets=(
+            torch.stack([example.reentry_targets for example in examples])
+            if all(example.reentry_targets is not None for example in examples)
+            else None
+        ),
+        reentry_valid=(
+            torch.stack([example.reentry_valid for example in examples])
+            if all(example.reentry_valid is not None for example in examples)
+            else None
+        ),
+    )
+
+
+def _capped_probabilities(
+    values: dict[str, float], cap: float = 0.35
+) -> dict[str, float]:
+    if not values:
+        return {}
+    if len(values) * cap < 1.0:
+        total = sum(values.values())
+        return {key: value / total for key, value in values.items()}
+    remaining = set(values)
+    result: dict[str, float] = {}
+    mass = 1.0
+    while remaining:
+        total = sum(values[key] for key in remaining)
+        changed = False
+        for key in list(remaining):
+            proposed = mass * values[key] / total
+            if proposed > cap:
+                result[key] = cap
+                mass -= cap
+                remaining.remove(key)
+                changed = True
+        if not changed:
+            for key in remaining:
+                result[key] = mass * values[key] / total
+            break
+    return result
+
+
+class BalancedWindowBatchSampler(Sampler[list[int | tuple[int, int]]]):
+    """Weighted batches with an explicit multi-instrument half-batch."""
+
+    def __init__(
+        self,
+        dataset: ContinuousChunkDataset,
+        *,
+        batch_size: int,
+        num_batches: int,
+        seed: int = 0,
+        rank: int = 0,
+        world_size: int = 1,
+        start_batch: int = 0,
+        dataset_probabilities: dict[str, float] | None = None,
+    ):
+        if batch_size <= 0 or num_batches <= 0:
+            raise ValueError("batch_size and num_batches must be positive")
+        self.dataset = dataset
+        self.batch_size = batch_size
+        self.num_batches = num_batches
+        self.seed = seed
+        self.rank = rank
+        self.world_size = world_size
+        self.start_batch = start_batch
+        hours: dict[str, float] = {}
+        active_records = {record_index for record_index, _ in dataset.windows}
+        for record_index in active_records:
+            record = dataset.records[record_index]
+            hours[record.dataset] = hours.get(record.dataset, 0.0) + (
+                record.duration / 3600
+            )
+        if dataset_probabilities:
+            provided = {
+                name: max(0.0, dataset_probabilities.get(name, 0.0)) for name in hours
+            }
+            total = sum(provided.values())
+            if total <= 0:
+                raise ValueError("dataset probabilities sum to zero")
+            probabilities = _capped_probabilities(provided)
+        else:
+            probabilities = _capped_probabilities(
+                {name: max(value, 1e-6) ** 0.5 for name, value in hours.items()}
+            )
+        weights = []
+        multi_indices = []
+        gap_bins = getattr(
+            dataset,
+            "long_gap_bins",
+            ["5-10" if flag else "0-5" for flag in dataset.long_gap_flags],
+        )
+        gap_counts: dict[tuple[str, str], int] = {}
+        for window_index, (record_index, _) in enumerate(dataset.windows):
+            record = dataset.records[record_index]
+            key = (record.dataset, gap_bins[window_index])
+            gap_counts[key] = gap_counts.get(key, 0) + 1
+            if record.is_multi_instrument:
+                multi_indices.append(window_index)
+        target_gap_mass = {
+            "none": 0.10,
+            "0-5": 0.20,
+            "5-10": 0.25,
+            "10-20": 0.25,
+            "20+": 0.20,
+        }
+        available_mass: dict[str, float] = {}
+        for dataset_name in probabilities:
+            available_mass[dataset_name] = sum(
+                mass
+                for gap_bin, mass in target_gap_mass.items()
+                if gap_counts.get((dataset_name, gap_bin), 0)
+            )
+        for window_index, (record_index, _) in enumerate(dataset.windows):
+            record = dataset.records[record_index]
+            gap_bin = gap_bins[window_index]
+            bin_count = gap_counts[(record.dataset, gap_bin)]
+            weight = (
+                probabilities[record.dataset]
+                * target_gap_mass[gap_bin]
+                / available_mass[record.dataset]
+                / bin_count
+            )
+            weights.append(weight)
+        self.weights = torch.tensor(weights, dtype=torch.double)
+        self.multi_indices = torch.tensor(multi_indices, dtype=torch.long)
+        self.multi_weights = (
+            self.weights[self.multi_indices]
+            if len(multi_indices)
+            else torch.empty(0, dtype=torch.double)
+        )
+
+    def __len__(self) -> int:
+        return self.num_batches
+
+    def __iter__(self):
+        multi_count = (self.batch_size + 1) // 2 if len(self.multi_indices) else 0
+        other_count = self.batch_size - multi_count
+        # Seed every batch independently.  A resumed job beginning at
+        # ``start_batch`` therefore samples the exact suffix that an
+        # uninterrupted run would have produced, irrespective of DataLoader
+        # prefetching or worker lifetime.
+        for batch_index in range(self.start_batch, self.start_batch + self.num_batches):
+            generator = torch.Generator()
+            generator.manual_seed(
+                self.seed + 1_000_003 * self.rank + 10_000_019 * batch_index
+            )
+            selected = []
+            if multi_count:
+                local = torch.multinomial(
+                    self.multi_weights,
+                    multi_count,
+                    replacement=True,
+                    generator=generator,
+                )
+                selected.extend(self.multi_indices[local].tolist())
+            if other_count:
+                selected.extend(
+                    torch.multinomial(
+                        self.weights,
+                        other_count,
+                        replacement=True,
+                        generator=generator,
+                    ).tolist()
+                )
+            permutation = torch.randperm(len(selected), generator=generator).tolist()
+            ordered = [selected[index] for index in permutation]
+            if getattr(self.dataset, "augmentation_enabled", False):
+                augmentation_seeds = []
+                for slot, window_index in enumerate(ordered):
+                    record_index, _ = self.dataset.windows[window_index]
+                    record = self.dataset.records[record_index]
+                    absolute_position = (
+                        (batch_index * self.world_size + self.rank)
+                        * self.batch_size
+                        + slot
+                    )
+                    source_group = getattr(record, "group_id", str(record_index))
+                    digest = hashlib.sha256(
+                        (
+                            f"{self.seed}:{absolute_position}:"
+                            f"{record.dataset}:{source_group}"
+                        ).encode("utf-8")
+                    ).digest()
+                    augmentation_seeds.append(
+                        int.from_bytes(digest[:8], "big") & ((1 << 63) - 1)
+                    )
+                yield list(zip(ordered, augmentation_seeds))
+            else:
+                yield ordered

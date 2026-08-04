@@ -407,5 +407,483 @@ class LMModel(nn.Module):
         conditions: list[ConditioningAttributes],
         *,
         model_state: ModelState | None = None,
-        state_sequence_length: int | ×¯=¶‰žËkºwµçeá}…±É•…‘å}ÁÉ•™¥±±•õÁÉ•™¥á}…±É•…‘å}ÁÉ•™¥±±•°(€€€€€€€€¤(€€€€€€€¥˜ÕÍ•}Í…µÁ±¥¹œ…¹Ñ•µÀ€ø€À¸Àè(€€€€€€€€€€€ÁÉ½‰Ì€ôÑ½É ¹Í½™Ñµ…à¡±½¥ÑÌ€¼Ñ•µÀ°‘¥´ô´Ä¤(€€€€€€€€€€€¹•áÑ}Ñ½­•¹Ì€ôÕÑ¥±Ì¹Í…µÁ±•}™É½µ}ÁÉ½‰Ì¡ÁÉ½‰Ì°Ñ½Á}ÀõÑ½Á}À°Ñ½Á}¬õÑ½Á}¬¥lè°€Át(€€€€€€€•±Í”è(€€€€€€€€€€€¹•áÑ}Ñ½­•¹Ì€ôÑ½É ¹…Éµ…à¡±½¥ÑÌ°‘¥´ô´Ä¤€€Œm	t(€€€€€€€É•ÑÕÉ¸¹•áÑ}Ñ½­•¹Ì€€Œm	t((€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´(€€€€Œ•¹•É…Ñ¥½¸(€€€€Œ€´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´((€€€Ñ½É ¹¹½}É… ¤(€€€‘•˜•¹•É…Ñ” (€€€€€€€Í•±˜°(€€€€€€€ÁÉ½µÁÐèÑ½É ¹Q•¹Í½Èð9½¹”€ô9½¹”°(€€€€€€€½¹‘¥Ñ¥½¹Ìè±¥ÍÑm½¹‘¥Ñ¥½¹¥¹ÑÑÉ¥‰ÕÑ•Ít€ômt°(€€€€€€€¹Õµ}Í…µÁ±•Ìè¥¹Ðð9½¹”€ô9½¹”°(€€€€€€€µ…á}•¹}±•¸è¥¹Ð€ô€ÈÔØ°(€€€€€€€ÕÍ•}Í…µÁ±¥¹œè‰½½°€ôQÉÕ”°(€€€€€€€Ñ•µÀè™±½…Ð€ô€Ä¸À°(€€€€€€€Ñ½Á}¬è¥¹Ð€ô€À°(€€€€€€€Ñ½Á}Àè™±½…Ð€ô€À¸À°(€€€€€€€™}½•˜è™±½…Ðð9½¹”€ô9½¹”°(€€€€€€€•…É±å}ÍÑ½Á}½¹}Ñ½­•¸è¥¹Ðð9½¹”€ô9½¹”°(€€€€€€€‰•…µ}Í¥é”è¥¹Ð€ô€Ä°(€€€€€€€‰•…µ}±•¹Ñ¡}Í½É•}…±Á¡„è™±½…Ð€ô€À¸ÜÔ°(€€€€€€€™½É‰¥‘‘•¹}Ñ½­•¹ÌèÑ½É ¹Q•¹Í½Èð±¥ÍÑm¥¹Ñtð9½¹”€ô9½¹”°(€€€€€€€µ½‘•±}ÍÑ…Ñ”è5½‘•±MÑ…Ñ”ð9½¹”€ô9½¹”°(€€€€€€€ÍÑ…Ñ•}Í•ÅÕ•¹•}±•¹Ñ è¥¹Ðð9½¹”€ô9½¹”°(€€€€€€€ÁÉ½™¥±•}•¹•É…Ñ¥½¸è‰½½°€ô…±Í”°(€€€€€€€ÁÉ•™¥á}…±É•…‘å}ÁÉ•™¥±±•è‰½½°€ô…±Í”°(€€€€¤€´ø%Ñ•É…Ñ½ÉmÑ½É ¹Q•¹Í½Étè(€€€€€€€€ˆˆ‰ÕÑ½É•É•ÍÍ¥Ù•±ä•¹•É…Ñ”Ñ½­•¹Ì°å¥•±‘¥¹œ½¹”Ñ¥µ•ÍÑ•À…Ð„Ñ¥µ”¸((€€€€€€€… å¥•±¥Ì„m¹Õµ}Í…µÁ±•Íu€Ñ•¹Í½È¸½È‰•…µ}Í¥é”€ôô€Ä€¡‘•™…Õ±Ð¤°(€€€€€€€Ñ½­•¹Ì…É”å¥•±‘•…ÌÑ¡•ä…É”•¹•É…Ñ•¸½È‰•…µ}Í¥é”€ø€Ä°‰•…´Í•…É (€€€€€€€¥ÌÉÕ¸¹½¸µÍÑÉ•…µ¥¹±ä…¹…±°Ñ½­•¹Ì…É”å¥•±‘•…ÐÑ¡”•¹¸((€€€€€€€™½É‰¥‘‘•¹}Ñ½­•¹Í€…É”Ñ½­•¸¥‘ÌÝ¡½Í”±½¥ÑÌ…É”™½É•Ñ¼€µ¥¹˜…Ð(€€€€€€€•Ù•ÉäÍÑ•À°Í¼Ñ¡•ä…¸¹•Ù•È‰”Í…µÁ±•€¡É••‘ä°Í…µÁ±¥¹œ½È‰•…´¤¸(€€€€€€€€ˆˆˆ(€€€€€€€…ÍÍ•ÉÐ¹½ÐÍ•±˜¹ÑÉ…¥¹¥¹œ(€€€€€€€¥˜‰•…µ}Í¥é”€ø€Äè(€€€€€€€€€€€…ÍÍ•ÉÐ•…É±å}ÍÑ½Á}½¹}Ñ½­•¸¥Ì¹½Ð9½¹”°€ (€€€€€€€€€€€€€€€€‰‰•…´Í•…É É•ÅÕ¥É•Ì•…É±å}ÍÑ½Á}½¹}Ñ½­•¸ˆ(€€€€€€€€€€€€¤(€€€€€€€‘•Ù¥”€ôÍ•±˜¹•µˆ¹Ý•¥¡Ð¹‘•Ù¥”(€€€€€€€Í•±˜¹±…ÍÑ}•¹•É…Ñ¥½¹}ÁÉ½™¥±”€ô9½¹”((€€€€€€€¥˜™½É‰¥‘‘•¹}Ñ½­•¹Ì¥Ì¹½Ð9½¹”…¹¹½Ð¥Í¥¹ÍÑ…¹” (€€€€€€€€€€€™½É‰¥‘‘•¹}Ñ½­•¹Ì°Ñ½É ¹Q•¹Í½È(€€€€€€€€¤è(€€€€€€€€€€€™½É‰¥‘‘•¹}Ñ½­•¹Ì€ôÑ½É ¹Ñ•¹Í½È (€€€€€€€€€€€€€€€™½É‰¥‘‘•¹}Ñ½­•¹Ì°‘•Ù¥”õ‘•Ù¥”°‘ÑåÁ”õÑ½É ¹±½¹œ(€€€€€€€€€€€€¤((€€€€€€€¥˜¹Õµ}Í…µÁ±•Ì¥Ì9½¹”è(€€€€€€€€€€€¹Õµ}Í…µÁ±•Ì€ô€ (€€€€€€€€€€€€€€€±•¸¡½¹‘¥Ñ¥½¹Ì¤(€€€€€€€€€€€€€€€¥˜½¹‘¥Ñ¥½¹Ì(€€€€€€€€€€€€€€€•±Í”€¡ÁÉ½µÁÐ¹Í¡…Á•lÁt¥˜ÁÉ½µÁÐ¥Ì¹½Ð9½¹”•±Í”€Ä¤(€€€€€€€€€€€€¤((€€€€€€€™}½•˜€ôÍ•±˜¹™}½•˜¥˜™}½•˜¥Ì9½¹”•±Í”™}½•˜((€€€€€€€€Œ	Õ¥±½¹‘¥Ñ¥½¸Ñ•¹Í½ÉÌ€¡Ý¥Ñ ¹Õ±°½¹‘¥Ñ¥½¹Ì…ÁÁ•¹‘•™½È¤¸(€€€€€€€™}½¹‘¥Ñ¥½¹Ì€ôÍ•±˜¹ÁÉ•Á…É•}½¹‘¥Ñ¥½¹}Ñ•¹Í½ÉÌ (€€€€€€€€€€€½¹‘¥Ñ¥½¹Ì°™}½•˜õ™}½•˜°±½}Ñ¥µ¥¹œõ‰½½°¡½¹‘¥Ñ¥½¹Ì¤(€€€€€€€€¤((€€€€€€€•™™}‰…Ñ €ô¹Õµ}Í…µÁ±•Ì€¨‰•…µ}Í¥é”((€€€€€€€€ŒáÁ…¹½¹‘¥Ñ¥½¹ÌÍ¼•… ‰•…´•ÑÌ¥ÑÌ½Ý¸½Áä€¡¥¹Ñ•É±•…Ù•™½È¤¸(€€€€€€€¥˜‰•…µ}Í¥é”€ø€Ä…¹™}½¹‘¥Ñ¥½¹Ìè(€€€€€€€€€€€™}½¹‘¥Ñ¥½¹Ì€ôì(€€€€€€€€€€€€€€€¬è€ (€€€€€€€€€€€€€€€€€€€Ñ½É ¹É•Á•…Ñ}¥¹Ñ•É±•…Ù”¡½¹°‰•…µ}Í¥é”°‘¥´ôÀ¤°(€€€€€€€€€€€€€€€€€€€Ñ½É ¹É•Á•…Ñ}¥¹Ñ•É±•…Ù”¡µ…Í¬°‰•…µ}Í¥é”°‘¥´ôÀ¤°(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€™½È¬°€¡½¹°µ…Í¬¤¥¸™}½¹‘¥Ñ¥½¹Ì¹¥Ñ•µÌ ¤(€€€€€€€€€€€ô((€€€€€€€€Œ%¹¥Ñ¥…±¥Í”•¹•É…Ñ¥½¸‰Õ™™•È€¡•™™}‰…Ñ É½ÝÌ€ô¹Õµ}Í…µÁ±•Ìƒ\‰•…µ}Í¥é”¤(€€€€€€€Õ¹•¹•É…Ñ•€ôÍ•±˜¹Õ¹•¹•É…Ñ•‘}Ñ½­•¹}¥(€€€€€€€•¹}Í•ÅÕ•¹”€ôÑ½É ¹™Õ±° (€€€€€€€€€€€€¡•™™}‰…Ñ °µ…á}•¹}±•¸€¬€Ä¤°(€€€€€€€€€€€Õ¹•¹•É…Ñ•°(€€€€€€€€€€€‘•Ù¥”õ‘•Ù¥”°(€€€€€€€€€€€‘ÑåÁ”õÑ½É ¹±½¹œ°(€€€€€€€€¤(€€€€€€€•¹}Í•ÅÕ•¹•lè°€Át€ôÍ•±˜¹¥¹¥Ñ¥…±}Ñ½­•¹}¥((€€€€€€€ÍÑ…ÉÑ}½™™Í•Ð€ô€À(€€€€€€€¥˜ÁÉ½µÁÐ¥Ì¹½Ð9½¹”è(€€€€€€€€€€€AP€ôÁÉ½µÁÐ¹Í¡…Á•l´Åt(€€€€€€€€€€€¥˜‰•…µ}Í¥é”€ø€Äè(€€€€€€€€€€€€€€€ÁÉ½µÁÐ€ôÑ½É ¹É•Á•…Ñ}¥¹Ñ•É±•…Ù”¡ÁÉ½µÁÐ°‰•…µ}Í¥é”°‘¥´ôÀ¤(€€€€€€€€€€€•¹}Í•ÅÕ•¹•lè°€Ä€è€Ä€¬AQt€ôÁÉ½µÁÐ(€€€€€€€€€€€Õ¹•¹•É…Ñ•‘}ÍÑ•ÁÌ€ô€¡•¹}Í•ÅÕ•¹”€ôôÕ¹•¹•É…Ñ•¤¹¹½¹é•É¼ ¥lè°€Åt(€€€€€€€€€€€ÍÑ…ÉÑ}½™™Í•Ð€ôµ…à À°¥¹Ð¡Õ¹•¹•É…Ñ•‘}ÍÑ•ÁÌ¹…µ¥¸ ¤¤€´€Ä¤((€€€€€€€ÁÉ•Á•¹‘}±•¹Ñ €ôÍÕ´¡½¹¹Í¡…Á•lÅt™½È½¹°|¥¸™}½¹‘¥Ñ¥½¹Ì¹Ù…±Õ•Ì ¤¤(€€€€€€€€Œ9•Ü¡•­Á½¥¹ÑÌÁÉ•Á•¹…¸•áÁ±¥¥Ð¡Õ¹¬µÍÑ…ÉÐ•µ‰•‘‘¥¹œ¥¸(€€€€€€€€Œ…‘‘¥Ñ¥½¸Ñ¼Ñ¡”½¹‘¥Ñ¥½¸Ñ•¹Í½ÉÌ¸€%ÐÁ…ÉÑ¥¥Á…Ñ•Ì¥¸•Ù•Éä(€€€€€€€€ŒÍÑÉ•…µ¥¹œ±…å•È…¹µÕÍÐÑ¡•É•™½É”…‘Ù…¹”•Ù•Éä…¡”½™™Í•Ð¸(€€€€€€€¥˜Í•±˜¹ÑåÁ•}•µ‰•‘‘¥¹œ¥Ì¹½Ð9½¹”…¹¹½ÐÁÉ•™¥á}…±É•…‘å}ÁÉ•™¥±±•è(€€€€€€€€€€€ÁÉ•Á•¹‘}±•¹Ñ €¬ô€Ä(€€€€€€€¥˜ÁÉ•™¥á}…±É•…‘å}ÁÉ•™¥±±•è(€€€€€€€€€€€¥˜µ½‘•±}ÍÑ…Ñ”¥Ì9½¹”è(€€€€€€€€€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È (€€€€€€€€€€€€€€€€€€€€‰ÁÉ•™¥á}…±É•…‘å}ÁÉ•™¥±±•É•ÅÕ¥É•Ì…¸•áÑ•É¹…°µ½‘•±}ÍÑ…Ñ”ˆ(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€¥˜½¹‘¥Ñ¥½¹Ìè(€€€€€€€€€€€€€€€É…¥Í”Y…±Õ•ÉÉ½È (€€€€€€€€€€€€€€€€€€€€‰ÁÉ•™¥±±••¹•É…Ñ¥½¸µÕÍÐ¹½Ð•¹½‘”½¹‘¥Ñ¥½¹Ì„Í•½¹Ñ¥µ”ˆ(€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€ÁÉ•Á•¹‘}±•¹Ñ €ô€À(€€€€€€€…¡•}‰…Ñ¡}Í¥é”€ô•™™}‰…Ñ €¨€ Ä¥˜™}½•˜€ôô€Ä¸À•±Í”€È¤(€€€€€€€…¡•}Í•Å}±•¸€ôÁÉ•Á•¹‘}±•¹Ñ €¬µ…á}•¹}±•¸(€€€€€€€¥˜µ½‘•±}ÍÑ…Ñ”¥Ì9½¹”è(€€€€€€€€€€€µ½‘•±}ÍÑ…Ñ”€ô¥¹¥Ñ}ÍÑ…Ñ•Ì (€€€€€€€€€€€€€€€Í•±˜°(€€€€€€€€€€€€€€€‰…Ñ¡}Í¥é”õ…¡•}‰…Ñ¡}Í¥é”°(€€€€€€€€€€€€€€€Í•ÅÕ•¹•}±•¹Ñ õÍÑ…Ñ•}Í•ÅÕ•¹•}±•¹Ñ ½È…¡•}Í•Å}±•¸°(€€€€€€€€€€€€¤((€€€€€€€€ŒÕµÕ±…Ñ•±½œµÁÉ½ˆÍ½É•Ì°½¹”Á•È‰•…´É½Ü¸(€€€€€€€‰•…µ}Í½É•Ì€ôÑ½É ¹é•É½Ì¡•™™}‰…Ñ °‘•Ù¥”õ‘•Ù¥”°‘ÑåÁ”õÑ½É ¹™±½…Ð¤((€€€€€€€Õ‘…}ÁÉ½™¥±”€ôÁÉ½™¥±•}•¹•É…Ñ¥½¸…¹‘•Ù¥”¹ÑåÁ”€ôô€‰Õ‘„ˆ(€€€€€€€ÁÉ½™¥±•}•Ù•¹ÑÌè±¥ÍÑmÑÕÁ±•mÍÑÈ°½‰©•Ð°½‰©•Ð°¥¹Ñut€ômt(€€€€€€€ÁÉ½™¥±•}ÁÕ}Í•½¹‘Ì€ôì‰ÁÉ•™¥±°ˆè€À¸À°€‰‘•½‘”ˆè€À¸Áô(€€€€€€€ÁÉ½™¥±•}Ñ½­•¹Ì€ôì‰ÁÉ•™¥±°ˆè€À°€‰‘•½‘”ˆè€Áô((€€€€€€€‘•˜ÁÉ½™¥±•}ÍÑ…ÉÐ ¤è(€€€€€€€€€€€¥˜¹½ÐÁÉ½™¥±•}•¹•É…Ñ¥½¸è(€€€€€€€€€€€€€€€É•ÑÕÉ¸9½¹”(€€€€€€€€€€€¥˜Õ‘…}ÁÉ½™¥±”è(€€€€€€€€€€€€€€€•Ù•¹Ð€ôÑ½É ¹Õ‘„¹Ù•¹Ð¡•¹…‰±•}Ñ¥µ¥¹œõQÉÕ”¤(€€€€€€€€€€€€€€€•Ù•¹Ð¹É•½É ¤(€€€€€€€€€€€€€€€É•ÑÕÉ¸•Ù•¹Ð(€€€€€€€€€€€É•ÑÕÉ¸Ñ¥µ”¹Á•É™}½Õ¹Ñ•È ¤((€€€€€€€‘•˜ÁÉ½™¥±•}•¹¡ÍÑ…ÉÐ°€¨°­¥¹èÍÑÈ°Ñ½­•¹Ìè¥¹Ð¤€´ø9½¹”è(€€€€€€€€€€€¥˜ÍÑ…ÉÐ¥Ì9½¹”è(€€€€€€€€€€€€€€€É•ÑÕÉ¸(€€€€€€€€€€€ÁÉ½™¥±•}Ñ½­•¹Ím­¥¹‘t€¬ôÑ½­•¹Ì(€€€€€€€€€€€¥˜Õ‘…}ÁÉ½™¥±”è(€€€€€€€€€€€€€€€•Ù•¹Ð€ôÑ½É ¹Õ‘„¹Ù•¹Ð¡•¹…‰±•}Ñ¥µ¥¹œõQÉÕ”¤(€€€€€€€€€€€€€€€•Ù•¹Ð¹É•½É ¤(€€€€€€€€€€€€€€€ÁÉ½™¥±•}•Ù•¹ÑÌ¹…ÁÁ•¹ ¡­¥¹°ÍÑ…ÉÐ°•Ù•¹Ð°Ñ½­•¹Ì¤¤(€€€€€€€€€€€•±Í”è(€€€€€€€€€€€€€€€ÁÉ½™¥±•}ÁÕ}Í•½¹‘Ím­¥¹‘t€¬ôÑ¥µ”¹Á•É™}½Õ¹Ñ•È ¤€´™±½…Ð¡ÍÑ…ÉÐ¤((€€€€€€€€Œ½ÈÉ••‘ä½Í…µÁ±¥¹œ•µ¥ÐÁÉ½µÁÐÍÑ•ÁÌ¹½Üì‰•…´Í•…É •µ¥ÑÌ…ÐÑ¡”•¹¸(€€€€€€€¥˜‰•…µ}Í¥é”€ôô€Äè(€€€€€€€€€€€™½ÈÐ¥¸É…¹”¡ÍÑ…ÉÑ}½™™Í•Ð¤è(€€€€€€€€€€€€€€€å¥•±•¹}Í•ÅÕ•¹•lè°Ð€¬€Åt((€€€€€€€±…ÍÑ}½™™Í•Ð€ôÍÑ…ÉÑ}½™™Í•Ð€´€Ä(€€€€€€€Ý¥Ñ Í•±˜¹…ÕÑ½…ÍÐè(€€€€€€€€€€€™½È½™™Í•Ð¥¸É…¹”¡ÍÑ…ÉÑ}½™™Í•Ð°µ…á}•¹}±•¸¤è(€€€€€€€€€€€€€€€±…ÍÑ}½™™Í•Ð€ô½™™Í•Ð(€€€€€€€€€€€€€€€™¥ÉÍÑ}¥Ñ•È€ô½™™Í•Ð€ôôÍÑ…ÉÑ}½™™Í•Ð(€€€€€€€€€€€€€€€¥¹ÁÕÑ|€ô€ (€€€€€€€€€€€€€€€€€€€•¹}Í•ÅÕ•¹•lè°€è½™™Í•Ð€¬€Åt(€€€€€€€€€€€€€€€€€€€¥˜™¥ÉÍÑ}¥Ñ•È(€€€€€€€€€€€€€€€€€€€•±Í”•¹}Í•ÅÕ•¹•lè°½™™Í•Ð€è½™™Í•Ð€¬€Åt(€€€€€€€€€€€€€€€€¤((€€€€€€€€€€€€€€€¥˜‰•…µ}Í¥é”€ôô€Äè(€€€€€€€€€€€€€€€€€€€€ŒƒŠRŠR MÑ…¹‘…ÉÉ••‘ä€¼Í…µÁ±¥¹œÁ…Ñ ƒŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠR (€€€€€€€€€€€€€€€€€€€¥˜•…É±å}ÍÑ½Á}½¹}Ñ½­•¸¥Ì¹½Ð9½¹”è(€€€€€€€€€€€€€€€€€€€€€€€‘½¹”€ô€¡•¹}Í•ÅÕ•¹”€ôô•…É±å}ÍÑ½Á}½¹}Ñ½­•¸¤¹…¹ä¡‘¥´ôÄ¤¹…±° ¤(€€€€€€€€€€€€€€€€€€€€€€€¥˜‘½¹”è(€€€€€€€€€€€€€€€€€€€€€€€€€€€‰É•…¬((€€€€€€€€€€€€€€€€€€€ÁÉ½™¥±•}­¥¹€ô€‰ÁÉ•™¥±°ˆ¥˜™¥ÉÍÑ}¥Ñ•È•±Í”€‰‘•½‘”ˆ(€€€€€€€€€€€€€€€€€€€ÍÑ…ÉÑ•€ôÁÉ½™¥±•}ÍÑ…ÉÐ ¤(€€€€€€€€€€€€€€€€€€€¹•áÑ}Ñ½­•¸€ôÍ•±˜¹}Í…µÁ±•}¹•áÑ}Ñ½­•¸ (€€€€€€€€€€€€€€€€€€€€€€€¥¹ÁÕÑ|°(€€€€€€€€€€€€€€€€€€€€€€€™}½¹‘¥Ñ¥½¹Ì°(€€€€€€€€€€€€€€€€€€€€€€€µ½‘•±}ÍÑ…Ñ”°(€€€€€€€€€€€€€€€€€€€€€€€™¥ÉÍÑ}ÍÑ•Àõ™¥ÉÍÑ}¥Ñ•È°(€€€€€€€€€€€€€€€€€€€€€€€ÕÍ•}Í…µÁ±¥¹œõÕÍ•}Í…µÁ±¥¹œ°(€€€€€€€€€€€€€€€€€€€€€€€Ñ•µÀõÑ•µÀ°(€€€€€€€€€€€€€€€€€€€€€€€Ñ½Á}¬õÑ½Á}¬°(€€€€€€€€€€€€€€€€€€€€€€€Ñ½Á}ÀõÑ½Á}À°(€€€€€€€€€€€€€€€€€€€€€€€™}½•˜õ™}½•˜°(€€€€€€€€€€€€€€€€€€€€€€€™½É‰¥‘‘•¹}Ñ½­•¹Ìõ™½É‰¥‘‘•¹}Ñ½­•¹Ì°(€€€€€€€€€€€€€€€€€€€€€€€ÁÉ•™¥á}…±É•…‘å}ÁÉ•™¥±±•õÁÉ•™¥á}…±É•…‘å}ÁÉ•™¥±±•°(€€€€€€€€€€€€€€€€€€€€¤€€Œm	t(€€€€€€€€€€€€€€€€€€€ÁÉ½™¥±•}•¹ (€€€€€€€€€€€€€€€€€€€€€€€ÍÑ…ÉÑ•°(€€€€€€€€€€€€€€€€€€€€€€€­¥¹õÁÉ½™¥±•}­¥¹°(€€€€€€€€€€€€€€€€€€€€€€€Ñ½­•¹Ìõ¥¹ÁÕÑ|¹Í¡…Á•l´Åt(€€€€€€€€€€€€€€€€€€€€€€€€¬€¡ÁÉ•Á•¹‘}±•¹Ñ ¥˜™¥ÉÍÑ}¥Ñ•È•±Í”€À¤°(€€€€€€€€€€€€€€€€€€€€¤((€€€€€€€€€€€€€€€€€€€¥¹ÁÕÑ}P€ô¥¹ÁÕÑ|¹Í¡…Á•l´Åt(€€€€€€€€€€€€€€€€€€€¥¹É•µ•¹Ñ}ÍÑ•ÁÌ (€€€€€€€€€€€€€€€€€€€€€€€Í•±˜¹ÑÉ…¹Í™½Éµ•È°(€€€€€€€€€€€€€€€€€€€€€€€µ½‘•±}ÍÑ…Ñ”°(€€€€€€€€€€€€€€€€€€€€€€€¥¹É•µ•¹Ðõ¥¹ÁÕÑ}P€¬€¡ÁÉ•Á•¹‘}±•¹Ñ ¥˜™¥ÉÍÑ}¥Ñ•È•±Í”€À¤°(€€€€€€€€€€€€€€€€€€€€¤((€€€€€€€€€€€€€€€€€€€Ñ¡¥Í}•¹}ÍÑ•À€ô•¹}Í•ÅÕ•¹•lè°½™™Í•Ð€¬€Åt(€€€€€€€€€€€€€€€€€€€¹•áÑ}Ñ½­•¸€ôÑ½É ¹Ý¡•É” (€€€€€€€€€€€€€€€€€€€€€€€Ñ¡¥Í}•¹}ÍÑ•À€ôôÕ¹•¹•É…Ñ•°¹•áÑ}Ñ½­•¸°Ñ¡¥Í}•¹}ÍÑ•À(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€€€€€•¹}Í•ÅÕ•¹•lè°½™™Í•Ð€¬€Åt€ô¹•áÑ}Ñ½­•¸((€€€€€€€€€€€€€€€€€€€å¥•±•¹}Í•ÅÕ•¹•lè°½™™Í•Ð€¬€Åt€€Œm¹Õµ}Í…µÁ±•Ít((€€€€€€€€€€€€€€€•±Í”è(€€€€€€€€€€€€€€€€€€€€ŒƒŠRŠR 	•…´Í•…É ÍÑ•ÀƒŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠRŠR (€€€€€€€€€€€€€€€€€€€ÁÉ½™¥±•}­¥¹€ô€‰ÁÉ•™¥±°ˆ¥˜™¥ÉÍÑ}¥Ñ•È•±Í”€‰‘•½‘”ˆ(€€€€€€€€€€€€€€€€€€€ÍÑ…ÉÑ•€ôÁÉ½™¥±•}ÍÑ…ÉÐ ¤(€€€€€€€€€€€€€€€€€€€±½¥ÑÌ€ôÍ•±˜¹}½µÁÕÑ•}±½¥ÑÌ (€€€€€€€€€€€€€€€€€€€€€€€¥¹ÁÕÑ|°(€€€€€€€€€€€€€€€€€€€€€€€™}½¹‘¥Ñ¥½¹Ì°(€€€€€€€€€€€€€€€€€€€€€€€µ½‘•±}ÍÑ…Ñ”°(€€€€€€€€€€€€€€€€€€€€€€€™¥ÉÍÑ}ÍÑ•Àõ™¥ÉÍÑ}¥Ñ•È°(€€€€€€€€€€€€€€€€€€€€€€€™}½•˜õ™}½•˜°(€€€€€€€€€€€€€€€€€€€€€€€™½É‰¥‘‘•¹}Ñ½­•¹Ìõ™½É‰¥‘‘•¹}Ñ½­•¹Ì°(€€€€€€€€€€€€€€€€€€€€€€€ÁÉ•™¥á}…±É•…‘å}ÁÉ•™¥±±•õÁÉ•™¥á}…±É•…‘å}ÁÉ•™¥±±•°(€€€€€€€€€€€€€€€€€€€€¤€€Œm•™™}‰…Ñ °…É‘t(€€€€€€€€€€€€€€€€€€€ÁÉ½™¥±•}•¹ (€€€€€€€€€€€€€€€€€€€€€€€ÍÑ…ÉÑ•°(€€€€€€€€€€€€€€€€€€€€€€€­¥¹õÁÉ½™¥±•}­¥¹°(€€€€€€€€€€€€€€€€€€€€€€€Ñ½­•¹Ìõ¥¹ÁÕÑ|¹Í¡…Á•l´Åt(€€€€€€€€€€€€€€€€€€€€€€€€¬€¡ÁÉ•Á•¹‘}±•¹Ñ ¥˜™¥ÉÍÑ}¥Ñ•È•±Í”€À¤°(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€€€€€¥¹ÁÕÑ}P€ô¥¹ÁÕÑ|¹Í¡…Á•l´Åt(€€€€€€€€€€€€€€€€€€€¥¹É•µ•¹Ñ}ÍÑ•ÁÌ (€€€€€€€€€€€€€€€€€€€€€€€Í•±˜¹ÑÉ…¹Í™½Éµ•È°(€€€€€€€€€€€€€€€€€€€€€€€µ½‘•±}ÍÑ…Ñ”°(€€€€€€€€€€€€€€€€€€€€€€€¥¹É•µ•¹Ðõ¥¹ÁÕÑ}P€¬€¡ÁÉ•Á•¹‘}±•¹Ñ ¥˜™¥ÉÍÑ}¥Ñ•È•±Í”€À¤°(€€€€€€€€€€€€€€€€€€€€¤((€€€€€€€€€€€€€€€€€€€±½}ÁÉ½‰Ì€ôÑ½É ¹±½}Í½™Ñµ…à¡±½¥ÑÌ¹™±½…Ð ¤°‘¥´ô´Ä¤((€€€€€€€€€€€€€€€€€€€€ŒQ½À‰•…µ}Í¥é”…¹‘¥‘…Ñ”Ñ½­•¹ÌÁ•ÈÕÉÉ•¹Ð‰•…´(€€€€€€€€€€€€€€€€€€€Ñ½Á­}Í½É•Ì°Ñ½Á­}Ñ½­•¹Ì€ôÑ½É ¹Ñ½Á¬ (€€€€€€€€€€€€€€€€€€€€€€€±½}ÁÉ½‰Ì°¬õ‰•…µ}Í¥é”°‘¥´ô´Ä(€€€€€€€€€€€€€€€€€€€€¤((€€€€€€€€€€€€€€€€€€€€ŒQÉ…¬Ý¡¥ ‰•…µÌ¡…Ù”…±É•…‘ä•µ¥ÑÑ•=L(€€€€€€€€€€€€€€€€€€€•½Í}µ…Í¬€ô•¹}Í•ÅÕ•¹”€ôô•…É±å}ÍÑ½Á}½¹}Ñ½­•¸(€€€€€€€€€€€€€€€€€€€‰•…µ}¡…Í}•¹‘•€ô•½Í}µ…Í¬¹…¹ä¡‘¥´ô´Ä¤(€€€€€€€€€€€€€€€€€€€•½Í}Á½Ì€ô•½Í}µ…Í¬¹¥¹Ð ¤¹…Éµ…à¡‘¥´ô´Ä¤¹±…µÀ¡µ¥¸ôÄ¤(€€€€€€€€€€€€€€€€€€€‰•…µ}±•¹Ñ¡Ì€ôÑ½É ¹Ý¡•É” (€€€€€€€€€€€€€€€€€€€€€€€‰•…µ}¡…Í}•¹‘•°(€€€€€€€€€€€€€€€€€€€€€€€•½Í}Á½Ì°(€€€€€€€€€€€€€€€€€€€€€€€Ñ½É ¹™Õ±±}±¥­”¡•½Í}Á½Ì°½™™Í•Ð€¬€Ä¤°(€€€€€€€€€€€€€€€€€€€€¤((€€€€€€€€€€€€€€€€€€€€Œ¥¹¥Í¡•‰•…µÌè‘½¸Ð•áÁ…¹™ÕÉÑ¡•È(€€€€€€€€€€€€€€€€€€€Ñ½Á­}Í½É•Ì€ôÑ½É ¹Ý¡•É” (€€€€€€€€€€€€€€€€€€€€€€€‰•…µ}¡…Í}•¹‘•¹Õ¹ÍÅÕ••é” ´Ä¤°(€€€€€€€€€€€€€€€€€€€€€€€Ñ½É ¹é•É½Í}±¥­”¡Ñ½Á­}Í½É•Ì¤°(€€€€€€€€€€€€€€€€€€€€€€€Ñ½Á­}Í½É•Ì°(€€€€€€€€€€€€€€€€€€€€¤((€€€€€€€€€€€€€€€€€€€€Œ1•¹Ñ µ¹½Éµ…±¥é•…¹‘¥‘…Ñ”Í½É•Ìèm•™™}‰…Ñ °‰•…µ}Í¥é•t(€€€€€€€€€€€€€€€€€€€±À€ô€Ä¸À€¼€¡‰•…µ}±•¹Ñ¡Ì¹™±½…Ð ¤€¨¨‰•…µ}±•¹Ñ¡}Í½É•}…±Á¡„¤(€€€€€€€€€€€€€€€€€€€…¹€ô€¡‰•…µ}Í½É•Ì¹Õ¹ÍÅÕ••é” ´Ä¤€¬Ñ½Á­}Í½É•Ì¤€¨±À¹Õ¹ÍÅÕ••é” ´Ä¤((€€€€€€€€€€€€€€€€€€€€ŒI•Í¡…Á”Ñ¼m¹Õµ}Í…µÁ±•Ì°‰•…µ}Í¥é—
-Ét™½ÈÉ½ÍÌµ‰•…´Í•±•Ñ¥½¸(€€€€€€€€€€€€€€€€€€€…¹‘|É€ô…¹¹É•Í¡…Á”¡¹Õµ}Í…µÁ±•Ì°‰•…µ}Í¥é”€¨‰•…µ}Í¥é”¤((€€€€€€€€€€€€€€€€€€€¥˜½™™Í•Ð€ôôÍÑ…ÉÑ}½™™Í•Ðè(€€€€€€€€€€€€€€€€€€€€€€€€Œ±°‰•…µÌ¥‘•¹Ñ¥…°…ÐÍÑ…ÉÐƒŠPÑ…­”™¥ÉÍÐ‰•…µ}Í¥é”Ñ½­•¹Ì(€€€€€€€€€€€€€€€€€€€€€€€¹•Ý}Í½É•Ì€ô…¹‘|É‘lè°€é‰•…µ}Í¥é•t(€€€€€€€€€€€€€€€€€€€€€€€‰•ÍÑ}¥‘à€ô€ (€€€€€€€€€€€€€€€€€€€€€€€€€€€Ñ½É ¹…É…¹”¡‰•…µ}Í¥é”°‘•Ù¥”õ‘•Ù¥”¤(€€€€€€€€€€€€€€€€€€€€€€€€€€€€¹Õ¹ÍÅÕ••é” À¤(€€€€€€€€€€€€€€€€€€€€€€€€€€€€¹•áÁ…¹¡¹Õµ}Í…µÁ±•Ì°€´Ä¤(€€€€€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€€€€€•±Í”è(€€€€€€€€€€€€€€€€€€€€€€€¹•Ý}Í½É•Ì°‰•ÍÑ}¥‘à€ôÑ½É ¹Ñ½Á¬¡…¹‘|É°¬õ‰•…µ}Í¥é”°‘¥´ô´Ä¤((€€€€€€€€€€€€€€€€€€€€Œ•½‘”™±…Ð¥¹‘•àƒŠH€¡ÁÉ•Ù}‰•…µ}Ý¥Ñ¡¥¹}Í…µÁ±”°Ñ½­•¹}É…¹¬¤(€€€€€€€€€€€€€€€€€€€ÁÉ•Ù}±½…°€ô€¡‰•ÍÑ}¥‘à€¼¼‰•…µ}Í¥é”¤¹É•Í¡…Á” ´Ä¤(€€€€€€€€€€€€€€€€€€€Ñ½­}É…¹¬€ô€¡‰•ÍÑ}¥‘à€”‰•…µ}Í¥é”¤¹É•Í¡…Á” ´Ä¤((€€€€€€€€€€€€€€€€€€€€Œ5…ÀÑ¼±½‰…°É½Ü¥¹‘¥•Ì¥¸m•™™}‰…Ñ °ƒŠ™tÑ•¹Í½ÉÌ(€€€€€€€€€€€€€€€€€€€Í…µÁ±•}‰…Í”€ô€ (€€€€€€€€€€€€€€€€€€€€€€€Ñ½É ¹…É…¹”¡¹Õµ}Í…µÁ±•Ì°‘•Ù¥”õ‘•Ù¥”¤¹É•Á•…Ñ}¥¹Ñ•É±•…Ù” (€€€€€€€€€€€€€€€€€€€€€€€€€€€‰•…µ}Í¥é”(€€€€€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€€€€€€€€€€¨‰•…µ}Í¥é”(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€€€€€ÁÉ•Ù}±½‰…°€ôÍ…µÁ±•}‰…Í”€¬ÁÉ•Ù}±½…°((€€€€€€€€€€€€€€€€€€€€ŒQ½­•¸™½È•… ¹•Ü‰•…´(€€€€€€€€€€€€€€€€€€€¹•áÑ}Ñ½­•¸€ôÑ½Á­}Ñ½­•¹ÍmÁÉ•Ù}±½‰…°°Ñ½­}É…¹­t((€€€€€€€€€€€€€€€€€€€€ŒUÁ‘…Ñ”‰•…´Í½É•Ì€¡ÍÑ½É”Õ¸µ¹½Éµ…±¥é•™½ÈÑ¡”¹•áÐÍÑ•À¤(€€€€€€€€€€€€€€€€€€€‰•…µ}Í½É•Ì€ô¹•Ý}Í½É•Ì¹É•Í¡…Á” ´Ä¤€¼±ÁmÁÉ•Ù}±½‰…±t((€€€€€€€€€€€€€€€€€€€€ŒI•½É‘•È•¹•É…Ñ¥½¸Í•ÅÕ•¹•ÌÑ¼µ…Ñ Ý¥¹¹¥¹œ‰•…µÌ(€€€€€€€€€€€€€€€€€€€•¹}Í•ÅÕ•¹”€ô•¹}Í•ÅÕ•¹•mÁÉ•Ù}±½‰…±t((€€€€€€€€€€€€€€€€€€€É•½É‘•È€ôÁÉ•Ù}±½‰…°(€€€€€€€€€€€€€€€€€€€¥˜™}½•˜€„ô€Ä¸Àè(€€€€€€€€€€€€€€€€€€€€€€€É•½É‘•È€ôÑ½É ¹…Ð¡mÁÉ•Ù}±½‰…°°ÁÉ•Ù}±½‰…°€¬•™™}‰…Ñ¡t¤(€€€€€€€€€€€€€€€€€€€É•½É‘•É}ÍÑ…Ñ•Ì¡Í•±˜¹ÑÉ…¹Í™½Éµ•È°µ½‘•±}ÍÑ…Ñ”°É•½É‘•È¤((€€€€€€€€€€€€€€€€€€€€Œ]É¥Ñ”¹•áÐÑ½­•¸€¡É•ÍÁ•Ñ¥¹œÁÉ”µ™¥±±•ÁÉ½µÁÐÁ½Í¥Ñ¥½¹Ì¤(€€€€€€€€€€€€€€€€€€€Ñ¡¥Í}ÍÑ•À€ô•¹}Í•ÅÕ•¹•lè°½™™Í•Ð€¬€Åt(€€€€€€€€€€€€€€€€€€€¹•áÑ}Ñ½­•¸€ôÑ½É ¹Ý¡•É” (€€€€€€€€€€€€€€€€€€€€€€€Ñ¡¥Í}ÍÑ•À€ôôÕ¹•¹•É…Ñ•°¹•áÑ}Ñ½­•¸°Ñ¡¥Í}ÍÑ•À(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€€€€€€€€€•¹}Í•ÅÕ•¹•lè°½™™Í•Ð€¬€Åt€ô¹•áÑ}Ñ½­•¸((€€€€€€€€€€€€€€€€€€€€Œ…É±äÍÑ½ÀÝ¡•¸•Ù•Éä‰•…´¥¸•Ù•ÉäÍ…µÁ±”¡…Ì•µ¥ÑÑ•=L(€€€€€€€€€€€€€€€€€€€¥˜€¡•¹}Í•ÅÕ•¹”€ôô•…É±å}ÍÑ½Á}½¹}Ñ½­•¸¤¹…¹ä¡‘¥´ô´Ä¤¹…±° ¤è(€€€€€€€€€€€€€€€€€€€€€€€‰É•…¬((€€€€€€€¥˜ÁÉ½™¥±•}•¹•É…Ñ¥½¸è(€€€€€€€€€€€¥˜Õ‘…}ÁÉ½™¥±”è(€€€€€€€€€€€€€€€Ñ½É ¹Õ‘„¹Íå¹¡É½¹¥é”¡‘•Ù¥”¤(€€€€€€€€€€€€€€€™½È­¥¹°ÍÑ…ÉÑ}•Ù•¹Ð°•¹‘}•Ù•¹Ð°|¥¸ÁÉ½™¥±•}•Ù•¹ÑÌè(€€€€€€€€€€€€€€€€€€€ÁÉ½™¥±•}ÁÕ}Í•½¹‘Ím­¥¹‘t€¬ô€ (€€€€€€€€€€€€€€€€€€€€€€€ÍÑ…ÉÑ}•Ù•¹Ð¹•±…ÁÍ•‘}Ñ¥µ”¡•¹‘}•Ù•¹Ð¤€¼€ÄÀÀÀ¸À(€€€€€€€€€€€€€€€€€€€€¤(€€€€€€€€€€€Í•±˜¹±…ÍÑ}•¹•É…Ñ¥½¹}ÁÉ½™¥±”€ôì(€€€€€€€€€€€€€€€€‰ÁÉ•™¥á}ÁÉ•™¥±±}Í•½¹‘ÌˆèÁÉ½™¥±•}ÁÕ}Í•½¹‘Íl‰ÁÉ•™¥±°‰t°(€€€€€€€€€€€€€€€€‰…ÕÑ½É•É•ÍÍ¥Ù•}‘•½‘•}Í•½¹‘ÌˆèÁÉ½™¥±•}ÁÕ}Í•½¹‘Íl‰‘•½‘”‰t°(€€€€€€€€€€€€€€€€‰ÁÉ•™¥á}ÁÉ•™¥±±}Ñ½­•¹ÌˆèÁÉ½™¥±•}Ñ½­•¹Íl‰ÁÉ•™¥±°‰t°(€€€€€€€€€€€€€€€€‰…ÕÑ½É•É•ÍÍ¥Ù•}‘•½‘•}Ñ½­•¹ÌˆèÁÉ½™¥±•}Ñ½­•¹Íl‰‘•½‘”‰t°(€€€€€€€€€€€€€€€€‰•¹•É…Ñ•‘}ÍÑ•ÁÌˆèµ…à À°±…ÍÑ}½™™Í•Ð€´ÍÑ…ÉÑ}½™™Í•Ð€¬€Ä¤°(€€€€€€€€€€€ô((€€€€€€€€Œ	•…´Í•…É èÍ•±•Ð‰•ÍÐ‰•…´Á•ÈÍ…µÁ±”…¹å¥•±…±°Ñ½­•¹Ì…Ð½¹”(€€€€€€€¥˜‰•…µ}Í¥é”€ø€Äè(€€€€€€€€€€€‰•ÍÑ}‰•…´€ô‰•…µ}Í½É•Ì¹É•Í¡…Á”¡¹Õµ}Í…µÁ±•Ì°‰•…µ}Í¥é”¤¹…Éµ…à¡‘¥´ô´Ä¤(€€€€€€€€€€€‰•ÍÑ}±½‰…°€ô€ (€€€€€€€€€€€€€€€Ñ½É ¹…É…¹”¡¹Õµ}Í…µÁ±•Ì°‘•Ù¥”õ‘•Ù¥”¤€¨‰•…µ}Í¥é”€¬‰•ÍÑ}‰•…´(€€€€€€€€€€€€¤(€€€€€€€€€€€‰•ÍÑ}Í•ÅÕ•¹”€ô•¹}Í•ÅÕ•¹•m‰•ÍÑ}±½‰…±t€€Œm¹Õµ}Í…µÁ±•Ì°Qt(€€€€€€€€€€€™½ÈÐ¥¸É…¹”¡±…ÍÑ}½™™Í•Ð€¬€Ä¤è(€€€€€€€€€€€€€€€å¥•±‰•ÍÑ}Í•ÅÕ•¹•lè°Ð€¬€Åt
+        state_sequence_length: int | None = None,
+        cfg_coef: float = 1.0,
+        log_timing: bool = True,
+    ) -> tuple[ModelState, torch.Tensor]:
+        """Advance a persistent state with only clean acoustic conditions."""
+
+        tensors = self.prepare_condition_tensors(
+            conditions, cfg_coef=cfg_coef, log_timing=log_timing
+        )
+        prefix = self.condition_prefix_embeddings(tensors)
+        if model_state is None:
+            model_state = init_states(
+                self,
+                batch_size=prefix.shape[0],
+                sequence_length=state_sequence_length or prefix.shape[1],
+            )
+        with self.autocast:
+            hidden = self.encode_embeddings(prefix, model_state=model_state)
+        increment_steps(self.transformer, model_state, increment=prefix.shape[1])
+        return model_state, hidden
+
+    def forward_embeddings(
+        self,
+        embeddings: torch.Tensor,
+        *,
+        model_state: ModelState | None = None,
+    ) -> torch.Tensor:
+        """Project an already packed multimodal sequence to token logits."""
+        return self.linear(
+            self.encode_embeddings(embeddings, model_state=model_state)
+        )
+
+    def forward(
+        self,
+        sequence: torch.Tensor,  # [B, S]
+        condition_tensors: ConditionTensors,
+        first_step: bool = False,
+        model_state: ModelState | None = None,
+        prepend_condition_prefix: bool | None = None,
+    ) -> torch.Tensor:  # [B, S, card]
+        B, S = sequence.shape
+
+        input_ = self.emb(sequence)  # [B, S, D]
+        if self.type_embedding is not None:
+            token_type = torch.full_like(sequence, 3)
+            input_ = input_ + self.type_embedding(token_type)
+
+        prepend_length = 0
+        if prepend_condition_prefix is None:
+            prepend_condition_prefix = first_step
+        if first_step and prepend_condition_prefix:
+            if self.type_embedding is not None:
+                prefix = self.condition_prefix_embeddings(
+                    condition_tensors, batch_size=B
+                )
+                input_ = torch.cat([prefix, input_], dim=1)
+            else:
+                # Preserve the exact historical prepend order for released
+                # Transformer checkpoints.
+                for cond, _ in condition_tensors.values():
+                    input_ = torch.cat([cond.to(input_.dtype), input_], dim=1)
+            prepend_length = input_.shape[1] - S
+
+        logits = self.forward_embeddings(input_, model_state=model_state)
+        # Remove prepended conditioning tokens.
+        if prepend_length > 0:
+            logits = logits[:, -S:]
+        return logits  # [B, S, card]
+
+    # ------------------------------------------------------------------
+    # Sampling helpers
+    # ------------------------------------------------------------------
+
+    def _compute_logits(
+        self,
+        sequence: torch.Tensor,
+        cfg_conditions: ConditionTensors,
+        model_state: ModelState,
+        first_step: bool,
+        cfg_coef: float | None = None,
+        forbidden_tokens: torch.Tensor | None = None,
+        prefix_already_prefilled: bool = False,
+    ) -> torch.Tensor:  # [B, card]
+        """Run the forward pass and return masked logits at the last timestep."""
+        B = sequence.shape[0]
+        cfg_coef = self.cfg_coef if cfg_coef is None else cfg_coef
+
+        if cfg_coef == 1.0:
+            logits = self(
+                sequence,
+                cfg_conditions,
+                first_step=first_step,
+                model_state=model_state,
+                prepend_condition_prefix=not prefix_already_prefilled,
+            )
+        else:
+            doubled = torch.cat([sequence, sequence], dim=0)
+            all_logits = self(
+                doubled,
+                cfg_conditions,
+                first_step=first_step,
+                model_state=model_state,
+                prepend_condition_prefix=not prefix_already_prefilled,
+            )
+            cond_logits, uncond_logits = all_logits.split(B, dim=0)
+            logits = uncond_logits + (cond_logits - uncond_logits) * cfg_coef
+
+        logits = logits[:, -1, :].float()  # [B, card] â€” last timestep
+        logits[:, 1393:] = -torch.inf  # mask reserved / OOV tokens
+        if forbidden_tokens is not None:
+            logits[:, forbidden_tokens] = -torch.inf
+        return logits
+
+    def _sample_next_token(
+        self,
+        sequence: torch.Tensor,
+        cfg_conditions: ConditionTensors,
+        model_state: ModelState,
+        first_step: bool,
+        use_sampling: bool = False,
+        temp: float = 1.0,
+        top_k: int = 0,
+        top_p: float = 0.0,
+        cfg_coef: float | None = None,
+        forbidden_tokens: torch.Tensor | None = None,
+        prefix_already_prefilled: bool = False,
+    ) -> torch.Tensor:  # [B]
+        logits = self._compute_logits(
+            sequence,
+            cfg_conditions,
+            model_state,
+            first_step,
+            cfg_coef,
+            forbidden_tokens=forbidden_tokens,
+            prefix_already_prefilled=prefix_already_prefilled,
+        )
+        if use_sampling and temp > 0.0:
+            probs = torch.softmax(logits / temp, dim=-1)
+            next_tokens = utils.sample_from_probs(probs, top_p=top_p, top_k=top_k)[:, 0]
+        else:
+            next_tokens = torch.argmax(logits, dim=-1)  # [B]
+        return next_tokens  # [B]
+
+    # ------------------------------------------------------------------
+    # Generation
+    # ------------------------------------------------------------------
+
+    @torch.no_grad()
+    def generate(
+        self,
+        prompt: torch.Tensor | None = None,
+        conditions: list[ConditioningAttributes] = [],
+        num_samples: int | None = None,
+        max_gen_len: int = 256,
+        use_sampling: bool = True,
+        temp: float = 1.0,
+        top_k: int = 0,
+        top_p: float = 0.0,
+        cfg_coef: float | None = None,
+        early_stop_on_token: int | None = None,
+        beam_size: int = 1,
+        beam_length_score_alpha: float = 0.75,
+        forbidden_tokens: torch.Tensor | list[int] | None = None,
+        model_state: ModelState | None = None,
+        state_sequence_length: int | None = None,
+        profile_generation: bool = False,
+        prefix_already_prefilled: bool = False,
+    ) -> Iterator[torch.Tensor]:
+        """Autoregressively generate tokens, yielding one timestep at a time.
+
+        Each yield is a ``[num_samples]`` tensor. For beam_size == 1 (default),
+        tokens are yielded as they are generated. For beam_size > 1, beam search
+        is run non-streamingly and all tokens are yielded at the end.
+
+        ``forbidden_tokens`` are token ids whose logits are forced to -inf at
+        every step, so they can never be sampled (greedy, sampling or beam).
+        """
+        assert not self.training
+        if beam_size > 1:
+            assert early_stop_on_token is not None, (
+                "beam search requires early_stop_on_token"
+            )
+        device = self.emb.weight.device
+        self.last_generation_profile = None
+
+        if forbidden_tokens is not None and not isinstance(
+            forbidden_tokens, torch.Tensor
+        ):
+            forbidden_tokens = torch.tensor(
+                forbidden_tokens, device=device, dtype=torch.long
+            )
+
+        if num_samples is None:
+            num_samples = (
+                len(conditions)
+                if conditions
+                else (prompt.shape[0] if prompt is not None else 1)
+            )
+
+        cfg_coef = self.cfg_coef if cfg_coef is None else cfg_coef
+
+        # Build condition tensors (with null conditions appended for CFG).
+        cfg_conditions = self.prepare_condition_tensors(
+            conditions, cfg_coef=cfg_coef, log_timing=bool(conditions)
+        )
+
+        eff_batch = num_samples * beam_size
+
+        # Expand conditions so each beam gets its own copy (interleaved for CFG).
+        if beam_size > 1 and cfg_conditions:
+            cfg_conditions = {
+                k: (
+                    torch.repeat_interleave(cond, beam_size, dim=0),
+                    torch.repeat_interleave(mask, beam_size, dim=0),
+                )
+                for k, (cond, mask) in cfg_conditions.items()
+            }
+
+        # Initialise generation buffer (eff_batch rows = num_samples Ã— beam_size)
+        ungenerated = self.ungenerated_token_id
+        gen_sequence = torch.full(
+            (eff_batch, max_gen_len + 1),
+            ungenerated,
+            device=device,
+            dtype=torch.long,
+        )
+        gen_sequence[:, 0] = self.initial_token_id
+
+        start_offset = 0
+        if prompt is not None:
+            PT = prompt.shape[-1]
+            if beam_size > 1:
+                prompt = torch.repeat_interleave(prompt, beam_size, dim=0)
+            gen_sequence[:, 1 : 1 + PT] = prompt
+            ungenerated_steps = (gen_sequence == ungenerated).nonzero()[:, 1]
+            start_offset = max(0, int(ungenerated_steps.amin()) - 1)
+
+        prepend_length = sum(cond.shape[1] for cond, _ in cfg_conditions.values())
+        # New checkpoints prepend an explicit chunk-start embedding in
+        # addition to the condition tensors.  It participates in every
+        # streaming layer and must therefore advance every cache offset.
+        if self.type_embedding is not None and not prefix_already_prefilled:
+            prepend_length += 1
+        if prefix_already_prefilled:
+            if model_state is None:
+                raise ValueError(
+                    "prefix_already_prefilled requires an external model_state"
+                )
+            if conditions:
+                raise ValueError(
+                    "prefilled generation must not encode conditions a second time"
+                )
+            prepend_length = 0
+        cache_batch_size = eff_batch * (1 if cfg_coef == 1.0 else 2)
+        cache_seq_len = prepend_length + max_gen_len
+        if model_state is None:
+            model_state = init_states(
+                self,
+                batch_size=cache_batch_size,
+                sequence_length=state_sequence_length or cache_seq_len,
+            )
+
+        # Accumulated log-prob scores, one per beam row.
+        beam_scores = torch.zeros(eff_batch, device=device, dtype=torch.float)
+
+        cuda_profile = profile_generation and device.type == "cuda"
+        profile_events: list[tuple[str, object, object, int]] = []
+        profile_cpu_seconds = {"prefill": 0.0, "decode": 0.0}
+        profile_tokens = {"prefill": 0, "decode": 0}
+
+        def profile_start():
+            if not profile_generation:
+                return None
+            if cuda_profile:
+                event = torch.cuda.Event(enable_timing=True)
+                event.record()
+                return event
+            return time.perf_counter()
+
+        def profile_end(start, *, kind: str, tokens: int) -> None:
+            if start is None:
+                return
+            profile_tokens[kind] += tokens
+            if cuda_profile:
+                event = torch.cuda.Event(enable_timing=True)
+                event.record()
+                profile_events.append((kind, start, event, tokens))
+            else:
+                profile_cpu_seconds[kind] += time.perf_counter() - float(start)
+
+        # For greedy/sampling emit prompt steps now; beam search emits at the end.
+        if beam_size == 1:
+            for t in range(start_offset):
+                yield gen_sequence[:, t + 1]
+
+        last_offset = start_offset - 1
+        with self.autocast:
+            for offset in range(start_offset, max_gen_len):
+                last_offset = offset
+                first_iter = offset == start_offset
+                input_ = (
+                    gen_sequence[:, : offset + 1]
+                    if first_iter
+                    else gen_sequence[:, offset : offset + 1]
+                )
+
+                if beam_size == 1:
+                    # â”€â”€ Standard greedy / sampling path â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    if early_stop_on_token is not None:
+                        done = (gen_sequence == early_stop_on_token).any(dim=1).all()
+                        if done:
+                            break
+
+                    profile_kind = "prefill" if first_iter else "decode"
+                    started = profile_start()
+                    next_token = self._sample_next_token(
+                        input_,
+                        cfg_conditions,
+                        model_state,
+                        first_step=first_iter,
+                        use_sampling=use_sampling,
+                        temp=temp,
+                        top_k=top_k,
+                        top_p=top_p,
+                        cfg_coef=cfg_coef,
+                        forbidden_tokens=forbidden_tokens,
+                        prefix_already_prefilled=prefix_already_prefilled,
+                    )  # [B]
+                    profile_end(
+                        started,
+                        kind=profile_kind,
+                        tokens=input_.shape[-1]
+                        + (prepend_length if first_iter else 0),
+                    )
+
+                    input_T = input_.shape[-1]
+                    increment_steps(
+                        self.transformer,
+                        model_state,
+                        increment=input_T + (prepend_length if first_iter else 0),
+                    )
+
+                    this_gen_step = gen_sequence[:, offset + 1]
+                    next_token = torch.where(
+                        this_gen_step == ungenerated, next_token, this_gen_step
+                    )
+                    gen_sequence[:, offset + 1] = next_token
+
+                    yield gen_sequence[:, offset + 1]  # [num_samples]
+
+                else:
+                    # â”€â”€ Beam search step â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                    profile_kind = "prefill" if first_iter else "decode"
+                    started = profile_start()
+                    logits = self._compute_logits(
+                        input_,
+                        cfg_conditions,
+                        model_state,
+                        first_step=first_iter,
+                        cfg_coef=cfg_coef,
+                        forbidden_tokens=forbidden_tokens,
+                        prefix_already_prefilled=prefix_already_prefilled,
+                    )  # [eff_batch, card]
+                    profile_end(
+                        started,
+                        kind=profile_kind,
+                        tokens=input_.shape[-1]
+                        + (prepend_length if first_iter else 0),
+                    )
+                    input_T = input_.shape[-1]
+                    increment_steps(
+                        self.transformer,
+                        model_state,
+                        increment=input_T + (prepend_length if first_iter else 0),
+                    )
+
+                    log_probs = torch.log_softmax(logits.float(), dim=-1)
+
+                    # Top beam_size candidate tokens per current beam
+                    topk_scores, topk_tokens = torch.topk(
+                        log_probs, k=beam_size, dim=-1
+                    )
+
+                    # Track which beams have already emitted EOS
+                    eos_mask = gen_sequence == early_stop_on_token
+                    beam_has_ended = eos_mask.any(dim=-1)
+                    eos_pos = eos_mask.int().argmax(dim=-1).clamp(min=1)
+                    beam_lengths = torch.where(
+                        beam_has_ended,
+                        eos_pos,
+                        torch.full_like(eos_pos, offset + 1),
+                    )
+
+                    # Finished beams: don't expand further
+                    topk_scores = torch.where(
+                        beam_has_ended.unsqueeze(-1),
+                        torch.zeros_like(topk_scores),
+                        topk_scores,
+                    )
+
+                    # Length-normalized candidate scores: [eff_batch, beam_size]
+                    lp = 1.0 / (beam_lengths.float() ** beam_length_score_alpha)
+                    cand = (beam_scores.unsqueeze(-1) + topk_scores) * lp.unsqueeze(-1)
+
+                    # Reshape to [num_samples, beam_sizeÂ²] for cross-beam selection
+                    cand_2d = cand.reshape(num_samples, beam_size * beam_size)
+
+                    if offset == start_offset:
+                        # All beams identical at start â€” take first beam_size tokens
+                        new_scores = cand_2d[:, :beam_size]
+                        best_idx = (
+                            torch.arange(beam_size, device=device)
+                            .unsqueeze(0)
+                            .expand(num_samples, -1)
+                        )
+                    else:
+                        new_scores, best_idx = torch.topk(cand_2d, k=beam_size, dim=-1)
+
+                    # Decode flat index â†’ (prev_beam_within_sample, token_rank)
+                    prev_local = (best_idx // beam_size).reshape(-1)
+                    tok_rank = (best_idx % beam_size).reshape(-1)
+
+                    # Map to global row indices in [eff_batch, â€¦] tensors
+                    sample_base = (
+                        torch.arange(num_samples, device=device).repeat_interleave(
+                            beam_size
+                        )
+                        * beam_size
+                    )
+                    prev_global = sample_base + prev_local
+
+                    # Token for each new beam
+                    next_token = topk_tokens[prev_global, tok_rank]
+
+                    # Update beam scores (store un-normalized for the next step)
+                    beam_scores = new_scores.reshape(-1) / lp[prev_global]
+
+                    # Reorder generation sequences to match winning beams
+                    gen_sequence = gen_sequence[prev_global]
+
+                    reorder = prev_global
+                    if cfg_coef != 1.0:
+                        reorder = torch.cat([prev_global, prev_global + eff_batch])
+                    reorder_states(self.transformer, model_state, reorder)
+
+                    # Write next token (respecting pre-filled prompt positions)
+                    this_step = gen_sequence[:, offset + 1]
+                    next_token = torch.where(
+                        this_step == ungenerated, next_token, this_step
+                    )
+                    gen_sequence[:, offset + 1] = next_token
+
+                    # Early stop when every beam in every sample has emitted EOS
+                    if (gen_sequence == early_stop_on_token).any(dim=-1).all():
+                        break
+
+        if profile_generation:
+            if cuda_profile:
+                torch.cuda.synchronize(device)
+                for kind, start_event, end_event, _ in profile_events:
+                    profile_cpu_seconds[kind] += (
+                        start_event.elapsed_time(end_event) / 1000.0
+                    )
+            self.last_generation_profile = {
+                "prefix_prefill_seconds": profile_cpu_seconds["prefill"],
+                "autoregressive_decode_seconds": profile_cpu_seconds["decode"],
+                "prefix_prefill_tokens": profile_tokens["prefill"],
+                "autoregressive_decode_tokens": profile_tokens["decode"],
+                "generated_steps": max(0, last_offset - start_offset + 1),
+            }
+
+        # Beam search: select best beam per sample and yield all tokens at once
+        if beam_size > 1:
+            best_beam = beam_scores.reshape(num_samples, beam_size).argmax(dim=-1)
+            best_global = (
+                torch.arange(num_samples, device=device) * beam_size + best_beam
+            )
+            best_sequence = gen_sequence[best_global]  # [num_samples, T]
+            for t in range(last_offset + 1):
+                yield best_sequence[:, t + 1]

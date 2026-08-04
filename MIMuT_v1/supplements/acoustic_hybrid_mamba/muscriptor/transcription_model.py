@@ -393,4 +393,448 @@ class TranscriptionModel:
             raise ValueError("long_context must be 'auto', 'carry', or 'reset'")
         if long_context == "auto":
             model_config = getattr(getattr(self, "_model", None), "model_config", None)
-            long_context
+            long_context = (
+                "carry"
+                if getattr(model_config, "acoustic_encoder", "none") == "mamba2"
+                else "reset"
+            )
+        batch_size = self._resolve_batch_size(batch_size, prelude_forcing)
+        if long_context == "carry" and batch_size != 1:
+            raise ValueError("long-context carry requires batch_size=1")
+        self.last_streaming_state = None
+
+        # Exact names only here — the CLI resolves abbreviations before
+        # calling in (resolve_instrument_names).
+        instrument_group = (
+            instrument_group_from_names(instruments) if instruments else None
+        )
+        forbidden_tokens = None
+        if instruments:
+            forbidden_tokens = torch.tensor(
+                self._tokenizer.forbidden_token_ids(instruments),
+                device=self._device,
+                dtype=torch.long,
+            )
+
+        timings: list[tuple[str, float]] = []
+        t_total = time.perf_counter()
+
+        if isinstance(audio, tuple):
+            tensor, sample_rate = audio
+            with _timed("load audio", timings):
+                wav = self._load_wav(tensor, sample_rate)
+        else:
+            with _timed("load audio", timings):
+                wav = self._load_wav(audio, None)
+
+        total_samples = wav.shape[-1]
+        total_duration = total_samples / _SAMPLE_RATE
+
+        segment_samples = int(_SEGMENT_DURATION * _SAMPLE_RATE)
+        num_chunks = math.ceil(total_samples / segment_samples)
+        max_gen_len = 2000
+        print(
+            f"[muscriptor] audio: {total_duration:.1f}s → {num_chunks} chunk(s) of {_SEGMENT_DURATION}s",
+            file=sys.stderr,
+        )
+
+        with _timed("build conditions", timings):
+            all_conditions: list[ConditioningAttributes] = []
+            seek_times: list[float] = []
+            for i in range(num_chunks):
+                start = i * segment_samples
+                chunk = wav[:, start : start + segment_samples]
+                if chunk.shape[-1] < segment_samples:
+                    chunk = F.pad(chunk, (0, segment_samples - chunk.shape[-1]))
+                all_conditions.append(
+                    self._build_conditions(chunk, instrument_group)[0]
+                )
+                seek_times.append(i * _SEGMENT_DURATION)
+
+        t_gen = time.perf_counter()
+
+        # Up-front anchor: tells consumers the total chunk count and gives them a
+        # timing baseline (t0) for the first chunk, before any tokens are gen'd.
+        yield ProgressEvent(completed=0, total=num_chunks)
+
+        yield from decode_model_tokens(
+            self._generate_token_stream(
+                all_conditions,
+                seek_times,
+                batch_size,
+                max_gen_len,
+                use_sampling,
+                temperature,
+                cfg_coef,
+                no_eos_is_ok,
+                prelude_forcing,
+                beam_size,
+                long_context,
+                forbidden_tokens,
+            ),
+            self._tokenizer._vocab,
+            self._instrument_for_program,
+            frame_rate=self._tokenizer.frame_rate,
+        )
+
+        muscriptor.accelerator.synchronize()
+        print(
+            f"[muscriptor] generate total: {time.perf_counter() - t_gen:.2f}s",
+            file=sys.stderr,
+        )
+        print(
+            f"[muscriptor] transcribe total: {time.perf_counter() - t_total:.2f}s "
+            f"({total_duration:.1f}s audio)",
+            file=sys.stderr,
+        )
+
+    def _resolve_batch_size(self, batch_size: int | None, prelude_forcing: bool) -> int:
+        """Default the batch size, favouring transcription quality.
+
+        Prelude forcing needs chunks generated strictly in order, so while it
+        is on (the default) the batch size defaults to — and must be — 1.
+        Batching is an explicit quality trade-off: asking for both raises
+        instead of silently dropping the forcing.
+        """
+        if batch_size is None:
+            if prelude_forcing:
+                return 1
+            return 4 if self._device.type in ("cuda", "mps") else 1
+        if prelude_forcing and batch_size > 1:
+            raise ValueError(
+                f"batch_size={batch_size} disables prelude forcing, which lowers "
+                "quality at chunk boundaries; pass prelude_forcing=False to "
+                "accept that trade-off"
+            )
+        return batch_size
+
+    # ------------------------------------------------------------------
+    def _generate_token_stream(
+        self,
+        all_conditions: list[ConditioningAttributes],
+        seek_times: list[float],
+        batch_size: int,
+        max_gen_len: int,
+        use_sampling: bool,
+        temperature: float,
+        cfg_coef: float,
+        no_eos_is_ok: bool,
+        prelude_forcing: bool = True,
+        beam_size: int = 1,
+        long_context: str = "reset",
+        forbidden_tokens: torch.Tensor | None = None,
+    ) -> Iterator[int | ChunkBoundary | ProgressEvent]:
+        """Generate tokens and yield them per chunk, as soon as they are ready.
+
+        The model emits one token per chunk per timestep across the batch, but
+        the decoder consumes whole chunks in order. So within each batch we
+        stream the first chunk's tokens live as they are generated and buffer
+        the others; once the first chunk hits EOS we flush the next chunk's
+        buffered tokens and stream it live, and so on. EOS (and anything after
+        it) is dropped.
+
+        With ``prelude_forcing`` (and ``batch_size == 1``, so chunks generate
+        strictly in order), every chunk after the first has its tie prologue
+        teacher-forced: the notes left open by the previous chunk are encoded
+        as ``(program, pitch)…tie`` tokens and passed to ``generate`` as a
+        prompt, so the model can't restate them with the wrong instruments.
+        The forced tokens flow through this stream like generated ones, which
+        keeps the downstream decoder's view consistent by construction.
+        """
+        eos_id = self._tokenizer.eos_id
+        num_chunks = len(seek_times)
+
+        # Chunks in a batch generate concurrently, so with batch_size > 1 the
+        # previous chunk's open notes aren't known when the next one starts —
+        # forcing is only possible chunk-by-chunk. transcribe() rejects that
+        # combination up front (_resolve_batch_size); this guard keeps the
+        # invariant for direct callers too.
+        tracker = None
+        if prelude_forcing and batch_size == 1:
+            tracker = OpenNoteTracker(
+                self._tokenizer._vocab, self._tokenizer.frame_rate
+            )
+
+        acoustic_state = None
+        provider = getattr(self._model, "condition_provider", None)
+        conditioners = getattr(provider, "conditioners", {})
+        mel_conditioner = conditioners["self_wav"] if "self_wav" in conditioners else None
+        acoustic_encoder = (
+            mel_conditioner.acoustic_encoder
+            if isinstance(mel_conditioner, MelSpectrogramConditioner)
+            else None
+        )
+        if long_context == "carry":
+            if acoustic_encoder is None:
+                raise ValueError(
+                    "long-context carry requires an Acoustic-Mamba checkpoint"
+                )
+            state_batch = 1 if cfg_coef == 1.0 else 2
+            # Only the acoustic subtree receives persistent state.  The token
+            # decoder allocates fresh Transformer/Hybrid-Mamba state in every
+            # call to generate(), so generated MIDI tokens can never
+            # contaminate the next chunk's recurrent state.
+            acoustic_state = init_states(
+                acoustic_encoder,
+                batch_size=state_batch,
+                sequence_length=max(1, num_chunks * 512),
+            )
+
+        def boundary(chunk_index: int) -> ChunkBoundary:
+            next_seek_time = (
+                seek_times[chunk_index + 1] if chunk_index + 1 < num_chunks else None
+            )
+            return ChunkBoundary(seek_times[chunk_index], next_seek_time)
+
+        for batch_start in range(0, num_chunks, batch_size):
+            batch_conditions = all_conditions[batch_start : batch_start + batch_size]
+            n = len(batch_conditions)
+            buffers: list[list[int]] = [[] for _ in range(n)]
+            done = [False] * n
+            active = 0  # within-batch index of the chunk streaming live
+
+            # The first chunk in the batch streams live from the start.
+            bnd = boundary(batch_start)
+            prompt = None
+            if tracker is not None:
+                # Feed the boundary first: it settles the tracker (e.g. a
+                # previous chunk that never emitted its tie token drops all
+                # open notes) so open_keys() is exactly the decoder's view.
+                tracker.feed(bnd)
+                if batch_start > 0:
+                    prompt = torch.tensor(
+                        [self._tokenizer.tie_section_token_ids(tracker.open_keys())],
+                        device=self._device,
+                        dtype=torch.long,
+                    )
+            yield bnd
+
+            encoded_conditions = None
+            if hasattr(self._model, "condition_provider"):
+                condition_inputs = batch_conditions
+                if cfg_coef != 1.0:
+                    condition_inputs = batch_conditions + nullify_all_conditions(
+                        batch_conditions
+                    )
+                prepared = self._model.condition_provider.tokenize(condition_inputs)
+                muscriptor.accelerator.synchronize()
+                condition_start = time.perf_counter()
+                encoded_conditions = self._model.condition_provider(
+                    prepared,
+                    acoustic_state=acoustic_state,
+                )
+                muscriptor.accelerator.synchronize()
+                print(
+                    "[muscriptor] encode conditions (total): "
+                    f"{time.perf_counter() - condition_start:.3f}s"
+                )
+
+            generation_conditions = (
+                {} if encoded_conditions is not None else {"conditions": batch_conditions}
+            )
+
+            for step in self._model.generate(
+                prompt=prompt,
+                num_samples=n,
+                max_gen_len=max_gen_len,
+                use_sampling=use_sampling,
+                temp=temperature,
+                top_k=0,
+                top_p=0.0,
+                cfg_coef=cfg_coef,
+                early_stop_on_token=eos_id,
+                beam_size=beam_size,
+                forbidden_tokens=forbidden_tokens,
+                condition_tensors=encoded_conditions,
+                **generation_conditions,
+            ):
+                row = step.tolist()  # one token per chunk: [n]
+                for j in range(n):
+                    if done[j]:
+                        continue
+                    tok = row[j]
+                    if tok == eos_id:
+                        done[j] = True
+                    else:
+                        if tracker is not None:
+                            tracker.feed(tok)
+                        if j == active:
+                            yield tok
+                        else:
+                            buffers[j].append(tok)
+                # When the live chunk finishes, flush and stream the next one(s).
+                while active < n and done[active]:
+                    active += 1
+                    if active < n:
+                        yield boundary(batch_start + active)
+                        yield from buffers[active]
+                        buffers[active] = []
+
+            # Any chunk still open never emitted EOS within max_gen_len.
+            for j in range(active, n):
+                if not done[j]:
+                    chunk_index = batch_start + j
+                    msg = (
+                        f"chunk {chunk_index} (seek={seek_times[chunk_index]:.1f}s) "
+                        f"did not emit EOS within {max_gen_len} tokens"
+                    )
+                    if no_eos_is_ok:
+                        warnings.warn(msg, RuntimeWarning, stacklevel=2)
+                    else:
+                        raise RuntimeError(
+                            msg + " (this is only raised under --strict-eos)"
+                        )
+                # The live (active) chunk has already streamed; emit the rest.
+                if j != active:
+                    yield boundary(batch_start + j)
+                    yield from buffers[j]
+
+            # This batch's chunks are fully generated: emit a completion anchor.
+            # (batch_size=1 on the web path => one event per chunk.) The event
+            # trails the chunk's tokens, so by the time it surfaces from
+            # decode_model_tokens all of that chunk's notes have been yielded.
+            yield ProgressEvent(completed=batch_start + n, total=num_chunks)
+
+        if acoustic_state is not None:
+            self.last_streaming_state = {
+                "bytes": state_size_bytes(acoustic_state),
+                "kind": "acoustic_mamba2",
+                "decoder_backbone": self._model.model_config.backbone,
+                "decoder_carried": False,
+                "chunks": num_chunks,
+            }
+
+    # ------------------------------------------------------------------
+    def transcribe_to_midi(
+        self,
+        audio: str | Path | tuple[torch.Tensor, int],
+        use_sampling: bool = False,
+        temperature: float = 1.0,
+        cfg_coef: float = 1.0,
+        instruments: list[str] | None = None,
+        batch_size: int | None = None,
+        no_eos_is_ok: bool = True,
+        beam_size: int = 1,
+        prelude_forcing: bool = True,
+        long_context: str = "auto",
+    ) -> bytes:
+        """Same as :meth:`transcribe` but returns a MIDI file as bytes."""
+        events = self.transcribe(
+            audio,
+            use_sampling=use_sampling,
+            temperature=temperature,
+            cfg_coef=cfg_coef,
+            instruments=instruments,
+            batch_size=batch_size,
+            no_eos_is_ok=no_eos_is_ok,
+            beam_size=beam_size,
+            prelude_forcing=prelude_forcing,
+            long_context=long_context,
+        )
+        return self.events_to_midi_bytes(events)
+
+    def events_to_midi_bytes(
+        self, events: Iterator[NoteStartEvent | NoteEndEvent | ProgressEvent]
+    ) -> bytes:
+        """Reassemble Notes from a NoteStart/NoteEnd stream and serialize MIDI.
+
+        Shared by :meth:`transcribe_to_midi` and the HTTP server, so the MIDI
+        bytes are identical regardless of how the events were obtained.
+        """
+        notes: list[Note] = []
+        open_notes: dict[int, Note] = {}
+        program_names: dict[int, str] = {}
+        for ev in events:
+            if isinstance(ev, ProgressEvent):
+                continue
+            if isinstance(ev, NoteStartEvent):
+                is_drum = ev.instrument == "drums"
+                program = (
+                    DRUM_PROGRAM
+                    if is_drum
+                    else self._program_for_instrument(ev.instrument)
+                )
+                program_names[program] = ev.instrument.replace("_", " ")
+                note = Note(
+                    is_drum=is_drum,
+                    program=program,
+                    onset=ev.start_time,
+                    offset=ev.start_time,  # patched on NoteEndEvent
+                    pitch=ev.pitch,
+                )
+                open_notes[ev.index] = note
+            else:  # NoteEndEvent
+                note = open_notes.pop(ev.start_event_index)
+                note.offset = ev.end_time
+                notes.append(note)
+
+        # Match the legacy decoder's note-cleanup pass so the MIDI bytes
+        # don't drift from earlier reference outputs.
+        notes = validate_notes(notes, fix=True)
+        notes = trim_overlapping_notes(notes, sort=True)
+        midi = notes_to_midi(notes, program_names=program_names)
+        buf = io.BytesIO()
+        midi.save(file=buf)
+        return buf.getvalue()
+
+    def _program_for_instrument(self, instrument: str) -> int:
+        """Inverse of `_instrument_for_program` for non-drum instruments."""
+        if not hasattr(self, "_inst_to_program"):
+            group_map = self._tokenizer.group_program_map
+            self._inst_to_program = {
+                name: group_map[gid][0]
+                for name, gid in MT3_FULL_PLUS_GROUP_NAMES.items()
+                if gid in group_map and group_map[gid]
+            }
+        if instrument in self._inst_to_program:
+            return self._inst_to_program[instrument]
+        # fallback for unknown names like "program_42"
+        if instrument.startswith("program_"):
+            return int(instrument.removeprefix("program_"))
+        raise ValueError(f"Unknown instrument name: {instrument!r}")
+
+    # ------------------------------------------------------------------
+    def _load_wav(
+        self, audio: str | Path | torch.Tensor, sample_rate: int | None
+    ) -> torch.Tensor:
+        """Return mono float32 waveform at 16 kHz, shape [1, T]."""
+        if isinstance(audio, (str, Path)):
+            wav = load_audio(audio, target_sr=_SAMPLE_RATE)
+        else:
+            wav = audio.float()
+            if wav.dim() == 1:
+                wav = wav.unsqueeze(0)
+            if wav.dim() == 3:
+                wav = wav.squeeze(0)
+            if wav.shape[0] > 1:
+                wav = wav.mean(0, keepdim=True)
+            if sample_rate is not None and sample_rate != _SAMPLE_RATE:
+                wav = resample(wav, sample_rate, _SAMPLE_RATE)
+        return wav.to(self._device)
+
+    def _build_conditions(
+        self,
+        wav: torch.Tensor,
+        instrument_group: str | None = None,
+    ) -> list[ConditioningAttributes]:
+        """Build a single-element list of ConditioningAttributes for one 5-second chunk."""
+        T = wav.shape[-1]
+        wav_3d = wav.unsqueeze(0)  # [1, 1, T]
+        length = torch.tensor([T], device=self._device)
+        wav_cond = WavCondition(
+            wav=wav_3d,
+            length=length,
+            sample_rate=[_SAMPLE_RATE],
+            path=[None],
+            seek_time=[0.0],
+        )
+        return [
+            ConditioningAttributes(
+                wav={"self_wav": wav_cond},
+                text={
+                    "instrument_group": instrument_group,
+                    # Always unconditional on dataset: the null/pad class.
+                    "dataset_name": None,
+                },
+            )
+        ]
