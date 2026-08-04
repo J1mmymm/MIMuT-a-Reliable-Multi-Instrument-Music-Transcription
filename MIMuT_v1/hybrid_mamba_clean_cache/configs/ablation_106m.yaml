@@ -1,0 +1,62 @@
+name: ablation_106m_hybrid
+manifest: /path/to/manifest.jsonl
+output_dir: runs/ablation_106m_hybrid
+# Change backbone to local_transformer, pure_mamba, or transformer while
+# keeping the remaining training/data budget fixed.
+model:
+  preset: hybrid-small
+  backbone: hybrid_mamba
+stages:
+  - name: slakh_pretrain
+    steps: 30000
+    context_chunks: 1
+    datasets: [slakh2100_redux]
+  - name: real_mix_5s
+    steps: 30000
+    context_chunks: 1
+    datasets: &real_datasets
+      - slakh2100_redux
+      - choralebricks
+      - musicnet_em
+      - maestro
+      - gaps
+      - guitarset
+      - mir1k
+      - enst_drums
+      - mdb_drums_pp
+      - star_drums_preview
+      - idmt_smt_bass
+  - name: context_10s
+    steps: 3000
+    context_chunks: 2
+    datasets: *real_datasets
+  - name: context_20s
+    steps: 3000
+    context_chunks: 4
+    datasets: *real_datasets
+  - name: context_40s
+    steps: 4000
+    context_chunks: 8
+    datasets: *real_datasets
+optimizer:
+  learning_rate: 0.0001
+  betas: [0.9, 0.95]
+  weight_decay: 0.1
+  warmup_steps: 2000
+  gradient_clip: 1.0
+distributed: ddp
+precision: bfloat16
+global_batch_audio_seconds: 320
+condition_dropout:
+  audio: 0.0
+  instrument: 1.0
+  dataset: 1.0
+boundary_state_supervision:
+  enabled: false
+  active_weight: 0.1
+  reentry_weight: 0.1
+seed: 3407
+gradient_checkpointing: true
+num_workers: 8
+log_every: 20
+save_every: 2000

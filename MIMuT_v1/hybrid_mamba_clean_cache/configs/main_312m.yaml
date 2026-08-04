@@ -1,0 +1,64 @@
+name: main_312m_hybrid
+manifest: /path/to/manifest.jsonl
+output_dir: runs/main_312m_hybrid
+model:
+  preset: hybrid-medium
+  backbone: hybrid_mamba
+stages:
+  - name: slakh_pretrain
+    steps: 150000
+    context_chunks: 1
+    datasets: [slakh2100_redux]
+  - name: real_mix_5s
+    steps: 100000
+    context_chunks: 1
+    datasets: &real_datasets
+      - slakh2100_redux
+      - choralebricks
+      - musicnet_em
+      - maestro
+      - gaps
+      - guitarset
+      - mir1k
+      - enst_drums
+      - mdb_drums_pp
+      - star_drums_preview
+      - idmt_smt_bass
+  - name: context_10s
+    steps: 10000
+    context_chunks: 2
+    datasets: *real_datasets
+  - name: context_20s
+    steps: 10000
+    context_chunks: 4
+    datasets: *real_datasets
+  - name: context_40s
+    steps: 10000
+    context_chunks: 8
+    datasets: *real_datasets
+optimizer:
+  learning_rate: 0.0001
+  betas: [0.9, 0.95]
+  weight_decay: 0.1
+  warmup_steps: 2000
+  gradient_clip: 1.0
+distributed: ddp
+precision: bfloat16
+global_batch_audio_seconds: 320
+condition_dropout:
+  audio: 0.0
+  instrument: 1.0
+  dataset: 1.0
+boundary_state_supervision:
+  enabled: false
+  active_weight: 0.1
+  reentry_weight: 0.1
+seed: 3407
+gradient_checkpointing: true
+num_workers: 8
+log_every: 20
+save_every: 2000
+distillation:
+  teacher_checkpoint: null
+  weight: 0.25
+  temperature: 2.0

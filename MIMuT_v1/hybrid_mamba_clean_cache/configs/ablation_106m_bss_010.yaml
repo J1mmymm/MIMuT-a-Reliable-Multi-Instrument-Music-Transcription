@@ -1,0 +1,7 @@
+extends: ablation_106m.yaml
+name: ablation_106m_hybrid_bss_010
+output_dir: runs/ablation_106m_hybrid_bss_010
+boundary_state_supervision:
+  enabled: true
+  active_weight: 0.10
+  reentry_weight: 0.10

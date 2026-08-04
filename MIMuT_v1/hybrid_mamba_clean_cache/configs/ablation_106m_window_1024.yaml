@@ -1,0 +1,5 @@
+extends: ablation_106m.yaml
+name: ablation_106m_hybrid_window_1024
+output_dir: runs/ablation_106m_hybrid_window_1024
+model:
+  local_window: 1024

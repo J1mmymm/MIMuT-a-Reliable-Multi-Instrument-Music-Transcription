@@ -26,12 +26,21 @@ The repository is being prepared incrementally. At this stage, the public reposi
 | 106M Clean-Cache control continuation | Completed for 15,000 continuation steps | Retained as an engineering control, not a paper result. |
 | 106M Clean-Cache distillation continuation | Completed for 5,000 continuation steps | Positive KL and a frozen teacher were verified, but this is a limited pilot. |
 | Whole-validation and test evaluation | Not completed | No checkpoint is currently presented as a formal best model or state of the art. |
+| MIMuT v1 historical source archive | Published under [`MIMuT_v1/`](MIMuT_v1/) | Sanitized early Hybrid-Mamba and Acoustic-Hybrid-Mamba source is preserved for provenance only; it is not the latest or recommended architecture. |
 
 ## Architecture direction update
 
 Preliminary training and end-to-end diagnostic results indicate that the Hybrid-Mamba route has not produced satisfactory model performance for the project's goals. This is a project-level design conclusion based on the attempts completed so far, not yet a benchmark-backed claim that the architecture is universally inferior to other AMT systems.
 
 The project team is therefore broadening the architecture search. Future prototypes will be compared under a shared audio-only protocol, with particular attention to note accuracy, instrument attribution, cross-boundary stability, long-context reliability, and computational efficiency. The existing Hybrid-Mamba implementation, configurations, checkpoints, and diagnostics remain valuable as a reproducible baseline and ablation reference.
+
+
+## Historical source archive
+
+The cleaned source and configuration material from the first project iteration is preserved under [`MIMuT_v1/`](MIMuT_v1/). It includes the Hybrid-Mamba/Clean-Cache baseline and a partial Acoustic-Hybrid-Mamba overlay reconstructed from the supplied archive and development notes.
+
+> [!WARNING]
+> `MIMuT_v1/` is a historical record of architecture lines that did not achieve the expected model quality. It is not the latest MIMuT source tree, not a supported release, and not the architecture currently recommended for further development. No model weights, datasets, manifests, private runtime files, or unverified result claims are included.
 
 ## Current prototype
 
@@ -117,7 +126,7 @@ The intended formal protocol follows these rules:
 - [x] Validate checkpoint/resume handling and end-to-end MIDI generation.
 - [x] Implement context-mixed training, RoPE, strict audio-only conditioning, and extended evaluation code.
 - [x] Complete a preliminary assessment and identify the quality limitations that prevent Hybrid-Mamba from being adopted as the final architecture.
-- [ ] Preserve the Hybrid-Mamba configurations, checkpoints, and diagnostics as a reproducible baseline and ablation reference.
+- [x] Preserve the cleaned Hybrid-Mamba/Acoustic-Hybrid-Mamba v1 source and configurations as a historical baseline and ablation reference.
 - [ ] Prototype and screen alternative architectures and training formulations under the same audio-only evaluation protocol.
 - [ ] Select the next primary architecture using validation-set note accuracy, instrument attribution, boundary stability, long-context reliability, and efficiency criteria.
 - [ ] Run whole-validation checkpoint selection and freeze the test protocol for the selected architecture.
@@ -128,7 +137,7 @@ The intended formal protocol follows these rules:
 
 ## Availability
 
-The repository is currently a work-in-progress project page. Installation and inference commands will be added when the cleaned implementation and verified checkpoint package are publicly released. Until then, please treat architectural details and diagnostic numbers as provisional research documentation rather than a supported software release or a commitment to Hybrid-Mamba as the final architecture.
+The repository is currently a work-in-progress project page. Installation and inference commands will be added when the cleaned implementation and verified checkpoint package are publicly released. Until then, please treat architectural details and diagnostic numbers as provisional research documentation rather than a supported software release or a commitment to Hybrid-Mamba as the final architecture. The source under `MIMuT_v1/` is archival and does not change that release status.
 
 ## Acknowledgements
 

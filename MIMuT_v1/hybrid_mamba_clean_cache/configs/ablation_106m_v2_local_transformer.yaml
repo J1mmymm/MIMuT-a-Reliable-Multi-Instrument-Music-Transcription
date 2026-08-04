@@ -1,0 +1,7 @@
+extends: ablation_106m_v2.yaml
+name: ablation_106m_ctxmix_rope_v2_local_transformer
+output_dir: runs/ablation_106m_ctxmix_rope_v2_local_transformer
+model:
+  backbone: local_transformer
+  num_layers: 15
+  prefill_mode: step

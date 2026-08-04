@@ -1,0 +1,37 @@
+extends: main_312m_v2_augmentation.yaml
+name: ablation_106m_ctxmix_rope_v2_augmentation
+output_dir: runs/ablation_106m_ctxmix_rope_v2_augmentation
+model:
+  preset: hybrid-small
+stages:
+  - name: slakh_5s_bootstrap
+    steps: 25000
+    context_chunks: 1
+    augmentation: true
+    datasets: [slakh2100_redux]
+  - name: slakh_context_mix
+    steps: 12500
+    context_distribution: {1: 0.50, 2: 0.25, 4: 0.15, 8: 0.10}
+    augmentation: true
+    datasets: [slakh2100_redux]
+  - name: real_context_mix
+    steps: 25000
+    context_distribution: {1: 0.40, 2: 0.25, 4: 0.20, 8: 0.15}
+    augmentation: true
+    datasets: &real_datasets
+      - slakh2100_redux
+      - choralebricks
+      - musicnet_em
+      - maestro
+      - gaps
+      - guitarset
+      - mir1k
+      - enst_drums
+      - mdb_drums_pp
+      - star_drums_preview
+      - idmt_smt_bass
+  - name: long_context_focus
+    steps: 7500
+    context_distribution: {1: 0.10, 2: 0.20, 4: 0.30, 8: 0.40}
+    augmentation: true
+    datasets: *real_datasets

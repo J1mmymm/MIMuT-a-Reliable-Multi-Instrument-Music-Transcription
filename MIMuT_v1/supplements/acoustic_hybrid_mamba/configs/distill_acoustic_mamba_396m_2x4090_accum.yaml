@@ -1,0 +1,6 @@
+extends: distill_acoustic_mamba_396m_2x4090.yaml
+name: distill_acoustic_hybrid_mamba_407m_2x4090_gbs160_83k_accum
+output_dir: runs/distill_acoustic_hybrid_mamba_407m_2x4090_gbs160_83k_accum
+# Effective batch remains 160 audio-seconds. Each GPU processes about
+# 40 audio-seconds per micro-step and synchronises every second micro-step.
+gradient_accumulation_steps: 2

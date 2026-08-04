@@ -1,0 +1,6 @@
+extends: ablation_106m.yaml
+name: ablation_106m_transformer
+output_dir: runs/ablation_106m_transformer
+model:
+  backbone: transformer
+  num_layers: 15

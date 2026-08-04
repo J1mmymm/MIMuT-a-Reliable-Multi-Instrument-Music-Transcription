@@ -1,0 +1,114 @@
+protocol_version: 1
+paper_title: "MIMuT: Reliable Multi-Instrument Music Transcription"
+evidence_status: no_formal_results
+seeds: [3407, 3408, 3409]
+
+main_condition:
+  audio_only: true
+  audio_condition_dropout: 0.0
+  instrument_condition_dropout: 1.0
+  dataset_condition_dropout: 1.0
+  oracle_instruments: false
+  dataset_condition: null
+
+data_protocol:
+  sampling: sqrt_dataset_duration
+  maximum_dataset_probability: 0.35
+  minimum_multi_instrument_batch_fraction_when_available: 0.5
+  training_datasets:
+    - slakh2100_redux
+    - choralebricks
+    - musicnet_em
+    - maestro
+    - gaps
+    - guitarset
+    - mir1k
+    - enst_drums
+    - mdb_drums_pp
+    - star_drums_preview
+    - idmt_smt_bass
+  test_only_datasets: [rwc_pop, urmp]
+  test_policy: run_once_after_model_and_threshold_freeze
+
+phase_b_106m:
+  expected_steps: 70000
+  parameter_tolerance_fraction: 0.03
+  backbones:
+    A0_global_transformer: ablation_106m_v2_transformer.yaml
+    A1_local_transformer: ablation_106m_v2_local_transformer.yaml
+    A2_pure_mamba: ablation_106m_v2_pure_mamba.yaml
+    A3_mimut_hybrid: ablation_106m_v2.yaml
+  mechanism_ablations:
+    five_second_only: ablation_106m_v2_5s_only.yaml
+    local_window_1024: ablation_106m_v2_window_1024.yaml
+    local_window_2048: ablation_106m_v2.yaml
+    local_window_4096: ablation_106m_v2_window_4096.yaml
+  training_ablations:
+    strict_augmentation: ablation_106m_v2_augmentation.yaml
+    frozen_teacher_distillation: generated_after_teacher_sha_verification
+    distillation_plus_augmentation: generated_after_teacher_sha_verification
+  boundary_state_candidates:
+    lambda_005: ablation_106m_bss_005.yaml
+    lambda_010: ablation_106m_bss_010.yaml
+    lambda_020: ablation_106m_bss_020.yaml
+
+phase_c_312m:
+  expected_steps: 280000
+  parameter_tolerance_fraction: 0.03
+  backbones:
+    mimut_hybrid: main_312m_v2.yaml
+    global_transformer: main_312m_v2_transformer.yaml
+    local_transformer: main_312m_v2_local_transformer.yaml
+    pure_mamba: main_312m_v2_pure_mamba.yaml
+
+inference_factorial:
+  long_context: [reset, carry]
+  prelude_forcing: [false, true]
+  primary_state_test:
+    long_context: [reset, carry]
+    prelude_forcing: false
+
+primary_endpoints:
+  - macro.multi.f1
+  - macro.boundary_multi.f1
+  - macro.long_gap_reidentification.10-20.f1
+  - macro.long_gap_reidentification.20+.f1
+  - macro.long_gap_reidentification.10+.f1
+  - micro.instrument_switch_error.rate
+
+statistics:
+  unit: whole_track
+  paired_bootstrap_samples: 10000
+  confidence_level: 0.95
+  multiplicity: holm
+
+efficiency_protocol:
+  lengths_seconds: [5, 10, 20, 40, 80, 160, full]
+  batch_size: 1
+  weight_dtype: float32
+  cuda_autocast_dtype: float16
+  decoding: greedy
+  warmup_runs: 1
+  stable_repeats: 3
+  require_matched_hardware: true
+  retain_oom_observations: true
+  report_prefix_prefill_separately: true
+  minimum_chunk_prefill_speedup: 1.25
+
+local_window_4096_promotion_gate:
+  dense_or_boundary_f1_absolute_gain: 0.005
+  minimum_allowed_macro_multi_f1_delta: -0.002
+  maximum_throughput_overhead_fraction: 0.15
+  maximum_peak_device_memory_fraction: 0.90
+
+phase_b_stop_rule:
+  require_boundary_or_long_reentry_improvement: true
+  onset_f1_noninferiority_margin: -0.005
+  stop_before_medium_if_failed: true
+
+boundary_state_promotion_gate:
+  boundary_multi_f1_absolute_gain: 0.005
+  long_gap_10plus_f1_absolute_gain: 0.010
+  minimum_allowed_multi_f1_delta: -0.002
+  maximum_training_overhead_fraction: 0.05
+  require_three_seed_ci_above_zero: true

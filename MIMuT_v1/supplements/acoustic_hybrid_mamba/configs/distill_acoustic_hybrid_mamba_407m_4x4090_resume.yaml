@@ -1,0 +1,10 @@
+extends: distill_acoustic_hybrid_mamba_407m_2x4090.yaml
+
+# Continue in the same run directory from its atomic latest.json pointer.
+resume: /path/to/runs/distill_acoustic_hybrid_mamba_407m_2x4090_gbs160_83k
+
+# The checkpoint was written by 2-rank DDP. Model, AdamW and scheduler state
+# are restored exactly; the 4-rank stochastic streams are deterministically
+# re-seeded because a bit-identical RNG continuation is mathematically
+# impossible after changing world size.
+allow_world_size_change_on_resume: true

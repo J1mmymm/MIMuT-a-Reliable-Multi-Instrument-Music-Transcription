@@ -1,0 +1,23 @@
+extends: ablation_106m.yaml
+name: ablation_106m_hybrid_5s_only
+output_dir: runs/ablation_106m_hybrid_5s_only
+stages:
+  - name: slakh_pretrain
+    steps: 30000
+    context_chunks: 1
+    datasets: [slakh2100_redux]
+  - name: real_mix_5s
+    steps: 40000
+    context_chunks: 1
+    datasets:
+      - slakh2100_redux
+      - choralebricks
+      - musicnet_em
+      - maestro
+      - gaps
+      - guitarset
+      - mir1k
+      - enst_drums
+      - mdb_drums_pp
+      - star_drums_preview
+      - idmt_smt_bass

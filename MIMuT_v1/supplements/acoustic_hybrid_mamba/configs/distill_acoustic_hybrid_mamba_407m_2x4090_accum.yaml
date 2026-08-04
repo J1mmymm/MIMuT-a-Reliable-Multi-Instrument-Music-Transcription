@@ -1,0 +1,1 @@
+extends: distill_acoustic_mamba_396m_2x4090_accum.yaml

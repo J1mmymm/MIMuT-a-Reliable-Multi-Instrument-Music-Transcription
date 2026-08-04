@@ -1,0 +1,6 @@
+extends: main_312m.yaml
+name: main_312m_pure_mamba
+output_dir: runs/main_312m_pure_mamba
+model:
+  backbone: pure_mamba
+  num_layers: 21

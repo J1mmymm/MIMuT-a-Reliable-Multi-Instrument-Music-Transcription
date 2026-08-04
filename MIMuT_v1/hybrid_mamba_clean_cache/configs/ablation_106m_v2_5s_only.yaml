@@ -1,0 +1,35 @@
+extends: ablation_106m_v2.yaml
+name: ablation_106m_5s_only_v2
+output_dir: runs/ablation_106m_5s_only_v2
+stages:
+  - name: slakh_5s_bootstrap
+    steps: 25000
+    context_chunks: 1
+    augmentation: false
+    datasets: [slakh2100_redux]
+  - name: slakh_context_mix
+    steps: 12500
+    context_chunks: 1
+    augmentation: false
+    datasets: [slakh2100_redux]
+  - name: real_context_mix
+    steps: 25000
+    context_chunks: 1
+    augmentation: false
+    datasets: &real_datasets
+      - slakh2100_redux
+      - choralebricks
+      - musicnet_em
+      - maestro
+      - gaps
+      - guitarset
+      - mir1k
+      - enst_drums
+      - mdb_drums_pp
+      - star_drums_preview
+      - idmt_smt_bass
+  - name: long_context_focus
+    steps: 7500
+    context_chunks: 1
+    augmentation: false
+    datasets: *real_datasets

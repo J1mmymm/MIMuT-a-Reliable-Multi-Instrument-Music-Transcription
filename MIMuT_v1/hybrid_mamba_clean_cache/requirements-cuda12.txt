@@ -1,0 +1,6 @@
+# Install PyTorch for the training host first. For Blackwell use a build linked
+# against CUDA 12.8 or newer, then install this file with --no-build-isolation
+# where noted in docs/REMOTE_TRAINING.md.
+mamba-ssm==2.3.2.post1
+causal-conv1d==1.6.2.post1
+flash-attn==2.8.3.post1

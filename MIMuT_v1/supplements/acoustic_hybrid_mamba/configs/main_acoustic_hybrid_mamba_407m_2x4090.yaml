@@ -1,0 +1,3 @@
+# Canonical name for the dual-Mamba experiment. The inherited filename is
+# retained as a compatibility entry point for existing launch automation.
+extends: main_acoustic_mamba_396m_2x4090.yaml

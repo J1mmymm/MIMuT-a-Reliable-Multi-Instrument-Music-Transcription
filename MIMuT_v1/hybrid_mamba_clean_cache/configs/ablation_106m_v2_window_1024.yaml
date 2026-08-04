@@ -1,0 +1,5 @@
+extends: ablation_106m_v2.yaml
+name: ablation_106m_ctxmix_rope_v2_window1024
+output_dir: runs/ablation_106m_ctxmix_rope_v2_window1024
+model:
+  local_window: 1024

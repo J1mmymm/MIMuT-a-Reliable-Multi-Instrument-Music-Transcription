@@ -1,0 +1,5 @@
+extends: ablation_106m.yaml
+name: ablation_106m_hybrid_window_4096
+output_dir: runs/ablation_106m_hybrid_window_4096
+model:
+  local_window: 4096

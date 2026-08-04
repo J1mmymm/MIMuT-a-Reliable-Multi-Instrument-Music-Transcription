@@ -1,0 +1,6 @@
+extends: main_312m.yaml
+name: main_312m_local_transformer
+output_dir: runs/main_312m_local_transformer
+model:
+  backbone: local_transformer
+  num_layers: 25

@@ -1,0 +1,22 @@
+# Keep the multi-GB weights, sample audio and local envs out of the build
+# context — weights are mounted at runtime, not baked into the image.
+*.safetensors
+*.wav
+*.mp3
+!web/public/headache_by_lost_deposit_1min.mp3
+*.ogg
+*.mid
+.venv
+web/node_modules
+# Built fresh in the web-builder stage; a stale local build must not leak
+# into the runtime image via `COPY muscriptor/`.
+muscriptor/web_dist
+.git
+.gitignore
+__pycache__
+*.pyc
+.pytest_cache
+.ruff_cache
+test.ipynb
+Dockerfile
+.dockerignore

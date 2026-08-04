@@ -1,0 +1,78 @@
+extends: main_acoustic_mamba_396m_2x4090.yaml
+name: distill_acoustic_hybrid_mamba_407m_2x4090_gbs160_83k
+output_dir: runs/distill_acoustic_hybrid_mamba_407m_2x4090_gbs160_83k
+manifest: /path/to/manifests/all.jsonl
+initialization_checkpoint: /path/to/hybrid_mamba_student_run
+global_batch_audio_seconds: 160
+distillation:
+  teacher_checkpoint: /path/to/muscriptor_teacher/model.safetensors
+  weight: 0.25
+  temperature: 2.0
+stages:
+  # The decoder is warm-started from the validated Hybrid-Mamba run.  This is
+  # therefore a short synthetic bootstrap for the new acoustic Mamba path;
+  # MuScriptor remains the independent distillation teacher.
+  - name: slakh_bootstrap
+    steps: 10000
+    context_chunks: 1
+    datasets: [slakh2100_redux]
+    lr_scale: 1.0
+    rewarm_steps: 500
+    distillation_weight: 0.25
+
+  # Adapt to the target (real-audio) domain early.  Retain 20% Slakh replay to
+  # avoid forgetting, and restart at 0.6 * 1e-4 = 6e-5 rather than inheriting
+  # the low tail of the previous cosine schedule.
+  - name: real_mix_5s
+    steps: 40000
+    context_chunks: 1
+    datasets:
+      - slakh2100_redux
+      - choralebricks
+      - musicnet_em
+      - maestro
+      - gaps
+      - guitarset
+      - mir1k
+      - enst_drums
+      - mdb_drums_pp
+      - star_drums_preview
+      - idmt_smt_bass
+    dataset_weights: &distill_dataset_weights
+      slakh2100_redux: 0.20
+      choralebricks: 0.20
+      musicnet_em: 0.20
+      maestro: 0.05
+      gaps: 0.05
+      guitarset: 0.05
+      mir1k: 0.05
+      enst_drums: 0.05
+      mdb_drums_pp: 0.05
+      star_drums_preview: 0.05
+      idmt_smt_bass: 0.05
+    lr_scale: 0.6
+    rewarm_steps: 500
+    distillation_weight: 0.25
+
+  # Spend the saved synthetic budget on the actual long-context objective.
+  - name: context_10s
+    steps: 8000
+    context_chunks: 2
+    dataset_weights: *distill_dataset_weights
+    lr_scale: 0.3
+    rewarm_steps: 500
+    distillation_weight: 0.10
+  - name: context_20s
+    steps: 10000
+    context_chunks: 4
+    dataset_weights: *distill_dataset_weights
+    lr_scale: 0.3
+    rewarm_steps: 500
+    distillation_weight: 0.10
+  - name: context_40s
+    steps: 15000
+    context_chunks: 8
+    dataset_weights: *distill_dataset_weights
+    lr_scale: 0.3
+    rewarm_steps: 500
+    distillation_weight: 0.10

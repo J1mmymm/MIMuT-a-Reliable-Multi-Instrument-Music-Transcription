@@ -1,0 +1,7 @@
+extends: main_312m.yaml
+name: optional_large_1_39b
+output_dir: runs/large_1_39b
+model:
+  preset: hybrid-large
+  backbone: hybrid_mamba
+distributed: fsdp

@@ -1,0 +1,98 @@
+name: mimut_clean_cache_106m_50k_h800
+manifest: /path/to/manifests/all.jsonl
+output_dir: /path/to/runs/mimut_clean_cache_106m_50k_h800
+
+model:
+  preset: hybrid-small
+  backbone: hybrid_mamba
+  position_encoding: rope
+  prefill_mode: auto
+  local_window: 4096
+  learned_null_conditioning: true
+  clean_acoustic_cache: true
+  boundary_state_dim: 128
+
+stages:
+  - name: slakh_audio_only_bootstrap
+    steps: 15000
+    context_chunks: 1
+    augmentation: false
+    datasets: [slakh2100_redux]
+
+  - name: slakh_context_mix
+    steps: 10000
+    context_distribution: {1: 0.40, 2: 0.30, 4: 0.20, 8: 0.10}
+    augmentation: false
+    datasets: [slakh2100_redux]
+
+  - name: real_mixture_context_mix
+    steps: 15000
+    context_distribution: {1: 0.25, 2: 0.25, 4: 0.25, 8: 0.25}
+    augmentation: false
+    datasets: &real_datasets
+      - slakh2100_redux
+      - choralebricks
+      - musicnet_em
+      - maestro
+      - gaps
+      - guitarset
+      - mir1k
+      - enst_drums
+      - mdb_drums_pp
+      - star_drums_preview
+      - idmt_smt_bass
+
+  - name: long_context_focus
+    steps: 10000
+    context_distribution: {1: 0.10, 2: 0.20, 4: 0.30, 8: 0.40}
+    augmentation: false
+    datasets: *real_datasets
+
+optimizer:
+  learning_rate: 0.0001
+  betas: [0.9, 0.95]
+  weight_decay: 0.1
+  warmup_steps: 1000
+  min_lr_ratio: 0.05
+  gradient_clip: 1.0
+
+precision: bfloat16
+distributed: none
+global_batch_audio_seconds: 240
+gradient_checkpointing: false
+num_workers: 8
+log_every: 20
+save_every: 2500
+seed: 3407
+true_eos_loss_weight: 1.5
+
+conditioning:
+  mode: audio_only
+  dropout_scope: sequence
+condition_dropout:
+  audio: 0.0
+  instrument: 1.0
+  dataset: 1.0
+
+clean_cache_training:
+  enabled: true
+  symbolic_state_curriculum: true
+  prediction_threshold: 0.5
+  max_predicted_active_notes: 64
+
+boundary_state_supervision:
+  enabled: true
+  active_weight: 0.1
+  reentry_weight: 0.1
+
+augmentation:
+  enabled: false
+  catalog: null
+
+distillation:
+  teacher_checkpoint: null
+  teacher_sha256: null
+  teacher_revision: null
+  teacher_microbatch_size: 4
+  weight: 0.25
+  temperature: 2.0

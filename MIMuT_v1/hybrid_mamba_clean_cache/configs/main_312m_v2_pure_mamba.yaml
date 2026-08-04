@@ -1,0 +1,6 @@
+extends: main_312m_v2.yaml
+name: main_312m_ctxmix_rope_v2_pure_mamba
+output_dir: runs/main_312m_ctxmix_rope_v2_pure_mamba
+model:
+  backbone: pure_mamba
+  num_layers: 21

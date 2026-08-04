@@ -1,0 +1,8 @@
+extends: ablation_106m_v2.yaml
+name: ablation_106m_ctxmix_rope_v2_transformer
+output_dir: runs/ablation_106m_ctxmix_rope_v2_transformer
+model:
+  backbone: transformer
+  num_layers: 15
+  position_encoding: sinusoidal
+  prefill_mode: step

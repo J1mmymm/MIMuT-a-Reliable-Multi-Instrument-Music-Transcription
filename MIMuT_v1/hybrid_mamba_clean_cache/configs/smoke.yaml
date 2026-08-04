@@ -1,0 +1,30 @@
+name: smoke_hybrid
+manifest: /path/to/manifest.jsonl
+output_dir: runs/smoke_hybrid
+model:
+  preset: hybrid-small
+  dim: 256
+  num_heads: 4
+  num_layers: 4
+  mamba_d_state: 64
+  mamba_headdim: 64
+  local_window: 512
+stages:
+  - name: smoke_5s
+    steps: 10
+    context_chunks: 1
+  - name: smoke_10s
+    steps: 2
+    context_chunks: 2
+  - name: smoke_20s
+    steps: 2
+    context_chunks: 4
+  - name: smoke_40s
+    steps: 2
+    context_chunks: 8
+optimizer:
+  warmup_steps: 2
+distributed: ddp
+num_workers: 2
+log_every: 1
+save_every: 10

@@ -1,0 +1,8 @@
+extends: main_312m_v2.yaml
+name: main_312m_ctxmix_rope_v2_transformer
+output_dir: runs/main_312m_ctxmix_rope_v2_transformer
+model:
+  backbone: transformer
+  num_layers: 25
+  position_encoding: sinusoidal
+  prefill_mode: step

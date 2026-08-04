@@ -1,0 +1,88 @@
+name: main_acoustic_hybrid_mamba_407m_2x4090
+manifest: /path/to/manifest.jsonl
+output_dir: runs/main_acoustic_hybrid_mamba_407m_2x4090
+model:
+  preset: acoustic-hybrid-mamba-medium
+
+# Copy the validated decoder from an earlier Hybrid-Mamba run. A run
+# directory is accepted and resolved through latest.json at launch time.
+initialization_checkpoint: /path/to/hybrid-mamba-run
+
+stages:
+  - name: slakh_pretrain
+    steps: 150000
+    context_chunks: 1
+    datasets: [slakh2100_redux]
+  - name: real_mix_5s
+    steps: 85000
+    context_chunks: 1
+    datasets:
+      - slakh2100_redux
+      - choralebricks
+      - musicnet_em
+      - maestro
+      - gaps
+      - guitarset
+      - mir1k
+      - enst_drums
+      - mdb_drums_pp
+      - star_drums_preview
+      - idmt_smt_bass
+    dataset_weights: &real_dataset_weights
+      slakh2100_redux: 0.20
+      choralebricks: 0.20
+      musicnet_em: 0.20
+      maestro: 0.05
+      gaps: 0.05
+      guitarset: 0.05
+      mir1k: 0.05
+      enst_drums: 0.05
+      mdb_drums_pp: 0.05
+      star_drums_preview: 0.05
+      idmt_smt_bass: 0.05
+  - name: context_10s
+    steps: 15000
+    context_chunks: 2
+    dataset_weights: *real_dataset_weights
+    lr_scale: 0.3
+    rewarm_steps: 1000
+  - name: context_20s
+    steps: 15000
+    context_chunks: 4
+    dataset_weights: *real_dataset_weights
+    lr_scale: 0.3
+    rewarm_steps: 1000
+  - name: context_40s
+    steps: 15000
+    context_chunks: 8
+    dataset_weights: *real_dataset_weights
+    lr_scale: 0.3
+    rewarm_steps: 1000
+
+optimizer:
+  learning_rate: 0.0001
+  betas: [0.9, 0.95]
+  weight_decay: 0.1
+  warmup_steps: 2000
+  gradient_clip: 1.0
+
+distributed: ddp
+precision: bfloat16
+global_batch_audio_seconds: 320
+gradient_accumulation_steps: 1
+condition_dropout: 0.2
+tie_corruption: 0.15
+gradient_checkpointing: true
+num_workers: 8
+log_every: 20
+save_every: 2000
+validation:
+  enabled: true
+  every_steps: 2000
+  num_batches: 4
+  batch_size: 1
+  split: validation
+distillation:
+  teacher_checkpoint: null
+  weight: 0.25
+  temperature: 2.0

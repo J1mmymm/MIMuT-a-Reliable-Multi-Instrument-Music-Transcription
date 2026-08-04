@@ -1,0 +1,46 @@
+extends: ../hybrid_mamba_clean_cache/configs/mimut_clean_cache_106m_50k_h800.yaml
+
+name: mimut_clean_cache_106m_from50k_control_15k_h800
+output_dir: /path/to/runs/mimut_clean_cache_106m_from50k_control_15k_h800
+
+stages:
+  - name: matched_continuation_long_context
+    steps: 15000
+    context_distribution: {1: 0.10, 2: 0.20, 4: 0.30, 8: 0.40}
+    augmentation: false
+    datasets:
+      - slakh2100_redux
+      - choralebricks
+      - musicnet_em
+      - maestro
+      - gaps
+      - guitarset
+      - mir1k
+      - enst_drums
+      - mdb_drums_pp
+      - star_drums_preview
+      - idmt_smt_bass
+
+optimizer:
+  learning_rate: 0.00002
+  betas: [0.9, 0.95]
+  weight_decay: 0.1
+  warmup_steps: 500
+  min_lr_ratio: 0.05
+  gradient_clip: 1.0
+
+global_batch_audio_seconds: 240
+save_every: 2500
+curriculum_step_offset: 50000
+init_checkpoint: /path/to/runs/mimut_clean_cache_106m_50k_h800/checkpoint_00050000.safetensors
+init_checkpoint_sha256: 2f3f1db8d21327ddf2ee71f6ba320d96f8cf0c6b1a6b9499bd8879c4659ad1db
+init_checkpoint_revision: mimut-clean-cache-106m-step50000-20260729
+
+distillation:
+  teacher_checkpoint: null
+  teacher_sha256: null
+  teacher_revision: null
+  teacher_microbatch_size: 4
+  weight: 0.25
+  temperature: 2.0
+  ramp_steps: 0

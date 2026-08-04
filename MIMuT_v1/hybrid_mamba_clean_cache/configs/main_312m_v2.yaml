@@ -1,0 +1,91 @@
+name: main_312m_ctxmix_rope_v2
+manifest: /path/to/manifest.jsonl
+output_dir: runs/main_312m_ctxmix_rope_v2
+model:
+  preset: hybrid-medium
+  backbone: hybrid_mamba
+  position_encoding: rope
+  prefill_mode: auto
+  learned_null_conditioning: true
+  local_window: 2048
+stages:
+  - name: slakh_5s_bootstrap
+    steps: 100000
+    context_chunks: 1
+    augmentation: false
+    datasets: [slakh2100_redux]
+  - name: slakh_context_mix
+    steps: 50000
+    context_distribution: {1: 0.50, 2: 0.25, 4: 0.15, 8: 0.10}
+    augmentation: false
+    datasets: [slakh2100_redux]
+  - name: real_context_mix
+    steps: 100000
+    context_distribution: {1: 0.40, 2: 0.25, 4: 0.20, 8: 0.15}
+    augmentation: false
+    datasets: &real_datasets
+      - slakh2100_redux
+      - choralebricks
+      - musicnet_em
+      - maestro
+      - gaps
+      - guitarset
+      - mir1k
+      - enst_drums
+      - mdb_drums_pp
+      - star_drums_preview
+      - idmt_smt_bass
+  - name: long_context_focus
+    steps: 30000
+    context_distribution: {1: 0.10, 2: 0.20, 4: 0.30, 8: 0.40}
+    augmentation: false
+    datasets: *real_datasets
+optimizer:
+  learning_rate: 0.0001
+  betas: [0.9, 0.95]
+  weight_decay: 0.1
+  warmup_steps: 2000
+  min_lr_ratio: 0.05
+  gradient_clip: 1.0
+distributed: ddp
+precision: bfloat16
+global_batch_audio_seconds: 320
+conditioning:
+  mode: audio_only
+  dropout_scope: sequence
+condition_dropout:
+  audio: 0.0
+  instrument: 1.0
+  dataset: 1.0
+augmentation:
+  enabled: false
+  catalog: null
+  remix_probability: 0.25
+  pitch_shift_probability: 0.20
+  source_count_probabilities: {2: 0.50, 3: 0.30, 4: 0.20}
+  gain_db_min: -12.0
+  gain_db_max: 0.0
+  semitone_choices: [-3, -2, -1, 1, 2, 3]
+  allowed_datasets:
+    - slakh2100_redux
+    - choralebricks
+    - maestro
+    - gaps
+    - guitarset
+    - idmt_smt_bass
+boundary_state_supervision:
+  enabled: false
+  active_weight: 0.1
+  reentry_weight: 0.1
+seed: 3407
+gradient_checkpointing: true
+num_workers: 8
+log_every: 20
+save_every: 2000
+distillation:
+  teacher_checkpoint: null
+  teacher_sha256: null
+  teacher_revision: null
+  teacher_microbatch_size: 4
+  weight: 0.25
+  temperature: 2.0

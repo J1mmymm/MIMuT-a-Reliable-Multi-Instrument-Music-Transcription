@@ -1,0 +1,10 @@
+extends: main_312m_v2.yaml
+name: main_312m_ctxmix_rope_v2_conditioned
+output_dir: runs/main_312m_ctxmix_rope_v2_conditioned
+conditioning:
+  mode: conditioned
+  dropout_scope: sequence
+condition_dropout:
+  audio: 0.0
+  instrument: 1.0
+  dataset: 0.10

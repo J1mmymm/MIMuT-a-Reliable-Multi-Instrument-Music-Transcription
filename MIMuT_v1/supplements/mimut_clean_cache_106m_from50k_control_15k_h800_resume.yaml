@@ -1,0 +1,3 @@
+extends: mimut_clean_cache_106m_from50k_control_15k_h800.yaml
+
+resume: /path/to/runs/mimut_clean_cache_106m_from50k_control_15k_h800

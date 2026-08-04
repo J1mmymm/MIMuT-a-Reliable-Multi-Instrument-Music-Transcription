@@ -1,0 +1,88 @@
+services:
+  traefik:
+    image: traefik:v3.6.9
+    command:
+      # Swarm provider configuration
+      - "--providers.swarm.endpoint=unix:///var/run/docker.sock"
+      - "--providers.swarm.exposedByDefault=false"
+
+      # EntryPoints for HTTP and HTTPS
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+
+      # Redirect HTTP to HTTPS
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+
+      # Enable Let's Encrypt with ACME, enable when you want
+      # It will get and renew certificates automatically for all domain names.
+      - "--certificatesResolvers.letsencrypt_resolver.acme.httpChallenge.entryPoint=web"
+      - "--certificatesResolvers.letsencrypt_resolver.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesResolvers.letsencrypt_resolver.acme.email=gabriel@kyutai.org"
+      - "--certificatesResolvers.letsencrypt_resolver.acme.httpChallenge=true"
+
+      # Enable dashboard
+      - "--metrics.prometheus=true"
+      # Healthcheck
+      - "--ping=true"
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "letsencrypt:/letsencrypt" # Persistent storage for SSL certificates
+    deploy:
+      update_config:
+        order: start-first # Since we can't have multiple replicas, at least we can start the new container first.
+      labels:
+        - "prometheus-port=8080"
+      placement:
+        constraints:
+          - node.role == manager
+
+  backend:
+    image: rg.fr-par.scw.cloud/tf-muscriptor-images/muscriptor.kyutai.org-backend:latest
+    build:
+      context: ./
+      args:
+        # Enables Google Analytics in the web UI for this deployment only —
+        # builds without the ID (local dev, PyPI) contain no analytics at all.
+        VITE_GA_MEASUREMENT_ID: G-FNB2XC72R7
+    command: ["--port", "80"]
+    environment:
+      - HF_TOKEN=${HF_TOKEN:?HF_TOKEN must be set to pull the private weights}
+    volumes:
+      - hf_cache:/root/.cache/huggingface
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.backend.rule=Host(`muscriptor.kyutai.org`)"
+        - "traefik.http.routers.backend.entrypoints=websecure"
+        - "traefik.http.routers.backend.tls=true"
+        - "traefik.http.routers.backend.tls.certresolver=letsencrypt_resolver"
+        - "traefik.http.services.backend.loadbalancer.server.port=80"
+        - "traefik.http.routers.backend.priority=10"
+        - "prometheus-port=80"
+      replicas: 1
+      resources:
+        reservations:
+          generic_resources:
+            - discrete_resource_spec:
+                kind: 'gpu'
+                value: 1
+ 
+networks:
+  default:
+    driver: overlay
+    attachable: true
+    driver_opts:
+      # This is useful if nodes communicates between themselves over the public internet.
+      # If you're sure that the traffic is only local, you can remove this.
+      encrypted: "true"
+
+volumes:
+  letsencrypt:
+  hf_cache:
+ 

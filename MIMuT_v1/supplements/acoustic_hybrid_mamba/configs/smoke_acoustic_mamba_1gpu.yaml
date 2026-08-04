@@ -1,0 +1,38 @@
+name: smoke_acoustic_hybrid_mamba_1gpu
+manifest: /path/to/manifest.jsonl
+output_dir: runs/smoke_acoustic_hybrid_mamba_1gpu
+model:
+  preset: acoustic-hybrid-mamba-medium
+initialization_checkpoint: /path/to/hybrid-mamba-run
+stages:
+  - name: smoke_5s
+    steps: 2
+    context_chunks: 1
+  - name: smoke_40s
+    steps: 2
+    context_chunks: 8
+    lr_scale: 0.1
+optimizer:
+  learning_rate: 0.00001
+  warmup_steps: 1
+  gradient_clip: 1.0
+distributed: none
+precision: bfloat16
+global_batch_audio_seconds: 40
+gradient_accumulation_steps: 1
+condition_dropout: 0.0
+tie_corruption: 0.0
+gradient_checkpointing: true
+num_workers: 0
+log_every: 1
+save_every: 2
+validation:
+  enabled: true
+  every_steps: 1
+  num_batches: 1
+  batch_size: 1
+  split: validation
+distillation:
+  teacher_checkpoint: null
+  weight: 0.25
+  temperature: 2.0
