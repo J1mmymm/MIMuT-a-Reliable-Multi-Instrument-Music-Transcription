@@ -1,25 +1,25 @@
 # MIMuT: Reliable Multi-Instrument Music Transcription
 
 [![Project status: work in progress](https://img.shields.io/badge/status-work%20in%20progress-orange)](#project-status)
-[![Current architecture: Hybrid-Mamba-Attention](https://img.shields.io/badge/current%20architecture-Hybrid--Mamba--Attention-6f42c1)](#current-prototype)
+[![Architecture direction: under revision](https://img.shields.io/badge/architecture%20direction-under%20revision-6f42c1)](#architecture-direction-update)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
 > [!IMPORTANT]
-> **MIMuT is an ongoing research project, not a finished model release.** The work currently covers one experimental direction—a Hybrid-Mamba-Attention architecture—and a limited set of training and diagnostic runs. Formal model selection, matched baselines, multi-seed ablations, whole-dataset evaluation, and a complete code/weight release are still in progress.
+> **MIMuT is an ongoing research project, not a finished model release.** The first implemented direction was a Hybrid-Mamba-Attention architecture. Training and diagnostic attempts to date did not achieve the transcription quality expected by the project team, so this route is being retained as an experimental baseline rather than treated as the final architecture. Project members are now exploring alternative architectures and training formulations. Formal model selection, matched baselines, multi-seed ablations, whole-dataset evaluation, and a complete code/weight release are still in progress.
 
 ## Overview
 
-**MIMuT: Reliable Multi-Instrument Music Transcription** investigates robust automatic music transcription (AMT) from raw audio to instrument-aware note events and MIDI. The current prototype explores whether recurrent state-space modeling can carry musical context across long recordings while bounded causal attention preserves precise local token interactions.
+**MIMuT: Reliable Multi-Instrument Music Transcription** investigates robust automatic music transcription (AMT) from raw audio to instrument-aware note events and MIDI. The first prototype explored whether recurrent state-space modeling could carry musical context across long recordings while bounded causal attention preserved precise local token interactions.
 
-The project is built as an experimental extension of [MuScriptor](https://github.com/muscriptor/muscriptor). It retains an autoregressive audio-to-event transcription pipeline while replacing the all-attention backbone with a repeated Hybrid-Mamba-Attention pattern.
+The project is built as an experimental extension of [MuScriptor](https://github.com/muscriptor/muscriptor). Its initial research branch retained an autoregressive audio-to-event transcription pipeline while replacing the all-attention backbone with a repeated Hybrid-Mamba-Attention pattern. Because the observed transcription quality did not meet the team's expectations, the architecture is no longer treated as a settled final design.
 
 ## Project status
 
-The repository is being prepared incrementally. At this stage, the public repository documents verified progress; cleaned source code, reproducible configurations, selected checkpoints, and complete evaluation artifacts will be added only after their release and licensing checks are finished.
+The repository is being prepared incrementally. At this stage, the public repository documents verified progress; cleaned source code, reproducible configurations, selected checkpoints, and complete evaluation artifacts will be added only after their release and licensing checks are finished. No replacement architecture has yet been selected as the final MIMuT design.
 
 | Component | Current status | Evidence boundary |
 |---|---|---|
-| Hybrid-Mamba-Attention backbone | Implemented | Mamba2 and bounded local causal attention are integrated in the experimental transcription model. |
+| Hybrid-Mamba-Attention backbone | Implemented and evaluated as the initial research branch | Available training and diagnostic results did not meet the expected transcription quality; the branch is retained as a baseline while alternatives are explored. |
 | Main 312M Hybrid-Mamba baseline | Completed to 280,000 optimizer steps | The final checkpoint is `latest`, not a validation-selected “best” model. |
 | Separate two-GPU recovery run | Stopped at a complete 256,000-step checkpoint | Recoverable training state was preserved; this run is not the formal context-mix/RoPE v2 experiment. |
 | Context-mix/RoPE v2 implementation | Code and local tests completed | Formal Linux/CUDA training and quality/efficiency claims remain pending. |
@@ -27,9 +27,15 @@ The repository is being prepared incrementally. At this stage, the public reposi
 | 106M Clean-Cache distillation continuation | Completed for 5,000 continuation steps | Positive KL and a frozen teacher were verified, but this is a limited pilot. |
 | Whole-validation and test evaluation | Not completed | No checkpoint is currently presented as a formal best model or state of the art. |
 
+## Architecture direction update
+
+Preliminary training and end-to-end diagnostic results indicate that the Hybrid-Mamba route has not produced satisfactory model performance for the project's goals. This is a project-level design conclusion based on the attempts completed so far, not yet a benchmark-backed claim that the architecture is universally inferior to other AMT systems.
+
+The project team is therefore broadening the architecture search. Future prototypes will be compared under a shared audio-only protocol, with particular attention to note accuracy, instrument attribution, cross-boundary stability, long-context reliability, and computational efficiency. The existing Hybrid-Mamba implementation, configurations, checkpoints, and diagnostics remain valuable as a reproducible baseline and ablation reference.
+
 ## Current prototype
 
-The current experimental backbone repeats:
+The evaluated Hybrid-Mamba experimental backbone repeats:
 
 ```text
 5 s audio blocks
@@ -54,7 +60,7 @@ The implemented prototype includes:
 - recurrent Mamba2 state for cross-block history;
 - bounded local causal attention with a 2,048-token window;
 - an experimental RoPE path for local-attention queries and keys;
-- `MT3_FULL_PLUS` event supervision with 1,395 output classes;
+- `MT3_FULL_PLUS` event supervision with 1,393 output classes;
 - an audio-only formal condition that removes oracle instrument and dataset metadata;
 - BF16/DDP training, gradient checkpointing, resumable optimizer/trainer state, manifest hashes, and deterministic sampling records;
 - whole-track and long-horizon evaluation utilities, including onset, onset-offset, boundary, instrument-switch, long-gap re-identification, and efficiency diagnostics.
@@ -110,16 +116,19 @@ The intended formal protocol follows these rules:
 - [x] Complete a 280k-step Main 312M baseline training run.
 - [x] Validate checkpoint/resume handling and end-to-end MIDI generation.
 - [x] Implement context-mixed training, RoPE, strict audio-only conditioning, and extended evaluation code.
-- [ ] Finish formal context-mix/RoPE v2 training.
-- [ ] Run whole-validation checkpoint selection and freeze the test protocol.
-- [ ] Complete matched Transformer/pure-Mamba baselines and multi-seed ablations.
+- [x] Complete a preliminary assessment and identify the quality limitations that prevent Hybrid-Mamba from being adopted as the final architecture.
+- [ ] Preserve the Hybrid-Mamba configurations, checkpoints, and diagnostics as a reproducible baseline and ablation reference.
+- [ ] Prototype and screen alternative architectures and training formulations under the same audio-only evaluation protocol.
+- [ ] Select the next primary architecture using validation-set note accuracy, instrument attribution, boundary stability, long-context reliability, and efficiency criteria.
+- [ ] Run whole-validation checkpoint selection and freeze the test protocol for the selected architecture.
+- [ ] Complete matched baselines and multi-seed ablations before making comparative claims.
 - [ ] Benchmark long-context quality, streaming speed, cache size, and memory on matched hardware.
 - [ ] Curate and publish reproducible source code, configurations, checkpoints, and result bundles.
 - [ ] Release paper-ready results and a formal citation.
 
 ## Availability
 
-The repository is currently a work-in-progress project page. Installation and inference commands will be added when the cleaned implementation and verified checkpoint package are publicly released. Until then, please treat architectural details and diagnostic numbers as provisional research documentation rather than a supported software release.
+The repository is currently a work-in-progress project page. Installation and inference commands will be added when the cleaned implementation and verified checkpoint package are publicly released. Until then, please treat architectural details and diagnostic numbers as provisional research documentation rather than a supported software release or a commitment to Hybrid-Mamba as the final architecture.
 
 ## Acknowledgements
 
