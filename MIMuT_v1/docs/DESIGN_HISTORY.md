@@ -10,7 +10,9 @@ architecture.
 For a recurrent decoder, inference can be summarized as
 
 \[
+
 h_t = f_\theta(x_t, h_{t-1}),
+
 \]
 
 where `theta` is stored in the checkpoint and `h_t` is temporary runtime state.
