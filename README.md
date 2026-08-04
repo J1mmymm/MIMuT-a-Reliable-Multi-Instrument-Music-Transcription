@@ -1,0 +1,2 @@
+# MIMuT-a-Reliable-Multi-Instrument-Music-Transcription
+Work in progress toward MIMuT: Reliable Multi-Instrument Music Transcription, an ongoing research project for robust multi-instrument AMT. This repository currently presents our initial experiments with a Hybrid-Mamba-Attention architecture; broader model designs, training pipelines, evaluation protocols, and results remain under development  ^ ^
