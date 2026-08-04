@@ -9,11 +9,20 @@ architecture.
 
 For a recurrent decoder, inference can be summarized as
 
-\[
+## Why one checkpoint supports carry and reset
 
-h_t = f_\theta(x_t, h_{t-1}),
+For a recurrent decoder, inference can be summarized as:
 
-\]
+```math
+h_t = f_{\theta}\left(x_t, h_{t-1}\right)
+```
+
+where:
+
+- $\theta$ represents the model parameters stored in the checkpoint;
+- $x_t$ is the input at step $t$;
+- $h_{t-1}$ is the runtime state inherited from the previous step;
+- $h_t$ is the updated runtime state.
 
 where `theta` is stored in the checkpoint and `h_t` is temporary runtime state.
 The checkpoint is identical in both modes:
