@@ -24,7 +24,7 @@ where:
 - $h_{t-1}$ is the runtime state inherited from the previous step;
 - $h_t$ is the updated runtime state.
 
-where `theta` is stored in the checkpoint and `h_t` is temporary runtime state.
+where `$\theta` is stored in the checkpoint and `${h_t}` is temporary runtime state.
 The checkpoint is identical in both modes:
 
 - `reset`: initialize runtime state for every five-second block and discard it
